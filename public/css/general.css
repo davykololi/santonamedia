@@ -1,0 +1,22 @@
+.top-10 {margin-top: 10px}
+.top-15 {margin-top: 15px;}
+.font{font-family: Arial Black;color: blue}
+#general{color: white}
+.center{text-align: center}
+.franklin{font-family: Franklin Gothic Medium;}
+#hp{float: left;margin: 0 15px 0 0;}
+#white{background-color: white}
+#main{margin-top: 5px;background-color: cornsilk}
+#firebrick{font-size: 120%;color: #B22222}
+.body{background-color: #ccc;padding-top: 75px;background-attachment: fixed;}
+#prenext{background-color: firebrick;color: white;border: solid white;text-align: center;}
+#button{background-color: firebrick;color: white;}
+#cwhite{color: white}
+.highlight{color: red}
+#black{color: black}
+img,video,canvas{max-width: 100%}
+#top{background-color: firebrick;padding: 10px 20px;text-shadow: 0 2px 0 #999,0 3px 0 #888,0 4px 0 #777,
+0 5px 0 #666,0 6px 0 #555,0 7px 0 #444,0 8px 0 #333,0 9px 7px #302314;}
+#all{color: firebrick; font-family: Lucida Console;font-size: 15px}
+#errors{padding: 10px 20px;text-shadow: 0 2px 0 #999,0 3px 0 #888,0 4px 0 #777;text-align: center;
+	font-style: Segoe Print;font-size: 28px;}

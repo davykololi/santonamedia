@@ -1,0 +1,11 @@
+#backgroundimage{
+	background-image: url(/static/Freezone.png);
+	width: 100vw;
+	height: 25vh;
+	background-size: 100% 100%;
+	background-repeat: repeat-y;
+	position: relative;
+	background-color: #efefef;
+	background-position: center;
+	border: solid;
+}
