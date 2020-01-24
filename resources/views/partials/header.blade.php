@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
             <div class="ui container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <span style="font-family: Arial Black" id="firebrick">{{ strtoupper(config('app.name', 'Skyluxnews')) }} BLOG</span>
+                    <span style="font-family: Arial Black" id="firebrick">{{ strtoupper(config('app.name', 'skyluxnews')) }} BLOG</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

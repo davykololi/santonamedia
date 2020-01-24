@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Skyluxnews'),
+    'name' => env('APP_NAME', 'skyluxnews'),
 
     /*
     |--------------------------------------------------------------------------
@@ -166,7 +166,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Jorenvh\Share\Providers\ShareServiceProvider::class,
         RenatoMarinho\LaravelPageSpeed\ServiceProvider::class,
-        Artesaos\SEOTools\Providers\SEOToolsServiceprovider::class,
+        Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
 
         /*
          * Package Service Providers...
