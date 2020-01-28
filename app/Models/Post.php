@@ -52,9 +52,9 @@ class Post extends Model
         $this->attributes['title'] = strtoupper($value);
     }
 
-    public function scopePopular($query ) 
+    public function scopePopular($query) 
     {
-        return $query->whereHas('comments','>=',2);
+        return $query->where('comments','>=',2);
     }
 
     public function getCreatedDateAttribute()

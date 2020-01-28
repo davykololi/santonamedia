@@ -35,7 +35,6 @@
     <link rel="stylesheet" href="{!! asset('css/fontawesome.min.css') !!}" type="text/css">
     <link rel="stylesheet" href="{!! asset('css/backimg.css') !!}" type="text/css">
     <link rel="stylesheet" href="{!! asset('css/general.css') !!}" type="text/css">
-    <link rel="stylesheet" href="{!! asset('css/aside.css') !!}" type="text/css">
     <link rel="stylesheet" href="{!! asset('css/ft.css') !!}" type="text/css">
 	
     <!-- Styles -->

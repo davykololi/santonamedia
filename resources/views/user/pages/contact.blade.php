@@ -9,7 +9,7 @@
 <br/>
 <h3 class="center" style="color: firebrick;font-size: 20px">CONTACT FORM</h3>
 <p class="center" style="font-size: 15px;">
-We are so glad that you are contacting us. Fill all the spaces provided in the form and send to us.
+We are so glad that you are contacting us. Fill the form below and submit to us.
 </p>
  
 {!! Form::open(['route'=>'contactus.store']) !!}
@@ -32,7 +32,7 @@ We are so glad that you are contacting us. Fill all the spaces provided in the f
 </div>
  
 <div class="form-group">
-<button class="btn btn-default" style="background-color: firebrick;color: white">Submit</button>
+<button class="btn btn-default" value="submit">Submit</button>
 </div>
  
 {!! Form::close() !!}

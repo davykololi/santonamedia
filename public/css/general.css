@@ -5,10 +5,9 @@
 .center{text-align: center}
 .franklin{font-family: Franklin Gothic Medium;}
 #hp{float: left;margin: 0 15px 0 0;}
-#white{background-color: white}
-#main{margin-top: 5px;background-color: cornsilk}
+#white{font-size: 120%;color: white}
+#main{margin-top: 75px;background-color: #F5DEB3;border: solid white}
 #firebrick{font-size: 120%;color: #B22222}
-.body{background-color: #ccc;padding-top: 75px;background-attachment: fixed;}
 #prenext{background-color: firebrick;color: white;border: solid white;text-align: center;}
 #button{background-color: firebrick;color: white;}
 #cwhite{color: white}
@@ -17,6 +16,9 @@
 img,video,canvas{max-width: 100%}
 #top{background-color: firebrick;padding: 10px 20px;text-shadow: 0 2px 0 #999,0 3px 0 #888,0 4px 0 #777,
 0 5px 0 #666,0 6px 0 #555,0 7px 0 #444,0 8px 0 #333,0 9px 7px #302314;}
-#all{color: firebrick; font-family: Lucida Console;font-size: 15px}
 #errors{padding: 10px 20px;text-shadow: 0 2px 0 #999,0 3px 0 #888,0 4px 0 #777;text-align: center;
 	font-style: Segoe Print;font-size: 28px;}
+#whitecolor{font-size: 120%;color: white;background-image: url('/static/button2.jpg');}
+#menu{background-image: url('/static/gg.jpg');text-align: center;height: auto;width: auto}
+#as{background-image: url('/static/asideh.jpg');padding-top: 25px;padding-bottom: 25px;color: white;text-align: center;background-repeat: no-repeat;}
+#aside{background-image: url('/static/fp.jpg');width: 25%;height: 100vh;position: sticky;top: 0;padding: 16px;width: auto;border:solid brown;}

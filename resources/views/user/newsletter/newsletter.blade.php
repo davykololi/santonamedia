@@ -1,7 +1,6 @@
-<div class="container" id="main">
+<hr/>
 <div class="container" style="background-color: grey; border-radius:4px; width:50%; height:50%;padding-top:1%;">
-<div >
-    	@include('partials.messages')
+		@include('partials.messages')
      	@include('partials.errors')
 	<h5 class="center" style="color: white;">SUBSCRIBE TO OUR NEWSLETTER</h5>
 	<div id="cwhite" style="text-align: center">
@@ -23,8 +22,6 @@
 			</div>
 	</div>
 </form><!--end of form-->
-</div>
-</div>
 </div>
 
 

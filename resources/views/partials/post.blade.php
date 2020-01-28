@@ -13,7 +13,7 @@
     </div>
 </p>
 <figure>
-    <img style="width:40%;" src = "/storage/public/storage/{{ $post->image }}" alt ="{{ $post->slug }}"><br/>
+    <img style="width:40%;border: solid gray" src = "/storage/public/storage/{{ $post->image }}" alt ="{{ $post->title }}"><br/>
  	<figcaption> <span id="firebrick"> {{$post->caption}}</span> </figcaption>
 </figure>
 </article>

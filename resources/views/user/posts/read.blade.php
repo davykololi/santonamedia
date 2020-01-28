@@ -27,9 +27,12 @@
                         @endauth
                     </div><!-- /.blog-post -->
                     <br/>
-                    @include('partials.ext')        
+                    @include('partials.ext')      
             </div><!-- /.blog-main -->
             @include('partials.aside')
         </div><!-- /.row -->
+        <br/>
+        @include('partials.newsletter')
+        <br/>
     </main><!-- /.container -->
 @endsection

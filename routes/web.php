@@ -76,7 +76,7 @@ Route::group(['namespace'=>'User'],function(){
     Route::get('/categories/{slug}/posts', 'PostController@getIndex')->name('categories');
     Route::get('/posts/read/{post_slug}', 'PostController@getFullNews')->name('users.posts.read');
     //Most popular post route
-    Route::get('/popular/{slug}', 'PopularPostController@popular')->name('popular');
+    Route::get('/popular', 'PopularPostController@popular')->name('popular');
     // Social login routes
     Route::get('/auth/redirect/{provider}','SocialController@redirect');
     Route::get('/callback/{provider}','SocialController@callback');

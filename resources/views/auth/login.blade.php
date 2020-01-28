@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header" id="all">{{ __('Login') }}</div>
-
+                    @include('partials.messages')
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
