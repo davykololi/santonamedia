@@ -3,12 +3,14 @@
 
 @section('content')
 <main role="main" class="container"  style="margin-top: 5px" id="main">
+<br/>
 <div class="row">
     <div class="col-lg-12">
         @include('partials.errors')
         <div class="panel panel-default">
             <div class="panel-heading">
-                CREATE A CATEGORY <a href="{{ route('admin.categories.index') }}" class="label label-primary pull-right">Back</a>
+                <h3 class="titles"> ADD CATEGORY </h3>
+                    <a href="{{ route('admin.categories.index') }}" class="label label-primary pull-right">Back</a>
             </div>
             <div class="panel-body">
                 <form action="{{ route('admin.categories.store') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
@@ -29,7 +31,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <input type="submit" class="btn btn-default" value="Add Category" />
+                            <input type="submit" class="btn btn" id="button" value="Create"/>
                         </div>
                     </div>
                 </form>

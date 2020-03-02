@@ -18,8 +18,8 @@ class GeneralController extends Controller
     	$start_week = date("Y-m-d",$start_week);
     	$end_week = date("Y-m-d",$end_week);
 
-    	$posts = Post::where('created_at',[$start_week,$end_week])->get();
+    	$articles = Post::whereBetween('created_at',[$start_week,$end_week])->get(['title','created_at']);
 
-    	return view('user.posts.week','posts' => $posts);
+    	return view('user.posts.week',compact('articles'));
     }
 }

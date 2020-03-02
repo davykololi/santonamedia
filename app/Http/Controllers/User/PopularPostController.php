@@ -10,9 +10,10 @@ use Illuminate\Http\Request;
 class PopularPostController extends Controller
 {
     //
-    public function popular()
+    public function popular($slug)
     {
-    	$popularPosts = Post::with('admin','comments')->popular()->get();
+    	$cate = Category::whereSlug($slug)->first();
+    	$popularPosts = $cate->posts()->with('admin','comments')->popular()->get();
 
     	return view('user.posts.popular',compact('popularPosts'));
     }

@@ -1,4 +1,4 @@
-<h2 id="firebrick"> RELATED ARTICLES</h2>
+<h2 class="title" style="font-size: 20px;background-color: blue;color: white;width: 40%"> RECOMMENDED ARTICLES</h2>
 @if(!empty($posts))
     @foreach($posts as $post)
         <div class="blog-post">

@@ -3,13 +3,11 @@
 .font{font-family: Arial Black;color: blue}
 #general{color: white}
 .center{text-align: center}
-.franklin{font-family: Franklin Gothic Medium;}
 #hp{float: left;margin: 0 15px 0 0;}
 #white{font-size: 120%;color: white}
-#main{margin-top: 75px;background-color: #F5DEB3;border: solid white}
-#firebrick{font-size: 120%;color: #B22222}
-#prenext{background-color: firebrick;color: white;border: solid white;text-align: center;}
-#button{background-color: firebrick;color: white;}
+#main{margin-top: 75px;background-color: #F5F5DC;border: solid white;width: auto;height: 100%;border-radius: 25px;border-style: groove;}
+#prenext{background-color: blue;color: white;text-align: center;background-size: 100px 80px}
+#button{background-color: #0000FF;color: white;}
 #cwhite{color: white}
 .highlight{color: red}
 #black{color: black}
@@ -18,7 +16,22 @@ img,video,canvas{max-width: 100%}
 0 5px 0 #666,0 6px 0 #555,0 7px 0 #444,0 8px 0 #333,0 9px 7px #302314;}
 #errors{padding: 10px 20px;text-shadow: 0 2px 0 #999,0 3px 0 #888,0 4px 0 #777;text-align: center;
 	font-style: Segoe Print;font-size: 28px;}
-#whitecolor{font-size: 120%;color: white;background-image: url('/static/button2.jpg');}
-#menu{background-image: url('/static/gg.jpg');text-align: center;height: auto;width: auto}
-#as{background-image: url('/static/asideh.jpg');padding-top: 25px;padding-bottom: 25px;color: white;text-align: center;background-repeat: no-repeat;}
-#aside{background-image: url('/static/fp.jpg');width: 25%;height: 100vh;position: sticky;top: 0;padding: 16px;width: auto;border:solid brown;}
+#whitecolor{font-size: 120%;color: white;}
+#menu{background-color: #000080;}
+#aside{width: 25%;height: 100%;position: sticky;top: 0;padding: 16px;
+	width: auto;margin-right: 20px;margin-top: 30px;border-radius: 25px;border: ridge;border-color: #000080;border-width: thin;}
+a {hover:color: purple}
+#body{background-color: #C0C0C0;}
+#double{border:double;}
+#ffbdy{font-family: Helvetica;font-size: 16px}
+.title{font-family: Times New Roman}
+#dimgray{color: #696969}
+.asac{color:blue;font-size: 16px;font-family: calibri light;}
+.blue{color: blue}
+#btn{background-color: #0000FF;color: white;border: solid white}
+.calibri{font-family: calibri light;box-shadow: 10px 10px 8px #888888;
+	text-align: center;background-color: blue;color: white;border-radius: 25px;font-size: 20px}
+.astitle{font-family: calibri light;text-align: center;background-color: #1E90FF;color: white}
+.titles{font-family: Times New Roman;color: blue;text-align: center}
+.asc{color:blue;font-size: 16px;font-family:roman;margin-left: 65px}
+.login{color: white; text-align: center;font-size: 20px}

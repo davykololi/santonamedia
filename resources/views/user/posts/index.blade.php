@@ -8,8 +8,10 @@
                @forelse($posts as $post)
                     <div class="blog-post">
                         @include('partials.post')
-                        <p class="card-text">{!! Str::limit($post->content,$limit=30,$end= '...') !!}
-                            <a class="btn btn-default" id="button" href="{{ route('users.posts.read', ['post_slug' => $post->slug]) }}" >Read more &rarr;</a> 
+                        <p class="card-text" id="ffbdy">{!! Str::limit($post->content,$limit=30,$end= '...') !!}
+                            <a class="btn btn-default" id="button" href="{{ route('users.posts.read', ['post_slug' => $post->slug]) }}" >
+                            Read more &rarr;
+                            </a> 
                         </p>
                         <br/><hr/>
                     </div><!-- /.blog-post -->

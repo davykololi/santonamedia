@@ -2,11 +2,13 @@
 
 @section('content')
 <div class="container" id="main">
+    <br/>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header" id="all">{{ __('Register') }}</div>
-
+                <div class="card-header blue">{{ __('Register') }}</div>
+                @include('partials.messages')
+                @include('partials.errors')
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -81,7 +83,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn" id="btn">
                                     {{ __('Register') }}
                                 </button>
                             </div>
@@ -92,5 +94,6 @@
             </div>
         </div>
     </div>
+    <br/>
 </div>
 @endsection

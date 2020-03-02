@@ -21,36 +21,6 @@ class CreateCategoriesTable extends Migration
             $table->text('description');
             $table->timestamps();
         });
-
-        $categories = [
-                [
-                    'name' => 'SPORTS',
-                    'slug' => 'sports',
-                    'description' => 'Sports News'
-                ],
-
-                [
-                    'name' => 'LIFESTYLE & HEALTH',
-                    'slug' => 'lifestyle-and-health',
-                    'description' => 'Lifestyle & Health News'
-                ],
-
-                [
-                    'name' => 'POLITICS',
-                    'slug' => 'politics',
-                    'description' => 'Politics News'
-                ],
-
-                [
-                    'name' => 'BUSINESS',
-                    'slug' => 'business',
-                    'description' => 'Business News'
-                ],
-
-                ];
-
-        foreach ($categories as $category)
-            DB::table('categories')->insert($category);
     }
 
     /**

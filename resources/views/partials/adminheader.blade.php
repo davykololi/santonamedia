@@ -1,7 +1,10 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<header>
+    <nav class="navbar navbar-expand-md navbar-light fixed-top" id="menu">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Skylux') }}
+                    <span style="font-family: Arial Black; font-size: 10px;" id="white">
+                        {{ strtoupper(config('app.name', 'santonamedia')) }}
+                    </span>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -11,13 +14,13 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{route('admin.posts.index')}}">POSTS</a>
+                            <a class="nav-link" id="white" href="{{route('admin.posts.index')}}">POSTS</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{route('admin.categories.index')}}">CATEGORIES</a>
+                            <a class="nav-link" id="white" href="{{route('admin.categories.index')}}">CATEGORIES</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{route('contactus.contacts')}}">CONTACTS</a>
+                            <a class="nav-link" id="white" href="{{route('contactus.contacts')}}">CONTACTS</a>
                         </li>
                     </ul>
 
@@ -26,17 +29,17 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" id="white" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" id="white" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    <span id="cwhite">{{ Auth::user()->name }}</span> <span class="caret" id="cwhite"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -55,4 +58,5 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+    </nav>
+</header>

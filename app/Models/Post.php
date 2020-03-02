@@ -54,7 +54,7 @@ class Post extends Model
 
     public function scopePopular($query) 
     {
-        return $query->where('comments','>=',2);
+        return $query->whereHas('comments','>=',2);
     }
 
     public function getCreatedDateAttribute()

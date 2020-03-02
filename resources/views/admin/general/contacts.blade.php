@@ -2,7 +2,7 @@
 @section('title', '| Contact Messages')
 
 @section('content')
-<main role="main" class="container"  style="margin-top: 5px" id="main">
+<main class="container"  style="margin-top: 5px" id="main">
 <div class="row">
     <div class="col-lg-12">
         @include('partials.messages')
@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
-                    <h2>Contacts List </h2>
+                    <h3 class="titles">CONTACTS LIST </h3>
                 </div>
             </div>
         </div>

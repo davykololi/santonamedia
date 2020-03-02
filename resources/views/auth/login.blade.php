@@ -2,18 +2,20 @@
 
 @section('content')
 <div class="container" id="main">
+    <br/>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header" id="all">{{ __('Login') }}</div>
+                <div class="card-header blue">{{ __('Login') }}</div>
                     @include('partials.messages')
+                    @include('partials.errors')
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <section id="footer">
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
-                            <p style="color: white; text-align: center;font-size: 20px">Login with:</p>
+                            <p class="login">Login with:</p>
                                 <ul class="list-unstyled list-inline social text-center">
                                     <li class="list-inline-item"><a href="{{url('/auth/redirect/facebook')}}"><i class="fa fa-facebook"></i></a></li>
                                     <li class="list-inline-item"><a href="{{url('/auth/redirect/twitter')}}"><i class="fa fa-twitter"></i></a></li>
@@ -69,7 +71,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn" id="btn">
                                     {{ __('Login') }}
                                 </button>
 
@@ -86,5 +88,6 @@
             </div>
         </div>
     </div>
+    <br/>
 </div>
 @endsection

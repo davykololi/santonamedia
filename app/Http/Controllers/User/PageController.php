@@ -108,4 +108,24 @@ class PageController extends Controller
 
         return view('user.pages.policy');
     }
+
+    public function portfolio()
+    {  
+        SEOMeta::setTitle('Skyluxnews Portfolio Page');
+        SEOMeta::setDescription('Skyluxnews Portfolio Page');
+        SEOMeta::setKeywords('Skyluxnews Portfolio,Page');
+
+        OpenGraph::setTitle('Skyluxnews Portfolio Page');
+        OpenGraph::setDescription('Skyluxnews Portfolio Page');
+        OpenGraph::setUrl('http://localhost:8888/portfolio');
+        OpenGraph::addProperty('type','Skyluxnews Portfolio');
+
+        Twitter::setTitle('Skyluxnews Portfolio');
+        Twitter::setSite('@kololimdavid79');
+
+        JsonLd::setTitle('Private Policy Page');
+        JsonLd::setDescription('Skyluxnews Portfolio Page');
+
+        return view('user.pages.portfolio');
+    }
 }

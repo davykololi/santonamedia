@@ -72,11 +72,13 @@ Route::group(['namespace'=>'User'],function(){
     Route::get('/contact-us','PageController@contact')->name('users.pages.contact');
     Route::post('/contact-us','PageController@store')->name('contactus.store');
     Route::get('/private-policy','PageController@privatePolicy')->name('private.policy');
+    Route::get('/portfolio','PageController@portfolio')->name('pages.portfolio');
     //Front end Users posts routes
     Route::get('/categories/{slug}/posts', 'PostController@getIndex')->name('categories');
     Route::get('/posts/read/{post_slug}', 'PostController@getFullNews')->name('users.posts.read');
+    Route::post('/comments','CommentController@store')->name('comments.store');
     //Most popular post route
-    Route::get('/popular', 'PopularPostController@popular')->name('popular');
+    Route::get('/popular/{slug}', 'PopularPostController@popular')->name('popular');
     // Social login routes
     Route::get('/auth/redirect/{provider}','SocialController@redirect');
     Route::get('/callback/{provider}','SocialController@callback');
@@ -86,9 +88,6 @@ Route::group(['namespace'=>'User'],function(){
     //User Profile Routes
     Route::get('profile','UserController@profile');
     Route::post('profile','UserController@update_avatar');
-    // Comments Routes
-    Route::get('/{post}/comments','CommentController@index');
-    Route::post('/{post}/comments','CommentController@store');
     //One week old Articles
     Route::get('/seven-days','GeneralController@getData')->name('seven.days');
     });

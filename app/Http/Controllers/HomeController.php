@@ -37,20 +37,20 @@ class HomeController extends Controller
         $archives = Post::latest()->limit(10)->get();
         $posts = Post::latest()->paginate(10);
 
-        SEOMeta::setTitle('Home');
-        SEOMeta::setDescription('Skylux Blog Home Page');
-        SEOMeta::setKeywords('Skylux,Blog,Home,Page');
+        SEOMeta::setTitle('Santonamedia Latest News');
+        SEOMeta::setDescription('Santonamedia latest News in Kenya,East Africa, Africa,Europe,Asia and Worldwide');
+        SEOMeta::setKeywords('Santonamedia,latest, News,Kenya,East Africa, Africa,Europe,Asia,Worldwide');
 
-        OpenGraph::setTitle('Home');
-        OpenGraph::setDescription('Skylux Blog Home Page');
-        OpenGraph::setUrl('http://localhost:8888/home');
+        OpenGraph::setTitle('Santonamedia Latest News');
+        OpenGraph::setDescription('Santonamedia latest News in Kenya,East Africa, Africa,Europe,Asia and Worldwide');
+        OpenGraph::setUrl('https://santomedia.com/home');
         OpenGraph::addProperty('type','Home');
 
-        Twitter::setTitle('Home');
+        Twitter::setTitle('Santonamedia Latest News');
         Twitter::setSite('@kololimdavid79');
 
-        JsonLd::setTitle('Home Page');
-        JsonLd::setDescription('Skylux Blog Home Page');
+        JsonLd::setTitle('Santonamedia Latest News');
+        JsonLd::setDescription('Santonamedia latest News in Kenya,East Africa, Africa,Europe,Asia and Worldwide');
 
         $data = array(
             'category' => $category,

@@ -3,6 +3,7 @@
 
 @section('content')
 <main role="main" class="container"  style="margin-top: 5px" id="main">
+<br/>
 <div class="row">
     <div class="col-lg-12">
         @include('partials.messages')
@@ -11,9 +12,11 @@
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
-                    <h2>CATEGORIES</h2>
+                    <br/>
+                    <h2 class="titles">CATEGORIES</h2>
                 </div>
                 <div class="pull-right">
+                    <br/>
                     <a class="btn btn-success" href="{{route('admin.categories.create')}}"> Add Category</a>
                 </div>
             </div>

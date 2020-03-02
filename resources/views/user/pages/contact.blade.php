@@ -3,11 +3,13 @@
 
 @section('content')
 <main role="main" class="container" id="main">
-<div class="col-md-9" style="background-color: #FFEFD5;">
+<br/>
+<div class="row justify-content-center">
+<div class="col-md-9" style="background-color: lightgray;border-radius: 25px" id="double">
 @include('partials.messages')
 @include('partials.errors')
 <br/>
-<h3 class="center" style="color: firebrick;font-size: 20px">CONTACT FORM</h3>
+<h3 class="center title blue">CONTACT FORM</h3>
 <p class="center" style="font-size: 15px;">
 We are so glad that you are contacting us. Fill the form below and submit to us.
 </p>
@@ -32,10 +34,12 @@ We are so glad that you are contacting us. Fill the form below and submit to us.
 </div>
  
 <div class="form-group">
-<button class="btn btn-default" value="submit">Submit</button>
+<button class="btn btn" id="button" value="submit">Submit</button>
 </div>
  
 {!! Form::close() !!}
 </div>
+</div>
+<br/>
 </main>
 @endsection

@@ -1,4 +1,4 @@
-<h5 id="firebrick" style="text-align: center;">PEROUSE ALL POSTS</h5>
+<h5 class="title" style="text-align: center;font-size: 20px">PEROUSE ALL ARTICLES</h5>
 <div class="row">
     <div class="col-md-6">
         @if(isset($previous))

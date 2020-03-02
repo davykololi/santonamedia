@@ -43,12 +43,12 @@ class PostController extends Controller
 
         SEOMeta::setTitle(strtolower($category->name));
         SEOMeta::setDescription($category->description);
-        SEOMeta::setKeywords($category->slug);
-        SEOMeta::setCanonical('http://localhost:8888/categories',['slug','=',$category->slug]);
+        SEOMeta::setKeywords($category->description);
+        SEOMeta::setCanonical('https://santonamedia.com/categories',['slug','=',$category->slug]);
 
         OpenGraph::setTitle(strtolower($category->name));
         OpenGraph::setDescription($category->description);
-        OpenGraph::setUrl('http://localhost:8888/categories',['slug','=',$category->slug]);
+        OpenGraph::setUrl('https://santonamedia.com/categories',['slug','=',$category->slug]);
         OpenGraph::addProperty('type',strtolower($category->name));
 
         Twitter::setTitle(strtolower($category->name));
@@ -56,8 +56,11 @@ class PostController extends Controller
 
         JsonLd::setTitle(strtolower($category->name),'page');
         JsonLd::setDescription($category->description);
-        JsonLd::addImage('http://localhost:8888/');
 
+        foreach($category->posts as $post){
+        JsonLd::addImage('https://santonamedia.com/storage/public/storage',[$post->image,'height'=>'300','width' =>'300']);
+        }
+        
         $data = array(
             'category' => $category,
             'posts' => $posts,
@@ -80,10 +83,10 @@ class PostController extends Controller
 
         SEOMeta::setTitle(strtolower($post->title));
         SEOMeta::setDescription($post->description);
-        SEOMeta::setKeywords($post->slug);
+        SEOMeta::setKeywords($post->description);
         SEOMeta::addMeta('article:published_time', $post->created_at->toW3CString(),'property');
         SEOMeta::addMeta('article:section', strtolower($post->category->name),'property');
-        SEOMeta::setCanonical('http://localhost:8888/posts/read',['post_slug'=>$post->slug]);
+        SEOMeta::setCanonical('https://santonamedia.com/posts/read',['post_slug'=>$post->slug]);
 
         OpenGraph::setTitle(strtolower($post->title));
         OpenGraph::setDescription($post->description);
@@ -93,8 +96,8 @@ class PostController extends Controller
         OpenGraph::addProperty('locale:alternate',['pt-pt','en-us']);
         OpenGraph::addImage();
         OpenGraph::addImage();
-        OpenGraph::addImage(['url'=>'http://localhost/storage/public/storage',$post->image,'size' =>'300']);
-        OpenGraph::addImage('http://localhost/storage/public/storage',[$post->image,'height'=>'300','width' =>'300']);
+        OpenGraph::addImage(['url'=>'https://santonamedia.com/storage/public/storage',$post->image,'size' =>'300']);
+        OpenGraph::addImage('https://santonamedia.com/storage/public/storage',[$post->image,'height'=>'300','width' =>'300']);
 
         JsonLd::setTitle(strtolower($post->title));
         JsonLd::setDescription($post->description);

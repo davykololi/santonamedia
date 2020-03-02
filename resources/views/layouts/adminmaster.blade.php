@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 	@include('partials.head')
-<body>
+<body id="body">
     <div id="app">
        @include('partials.adminheader')
         <main class="py-4">

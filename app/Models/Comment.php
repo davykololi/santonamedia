@@ -28,7 +28,7 @@ class Comment extends Model
      */
     public function user()
     {
-        return $this->belongsTo(User::class,'user_id','id')->withDefault();
+        return $this->belongsTo('App\User','user_id','id')->withDefault();
     }
 
     public function getCreatedDateAttribute()

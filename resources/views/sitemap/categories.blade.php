@@ -3,6 +3,7 @@
     @foreach ($categories as $category)
         <url>
             <loc>http://project.app:8888/categories/{{ $category->slug }}</loc>
+            <lastmod>{{ $category->created_at->tz('UTC')->toAtomString() }}</lastmod>
             <changefreq>weekly</changefreq>
             <priority>0.9</priority>
         </url>
