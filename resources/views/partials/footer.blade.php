@@ -7,8 +7,8 @@
 					<h5>Quick links</h5>
 					<ul class="list-unstyled quick-links">
 						<li><a href="/home"><i class="fa fa-angle-double-right"></i>HOME</a></li>
-						<li><a href="{{route('users.pages.about')}}"><i class="fa fa-angle-double-right"></i>ABOUT US</a></li>
-						<li><a href="{{ route ('users.pages.contact') }}"><i class="fa fa-angle-double-right"></i>CONTACT US</a></li>
+						<li><a href="{{route('users.pages.about')}}"><i class="fa fa-angle-double-right"></i>ABOUT</a></li>
+						<li><a href="{{ route ('users.pages.contact') }}"><i class="fa fa-angle-double-right"></i>CONTACT</a></li>
 						<li><a href="{{ route ('private.policy') }}"><i class="fa fa-angle-double-right"></i>PRIVATE POLICY</a></li>
 						<li><a href="{{ route ('pages.portfolio') }}"><i class="fa fa-angle-double-right"></i>PORTFOLIO</a></li>
 					</ul>
