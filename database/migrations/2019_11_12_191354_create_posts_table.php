@@ -21,7 +21,7 @@ class CreatePostsTable extends Migration
             $table->string('caption', 100);
             $table->text('content');
             $table->text('description');
-            $table->text('tags');
+            $table->text('keywords');
             $table->bigInteger('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->bigInteger('admin_id')->unsigned()->index()->default();

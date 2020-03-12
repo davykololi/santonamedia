@@ -29,6 +29,7 @@ class PostFormRequest extends FormRequest
             'description' => 'required',
             'content' => 'required',
             'caption' => 'required',
+            'keywords' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,bmp|max:2048',
         ];
     }

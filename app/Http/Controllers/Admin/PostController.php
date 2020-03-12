@@ -82,7 +82,8 @@ class PostController extends Controller
         $input['admin_id'] = Auth::id();
         $input['category_id'] = $request->category;
         $post= Post::create($input);
-        $post->tags()->sync((array)$request->input('tags'));
+        $tags = $request->tags;
+        $post->tags()->sync($tags);
 
         return redirect()->route('admin.posts.index')->withSuccess('The post created successfully');
     }

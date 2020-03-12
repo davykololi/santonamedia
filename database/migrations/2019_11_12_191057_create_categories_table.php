@@ -19,6 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->string('name');
             $table->string('slug')->nullable();
             $table->text('description');
+            $table->text('keywords');
             $table->timestamps();
         });
     }

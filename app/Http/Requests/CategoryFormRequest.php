@@ -26,7 +26,8 @@ class CategoryFormRequest extends FormRequest
         return [
             //
             'name' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'keywords' => 'required'
         ];
     }
 }

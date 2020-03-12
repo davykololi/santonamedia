@@ -23,7 +23,7 @@
                                 {{$category->name}}
                             </a>
                         </li>
-                                @endforeach
+            					@endforeach
                         @endif  
                     </ul>
 
