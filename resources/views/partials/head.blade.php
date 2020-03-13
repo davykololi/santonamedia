@@ -29,11 +29,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{!! asset('css/bootstrap.min.css') !!}" type="text/css">
     <link rel="stylesheet" href="{!! asset('css/footer.css') !!}" type="text/css">
-    <link rel="stylesheet" href="{!! asset('css/fontawesome.css') !!}" type="text/css">
-    <link rel="stylesheet" href="{!! asset('css/fontawesome.min.css') !!}" type="text/css">
-    <link rel="stylesheet" href="{!! asset('css/backimg.css') !!}" type="text/css">
-    <link rel="stylesheet" href="{!! asset('css/general.css') !!}" type="text/css">
-    <link rel="stylesheet" href="{!! asset('css/ft.css') !!}" type="text/css">
+    <link rel="stylesheet" href="{!! asset('gencss/fontawesome.css') !!}" type="text/css">
+    <link rel="stylesheet" href="{!! asset('gencss/fontawesome.min.css') !!}" type="text/css">
+    <link rel="stylesheet" href="{!! asset('gencss/general.css') !!}" type="text/css">
+    <link rel="stylesheet" href="{!! asset('gencss/ft.css') !!}" type="text/css">
     
     <!-- Styles -->
     <style>

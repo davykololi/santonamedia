@@ -3,7 +3,7 @@
         <br/>
         <h4 class="astitle">LATEST {!! $category->name !!} ARTICLES </h4>
             @forelse($archives as $archive)
-            <span style="display: flex;background-color: lightgray;margin-top: 5px;margin-bottom: 5px">
+            <span style="display: flex;background-color: lightgray;margin-top: 3px;margin-bottom: 5px">
                 <img style="width:20%;float: left;margin: 10px 10px 0;margin-bottom: 10px" src ="/storage/public/storage/{{ $archive->image }}" alt ="{{ $archive->title }}">
             <br/>
                 <ul class="list-unstyled">
