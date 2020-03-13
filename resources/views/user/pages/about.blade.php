@@ -18,7 +18,7 @@
             </div>
         </div><!-- /.row -->
         <br/>
-        @include('partials.newsletter')
+        @include('user.newsletter.newsletter')
         <br/>
     </main><!-- /.container -->
 @endsection

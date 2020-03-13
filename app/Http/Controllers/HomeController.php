@@ -37,13 +37,13 @@ class HomeController extends Controller
         $archives = Post::latest()->limit(10)->get();
         $posts = Post::latest()->paginate(10);
 
-        $title = 'Santona Media Latest News';
-        $desc = 'Santona Media latest News in Kenya,East Africa, Africa,Europe,Asia and America';
+        $title = 'Latest News';
+        $desc = 'Latest news in Kenya,East Africa, Africa,Europe,Asia and America';
         $url = 'https://santonamedia.com/home';
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
-        SEOMeta::setKeywords('Santona,Media,latest,News,Kenya,East Africa, Africa,Europe,Asia,America');
+        SEOMeta::setKeywords('latest,news,Kenya,East Africa, Africa,Europe,Asia,America');
         SEOMeta::setCanonical($url);
 
         OpenGraph::setTitle($title);

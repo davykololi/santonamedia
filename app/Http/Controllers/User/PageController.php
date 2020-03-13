@@ -35,13 +35,13 @@ class PageController extends Controller
 
     public function contact()
     {
-        $title = 'Santona Media News Contact Us';
+        $title = 'Contact Us';
         $desc = 'Santona Media News Contact Us Page';
         $url = 'https://santonamedia.com/contact-us';
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
-        SEOMeta::setKeywords('Santona Media,News,Contac,Us,Page');
+        SEOMeta::setKeywords('Contac,Us');
         SEOMeta::setCanonical($url);
 
         OpenGraph::setTitle($title);
@@ -75,14 +75,14 @@ class PageController extends Controller
 
     public function about()
     {
-        $title = 'Santona Media News About Us';
+        $title = 'About Us';
         $desc = 'Santona Media News About Us Page';
         $url = 'https://santonamedia.com/about-us';
         $image = 'https://santonamedia.com/static/david.jpg';
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
-        SEOMeta::setKeywords('Santona,Media,News,About,About Us,Page');
+        SEOMeta::setKeywords('Santona,Media,News,About,Us,Page');
         SEOMeta::setCanonical($url);
 
         OpenGraph::setTitle($title);
@@ -102,7 +102,7 @@ class PageController extends Controller
 
     public function privatePolicy()
     {
-        $title = 'Santona Media News Private Policy';
+        $title = 'Private Policy';
         $desc = 'Santona Media News Private Policy Page';
         $url = 'https://santonamedia.com/private-policy';
 
@@ -127,7 +127,7 @@ class PageController extends Controller
 
     public function portfolio()
     {  
-        $title = 'Santona Media News Portfolio';
+        $title = 'Portfolio';
         $desc = 'Santona Media News Portfolio Page';
         $url = 'https://santonamedia.com/portfolio';
 

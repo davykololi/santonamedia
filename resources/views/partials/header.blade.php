@@ -14,12 +14,13 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a id="whitecolor" class="navbar" href="{{route('home')}}">HOME <span class="sr-only">(current)</span></a>
+                            <a id="white" class="nav-link" href="{{route('home')}}">HOME <span class="sr-only">(current)</span>
+                            </a>
                         </li>         
                         @if(!empty($navs))
                                 @foreach($navs as $category)
                         <li class="nav-item active">
-                            <a id="whitecolor" class="navbar" href="{{route('categories',['slug' => $category->slug])}}">
+                            <a id="white" class="nav-link" href="{{route('categories',['slug' => $category->slug])}}">
                                 {{$category->name}}
                             </a>
                         </li>
@@ -32,11 +33,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="navbar" id="whitecolor" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" id="white" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="navbar" id="whitecolor" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="nav-link" id="white" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                             @endif
                         @else

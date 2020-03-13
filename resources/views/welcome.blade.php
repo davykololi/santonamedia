@@ -25,7 +25,7 @@
         @include('partials.aside_w')
         </div><!-- /.row -->
         <br/>
-        @include('partials.newsletter')
+        @include('user.newsletter.newsletter')
         <br/>
 </main><!-- /.container -->       
 
