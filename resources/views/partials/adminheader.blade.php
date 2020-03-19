@@ -25,6 +25,12 @@
                         <li class="nav-item active">
                             <a class="nav-link" id="white" href="{{route('admin.tags.index')}}">TAGS</a>
                         </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" id="white" href="{{route('admin.videos.index')}}">VIDEOS</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" id="white" href="{{route('admin.comments.index')}}">COMMENTS</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

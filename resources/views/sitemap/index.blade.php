@@ -1,18 +1,24 @@
 <?php echo '<?xml version="1.0" encoding="UTF-8"?>'; ?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <sitemap>
-        <loc>http://project.app:8888/sitemap.xml/posts</loc>
+        <loc>https://santonamedia.com/sitemap.xml/articles</loc>
     </sitemap>
     <sitemap>
-        <loc>http://project.app:8888/sitemap.xml/categories</loc>
+        <loc>https://santonamedia.com/sitemap.xml/videos</loc>
     </sitemap>
     <sitemap>
-        <loc>http://project.app:8888/sitemap.xml/home</loc>
+        <loc>https://santonamedia.com/sitemap.xml/category/articles</loc>
     </sitemap>
     <sitemap>
-        <loc>http://project.app:8888/sitemap.xml/about-us</loc>
+        <loc>https://santonamedia.com/sitemap.xml/category/videos</loc>
     </sitemap>
     <sitemap>
-        <loc>http://project.app:8888/sitemap.xml/contact-us</loc>
+        <loc>https://santonamedia.com/sitemap.xml/home</loc>
+    </sitemap>
+    <sitemap>
+        <loc>https://santonamedia.com/sitemap.xml/about</loc>
+    </sitemap>
+    <sitemap>
+        <loc>https://santonamedia.com/sitemap.xml/contact</loc>
     </sitemap>
 </sitemapindex>

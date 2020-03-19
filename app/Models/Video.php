@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 
-class Post extends Model
+class Video extends Model
 {
     //
     use Sluggable;
 
-    protected $table = 'posts';
-    protected $fillable = ['title','image','caption','content','description','keywords','admin_id','category_id'];
+    protected $table = 'videos';
+    protected $fillable = ['title','video','caption','content','description','keywords','admin_id','category_id'];
     protected $appends = ['createdDate'];
 
     public function sluggable()
@@ -39,7 +39,7 @@ class Post extends Model
 
     public function comments()
     {
-    return $this->hasMany('App\Models\Comment','post_id','id');
+    return $this->hasMany('App\Models\Comment','video_id','id');
     }
 
     public function category()
@@ -59,6 +59,6 @@ class Post extends Model
 
     public function tags()
     {
-        return $this->belongsToMany('App\Models\Tag','post_tag')->withTimestamps();
+        return $this->belongsToMany('App\Models\Tag','tag_video')->withTimestamps();
     }
 }

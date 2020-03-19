@@ -19,7 +19,7 @@ img,video,canvas{max-width: 100%}
 #whitecolor{font-size: 120%;color: white;}
 #menu{background-color: #000080;}
 #aside{width: 25%;height: 100%;position: sticky;top: 0;padding: 16px;width: auto;margin-right: 20px;margin-top: 70px;
-	border: ridge;border-color: #000080;border-width: thin;background-color: #f6f6f6;border-top: solid 5px}
+	border: ridge;border-color: #000080;border-width: thin;background-color: khaki;border-top: solid 5px}
 a {hover:color: purple}
 #body{background-color: #C0C0C0;}
 #double{border:double;}

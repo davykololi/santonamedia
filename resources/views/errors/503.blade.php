@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Application Under Maintenance</title>
-	<link rel="stylesheet" href="{!! asset('css/general.css') !!}" type="text/css">
+	<link rel="stylesheet" href="{!! asset('gencss/general.css') !!}" type="text/css">
 	<style>
 		#body{background-image: url('/static/lights.JPG');background-position: center;background-repeat: no-repeat;background-size: cover}
 	</style>

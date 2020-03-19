@@ -16,11 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-	$categories = Category::with('posts')->get();
+    $categories = Category::with('posts')->get();
 
         foreach($categories as $category){
-    	$posts = $category->posts;
-    	$archives = Post::latest()->limit(10)->get();
+        $posts = $category->posts;
+        $archives = Post::latest()->limit(10)->get();
         $posts = Post::latest()->paginate(10);
 
     return view('welcome',['categories'=>$categories,'posts'=>$posts,'archives'=>$archives,'category'=>$category]);
@@ -34,7 +34,7 @@ Route::get('/user/logout','Auth\LoginController@userLogout')->name('user.logout'
 
 //admin route for our multi-auth system
 Route::prefix('admin')->group(function () {
-    Route::get('/', 'AdminController@index')->name('admin.dashboard');
+    Route::get('/dashboard', 'AdminController@index')->name('admin.dashboard');
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/logout','Auth\AdminLoginController@logout')->name('admin.logout');
@@ -47,48 +47,67 @@ Route::prefix('admin')->group(function () {
 });
 
 //Admin news posts
-Route::group(['namespace' => 'Admin','prefix'=>'posts'],function(){
-    Route::get('/','PostController@index')->name('admin.posts.index');
-    Route::get('/create','PostController@create')->name('admin.posts.create');
-    Route::get('/show/{post}','PostController@show')->name('admin.posts.show');
-    Route::post('/','PostController@store')->name('admin.posts.store');
-    Route::get('/{post}/edit','PostController@edit')->name('admin.posts.edit');
-    Route::post('/{post}','PostController@update')->name('admin.posts.update');
-    Route::get('/{post}','PostController@destroy')->name('admin.posts.delete');
+Route::group(['namespace' => 'Admin','prefix'=>'admin'],function(){
+    Route::get('/posts','PostController@index')->name('admin.posts.index');
+    Route::get('/posts/create','PostController@create')->name('admin.posts.create');
+    Route::get('/posts/show/{post}','PostController@show')->name('admin.posts.show');
+    Route::post('/posts','PostController@store')->name('admin.posts.store');
+    Route::get('/posts/{post}/edit','PostController@edit')->name('admin.posts.edit');
+    Route::post('/posts/{post}','PostController@update')->name('admin.posts.update');
+    Route::get('/posts/{post}','PostController@destroy')->name('admin.posts.delete');
+    });
+
+//Admin news videos
+Route::group(['namespace' => 'Admin','prefix'=>'admin'],function(){
+    Route::get('/videos','VideoController@index')->name('admin.videos.index');
+    Route::get('/videos/create','VideoController@create')->name('admin.videos.create');
+    Route::get('/videos/show/{video}','VideoController@show')->name('admin.videos.show');
+    Route::post('/videos','VideoController@store')->name('admin.videos.store');
+    Route::get('/videos/{video}/edit','VideoController@edit')->name('admin.videos.edit');
+    Route::post('/videos/{video}','VideoController@update')->name('admin.videos.update');
+    Route::get('/videos/{video}','VideoController@destroy')->name('admin.videos.delete');
     });
 
 //Admin category routes
-Route::group(['namespace' => 'Admin','prefix'=>'sections'],function(){
-    Route::get('/','CategoryController@index')->name('admin.categories.index');
-    Route::get('/create','CategoryController@create')->name('admin.categories.create');
-    Route::get('/show/{category}','CategoryController@show')->name('admin.categories.show');
-    Route::post('/','CategoryController@store')->name('admin.categories.store');
-    Route::get('/{category}/edit','CategoryController@edit')->name('admin.categories.edit');
-    Route::post('/{category}','CategoryController@update')->name('admin.categories.update');
-    Route::get('/{category}','CategoryController@destroy')->name('admin.categories.delete');
+Route::group(['namespace' => 'Admin','prefix'=>'admin'],function(){
+    Route::get('/categories/','CategoryController@index')->name('admin.categories.index');
+    Route::get('/categories/create','CategoryController@create')->name('admin.categories.create');
+    Route::get('/categories/show/{category}','CategoryController@show')->name('admin.categories.show');
+    Route::post('/categories','CategoryController@store')->name('admin.categories.store');
+    Route::get('/categories/{category}/edit','CategoryController@edit')->name('admin.categories.edit');
+    Route::post('/categories/{category}','CategoryController@update')->name('admin.categories.update');
+    Route::get('/categories/{category}','CategoryController@destroy')->name('admin.categories.delete');
     });
 
 //Admin tag routes
-Route::group(['namespace' => 'Admin','prefix'=>'tags'],function(){
-    Route::get('/','TagController@index')->name('admin.tags.index');
-    Route::get('/create','TagController@create')->name('admin.tags.create');
-    Route::get('/show/{tag}','TagController@show')->name('admin.tags.show');
-    Route::post('/','TagController@store')->name('admin.tags.store');
-    Route::get('/{tag}/edit','TagController@edit')->name('admin.tags.edit');
-    Route::post('/{tag}','TagController@update')->name('admin.tags.update');
-    Route::get('/{tag}','TagController@destroy')->name('admin.tags.delete');
+Route::group(['namespace' => 'Admin','prefix'=>'admin'],function(){
+    Route::get('/tags','TagController@index')->name('admin.tags.index');
+    Route::get('/tags/create','TagController@create')->name('admin.tags.create');
+    Route::get('/tags/show/{tag}','TagController@show')->name('admin.tags.show');
+    Route::post('/tags','TagController@store')->name('admin.tags.store');
+    Route::get('/tags/{tag}/edit','TagController@edit')->name('admin.tags.edit');
+    Route::post('/tags/{tag}','TagController@update')->name('admin.tags.update');
+    Route::get('/tags/{tag}','TagController@destroy')->name('admin.tags.delete');
+    });
+
+//Admin comment routes
+Route::group(['namespace' => 'Admin','prefix'=>'admin'],function(){
+    Route::get('/comments','CommentController@index')->name('admin.comments.index');
+    Route::get('/comments/{comment}','CommentController@delete')->name('admin.comments.delete');
     });
 
 //Static pages routes
-Route::group(['namespace'=>'User'],function(){
+Route::group(['namespace'=>'User','prefix'=>'news'],function(){
     Route::get('/about-us','PageController@about')->name('users.pages.about');
     Route::get('/contact-us','PageController@contact')->name('users.pages.contact');
     Route::post('/contact-us','PageController@store')->name('contactus.store');
     Route::get('/private-policy','PageController@privatePolicy')->name('private.policy');
     Route::get('/portfolio','PageController@portfolio')->name('pages.portfolio');
     //Front end Users posts routes
-    Route::get('/categories/{slug}/posts', 'PostController@getIndex')->name('categories');
-    Route::get('/posts/read/{post_slug}', 'PostController@getFullNews')->name('users.posts.read');
+    Route::get('/{slug}/articles', 'PostController@getIndex')->name('category.articles');
+    Route::get('/articles/details/{post_slug}', 'PostController@getFullNews')->name('users.posts.read');
+    Route::get('/{slug}/videos', 'VideoController@getIndex')->name('category.videos');
+    Route::get('/videos/details/{video_slug}', 'VideoController@getFullVideos')->name('users.videos.read');
     Route::post('/comments','CommentController@store')->name('comments.store');
     //Most popular post route
     Route::get('/popular/{slug}', 'PopularPostController@popular')->name('popular');
@@ -106,17 +125,20 @@ Route::group(['namespace'=>'User'],function(){
     });
 
 //Admin view contacts messages
-Route::group(['namespace' => 'Admin','prefix'=>'contacts'],function(){
-    Route::get('/','GeneralController@getContacts')->name('contactus.contacts');
-    Route::get('/{contact}/show','GeneralController@getContact')->name('contact.show');
-    Route::get('/{id}','GeneralController@destroy')->name('contact.destroy');
+Route::group(['namespace' => 'Admin','prefix'=>'admin'],function(){
+    Route::get('/contacts/','GeneralController@getContacts')->name('contactus.contacts');
+    Route::get('/contacts/{contact}/show','GeneralController@getContact')->name('contact.show');
+    Route::get('/contacts/{id}','GeneralController@destroy')->name('contact.destroy');
     });
 //Sitemap Routes
-Route::group(['prefix' => 'sitemap.xml'],function(){
+Route::group(['prefix' => 'sitemap.xml',],function(){
     Route::get('/', 'SitemapController@index');
-    Route::get('/posts', 'SitemapController@posts');
-    Route::get('/categories', 'SitemapController@categories');
+    Route::get('/articles', 'SitemapController@posts');
+    Route::get('/videos', 'SitemapController@videos');
+    Route::get('/category/videos', 'SitemapController@categoryVideos');
+    Route::get('/category/articles', 'SitemapController@categoryArticles');
     Route::get('/about', 'SitemapController@about');
     Route::get('/contact', 'SitemapController@contact');
     Route::get('/home', 'SitemapController@home');
     });
+

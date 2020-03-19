@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\User;
 
 use Auth;
+use App\Models\Video;
+use App\Models\Post;
 use App\Models\Comment;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -30,11 +32,14 @@ class CommentController extends Controller
                 'content'=>'required',
                 ]);
     
-        $comment = Comment::create([
-                                    'content'=>$request->get('content'),
-                                    'user_id'=>Auth::user()->id,
-                                    'post_id'=>$request->get('post_id'),
-                                    ]);
+        $comment = new Comment();
+        $comment->content = $request->content;
+        $comment->user_id = Auth::id();
+        $comment->post_id = $request->post_id;
+        $comment->video_id = $request->video_id;
+        $comment->category_id = $request->category_id;
+        $comment->save();
+
         return back();
     }
 }

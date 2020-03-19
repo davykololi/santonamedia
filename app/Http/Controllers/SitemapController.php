@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Video;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -12,10 +13,12 @@ class SitemapController extends Controller
     public function index()
     {
       $posts = Post::all()->first();
+      $videos = Video::all()->first();
       $categories = Category::all()->first();
      
       return response()->view('sitemap.index', [
           'posts' => $posts,
+          'videos' => $videos,
           'categories' => $categories,
       ])->header('Content-Type', 'text/xml');
     }
@@ -28,10 +31,26 @@ class SitemapController extends Controller
         ])->header('Content-Type', 'text/xml');
     }
 
-    public function categories()
+    public function videos()
+    {
+        $videos = Video::latest()->get();
+        return response()->view('sitemap.videos', [
+            'videos' => $videos,
+        ])->header('Content-Type', 'text/xml');
+    }
+
+    public function categoryArticles()
     {
         $categories = Category::all();
-        return response()->view('sitemap.categories', [
+        return response()->view('sitemap.catarticles', [
+            'categories' => $categories,
+        ])->header('Content-Type', 'text/xml');
+    }
+
+    public function categoryVideos()
+    {
+        $categories = Category::all();
+        return response()->view('sitemap.catvideos', [
             'categories' => $categories,
         ])->header('Content-Type', 'text/xml');
     }

@@ -30,10 +30,15 @@ class Category extends Model
 		return $this->hasMany('App\Models\Post','category_id','id');
 	}
 
-	public function comments()
-	{
-		return $this->hasManyThrough('App\Models\Comment','App\Models\Post','post_id','category_id');
-	}
+    public function videos()
+    {
+        return $this->hasMany('App\Models\Video','category_id','id');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Models\Comment','category_id','id');
+    }
 
 	public function setNameAttribute($value)
 	{

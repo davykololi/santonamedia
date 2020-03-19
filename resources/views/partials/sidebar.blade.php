@@ -6,7 +6,7 @@
             <a class="nav-link" id="general" href="{{ route ('users.pages.contact') }}">CONTACT US</a>
             @if(!empty($categories))
     			@foreach($categories as $category)
-        			<a class="nav-link" id="general" href="{{route('categories',['slug' => $category->slug])}}">{{$category->name}}</a>
+        			<a class="nav-link" id="general" href="{{route('category.articles',['slug' => $category->slug])}}">{{$category->name}}</a>
     			@endforeach
 			@endif
     </div>

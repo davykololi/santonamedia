@@ -14,4 +14,9 @@ class Tag extends Model
     {
     	return $this->belongsToMany('App\Models\Post','post_tag')->withTimestamps();
     }
+
+    public function videos()
+    {
+    	return $this->belongsToMany('App\Models\Video','tag_video')->withTimestamps();
+    }
 }

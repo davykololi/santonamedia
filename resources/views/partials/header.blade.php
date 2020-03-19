@@ -20,12 +20,29 @@
                         @if(!empty($navs))
                                 @foreach($navs as $category)
                         <li class="nav-item active">
-                            <a id="white" class="nav-link" href="{{route('categories',['slug' => $category->slug])}}">
+                            <a id="white" class="nav-link" href="{{route('category.articles',['slug' => $category->slug])}}">
                                 {{$category->name}}
                             </a>
                         </li>
-            					@endforeach
-                        @endif  
+                                @endforeach
+                        @endif
+
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" style="margin-top: 12px" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                VIDEOS
+                            </button>
+                        <div class="dropdown-menu" aria-labelled="dropdownMenu2">
+                        @if(!empty($navs))
+                                @foreach($navs as $category)
+                            <li class="nav-item active">
+                            <a id="white" class="dropdown-item" href="{{route('category.videos',['slug' => $category->slug])}}">
+                                {{$category->name}}
+                            </a>
+                            </li>
+                                @endforeach
+                        @endif 
+                        </div>
+                        </div>           
                     </ul>
 
                     <!-- Right Side Of Navbar -->
