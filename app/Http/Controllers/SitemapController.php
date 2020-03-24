@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
 use App\Models\Post;
 use App\Models\Video;
 use App\Models\Category;
@@ -36,6 +37,22 @@ class SitemapController extends Controller
         $videos = Video::latest()->get();
         return response()->view('sitemap.videos', [
             'videos' => $videos,
+        ])->header('Content-Type', 'text/xml');
+    }
+
+    public function tagArticles()
+    {
+        $tags = Tag::all();
+        return response()->view('sitemap.tagarticles', [
+            'tags' => $tags,
+        ])->header('Content-Type', 'text/xml');
+    }
+
+    public function tagVideos()
+    {
+        $tags = Tag::all();
+        return response()->view('sitemap.tagvideos', [
+            'tags' => $tags,
         ])->header('Content-Type', 'text/xml');
     }
 

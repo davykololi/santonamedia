@@ -3,14 +3,14 @@
         <br/>
         <h4 class="astitle">LATEST {!! $category->name !!} VIDEOS </h4>
             @forelse($archives as $archive)
-            <span style="display: flex;background-color: lightgray;margin-top: 3px;margin-bottom: 5px">
-                <video width="40" height="30" style="float: left;margin: 10px 10px 0;margin-bottom: 10px;border: ridge;border-color: white" controls> 
+            <span class="asidespan">
+                <video width="40" height="30" class="asideimg" controls> 
                     <source src = "/storage/public/videos/{{ $archive->video }}" alt ="{{ $archive->title }}">
                 </video>
             <br/>
                 <ul class="list-unstyled top-10">
                     <li>
-                        <a class="asac" style="font-size: 15px;" href="{{ route('users.videos.read', ['video_slug' => $archive->slug]) }}">
+                        <a class="asac white" style="font-size: 15px;" href="{{ route('users.videos.read', ['video_slug' => $archive->slug]) }}">
                             {!! \Illuminate\Support\Str::words($archive->title, 6, '...') !!}
                         </a>
                     </li>
@@ -30,6 +30,7 @@
                     <li>
                         <a class="asc" href="{{route('category.videos',['slug' => $category->slug])}}">
                             {{$category->name}}
+                            <span class="badge badge-secondary badge-pill">{{$category->videos->count()}}</span>
                         </a>
                     </li>
                 </ul>

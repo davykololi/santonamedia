@@ -13,3 +13,4 @@
         <nav> 
             {{ $videos->render() }}
         </nav>
+        @include('user.videos.tags')

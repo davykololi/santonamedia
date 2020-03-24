@@ -1,2 +1,6 @@
+Sitemap:http://www.santonamedia.com/sitemap.xml
 User-agent: *
+
 Disallow:
+/admin/
+Noindex:/admin/

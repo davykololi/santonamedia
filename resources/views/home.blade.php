@@ -15,12 +15,13 @@
                         <br/> <br/><hr/>
                     </div><!-- /.blog-post -->
                 @empty
-                <p style="color: red;font-family: Segoe UI Light;font-size: 30px"> Sorry esteemed reader. We are yet to post <a href="#"> {{ config('app.name', 'SKYLUX') }} Blog </a> articles</p>
+                <p style="color: red;font-family: Segoe UI Light;font-size: 30px"> Sorry esteemed reader. We are yet to post <a href="#"> {{ config('app.name', 'SKYLUX') }} Blog </a> articles.</p>
                 @endforelse
             @endif
                 <nav class="blog-pagination">
                     {{ $posts->render() }}
                 </nav>
+                @include('user.posts.tags')
             </div><!-- /.blog-main -->
         @include('partials.aside_h')
         </div><!-- /.row -->

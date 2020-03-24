@@ -6,12 +6,12 @@
 #hp{float: left;margin: 0 15px 0 0;}
 #white{font-size: 120%;color: white}
 #main{margin-top: 75px;background-color: #F5F5DC;border: solid white;width: auto;height: 100%;border-radius: 25px;border-style: groove;}
-#prenext{background-color: blue;color: white;text-align: center;background-size: 100px 80px}
+#prenext{background-color: blue;color: white;text-align: center;background-size: 100px 80px;border: solid white;}
 #button{background-color: #0000FF;color: white;}
 #cwhite{color: white}
 .highlight{color: red}
 #black{color: black}
-img,video,canvas{max-width: 100%}
+img,video,canvas{max-width: 100%;display: inline-flex;}
 #top{background-color: firebrick;padding: 10px 20px;text-shadow: 0 2px 0 #999,0 3px 0 #888,0 4px 0 #777,
 0 5px 0 #666,0 6px 0 #555,0 7px 0 #444,0 8px 0 #333,0 9px 7px #302314;}
 #errors{padding: 10px 20px;text-shadow: 0 2px 0 #999,0 3px 0 #888,0 4px 0 #777;text-align: center;
@@ -19,8 +19,7 @@ img,video,canvas{max-width: 100%}
 #whitecolor{font-size: 120%;color: white;}
 #menu{background-color: #000080;}
 #aside{width: 25%;height: 100%;position: sticky;top: 0;padding: 16px;width: auto;margin-right: 20px;margin-top: 70px;
-	border: ridge;border-color: #000080;border-width: thin;background-color: khaki;border-top: solid 5px}
-a {hover:color: purple}
+	border-width: thin;background-color: #E3E4FA;border-radius: 10px;}
 #body{background-color: #C0C0C0;}
 #double{border:double;}
 #ffbdy{font-family: Helvetica;font-size: 16px}
@@ -33,5 +32,11 @@ a {hover:color: purple}
 	text-align: center;background-color: blue;color: white;border-radius: 25px;font-size: 20px;}
 .astitle{font-family: calibri light;text-align: center;background-color: #1E90FF;color: white}
 .titles{font-family: Times New Roman;color: blue;text-align: center}
-.asc{color:blue;font-size: 16px;font-family:roman;margin-left: 65px}
+.asc{color:blue;font-size: 16px;font-family:roman;margin-left: 50px}
 .login{color: white; text-align: center;font-size: 20px}
+.white{color: white}
+.asidespan{display: flex;background-color: #87AFC7;margin-top: 3px;margin-bottom: 5px}
+.asideimg{width:20%;float: left;margin: 10px 10px 0;margin-bottom: 10px;border: ridge;border-color: white;}
+.mg2px{margin: 2px;display: inline-flex;}
+.tags{margin-left: 100px;font-size: 15px}
+.drop{margin-top: 12px;margin-left: 5px;font-size: 12px;}

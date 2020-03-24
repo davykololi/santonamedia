@@ -11,6 +11,7 @@ use SEO;
 use Share;
 use App\User;
 use App\Models\Post;
+use App\Models\Tag;
 use App\Models\Comment;
 use App\Models\Category;
 use App\Http\Controllers\Controller;
@@ -40,6 +41,7 @@ class PostController extends Controller
         $posts = $category->posts()->with('admin','category')->latest()->paginate(5);
         $archives = $category->posts()->latest()->limit(10)->get();
         $categories = Category::cursor();
+        $tags = Tag::with('posts')->get();
 
         $title = $category->name;
         $desc = $category->description;
@@ -62,12 +64,13 @@ class PostController extends Controller
         JsonLd::addImage('https://santonamedia.com/public/static/globe.png');
 
         foreach($category->posts as $post){
-        JsonLd::addImage('https://santonamedia.com/storage/public/storage',[$post->image,'height'=>'300','width' =>'300']);
+        OpenGraph::addImage('https://santonamedia.com/storage/public/storage',[$post->image,'height'=>'300','width' =>'300']);
         }
         
         $data = array(
             'category' => $category,
             'posts' => $posts,
+            'tags' => $tags,
             'archives' => $archives,
             'categories' => $categories
         );
@@ -84,28 +87,29 @@ class PostController extends Controller
         $category = $post->category()->with('posts')->firstOrFail();
         $posts = $category->posts()->with('admin','category')->inRandomOrder()->paginate(5);
         $categories = Category::cursor();
+        $tags = Tag::with('posts')->get();
 
         $title = $post->title;
         $desc = $post->description;
 
-        SEOMeta::setTitle(strtolower($title));
+        SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
         SEOMeta::setKeywords($post->keywords);
         SEOMeta::addMeta('article:published_time', $post->created_at->toW3CString(),'property');
         SEOMeta::addMeta('article:section', strtolower($post->category->name),'property');
         SEOMeta::setCanonical('https://santonamedia.com/news/articles/details',['post_slug'=>$post->slug]);
 
-        OpenGraph::setTitle(strtolower($title));
+        OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
         OpenGraph::setUrl('https://santonamedia.com/news/articles/details',['post_slug'=>$post->slug]);
         OpenGraph::addProperty('type','article');
         OpenGraph::addProperty('locale','en-us');
         OpenGraph::addImage(['url'=>'https://santonamedia.com/storage/public/storage',$post->image,'size' =>'300']);
         OpenGraph::addImage('https://santonamedia.com/storage/public/storage',[$post->image,'height'=>'300','width' =>'300']);
-        Twitter::setTitle(strtolower($title));
+        Twitter::setTitle($title);
         Twitter::setSite('@davycool30');
 
-        JsonLd::setTitle(strtolower($title));
+        JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
         JsonLd::setType('Article');
         JsonLd::addImage('https://santonamedia.com/storage/public/storage',[$post->image,'height'=>'300','width' =>'300']);
@@ -113,6 +117,7 @@ class PostController extends Controller
         $data = array(
             'post' => $post,
             'posts' => $posts,
+            'tags' => $tags,
             'previous' => $previous,
             'next' => $next,
             'archives' => $archives,
@@ -121,6 +126,49 @@ class PostController extends Controller
             );
 
         return view('user.posts.read', $data);
+    }
+
+    public function tags($slug)
+    {
+        $tag = Tag::whereSlug($slug)->first();
+        $posts = $tag->posts()->with('admin','category')->latest()->paginate(5);
+        $archives = $tag->posts()->latest()->limit(10)->get();
+        $categories = Category::cursor();
+        $tags = Tag::with('posts')->get();
+
+        $title = $tag->name;
+        $desc = $tag->desc;
+
+        SEOMeta::setTitle($title);
+        SEOMeta::setDescription($desc);
+        SEOMeta::setKeywords($tag->keywords);
+        SEOMeta::setCanonical('https://santonamedia.com/news',['slug'=>$tag->slug],'/articles');
+
+        OpenGraph::setTitle($title);
+        OpenGraph::setDescription($desc);
+        OpenGraph::setUrl('https://santonamedia.com/news',['slug'=>$tag->slug],'/articles');
+        OpenGraph::addProperty('type','articles');
+
+        Twitter::setTitle($title);
+        Twitter::setSite('@davycool30');
+
+        JsonLd::setTitle($title);
+        JsonLd::setDescription($desc);
+        JsonLd::addImage('https://santonamedia.com/public/static/globe.png');
+
+        foreach($tag->posts as $post){
+        OpenGraph::addImage('https://santonamedia.com/storage/public/storage',[$post->image,'height'=>'300','width' =>'300']);
+        }
+        
+        $data = array(
+            'tag' => $tag,
+            'tags' => $tags,
+            'posts' => $posts,
+            'archives' => $archives,
+            'categories' => $categories
+        );
+
+        return view('user.tags.posts', $data);
     }
         
 }

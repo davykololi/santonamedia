@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Tag;
 use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
@@ -22,8 +23,17 @@ Route::get('/', function () {
         $posts = $category->posts;
         $archives = Post::latest()->limit(10)->get();
         $posts = Post::latest()->paginate(10);
+        $tags = Tag::with('posts')->get();
 
-    return view('welcome',['categories'=>$categories,'posts'=>$posts,'archives'=>$archives,'category'=>$category]);
+        $data = array(
+                    'categories' => $categories,
+                    'posts' => $posts,
+                    'archives' => $archives,
+                    'category' => $category,
+                    'tags' => $tags,
+                    );
+
+    return view('welcome',$data);
 }
 });
 
@@ -106,8 +116,10 @@ Route::group(['namespace'=>'User','prefix'=>'news'],function(){
     //Front end Users posts routes
     Route::get('/{slug}/articles', 'PostController@getIndex')->name('category.articles');
     Route::get('/articles/details/{post_slug}', 'PostController@getFullNews')->name('users.posts.read');
+    Route::get('/articles/{slug}', 'PostController@tags')->name('post.tags');
     Route::get('/{slug}/videos', 'VideoController@getIndex')->name('category.videos');
     Route::get('/videos/details/{video_slug}', 'VideoController@getFullVideos')->name('users.videos.read');
+    Route::get('/videos/{slug}', 'VideoController@tags')->name('video.tags');
     Route::post('/comments','CommentController@store')->name('comments.store');
     //Most popular post route
     Route::get('/popular/{slug}', 'PopularPostController@popular')->name('popular');
@@ -135,6 +147,8 @@ Route::group(['prefix' => 'sitemap.xml',],function(){
     Route::get('/', 'SitemapController@index');
     Route::get('/articles', 'SitemapController@posts');
     Route::get('/videos', 'SitemapController@videos');
+    Route::get('/tags/videos', 'SitemapController@tagVideos');
+    Route::get('/tags/articles', 'SitemapController@tagArticles');
     Route::get('/category/videos', 'SitemapController@categoryVideos');
     Route::get('/category/articles', 'SitemapController@categoryArticles');
     Route::get('/about', 'SitemapController@about');

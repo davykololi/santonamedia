@@ -11,6 +11,7 @@ use SEO;
 use Share;
 use App\User;
 use App\Models\Video;
+use App\Models\Tag;
 use App\Models\Comment;
 use App\Models\Category;
 use App\Http\Controllers\Controller;
@@ -41,6 +42,7 @@ class VideoController extends Controller
         $videos = $category->videos()->with('admin','category')->latest()->paginate(5);
         $archives = $category->videos()->latest()->limit(10)->get();
         $categories = Category::cursor();
+        $tags = Tag::with('videos')->get();
 
         $title = $category->name;
         $desc = $category->description;
@@ -69,7 +71,8 @@ class VideoController extends Controller
             'category' => $category,
             'videos' => $videos,
             'archives' => $archives,
-            'categories' => $categories
+            'categories' => $categories,
+            'tags' => $tags,
         );
 
         return view('user.videos.index', $data);
@@ -84,18 +87,19 @@ class VideoController extends Controller
         $category = $video->category()->with('videos')->firstOrFail();
         $videos = $category->videos()->with('admin','category')->inRandomOrder()->paginate(5);
         $categories = Category::cursor();
+        $tags = Tag::with('videos')->get();
 
         $title = $video->title;
         $desc = $video->description;
 
-        SEOMeta::setTitle(strtolower($title));
+        SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
         SEOMeta::setKeywords($video->keywords);
         SEOMeta::addMeta('article:published_time', $video->created_at->toW3CString(),'property');
         SEOMeta::addMeta('article:section', strtolower($video->category->name),'property');
         SEOMeta::setCanonical('https://santonamedia.com/news/videos/details',['video_slug'=>$video->slug]);
 
-        OpenGraph::setTitle(strtolower($title));
+        OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
         OpenGraph::setUrl('https://santonamedia.com/news/videos/details',['video_slug'=>$video->slug]);
         OpenGraph::addProperty('type','article');
@@ -104,10 +108,10 @@ class VideoController extends Controller
                             'secure_url' => 'https://santonamedia.com/storage/public/videos',$video->video,
                             'type' => 'application/x-shockwave-flash','width' => 320,'height' => 240]);
 
-        Twitter::setTitle(strtolower($title));
+        Twitter::setTitle($title);
         Twitter::setSite('@davycool30');
 
-        JsonLd::setTitle(strtolower($title));
+        JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
         JsonLd::setType('Video');
 
@@ -119,8 +123,52 @@ class VideoController extends Controller
             'archives' => $archives,
             'category' => $category,
             'categories' => $categories,
+            'tags' => $tags,
             );
 
         return view('user.videos.read', $data);
+    }
+
+    public function tags($slug)
+    {
+        $tag = Tag::whereSlug($slug)->first();
+        $videos = $tag->videos()->with('admin','category')->latest()->paginate(5);
+        $archives = $tag->videos()->latest()->limit(10)->get();
+        $categories = Category::cursor();
+        $tags = Tag::with('videos')->get();
+
+        $title = $tag->name;
+        $desc = $tag->desc;
+
+        SEOMeta::setTitle($title);
+        SEOMeta::setDescription($desc);
+        SEOMeta::setKeywords($tag->keywords);
+        SEOMeta::setCanonical('https://santonamedia.com/news',['slug'=>$tag->slug],'/videos');
+
+        OpenGraph::setTitle($title);
+        OpenGraph::setDescription($desc);
+        OpenGraph::setUrl('https://santonamedia.com/news',['slug'=>$tag->slug],'/videos');
+        OpenGraph::addProperty('type','videos');
+
+        Twitter::setTitle($title);
+        Twitter::setSite('@davycool30');
+
+        JsonLd::setTitle($title);
+        JsonLd::setDescription($desc);
+        JsonLd::addImage('https://santonamedia.com/public/static/globe.png');
+
+        foreach($tag->videos as $video){
+        OpenGraph::addVideo('https://santonamedia.com/storage/public/storage',[$video->video,'height'=>'300','width' =>'300']);
+        }
+        
+        $data = array(
+            'tag' => $tag,
+            'videos' => $videos,
+            'archives' => $archives,
+            'categories' => $categories,
+            'tags' => $tags,
+        );
+
+        return view('user.tags.videos', $data);
     }
 }

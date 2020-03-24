@@ -1,7 +1,7 @@
 <aside class="col-sm-3 ml-sm-auto blog-sidebar" id="aside">
     <div class="sidebar-module">
         <br/>
-        <h4 class="astitle">LATEST ARTICLES </h4>
+        <h4 class="astitle">LATEST ARTICLES IN {!! strtoupper($tag->name) !!} </h4>
             @forelse($archives as $archive)
             <span class="asidespan">
                 <img class="asideimg" src ="/storage/public/storage/{{ $archive->image }}" alt ="{{ $archive->title }}"/>
@@ -35,14 +35,5 @@
             @endforeach
         @endif
     </div>
-    <div class="sidebar-module">
-        <br/>
-        <h4 class="astitle">TRENDING ARTICLES </h4>
-        @include('user.posts.popular')
-    </div>
-    <div class="sidebar-module">
-        <br/>
-        <h4 class="astitle">LAST WEEK ARTICLES </h4>
-        @include('user.posts.week')
-    </div>
+
 </aside><!-- /.blog-sidebar -->

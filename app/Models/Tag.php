@@ -3,12 +3,28 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Tag extends Model
 {
     //
+    use Sluggable;
+
     protected $table = 'tags';
-    protected $fillable = ['name'];
+    protected $fillable = ['name','desc','keywords'];
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name',
+                'separator' => '-',
+                'unique' => true,
+                'maxLenghKeepWords' => true,
+                'onUpdate' => true,
+            ]
+        ];
+    }
 
     public function posts()
     {

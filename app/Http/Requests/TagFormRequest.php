@@ -26,6 +26,8 @@ class TagFormRequest extends FormRequest
         return [
             //
             'name' => 'required',
+            'desc' => 'required',
+            'keywords' => 'required',
         ];
     }
 }

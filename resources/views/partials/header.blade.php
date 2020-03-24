@@ -1,5 +1,5 @@
 <header>
-    <nav class="navbar navbar-expand-md navbar-light fixed-top" id="menu">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar" id="menu">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('santonamedia.com') }}">
                     <span style="font-family: Arial Black; font-size: 10px;" id="white">
@@ -16,22 +16,28 @@
                         <li class="nav-item active">
                             <a id="white" class="nav-link" href="{{route('home')}}">HOME <span class="sr-only">(current)</span>
                             </a>
-                        </li>         
+                        </li> 
+                        <div class="dropdown">
+                            <a href="#" class="btn btn-primary dropdown-toggle drop" type="button" id="dropdownLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                NEWS 
+                            </a>
+                        <div class="dropdown-menu" aria-labelled="dropdownLink">      
                         @if(!empty($navs))
                                 @foreach($navs as $category)
-                        <li class="nav-item active">
-                            <a id="white" class="nav-link" href="{{route('category.articles',['slug' => $category->slug])}}">
+                            <li class="nav-item active">
+                            <a id="white" class="dropdown-item" href="{{route('category.articles',['slug' => $category->slug])}}">
                                 {{$category->name}}
                             </a>
-                        </li>
+                            </li>   
                                 @endforeach
                         @endif
-
+                        </div>
+                        </div>
                         <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" style="margin-top: 12px" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a href="#" class="btn btn-primary dropdown-toggle drop" type="button" id="dropdownLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 VIDEOS
-                            </button>
-                        <div class="dropdown-menu" aria-labelled="dropdownMenu2">
+                            </a>
+                        <div class="dropdown-menu" aria-labelled="dropdownLink">
                         @if(!empty($navs))
                                 @foreach($navs as $category)
                             <li class="nav-item active">

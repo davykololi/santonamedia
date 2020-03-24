@@ -2,7 +2,6 @@
 
 namespace App\Http\ViewComposers;
 
-use App\Models\Post;
 use App\Models\Category;
 use Illuminate\View\View;
 
@@ -17,7 +16,7 @@ class AppComposer
 
     public function compose(View $view){
         $categories = Category::all();
-        $navs = Category::limit(5)->get();
-        $view->with(['categories'=>$categories,'navs'=>$navs,]);
+        $navs = Category::limit(10)->get();
+        $view->with(['categories'=>$categories,'navs'=>$navs]);
     }
 }

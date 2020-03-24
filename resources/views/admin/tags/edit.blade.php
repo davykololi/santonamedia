@@ -22,6 +22,18 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="control-label col-sm-2" >Description</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="desc" id="desc" class="form-control" value="{{ $tag->desc }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" >Keywords</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="keywords" id="keywords" class="form-control" value="{{$tag->keywords}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <input type="submit" class="btn btn" id="button" value="Update Tag" />
                         </div>

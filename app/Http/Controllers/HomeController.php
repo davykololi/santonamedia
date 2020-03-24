@@ -7,6 +7,7 @@ use JsonLd;
 use SEOMeta;
 use Twitter;
 use OpenGraph;
+use App\Models\Tag;
 use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -36,8 +37,13 @@ class HomeController extends Controller
         $posts = $category->posts;
         $archives = Post::latest()->limit(10)->get();
         $posts = Post::latest()->paginate(10);
+        $tags = Tag::with('posts')->get();
 
-        $title = 'Latest News';
+        foreach ($posts as $post) {
+            OpenGraph::addImage('https://santonamedia.com/storage/public/storage',[$post->image,'height'=>'300','width' =>'300']);
+        }
+
+        $title = 'Latest/Breaking News';
         $desc = 'Latest news in Kenya,East Africa, Africa,Europe,Asia and America';
         $url = 'https://santonamedia.com/home';
 
@@ -60,6 +66,7 @@ class HomeController extends Controller
         $data = array(
             'category' => $category,
             'posts' => $posts,
+            'tags' => $tags,
             'archives' => $archives,
             'categories' => $categories
         );

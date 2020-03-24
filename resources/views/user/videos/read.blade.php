@@ -13,11 +13,11 @@
                         @include('partials.video')
                         <p class="card-text" id="ffbdy">{{ $video->content }} <strong> This Article Has: </strong>
                         <span style="color:blue;">  {{$video->comments->count()}} {{ Str::plural('comment',$video->comments->count())}} </span> <i>. Be the first to comment.<span style="color: blue"> You must be logged in to comment</span></i>
-                        <br/>
+                        <br/><br/>
                         <strong>Tags:</strong>
                         @foreach($video->tags as $tag)
-                            <a href="{{route('category.videos',['slug' => $category->slug])}}">
-                            <label class="label label-info">{{$tag->name}}</label>
+                            <a href="{{route('video.tags',['slug' => $tag->slug])}}">
+                            <label class="label label-info mg2px">{{$tag->name}}</label>
                             </a>
                         @endforeach
                         </p><hr/>
