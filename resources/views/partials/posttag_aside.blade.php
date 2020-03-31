@@ -1,7 +1,7 @@
 <aside class="col-sm-3 ml-sm-auto blog-sidebar" id="aside">
     <div class="sidebar-module">
         <br/>
-        <h4 class="astitle">LATEST ARTICLES IN {!! strtoupper($tag->name) !!} </h4>
+        <h4 class="astitle">LATEST {!! strtoupper($tag->name) !!} ARTICLES </h4>
             @forelse($archives as $archive)
             <span class="asidespan">
                 <img class="asideimg" src ="/storage/public/storage/{{ $archive->image }}" alt ="{{ $archive->title }}"/>

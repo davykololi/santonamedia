@@ -4,14 +4,14 @@
 @foreach($post->comments as $comment)
 	<div>
 		@if(!empty($comment->user->avatar))
-		<img width="30" height="30" class="rounded-circle" src = "/storage/avatars/{{$comment->user->avatar }}">
+		<img width="30" height="30" class="rounded-circle mr-3" src = "/storage/avatars/{{$comment->user->avatar }}">
 		@else
 			<img width="30" height="30" class="rounded-circle" src="/static/avatar.png"/>
 		@endif
 	</div>
-	<span> {{$comment->content}} </span>By:
-	<strong> {{$comment->user->name}} </strong>
-	 {{$comment->created_date}}
+	<strong> {{$comment->user->name}} : </strong>
+	<span> {{$comment->content}}. </span>
+	 <span style="color: blue"> <i>{{$comment->created_date}} </i> </span>
 	 <hr/>
 @endforeach
 @endif

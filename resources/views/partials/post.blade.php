@@ -16,7 +16,9 @@
     </div>
 </p>
 <figure>
-    <img style="width:40%;border: solid gray" src = "/storage/public/storage/{{ $post->image }}" alt ="{{ $post->title }}"><br/>
- 	<figcaption> <span id="dimgray"> {{$post->caption}}</span> </figcaption>
+    <img style="width:40%;border: solid gray" src = "/storage/public/storage/{{ $post->image }}" alt = "{{$post->title}}"><br/>
+    <figcaption> 
+        <span id="dimgray"><strong> {{$post->caption}} </strong></span> 
+    </figcaption>
 </figure>
 </article>

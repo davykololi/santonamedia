@@ -17,7 +17,7 @@
 </p>
 <figure>
     <video width="320" height="240" controls poster="{{asset('/static/lion.JPG')}}"> 
-        <source type="video/mp4" src = "/storage/public/videos/{{ $video->video }}">
+        <source type="video/mp4" src = "/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}">
             This browser doesn't support video tag.
     </video>
     <br/>

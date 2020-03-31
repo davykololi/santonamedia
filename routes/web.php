@@ -37,6 +37,7 @@ Route::get('/', function () {
 }
 });
 
+Route::group(['middleware' => 'prevent-back-history'],function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -123,6 +124,10 @@ Route::group(['namespace'=>'User','prefix'=>'news'],function(){
     Route::post('/comments','CommentController@store')->name('comments.store');
     //Most popular post route
     Route::get('/popular/{slug}', 'PopularPostController@popular')->name('popular');
+    Route::get('/seven-days','GeneralController@getData')->name('seven.days');
+    });
+
+Route::group(['namespace'=>'User'],function(){
     // Social login routes
     Route::get('/auth/redirect/{provider}','SocialController@redirect');
     Route::get('/callback/{provider}','SocialController@callback');
@@ -133,7 +138,6 @@ Route::group(['namespace'=>'User','prefix'=>'news'],function(){
     Route::get('profile','UserController@profile');
     Route::post('profile','UserController@update_avatar');
     //One week old Articles
-    Route::get('/seven-days','GeneralController@getData')->name('seven.days');
     });
 
 //Admin view contacts messages
@@ -155,4 +159,4 @@ Route::group(['prefix' => 'sitemap.xml',],function(){
     Route::get('/contact', 'SitemapController@contact');
     Route::get('/home', 'SitemapController@home');
     });
-
+});

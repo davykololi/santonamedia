@@ -40,12 +40,12 @@ class HomeController extends Controller
         $tags = Tag::with('posts')->get();
 
         foreach ($posts as $post) {
-            OpenGraph::addImage('https://santonamedia.com/storage/public/storage',[$post->image,'height'=>'300','width' =>'300']);
+            OpenGraph::addImage('http://santonamedia.com/storage/public/storage',[$post->image,'height'=>'300','width' =>'300']);
         }
 
         $title = 'Latest/Breaking News';
         $desc = 'Latest news in Kenya,East Africa, Africa,Europe,Asia and America';
-        $url = 'https://santonamedia.com/home';
+        $url = 'http://santonamedia.com/home';
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);

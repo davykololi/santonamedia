@@ -11,7 +11,7 @@
 <br/>
 <h3 class="center title blue">CONTACT FORM</h3>
 <p class="center" style="font-size: 15px;">
-We are so glad that you are contacting us. Fill the form below and submit to us.
+We are so glad that you are contacting us.Fill the form below and submit to us. 
 </p>
  
 {!! Form::open(['route'=>'contactus.store']) !!}
@@ -36,7 +36,6 @@ We are so glad that you are contacting us. Fill the form below and submit to us.
 <div class="form-group">
 <button class="btn btn" id="button" value="submit">Submit</button>
 </div>
- 
 {!! Form::close() !!}
 </div>
 </div>

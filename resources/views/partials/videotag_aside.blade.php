@@ -1,7 +1,7 @@
 <aside class="col-sm-3 ml-sm-auto blog-sidebar" id="aside">
     <div class="sidebar-module">
         <br/>
-        <h4 class="astitle">LATEST VIDEOS IN {!! strtoupper($tag->name) !!}</h4>
+        <h4 class="astitle">LATEST {!! strtoupper($tag->name) !!} VIDEOS</h4>
             @forelse($archives as $archive)
             <span class="asidespan">
                 <video width="40" height="30" class="asideimg" controls> 
