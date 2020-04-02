@@ -2,9 +2,8 @@
 
 namespace App\Jobs;
 
-use Illuminate\Support\Facades\Mail;
+use Mail;
 use App\Mail\ContactMail;
-use App\Models\Contact;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -22,7 +21,7 @@ class SendContactJob implements ShouldQueue
      *
      * @return void
      */
-    public function __construct(Contact $contact)
+    public function __construct($contact)
     {
         //
         $this->contact = $contact;
@@ -38,6 +37,6 @@ class SendContactJob implements ShouldQueue
         //
         $contact = $this->contact;
         $address = 'kololimdavid@gmail.com';
-        Mail::to($address)->send(new ContactMail($contact));
+        Mail::to($address)->send(new ContactMail($this->contact));
     }
 }

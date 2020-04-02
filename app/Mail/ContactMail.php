@@ -4,7 +4,6 @@ namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use App\Models\Contact;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
@@ -19,7 +18,7 @@ class ContactMail extends Mailable
      *
      * @return void
      */
-    public function __construct(Contact $contact)
+    public function __construct($contact)
     {
         //
         $this->contact = $contact;

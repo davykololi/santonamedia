@@ -35,7 +35,7 @@ img,video,canvas{max-width: 100%;}
 .asc{color:blue;font-size: 16px;font-family:roman;margin-left: 50px}
 .login{color: white; text-align: center;font-size: 20px}
 .white{color: white}
-.asidespan{display: flex;background-color: #87AFC7;margin-top: 3px;margin-bottom: 5px}
+.asidespan{display: flex;background-color: #87AFC7;margin-top: 1px;margin-bottom: 5px}
 .asideimg{width: 15%;height: 15%;float: left;margin-bottom: 10px;border: ridge;border-color: white;}
 .mg2px{margin: 2px;display: inline-flex;}
 .tags{margin-left: 100px;font-size: 15px}
