@@ -19,6 +19,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
         "laravelcollective/html": "^6.0",
+        "laravolt/avatar": "^3.2",
         "pusher/pusher-php-server": "^4.1",
         "renatomarinho/laravel-page-speed": "^1.8",
         "spatie/laravel-analytics": "^3.9",

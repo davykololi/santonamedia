@@ -15,6 +15,7 @@
             <div class="panel-body">
                 <form action="{{ route('admin.categories.store') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                     {{ csrf_field() }}
+                    <input type="hidden" name="_method" value="POST">
                     <div class="form-group">
                         <label class="control-label col-sm-2" >Name</label>
                         <div class="col-sm-10">

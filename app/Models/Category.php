@@ -39,10 +39,4 @@ class Category extends Model
     {
         return $this->hasMany('App\Models\Comment','category_id','id');
     }
-
-	public function setNameAttribute($value)
-	{
-    	$this->attributes['name'] = strtoupper($value);
-	}
-
 }

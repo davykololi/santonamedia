@@ -1,7 +1,7 @@
 <aside class="col-sm-3 ml-sm-auto blog-sidebar" id="aside">
     <div class="sidebar-module">
         <br/>
-        <h4 class="astitle">LATEST {!! $category->name !!} VIDEOS </h4>
+        <h4 class="astitle">LATEST {!! strtoupper($category->name) !!} VIDEOS </h4>
             @forelse($archives as $archive)
             <span class="asidespan">
                 <video width="40" height="30" class="asideimg" controls> 
@@ -21,9 +21,7 @@
             @endforelse
     </div>
     <div class="sidebar-module">
-        <br/>
         <h4 class="astitle">VIDEO CATEGORIES </h4>
-        <br/>
         @if(!empty($categories))
             @foreach($categories as $category)
                 <ul class="list-unstyled">

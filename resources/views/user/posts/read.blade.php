@@ -11,24 +11,28 @@
             <div class="col-sm-8 blog-main">
                     <div class="blog-post">
                         @include('partials.post')
-                        <p class="card-text" id="ffbdy">{{ $post->content }}. <strong> Has: </strong>
+                        <p class="card-text" id="ffbdy" style="background-color: lightgray">{{ $post->content }}. 
+                        	<strong> Has: </strong>
                         <span style="color:blue;">  {{$post->comments->count()}} {{ Str::plural('comment',$post->comments->count())}} </span> <i>. Be the first to comment.<span style="color: blue"> You must be logged in to comment</span></i>
                         <br/><br/>
+                        </p>
+                        <div id="ffbdy">
                         <strong>Tags:</strong>
                         @foreach($post->tags as $tag)
                             <a href="{{route('post.tags',['slug' => $tag->slug])}}">
                             <label class="label label-info mg2px">{{$tag->name}}</label>
                             </a>
                         @endforeach
-                        </p><hr/>
+                    	</div>
+                        <hr/>
                         @include('partials.prevnext')
                         <br/>
                         @include('partials.share')             
                         <br/>
-                        @include('user.posts.commentsDisplay')
-                        <br/>
                         @include('user.posts.commentForm')
-                        <hr/><hr/><br/>
+                        <br/>
+                        @include('user.posts.commentsDisplay')
+                        <hr class="style-four"> 
                     </div><!-- /.blog-post -->
                     <br/>
                     @include('partials.ext')      

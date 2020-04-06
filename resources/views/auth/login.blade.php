@@ -15,8 +15,8 @@
                         <section id="footer">
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
-                            <p class="login">Login with:</p>
                                 <ul class="list-unstyled list-inline social text-center">
+                                	<span class="login"> Login with: </span> 
                                     <li class="list-inline-item"><a href="{{url('/auth/redirect/facebook')}}"><i class="fa fa-facebook"></i></a></li>
                                     <li class="list-inline-item"><a href="{{url('/auth/redirect/twitter')}}"><i class="fa fa-twitter"></i></a></li>
                                     <li class="list-inline-item"><a href="{{url('/auth/redirect/linkedin')}}"><i class="fa fa-linkedin"></i></a></li>

@@ -23,6 +23,16 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
+            <strong> Description:</strong> <span id="fb"> {{ $tag->desc }} </span>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong> Keywords:</strong> <span id="fb"> {{ $tag->keywords }} </span>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
             <span>
                 <strong>Published On: </strong> {{ date("F j,Y,g:i a",strtotime($tag->created_at)) }}
             </span>

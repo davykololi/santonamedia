@@ -47,20 +47,20 @@ class VideoController extends Controller
         $title = $category->name;
         $desc = $category->description;
 
-        SEOMeta::setTitle(strtolower($title));
+        SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
         SEOMeta::setKeywords($category->keywords);
         SEOMeta::setCanonical('http://santonamedia.com/news',['slug'=>$category->slug],'/videos');
 
-        OpenGraph::setTitle(strtolower($title));
+        OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
         OpenGraph::setUrl('http://santonamedia.com/news',['slug'=>$category->slug],'/videos');
         OpenGraph::addProperty('type','videos');
 
-        Twitter::setTitle(strtolower($title));
+        Twitter::setTitle($title);
         Twitter::setSite('@davycool30');
 
-        JsonLd::setTitle(strtolower($title));
+        JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
 
         foreach($category->videos as $video){

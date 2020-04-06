@@ -1,4 +1,4 @@
-<header>
+<header style="text-align: center;">
     <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar" id="menu">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('santonamedia.com') }}">
@@ -17,9 +17,11 @@
                             <a id="white" class="nav-link" href="{{route('home')}}">HOME <span class="sr-only">(current)</span>
                             </a>
                         </li> 
-                        <div class="dropdown">
-                            <a href="#" class="btn btn-primary dropdown-toggle drop" type="button" id="dropdownLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                NEWS 
+                        <li><a id="white" class="nav-link" href="{{route('users.pages.about')}}"> ABOUT </a></li>
+                        <li><a id="white" class="nav-link" href="{{ route ('users.pages.contact') }}"> CONTACT US </a></li>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button" v-pre style="margin-top: 11px">
+                                <span id="white"> NEWS </span> <span class="caret" id="cwhite"></span>
                             </a>
                         <div class="dropdown-menu" aria-labelled="dropdownLink">      
                         @if(!empty($navs))
@@ -33,9 +35,9 @@
                         @endif
                         </div>
                         </div>
-                        <div class="dropdown">
-                            <a href="#" class="btn btn-primary dropdown-toggle drop" type="button" id="dropdownLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                VIDEOS
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button" v-pre style="margin-top: 11px">
+                                <span id="white"> VIDEOS </span> <span class="caret" id="cwhite"></span>
                             </a>
                         <div class="dropdown-menu" aria-labelled="dropdownLink">
                         @if(!empty($navs))
@@ -48,7 +50,7 @@
                                 @endforeach
                         @endif 
                         </div>
-                        </div>           
+                        <div> 
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -56,11 +58,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" id="white" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" id="white" href="{{ route('login') }}">{{ __('SIGNIN') }}</a>
                             </li>
                             @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" id="white" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="nav-link" id="white" href="{{ route('register') }}">{{ __('SIGNUP') }}</a>
                             </li>
                             @endif
                         @else

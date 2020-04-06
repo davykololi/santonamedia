@@ -46,20 +46,20 @@ class PostController extends Controller
         $title = $category->name;
         $desc = $category->description;
 
-        SEOMeta::setTitle(strtolower($title));
+        SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
         SEOMeta::setKeywords($category->keywords);
         SEOMeta::setCanonical('http://santonamedia.com/news',['slug'=>$category->slug],'/articles');
 
-        OpenGraph::setTitle(strtolower($title));
+        OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
         OpenGraph::setUrl('http://santonamedia.com/news',['slug'=>$category->slug],'/articles');
         OpenGraph::addProperty('type','articles');
 
-        Twitter::setTitle(strtolower($title));
+        Twitter::setTitle($title);
         Twitter::setSite('@davycool30');
 
-        JsonLd::setTitle(strtolower($title));
+        JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
         JsonLd::addImage('http://santonamedia.com/public/static/globe.png');
 

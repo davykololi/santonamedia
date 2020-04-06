@@ -13,7 +13,7 @@
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
                     <br/>
-                    <h2 class="titles">CATEGORIES</h2>
+                    <h3 class="titles">CATEGORIES</h3>
                 </div>
                 <div class="pull-right">
                     <br/>

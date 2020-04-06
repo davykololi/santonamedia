@@ -21,9 +21,7 @@
             @endforelse
     </div>
     <div class="sidebar-module">
-        <br/>
         <h4 class="astitle"> VIDEO CATEGORIES </h4>
-        <br/>
         @if(!empty($categories))
             @foreach($categories as $category)
                 <ul class="list-unstyled">

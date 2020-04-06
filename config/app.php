@@ -168,6 +168,7 @@ return [
         RenatoMarinho\LaravelPageSpeed\ServiceProvider::class,
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
         Spatie\Analytics\AnalyticsServiceProvider::class,
+        Laravolt\Avatar\ServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -242,6 +243,7 @@ return [
         'JsonLd' => Artesaos\SEOTools\Facades\JsonLd::class,
         'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
         'Analytics' => Spatie\Analytics\AnalyticsFacade::class,
+        'Avatar' => Laravolt\Avatar\Facade::class,
 
     ],
 

@@ -1,4 +1,4 @@
-<h5 class="title" style="text-align: center;font-size: 20px">PEROUSE ALL VIDEOS</h5>
+<h5 class="title" style="text-align: center;">PERUSE ALL VIDEOS</h5>
 <div class="row">
     <div class="col-md-6">
         @if(isset($previous))

@@ -34,6 +34,12 @@
                                 <div>{{$tag->name}}</div>
                             </td>
                             <td class="table-text">
+                                <div>{{$tag->slug}}</div>
+                            </td>
+                            <td class="table-text">
+                                <div>{!! Str::limit($tag->desc,$limit=30,$end= '...') !!}</div>
+                            </td>
+                            <td class="table-text">
                                 <div>{{$tag->created_at}}</div>
                             </td>
                             <td>

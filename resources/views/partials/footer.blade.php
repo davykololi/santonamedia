@@ -6,14 +6,13 @@
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<h5>Quick links</h5>
 					<ul class="list-unstyled quick-links">
-						<li><a href="/home"><i class="fa fa-angle-double-right"></i>HOME</a></li>
-						<li><a href="{{route('users.pages.about')}}"><i class="fa fa-angle-double-right"></i>ABOUT</a></li>
-						<li><a href="{{ route ('users.pages.contact') }}"><i class="fa fa-angle-double-right"></i>CONTACT US</a></li>
-						<li><a href="{{ route ('private.policy') }}"><i class="fa fa-angle-double-right"></i>PRIVATE POLICY</a></li>
-						<li><a href="{{ route ('pages.portfolio') }}"><i class="fa fa-angle-double-right"></i>PORTFOLIO</a></li>
+						<li><a href="/home"><i class="fa fa-angle-double-right"></i>Home</a></li>
+						<li><a href="{{route('users.pages.about')}}"><i class="fa fa-angle-double-right"></i>About</a></li>
+						<li><a href="{{ route ('users.pages.contact') }}"><i class="fa fa-angle-double-right"></i>Contact Us</a></li>
+						<li><a href="{{ route ('private.policy') }}"><i class="fa fa-angle-double-right"></i>Private Policy</a></li>
+						<li><a href="{{ route ('pages.portfolio') }}"><i class="fa fa-angle-double-right"></i>Portfolio</a></li>
 					</ul>
 				</div>
-
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<h5>Categories</h5>
 					<ul class="list-unstyled quick-links">

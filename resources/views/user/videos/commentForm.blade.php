@@ -1,3 +1,4 @@
+<h5 class="blue">Comment:</h5>
 <form method="post" action="{{route('comments.store')}}">
 	@csrf
 	<div class="form-group">

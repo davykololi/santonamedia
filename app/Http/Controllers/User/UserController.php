@@ -6,6 +6,7 @@ use Auth;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -27,9 +28,12 @@ class UserController extends Controller
 
     	$request->avatar->storeAs('avatars',$avatarName);
 
+        if($user){
+        Storage::delete('avatars/'.$user->avatar);
     	$user->avatar = $avatarName;
     	$user->save();
 
     	return back()->withSuccess('You have successfully uploaded the image');
+        }
     }
 }

@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2 class="titles">CATEGORY DETAILS</h2>
+            <h3 class="titles">CATEGORY DETAILS</h3>
         </div>
         <div class="pull-right">
             <a href="{{ route('admin.categories.index') }}" class="label label-primary pull-right"> Back</a>

@@ -1,11 +1,25 @@
 <?php
 
 return [
-    'facebook' => '<li><a href=":url" class="social-button :class" id=":id"><span class="fab fa-facebook-square"></span></a></li>',
-    'twitter' => '<li><a href=":url" class="social-button :class" id=":id"><span class="fab fa-twitter"></span></a></li>',
-    'linkedin' => '<li><a href=":url" class="social-button :class" id=":id"><span class="fab fa-linkedin"></span></a></li>',
-    'whatsapp' => '<li><a target="_blank" href=":url" class="social-button :class" id=":id"><span class="fab fa-whatsapp"></span></a></li>',
-    'pinterest' => '<li><a href=":url" class="social-button :class" id=":id"><span class="fab fa-pinterest"></span></a></li>',
-    'reddit' => '<li><a target="_blank" href=":url" class="social-button :class" id=":id"><span class="fab fa-reddit"></span></a></li>',
-    'telegram' => '<li><a target="_blank" href=":url" class="social-button :class" id=":id"><span class="fab fa-telegram"></span></a></li>',
+    'facebook' => 	'<a href=":url" class="social-button :class" id=":id">
+    					<span class="fa fa-facebook-square fa-2x fa-spin" aria-hidden="true"></span>
+    			 	</a>',
+    'twitter' => 	'<a href=":url" class="social-button :class" id=":id">
+    					<span class="fa fa-twitter-square fa-2x fa-spin" aria-hidden="true"></span>
+    				</a>',
+    'linkedin' => 	'<a href=":url" class="social-button :class" id=":id">
+    					<span class="fa fa-linkedin-square fa-2x fa-spin" aria-hidden="true"></span>
+    				</a>',
+    'whatsapp' => 	'<a target="_blank" href=":url" class="social-button :class" id=":id">
+    					<span class="fa fa-whatsapp fa-2x fa-spin" aria-hidden="true"></span>
+					</a>',
+    'pinterest' => '<a href=":url" class="social-button :class" id=":id">
+    					<span class="fa fa-pinterest-square fa-2x fa-spin" aria-hidden="true"></span>
+    				</a>',
+    'reddit' => 	'<a target="_blank" href=":url" class="social-button :class" id=":id">
+    					<span class="fa fa-reddit-square fa-2x fa-spin" aria-hidden="true"></span>
+    				</a>',
+    'telegram' => 	'<a target="_blank" href=":url" class="social-button :class" id=":id">
+    					<span class="fa fa-telegram-square fa-2x fa-spin" aria-hidden="true"></span>
+    				</a>',
 ];
