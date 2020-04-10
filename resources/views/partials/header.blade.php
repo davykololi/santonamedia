@@ -14,7 +14,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a id="white" class="nav-link" href="{{route('home')}}">HOME <span class="sr-only">(current)</span>
+                            <a id="white" class="nav-link" href="{{route('home')}}">HOME<i><span class="fa fa-home"></span></i> <span class="sr-only">(current)</span>
                             </a>
                         </li> 
                         <li><a id="white" class="nav-link" href="{{route('users.pages.about')}}"> ABOUT </a></li>
@@ -68,10 +68,9 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <img width="30" height="30" class="rounded-circle" src = "/storage/avatars/{{Auth::user()->avatar }}">
+                                    <img width="25" height="25" class="rounded-circle" src = "/storage/avatars/{{Auth::user()->avatar }}" style="margin: 6px;margin-top: 0px">
                                     <span id="cwhite">{{ Auth::user()->name }}</span> <span class="caret" id="cwhite"></span>
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="/profile">
                                         Profile

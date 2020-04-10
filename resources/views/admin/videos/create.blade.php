@@ -4,7 +4,7 @@
 @section('content')
 <main role="main" class="container"  style="margin-top: 5px" id="main">
 <br/>
-<div class="row">
+<div class="row" id="lightblue">
     <div class="col-lg-12">
         @include('partials.errors')
         <div class="panel panel-default">

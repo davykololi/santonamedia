@@ -20,22 +20,7 @@
             <p style="color: red">None</p>
             @endforelse
     </div>
-    <div class="sidebar-module">
-        <h4 class="astitle">VIDEO CATEGORIES </h4>
-        @if(!empty($categories))
-            @foreach($categories as $category)
-                <ul class="list-unstyled">
-                    <li>
-                        <a class="asc" href="{{route('category.videos',['slug' => $category->slug])}}">
-                            {{$category->name}}
-                            <span class="badge badge-secondary badge-pill">{{$category->videos->count()}}</span>
-                        </a>
-                    </li>
-                </ul>
-            @endforeach
-        @endif
-    </div>
-
+    @include('partials.categories')
     <div class="sidebar-module">
         <br/>
         <h4 class="astitle">TRENDING ARTICLES </h4>

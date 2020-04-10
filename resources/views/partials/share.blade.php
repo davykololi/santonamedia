@@ -7,11 +7,9 @@
 <span class="margin5">{!! Share::currentPage()->pinterest(); !!}</span>
 <span class="margin5">{!! Share::currentPage()->reddit(); !!}</span>
 <span class="margin5">{!! Share::currentPage()->telegram(); !!}</span>
-<span class="margin5">
 	<a href="https://plus.google.com/share?url={{ urlencode(Request::fullUrl()) }}"
        target="_blank" rel="nofollow" class="social-button"> 
            <span class="fa fa-google-plus-square fa-2x fa-spin" aria-hidden="true"></span>
-     </a>
-</span>
+    </a>
 <br/><br/>
 
