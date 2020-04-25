@@ -32,7 +32,7 @@ class ContactMail extends Mailable
     public function build()
     {
         return $this->markdown('emails.contactmail')
-                    ->subject('News Reader Mail')
+                    ->subject('Santona Media Reader Mail')
                     ->with([
                             'name'=>$this->contact->name,
                             'email'=>$this->contact->email,

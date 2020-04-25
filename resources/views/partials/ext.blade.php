@@ -1,4 +1,4 @@
-<h2 class="title" style="font-size: 20px;text-align: center;"> RECOMMENDED ARTICLES</h2>
+<h2 class="title box">RECOMMENDED ARTICLES</h2>
 @if(!empty($posts))
     @foreach($posts as $post)
         <div class="blog-post">

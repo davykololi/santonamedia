@@ -1,4 +1,4 @@
-Sitemap:http://www.santonamedia.com/sitemap.xml
+Sitemap:http://santonamedia.com/sitemap.xml
 User-agent: *
 
 Disallow:

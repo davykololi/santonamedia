@@ -20,7 +20,7 @@
                 @endforelse
             @endif
                 <nav class="blog-pagination">
-                    {{ $posts->render() }}
+                    {{ $posts->links() }}
                 </nav>
                 @include('user.posts.tags')
             </div><!-- /.blog-main -->

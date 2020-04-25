@@ -22,6 +22,13 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
     /**
+    * Login username to be used by the controller.
+    *
+    *@var string
+    */
+    protected $username;
+
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -30,6 +37,7 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
         Session::put('preUrl',URL::previous());
+        $this->username = $this->findUsername();
     }
 
     /**
@@ -39,6 +47,22 @@ class LoginController extends Controller
      */
     public function redirectTo()
     {
-    	return Session::get('preUrl') ? Session::get('preUrl') : $this->redirectTo;
+        return Session::get('preUrl') ? Session::get('preUrl') : $this->redirectTo;
     }
+
+    public function findUsername()
+    {
+        $login = request()->input('login');
+        $fieldType = filter_var($login,FILTER_VALIDATE_EMAIL) ? 'email':'username';
+
+        request()->merge([$fieldType => $login]);
+
+        return $fieldType;
+    }
+
+    public function username()
+    {
+        return $this->username;
+    }
+        
 }

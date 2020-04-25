@@ -6,19 +6,13 @@
 		</span>
 	</h4>
 	<br/>
-@if(!empty($video->comments))
-@foreach($video->comments as $comment)
-	<div>
-		@if(!empty($comment->user->avatar))
-			<img width="30" height="30" style="float: left" src = "/storage/avatars/{{$comment->user->avatar }}"/>
-		@else
-			<img width="30" height="30" src="{{asset('static/avatar.png')}}"/>
-		@endif
-	</div>
+	@if(!empty($video->comments))
+		@foreach($video->comments as $comment)
+			<img width="30" height="30" style="float: left" src = "/storage/avatars/{{$comment->user->avatar }}" onerror="this.src='{{asset('static/avatar.png')}}'" loading="lazy" />
 	<strong style="margin-left: 5px"> {{$comment->user->name}} </strong>
 	<div style="color: blue;"> <i style="margin-left: 5px">{{$comment->created_date}} </i> </div>
 	<div style="margin-top: 5px"> {{$comment->content}}. </div>
 	<hr/>
-@endforeach
-@endif
+		@endforeach
+	@endif
 </div>

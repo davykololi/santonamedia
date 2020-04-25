@@ -1,16 +1,16 @@
 @component('mail::message')
 # Hi News Admin,
 
-This message has been sent to you from news.com esteemeed reader.
+This message has been sent to you from santonamedia.com esteemeed reader.
 
-Name: {!! $name !!}
+Name: <p> {!! $name !!} </p>
 
-E-mail: {!! $email !!}
+E-mail: <p> <i>{!! $email !!}</i> </p>
 
-Message: {!! $message !!}
+Message: <p style="color: blue"> {!! $message !!} </p>
 
-@component('mail::button', ['url' => 'http://localhost:8888',])
-Button Text
+@component('mail::button', ['url' => 'https://santonamedia.com'])
+Click Here
 @endcomponent
 
 Thanks,<br>

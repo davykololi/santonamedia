@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 
 class Post extends Model
 {
     //
-    use Sluggable;
+    use Sluggable,Searchable;
 
     protected $table = 'posts';
     protected $fillable = ['title','image','caption','content','description','keywords','admin_id','category_id'];
@@ -25,6 +26,11 @@ class Post extends Model
                 'onUpdate' => true,
             ]
         ];
+    }
+
+    public function searchableAs()
+    {
+        return 'posts_index';
     }
    
     public function admin()

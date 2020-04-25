@@ -140,6 +140,11 @@ Route::group(['namespace'=>'User'],function(){
     //One week old Articles
     });
 
+Route::group(['namespace'=>'Search'],function(){
+    Route::get('/post.lists','SearchPostController@search')->name('post.list');
+    Route::get('/video.lists','SearchVideoController@search')->name('video.list');
+    });
+
 //Admin view contacts messages
 Route::group(['namespace' => 'Admin','prefix'=>'admin'],function(){
     Route::get('/contacts/','GeneralController@getContacts')->name('contactus.contacts');

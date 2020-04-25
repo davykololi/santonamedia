@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 
 class Video extends Model
 {
     //
-    use Sluggable;
+    use Sluggable,Searchable;
 
     protected $table = 'videos';
     protected $fillable = ['title','video','caption','content','description','keywords','admin_id','category_id'];
@@ -25,6 +26,11 @@ class Video extends Model
                 'onUpdate' => true,
             ]
         ];
+    }
+
+    public function searchableAs()
+    {
+        return 'videos_index';
     }
    
     public function admin()

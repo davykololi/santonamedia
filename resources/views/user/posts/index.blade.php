@@ -2,7 +2,7 @@
 @section('title'|'Articles')
 
 @section('content')
-    <main role="main" class="container" id="main">
+    <main class="container" id="main">
         <div class="row">
             <div class="col-sm-8 blog-main">
                @forelse($posts as $post)

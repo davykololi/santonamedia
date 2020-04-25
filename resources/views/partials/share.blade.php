@@ -1,3 +1,4 @@
+<div style="font-size: 12px;color: purple">We will be clad if you share this information on social media.Thank you</div>
 <br/>
 <span style="font-family: Comic Sans MS;font-size: 12px"> <strong>Share on: </strong> </span>
 <span class="margin5">{!! Share::currentPage()->facebook(); !!}</span>

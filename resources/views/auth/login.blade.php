@@ -16,7 +16,7 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
                                 <ul class="list-unstyled list-inline social text-center">
-                                	<span class="login"> Login with: </span> 
+                                    <span class="login"> Login with: </span> 
                                     <li class="list-inline-item"><a href="{{url('/auth/redirect/facebook')}}"><i class="fa fa-facebook"></i></a></li>
                                     <li class="list-inline-item"><a href="{{url('/auth/redirect/twitter')}}"><i class="fa fa-twitter"></i></a></li>
                                     <li class="list-inline-item"><a href="{{url('/auth/redirect/linkedin')}}"><i class="fa fa-linkedin"></i></a></li>
@@ -31,16 +31,17 @@
 
                         <br/><br/>
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right" id="cwhite">{{ __('E-Mail Address') }}</label>
-
+                            <label for="login" class="col-md-4 col-form-label text-md-right" id="cwhite">
+                                {{ __('Username Or Email') }}
+                            </label>
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="login" type="text" class="form-control {{ $errors->has('username') || $errors->has('email') ? 'is_valid' : ''}}" name="login" value="{{ old('username') }}" required autofocus>
 
-                                @error('email')
+                                @if($errors->has('username') || $errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong>{{ $errors->first('username') ?: $errors->first('email') }}</strong>
                                     </span>
-                                @enderror
+                                @endif
                             </div>
                         </div>
 

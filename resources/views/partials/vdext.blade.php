@@ -1,4 +1,4 @@
-<h2 class="title" style="font-size: 20px;text-align: center;"> RECOMMENDED VIDEOS</h2>
+<h2 class="title box">RECOMMENDED ARTICLES</h2>
 @if(!empty($videos))
     @foreach($videos as $video)
         <div class="blog-post">
