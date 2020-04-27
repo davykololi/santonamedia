@@ -2,8 +2,8 @@
     <nav class="navbar navbar-expand-md navbar-light fixed-top" id="menu">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('santonamedia.com') }}">
-                    <span style="font-family: Arial Black; font-size: 10px;" id="white">
-                        {{ strtoupper(config('app.name', 'santonamedia')) }}.C<img width ="50px" height="50px" src= "{{asset('static/globe.png')}}" alt="">M
+                    <span style="font-family: Impact;font-size: 30px;" class="white">
+                        SANT<img width ="33px" height="33px" src= "{{asset('static/globe.png')}}" alt="" loading="auto">NA MEDIA
                     </span>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

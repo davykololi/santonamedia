@@ -27,9 +27,5 @@ class ComposerServiceProvider extends ServiceProvider
             'App\Http\ViewComposers\TagComposer'
         );
 
-        View::composer(
-            'layouts.app',
-            'App\Http\ViewComposers\PopularityComposer'
-            );
     }
 }
