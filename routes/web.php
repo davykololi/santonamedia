@@ -1,8 +1,5 @@
 <?php
 
-use App\Models\Tag;
-use App\Models\Post;
-use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,26 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $categories = Category::with('posts')->get();
-
-        foreach($categories as $category){
-        $posts = $category->posts;
-        $archives = Post::latest()->limit(10)->get();
-        $posts = Post::latest()->paginate(10);
-        $tags = Tag::with('posts')->get();
-
-        $data = array(
-                    'categories' => $categories,
-                    'posts' => $posts,
-                    'archives' => $archives,
-                    'category' => $category,
-                    'tags' => $tags,
-                    );
-
-    return view('welcome',$data);
-}
-});
+Route::get('/','WelcomeController@index');
 
 Route::group(['middleware' => 'prevent-back-history'],function(){
 Auth::routes();
