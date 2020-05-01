@@ -3,6 +3,7 @@
 	@include('partials.head')
 <body id="body">
 	<div id="app">
+        @include('partials.supshare')
     	@include('partials.header')
    		<!-- main content -->
         <main class="py-4">

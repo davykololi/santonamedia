@@ -23,7 +23,7 @@ img,video,canvas{max-width: 100%;width: 100%\9;}
 	border-width: thin;background-color: #E6E6FA;box-shadow:#000000 4px 4px 8px, #4d4d4d -4px -4px 8px;}
 #body{background-color: #C0C0C0;width: auto;}
 #double{border:double;}
-#ffbdy{font-family: Helvetica;font-size: 15px;}
+#ffbdy{font-family: Helvetica Neue;font-size: 16px;line-height: 1.5;text-align: justify;text-justify:inter-word;}
 .title{font-family: Times New Roman}
 #dimgray{color: #696969;font-size: 12px}
 .asac{color:blue;font-size: 15px;font-family: Calibri light;line-height: 0.5em;margin-left: 2px}
@@ -102,4 +102,173 @@ nav{position:absolute;}
 @keyframes repeatit{
 	from{left:0;}
 	to{left:50%;}
+}
+
+i.fa.fa-facebook{
+	color:#fff;
+	background-color:#3b5998;
+	width:30px;
+	height:30px;
+	line-height:30px;
+        font-size: 16px;
+	border-radius:50%;
+	text-align:center;
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-o-transition:0.5s all;
+        -webkit-border-radius:50%;
+	-moz-border-radius:50%;
+	-o-border-radius:50%;
+	-ms-border-radius:50%;
+	-ms-transition:0.5s all;
+}
+
+i.fa.fa-facebook:hover {
+	background-color:#17233E;
+}
+
+i.fa.fa-whatsapp{
+	color:#fff;
+	background-color:green;
+	width:30px;
+	height:30px;
+	line-height:30px;
+        font-size: 16px;
+	border-radius:50%;
+	text-align:center;
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-o-transition:0.5s all;
+        -webkit-border-radius:50%;
+	-moz-border-radius:50%;
+	-o-border-radius:50%;
+	-ms-border-radius:50%;
+	-ms-transition:0.5s all;
+}
+
+i.fa.fa-whatsapp:hover {
+	background-color:#17233E;
+}
+
+i.fa.fa-twitter{
+	color:#fff;
+	background-color:lightblue;
+	width:30px;
+	height:30px;
+	line-height:30px;
+        font-size: 16px;
+	border-radius:50%;
+	text-align:center;
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-o-transition:0.5s all;
+        -webkit-border-radius:50%;
+	-moz-border-radius:50%;
+	-o-border-radius:50%;
+	-ms-border-radius:50%;
+	-ms-transition:0.5s all;
+}
+
+i.fa.fa-twitter:hover {
+	background-color:#17233E;
+}
+
+i.fa.fa-linkedin{
+	color:#fff;
+	background-color:blue;
+	width:30px;
+	height:30px;
+	line-height:30px;
+        font-size: 16px;
+	border-radius:50%;
+	text-align:center;
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-o-transition:0.5s all;
+        -webkit-border-radius:50%;
+	-moz-border-radius:50%;
+	-o-border-radius:50%;
+	-ms-border-radius:50%;
+	-ms-transition:0.5s all;
+}
+
+i.fa.fa-linkedin:hover {
+	background-color:#17233E;
+}
+
+i.fa.fa-google-plus{
+	color:#fff;
+	background-color:red;
+	width:30px;
+	height:30px;
+	line-height:30px;
+        font-size: 16px;
+	border-radius:50%;
+	text-align:center;
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-o-transition:0.5s all;
+        -webkit-border-radius:50%;
+	-moz-border-radius:50%;
+	-o-border-radius:50%;
+	-ms-border-radius:50%;
+	-ms-transition:0.5s all;
+}
+
+i.fa.fa-google-plus:hover {
+	background-color:#17233E;
+}
+
+
+i.fa.fa-pinterest{
+	color:#fff;
+	background-color:lightblue;
+	width:30px;
+	height:30px;
+	line-height:30px;
+        font-size: 16px;
+	border-radius:50%;
+	text-align:center;
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-o-transition:0.5s all;
+        -webkit-border-radius:50%;
+	-moz-border-radius:50%;
+	-o-border-radius:50%;
+	-ms-border-radius:50%;
+	-ms-transition:0.5s all;
+}
+
+i.fa.fa-pinterest:hover {
+	background-color:#17233E;
+}
+
+i.fa.fa-reddit{
+	color:#fff;
+	background-color:lightblue;
+	width:30px;
+	height:30px;
+	line-height:30px;
+        font-size: 16px;
+	border-radius:50%;
+	text-align:center;
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-o-transition:0.5s all;
+        -webkit-border-radius:50%;
+	-moz-border-radius:50%;
+	-o-border-radius:50%;
+	-ms-border-radius:50%;
+	-ms-transition:0.5s all;
+}
+
+i.fa.fa-reddit:hover {
+	background-color:#17233E;
 }

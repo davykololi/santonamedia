@@ -27,7 +27,7 @@
                         <hr/>
                         @include('partials.prevnext')
                         <br/>
-                        @include('partials.share')             
+                        @include('partials.sharea')             
                         <br/>
                         @include('user.posts.commentForm')
                         <br/>
