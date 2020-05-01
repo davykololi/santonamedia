@@ -23,9 +23,6 @@
 <!-- Latest compiled Javascript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-<!--Facebook post share -->
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v6.0"></script>
-
 <script type="text/javascript">
 $.ajaxSetup({headers:{'csrftoken':'{{csrf_token()}}'}});
 </script>
