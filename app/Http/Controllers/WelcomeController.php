@@ -40,7 +40,7 @@ class WelcomeController extends Controller
         OpenGraph::addProperty('type','articles');
 
         Twitter::setTitle($title);
-        Twitter::setSite('@davycool30');
+        Twitter::setSite('@santonamedia');
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);

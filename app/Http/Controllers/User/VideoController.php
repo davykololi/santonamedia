@@ -58,7 +58,7 @@ class VideoController extends Controller
         OpenGraph::addProperty('type','videos');
 
         Twitter::setTitle($title);
-        Twitter::setSite('@davycool30');
+        Twitter::setSite('@santonamedia');
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
@@ -109,7 +109,7 @@ class VideoController extends Controller
                             'type' => 'application/x-shockwave-flash','width' => 320,'height' => 240]);
 
         Twitter::setTitle($title);
-        Twitter::setSite('@davycool30');
+        Twitter::setSite('@santonamedia');
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
@@ -151,7 +151,7 @@ class VideoController extends Controller
         OpenGraph::addProperty('type','videos');
 
         Twitter::setTitle($title);
-        Twitter::setSite('@davycool30');
+        Twitter::setSite('@santonamedia');
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);

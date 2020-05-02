@@ -57,7 +57,7 @@ class PostController extends Controller
         OpenGraph::addProperty('type','articles');
 
         Twitter::setTitle($title);
-        Twitter::setSite('@davycool30');
+        Twitter::setSite('@santonamedia');
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
@@ -107,7 +107,7 @@ class PostController extends Controller
         OpenGraph::addImage(['url'=>'http://santonamedia.com/storage/public/storage',$post->image,'size' =>'300']);
         OpenGraph::addImage('http://santonamedia.com/storage/public/storage',[$post->image,'height'=>'300','width' =>'300']);
         Twitter::setTitle($title);
-        Twitter::setSite('@davycool30');
+        Twitter::setSite('@santonamedia');
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
@@ -150,7 +150,7 @@ class PostController extends Controller
         OpenGraph::addProperty('type','articles');
 
         Twitter::setTitle($title);
-        Twitter::setSite('@davycool30');
+        Twitter::setSite('@santonamedia');
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);

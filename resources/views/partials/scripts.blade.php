@@ -34,3 +34,9 @@ $.ajaxSetup({headers:{'csrftoken':'{{csrf_token()}}'}});
 		});
 	});
 </script>
+
+<!--Facebook share button script-->
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v6.0"></script>
+
+<!--Twitter share button script-->
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

@@ -50,7 +50,7 @@ class PageController extends Controller
         OpenGraph::addProperty('type','Contact');
 
         Twitter::setTitle($title);
-        Twitter::setSite('@davycool30');
+        Twitter::setSite('@santonamedia');
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
@@ -91,7 +91,7 @@ class PageController extends Controller
         OpenGraph::addProperty('type','About');
 
         Twitter::setTitle($title);
-        Twitter::setSite('@davycool30');
+        Twitter::setSite('@santonamedia');
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
@@ -117,7 +117,7 @@ class PageController extends Controller
         OpenGraph::addProperty('type','Private Policy');
 
         Twitter::setTitle($title);
-        Twitter::setSite('@davycool30');
+        Twitter::setSite('@santonamedia');
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
@@ -142,7 +142,7 @@ class PageController extends Controller
         OpenGraph::addProperty('type','Portfolio');
 
         Twitter::setTitle($title);
-        Twitter::setSite('@davycool30');
+        Twitter::setSite('@santonamedia');
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
