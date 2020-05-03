@@ -36,7 +36,7 @@ $.ajaxSetup({headers:{'csrftoken':'{{csrf_token()}}'}});
 </script>
 
 <!--Facebook share button script-->
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=461452911387569&autoLogAppEvents=1"></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=env('FB_CLIENT_ID'); &autoLogAppEvents=1"></script>
 
 <!--Twitter share button script-->
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
