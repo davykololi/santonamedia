@@ -1,4 +1,3 @@
-<div style="text-align: center;">
 <div style="font-size: 12px;color: purple">We will be clad if you share this information on social media.Thank you</div>
 <br/>
 <span class="mg2px">
@@ -40,12 +39,3 @@
 <a href="http://www.reddit.com/submit?url={{ urlencode(Request::fullUrl()) }}" onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Mail"><i class="fa fa-reddit"></i>
 </a>
 </span>
-</div>
-
-<!--facebook --button-->
-<div class="fb-share-button" data-href="https://santonamedia.com/news/articles/details/" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsantonamedia.com%2Fnews%2Farticles%2Fdetails%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
-
-<!-- twitter --button-->
-<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Yes" data-via="santonamedia" data-hashtags="santonamedia" data-related="santonamedia,santonamedia" data-show-count="false">Tweet
-</a>
-
