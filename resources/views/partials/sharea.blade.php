@@ -2,7 +2,7 @@
 <div style="font-size: 12px;color: purple">We will be clad if you share this information on social media.Thank you</div>
 <br/>
 <span class="mg2px">
-<a href="https://www.facebook.com/sharer/sharer.php?u=<URL>&t=<TITLE>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Facebook"><i class="fa fa-facebook"></i>
+<a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(Request::fullUrl()) }}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Facebook"><i class="fa fa-facebook"></i>
 </a>
 </span>
 
@@ -12,7 +12,7 @@
 </span>
 
 <span class="mg2px">
-<a href="https://twitter.com/share?url=<URL>&text=<TITLE>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Twitter"><i class="fa fa-twitter"></i>
+<a href="https://twitter.com/share?url={{ urlencode(Request::fullUrl()) }}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Twitter"><i class="fa fa-twitter"></i>
 </a>
 </span>
 
