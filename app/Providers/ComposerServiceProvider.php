@@ -26,6 +26,5 @@ class ComposerServiceProvider extends ServiceProvider
             'layouts.app',
             'App\Http\ViewComposers\TagComposer'
         );
-
     }
 }
