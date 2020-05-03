@@ -57,7 +57,7 @@ hr.style-four{border: 0;width: 100%;background-color: blue;height: 5px}
 #left60{font-size: 12px;margin-left: 60px;font-family: Segoe UI Light}
 .dad{position: absolute;width: 20px;height: 20px;border-radius: 100%;background: turquoise;animation: spin 5s infinite;transform-origin: center center}
 html,body{height: 100%}
-.img{width:40%;border: solid gray;padding: 10px}
+.img{width:40%;border: solid gray;padding: 5px}
 .adname{color: purple;font-size: 12px;font-family: Segoe UI Semibold}
 nav{position:absolute;}
 .frame{padding: 5px;border: double;}
