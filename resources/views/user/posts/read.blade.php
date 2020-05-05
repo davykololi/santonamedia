@@ -28,7 +28,7 @@
                         @include('partials.prevnext')
                         <br/>
                         @include('partials.sharea')             
-                        <br/>
+                        <br/><br/>
                         @include('user.posts.commentForm')
                         <br/>
                         @include('user.posts.commentsDisplay')

@@ -3,9 +3,9 @@
 <div class="dad"></div>
 <h6 class="calibri">SANTONA MEDIA {{ strtoupper($video->category->name) }} VIDEO</h6>
 <br/>
-<h2 class="blog-post-title">
-    <a class="title" href="{{ route('users.videos.read', ['video_slug' => $video->slug]) }}" >{{strtoupper($video->title)}}</a>
-</h2>
+<h1 class="blog-post-title">
+    <a class="title font20" href="{{ route('users.videos.read', ['video_slug' => $video->slug]) }}" >{{strtoupper($video->title)}}</a>
+</h1>
 <p class="blog-post-meta">
     <div style="font-family: Calibri Light;font-size: 100%;">
         	<a style="color: black" href="#"> 

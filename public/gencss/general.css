@@ -5,8 +5,7 @@
 .center{text-align: center;}
 #hp{float: left;margin: 0 15px 0 0;}
 #white{font-size: 120%;color: white}
-#main{margin-top: 75px;background-color: #F5F5DC;border: solid white;width: auto;height: 100%;border-radius: 25px;
-	border-style: groove;max-width: 100%;min-height: 100%;}
+#main{margin-top: 75px;background-color: #F5F5DC;width: auto;height: 100%;max-width: 100%;min-height: 100%;}
 #prenext{background-color: blue;color: white;text-align: center;background-size: 100px 80px;border: solid white;}
 #button{background-color: #0000FF;color: white;}
 #cwhite{color: white}
@@ -19,17 +18,19 @@ img,video,canvas{max-width: 100%;width: 100%\9;display: inline-flex;}
 	font-style: Segoe Print;font-size: 28px;}
 #whitecolor{font-size: 120%;color: white;}
 #menu{background-color: #000080;}
-#aside{width: auto;height: 100%;position: sticky;top: 0;padding: 16px;margin-right: 20px;margin-top: 70px;border-radius: 10px;
-	border-width: thin;background-color: #E6E6FA;box-shadow:#000000 4px 4px 8px, #4d4d4d -4px -4px 8px;}
+#aside{width: 30%;height:100%;position: sticky;top: 0;padding: 16px;margin-top: 70px;border-radius: 10px;
+	border-width: thin;background-color: #E6E6FA;box-shadow:#000000 4px 4px 8px, #4d4d4d -4px -4px 8px;margin-left: 10px}
 #body{background-color: #C0C0C0;width: auto;}
 #double{border:double;}
 #ffbdy{font-family: Arial Narrow;font-size: 16px;line-height: 1.5;text-align: justify;text-justify:inter-word;}
-.title{font-family: Times New Roman}
-#dimgray{color: #696969;font-size: 12px}
+.ascontent{white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 250px;color: white;line-height: 16px
+	margin-top: 2px;margin-left: 2px;-webkit-line-clamp:3;-webkit-box-orient:vertical;max-height: 32px}
+.title{font-family: Impact;color: #4169E1}
+#dimgray{color: #696969;font-size: 12px;}
 .asac{color:blue;font-size: 15px;font-family: Calibri light;line-height: 0.5em;margin-left: 2px}
 .blue{color: blue}
 #btn{background-color: #0000FF;color: white;border: solid white}
-.calibri{font-family: calibri light;box-shadow: 10px 10px 8px #888888;
+.calibri{font-family: Times New Roman;box-shadow: 10px 10px 8px #888888;
 	text-align: center;background-color: blue;color: white;border-radius: 25px;font-size: 20px;}
 .astitle{font-family: calibri light;text-align: center;background-color: #1E90FF;color: white}
 .titles{font-family: Times New Roman;color: blue;text-align: center}
@@ -38,8 +39,9 @@ img,video,canvas{max-width: 100%;width: 100%\9;display: inline-flex;}
 .white{color: white}
 .purple{color: purple}
 .red{color: red}
+.black{color: black}
 .asidespan{display: flex;background-color: #87AFC7;margin-top: 1px;margin-bottom: 2px;}
-.asideimg{width: 40px;height: 40px;float: left;}
+.asideimg{width: 50px;height: 50px;float: left;}
 .mg2px{margin: 2px;display: inline-flex;}
 .tags{margin-left: 100px;font-size: 15px}
 .drop{margin-top: 12px;margin-left: 5px;font-size: 12px;}
@@ -62,6 +64,7 @@ html,body{height: 100%}
 nav{position:absolute;}
 .frame{padding: 5px;border: double;}
 #about{margin-top: 30px;margin-left: 30px;background-color: #E6E6FA;border: solid gray}
+.font20{font-size: 25px}
 
 @keyframes spin{
 	0%{

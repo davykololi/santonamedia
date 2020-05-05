@@ -1,15 +1,17 @@
 @forelse($archives as $archive)
-    <span class="asidespan">
+    <h6> 
+        <strong>
+            <a class="asac black" href="{{ route('users.posts.read', ['post_slug' => $archive->slug]) }}">
+                {!! \Illuminate\Support\Str::words($archive->title, 6, '...') !!}
+            </a>
+        </strong>
+    </h6>
+    <div class="asidespan">
         <img class="asideimg" src ="/storage/public/storage/{{ $archive->image }}" alt ="{{ $archive->title }}"/>
         <br/>
-            <ul class="list-unstyled">
-                <li>
-                    <a class="asac white" href="{{ route('users.posts.read', ['post_slug' => $archive->slug]) }}">
-                        {!! \Illuminate\Support\Str::words($archive->title, 6, '...') !!}
-                    </a>
-                </li>
-            </ul>
-    </span>
+            <p class="ascontent">{!! $archive->content !!}</p>
+    </div>
+    <hr>
 @empty
     <p style="color: red">None</p>
 @endforelse

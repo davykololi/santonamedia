@@ -20,7 +20,7 @@
     						@foreach($categories as $category)
         						<li>
         							<a href="{{route('category.articles',['slug' => $category->slug])}}" class="fa fa-angle-double-right">{!! $category->name !!}
-        							</a>|
+        							</a>
         						</li>
     						@endforeach
 						@endif

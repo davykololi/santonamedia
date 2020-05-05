@@ -27,8 +27,8 @@
                         <hr/>
                         @include('partials.vdprevnext')
                         <br/>
-                        @include('partials.share')             
-                        <br/>
+                        @include('partials.sharea')             
+                        <br/><br/>
                         @include('user.videos.commentForm')
                         <br/>
                         @include('user.videos.commentsDisplay')
