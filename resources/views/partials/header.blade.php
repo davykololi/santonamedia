@@ -3,7 +3,7 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('santonamedia.com') }}">
                     <span style="font-family: FELIX TITLING;font-size: 30px;" class="white">
-                        Sant<img width ="30px" height="30px" src= "{{asset('static/globe.png')}}" alt="" loading="auto">na Media
+                        SANT<img width ="30px" height="30px" src= "{{asset('static/globe.png')}}" alt="" loading="auto">NA MEDIA
                     </span>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
