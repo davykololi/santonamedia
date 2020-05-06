@@ -18,16 +18,16 @@ img,video,canvas{max-width: 100%;width: 100%\9;display: inline-flex;}
 	font-style: Segoe Print;font-size: 28px;}
 #whitecolor{font-size: 120%;color: white;}
 #menu{background-color: #000080;}
-#aside{width: 30%;height:100%;position: sticky;top: 0;padding: 16px;margin-top: 70px;border-radius: 10px;
-	border-width: thin;background-color: #E6E6FA;box-shadow:#000000 4px 4px 8px, #4d4d4d -4px -4px 8px;margin-left: 10px}
+#aside{max-width: auto;height:100%;position: sticky;top: 0;padding: 16px;margin-top: 70px;border-radius: 10px;
+	border-width: thin;background-color: #E6E6FA;box-shadow:#000000 4px 4px 8px, #4d4d4d -4px -4px 8px;margin-right: 50px}
 #body{background-color: #C0C0C0;width: auto;}
 #double{border:double;}
 #ffbdy{font-family: Arial Narrow;font-size: 16px;line-height: 1.5;text-align: justify;text-justify:inter-word;}
 .ascontent{white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 250px;color: white;line-height: 16px
 	margin-top: 2px;margin-left: 2px;-webkit-line-clamp:3;-webkit-box-orient:vertical;max-height: 32px}
-.title{font-family: Impact;color: #4169E1}
+.title{font-family: Impact;}
 #dimgray{color: #696969;font-size: 12px;}
-.asac{color:blue;font-size: 15px;font-family: Calibri light;line-height: 0.5em;margin-left: 2px}
+.asac{color:blue;font-size: 15px;font-family: Calibri light;line-height: 0.5em;margin-left: 2px;margin-top: 10px}
 .blue{color: blue}
 #btn{background-color: #0000FF;color: white;border: solid white}
 .calibri{font-family: Times New Roman;box-shadow: 10px 10px 8px #888888;

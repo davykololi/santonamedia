@@ -1,7 +1,7 @@
 <br/>
 <article>
 <div class="dad"></div>
-<h6 class="calibri"><strong>SANTONA MEDIA {{ strtoupper($post->category->name) }} ARTICLE</strong></h6>
+<h6 class="calibri">SANTONA MEDIA {{ strtoupper($post->category->name) }} ARTICLE</h6>
 <br/>
 <h1 class="blog-post-title">
     <a class="title font20" href="{{ route('users.posts.read', ['post_slug' => $post->slug]) }}" >{{strtoupper($post->title)}}</a>

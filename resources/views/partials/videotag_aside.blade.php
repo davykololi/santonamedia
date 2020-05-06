@@ -1,4 +1,4 @@
-<aside class="blog-sidebar" id="aside">
+<aside class="col-sm-3 ml-sm-auto blog-sidebar" id="aside">
     <h4 class="astitle">SEARCH FOR VIDEOS </h4>
     @include('partials.videosearch')
     <div class="sidebar-module">

@@ -43,7 +43,7 @@ class HomeController extends Controller
             OpenGraph::addImage('http://santonamedia.com/storage/public/storage',[$post->image,'height'=>'300','width' =>'300']);
         }
 
-        $title = 'Latest breaking News';
+        $title = 'Latest breaking news in Kenya,East Africa, Africa,Europe,Asia and America';
         $desc = 'Latest news in Kenya,East Africa, Africa,Europe,Asia and America';
         $url = 'http://santonamedia.com/home';
 
