@@ -41,3 +41,13 @@ $.ajaxSetup({headers:{'csrftoken':'{{csrf_token()}}'}});
 <!--Twitter share button script-->
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+<script>
+	function w3_open(){
+		document.getElementById("mySidebar").style.display="block";
+	}
+
+	function w3_close(){
+		document.getElementById("mySidebar").style.display="none";
+	}
+</script>
+

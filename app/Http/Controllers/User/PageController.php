@@ -9,6 +9,9 @@ use SEOMeta;
 use OpenGraph;
 use Carbon\Carbon;
 use App\Models\Contact;
+use App\Models\Tag;
+use App\Models\Post;
+use App\Models\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Jobs\SendContactJob;
@@ -35,6 +38,14 @@ class PageController extends Controller
 
     public function contact()
     {
+        $categories = Category::with('posts')->get();
+
+        foreach($categories as $category){
+        $posts = $category->posts;
+        $archives = Post::latest()->limit(10)->get();
+        $posts = Post::latest()->paginate(10);
+        $tags = Tag::with('posts')->get();
+
         $title = 'Contact Us';
         $desc = 'Santona Media News Contact Us Page';
         $url = 'https://santonamedia.com/contact-us';
@@ -55,7 +66,16 @@ class PageController extends Controller
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
 
-        return view('user.pages.contact');
+        $data = array(
+            'category' => $category,
+            'posts' => $posts,
+            'tags' => $tags,
+            'archives' => $archives,
+            'categories' => $categories
+        );
+
+        return view('user.pages.contact',$data);
+        }
     }
     
     public function store(ContactFormRequest $request)
@@ -75,6 +95,14 @@ class PageController extends Controller
 
     public function about()
     {
+        $categories = Category::with('posts')->get();
+
+        foreach($categories as $category){
+        $posts = $category->posts;
+        $archives = Post::latest()->limit(10)->get();
+        $posts = Post::latest()->paginate(10);
+        $tags = Tag::with('posts')->get();
+
         $title = 'About Us';
         $desc = 'Santona Media News About Us Page';
         $url = 'https://santonamedia.com/about-us';
@@ -97,11 +125,28 @@ class PageController extends Controller
         JsonLd::setDescription($desc);
         JsonLd::addImage($image);
 
-        return view('user.pages.about');
+        $data = array(
+            'category' => $category,
+            'posts' => $posts,
+            'tags' => $tags,
+            'archives' => $archives,
+            'categories' => $categories
+        );
+
+        return view('user.pages.about',$data);
+        }
     }
 
     public function privatePolicy()
     {
+        $categories = Category::with('posts')->get();
+
+        foreach($categories as $category){
+        $posts = $category->posts;
+        $archives = Post::latest()->limit(10)->get();
+        $posts = Post::latest()->paginate(10);
+        $tags = Tag::with('posts')->get();
+
         $title = 'Private Policy';
         $desc = 'Santona Media News Private Policy Page';
         $url = 'https://santonamedia.com/private-policy';
@@ -122,11 +167,28 @@ class PageController extends Controller
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
 
-        return view('user.pages.policy');
+        $data = array(
+            'category' => $category,
+            'posts' => $posts,
+            'tags' => $tags,
+            'archives' => $archives,
+            'categories' => $categories
+        );
+
+        return view('user.pages.policy',$data);
+        }
     }
 
     public function portfolio()
-    {  
+    {
+        $categories = Category::with('posts')->get();
+
+        foreach($categories as $category){
+        $posts = $category->posts;
+        $archives = Post::latest()->limit(10)->get();
+        $posts = Post::latest()->paginate(10);
+        $tags = Tag::with('posts')->get();
+
         $title = 'Portfolio';
         $desc = 'Santona Media News Portfolio Page';
         $url = 'https://santonamedia.com/portfolio';
@@ -147,6 +209,15 @@ class PageController extends Controller
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
 
-        return view('user.pages.portfolio');
+        $data = array(
+            'category' => $category,
+            'posts' => $posts,
+            'tags' => $tags,
+            'archives' => $archives,
+            'categories' => $categories
+        );
+
+        return view('user.pages.portfolio',$data);
+        }
     }
 }

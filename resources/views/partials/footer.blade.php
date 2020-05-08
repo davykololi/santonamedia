@@ -8,8 +8,10 @@
 					<ul class="list-unstyled quick-links">
 						<li><a href="/home"><i class="fa fa-angle-double-right"></i>Home</a></li>
 						<li><a href="{{route('users.pages.about')}}"><i class="fa fa-angle-double-right"></i>About</a></li>
-						<li><a href="{{ route ('users.pages.contact') }}"><i class="fa fa-angle-double-right"></i>Contact Us</a></li>
-						<li><a href="{{ route ('private.policy') }}"><i class="fa fa-angle-double-right"></i>Private Policy</a></li>
+						<li><a href="{{ route ('users.pages.contact') }}"><i class="fa fa-angle-double-right"></i>Contact Us</a>
+						</li>
+						<li><a href="{{ route ('private.policy') }}"><i class="fa fa-angle-double-right"></i>Private Policy</a>
+						</li>
 						<li><a href="{{ route ('pages.portfolio') }}"><i class="fa fa-angle-double-right"></i>Portfolio</a></li>
 					</ul>
 				</div>
@@ -31,7 +33,8 @@
 					<ul class="list-unstyled quick-links">
 						<li><a href="#"><i class="fa fa-map-marker"></i>Nairobi,Kenya</a></li>
 						<li><a href="tel:+254-0724351952"><i class="fa fa-phone"></i>+254 0724351952</a></li>
-						<li><a href="mailto:kolomdavid@gmail.com"><i class="fa fa-envelope"></i>santonamedia79@gmail.com</a></li>
+						<li><a href="mailto:santonamedia79@gmail.com"><i class="fa fa-envelope"></i>santonamedia79@gmail.com</a>
+						</li>
 					</ul>
 				</div>
 

@@ -17,7 +17,7 @@
     </div>
 </p>
 <figure>
-    <img class="img-responsive" width="307" height="240" src = "/storage/public/storage/{{ $post->image }}" alt ="{{ $post->title }}"><br/>
+    <img class="img-responsive" src = "/storage/public/storage/{{ $post->image }}" alt ="{{ $post->title }}"><br/>
  	<figcaption> <span id="dimgray"> {{$post->caption}}</span> </figcaption>
 </figure>
 </article>

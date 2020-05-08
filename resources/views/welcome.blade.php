@@ -4,7 +4,8 @@
 @section('content')
 <main role="main" class="container" id="main">
         <div class="row">
-            <div class="col-sm-8 blog-main">
+            @include('partials.sidebar')
+            <div class="col-sm-6" id="content-area">
             @if(!empty($posts))
                @forelse($posts as $post)
                     <div class="blog-post">

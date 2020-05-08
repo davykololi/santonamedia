@@ -4,7 +4,8 @@
 @section('content')
     <div class="container" id="main">
         <div class="row">
-            <div class="col-sm-8 blog-main">
+            @include('partials.sidebar')
+            <div class="col-sm-6" id="content-area">
             @if(!empty($posts))
                @forelse($posts as $post)
                     <div class="blog-post">
@@ -23,7 +24,9 @@
                     {{ $posts->links() }}
                 </nav>
                 @include('user.posts.tags')
+                <br/><br/>
             </div><!-- /.blog-main -->
+        
         @include('partials.aside_h')
         </div><!-- /.row -->
         <br/>

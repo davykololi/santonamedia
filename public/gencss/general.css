@@ -5,9 +5,9 @@
 .center{text-align: center;}
 #hp{float: left;margin: 0 15px 0 0;}
 #white{font-size: 120%;color: white}
-#main{margin-top: 75px;background-color: #F5F5DC;width: auto;height: 100%;max-width: 100%;min-height: 100%;}
+#main{margin-top: 50px;background-color: #F5F5DC;width: auto;height: 100%;max-width: 100%;min-height: 100%;margin-bottom: 0px}
 #prenext{background-color: blue;color: white;text-align: center;background-size: 100px 80px;border: solid white;}
-#button{background-color: #0000FF;color: white;}
+#button{background-color: #0000FF;color: white;border-radius: 25px}
 #cwhite{color: white}
 .highlight{color: red}
 #black{color: black}
@@ -18,16 +18,13 @@ img,video,canvas{max-width: 100%;width: 100%\9;display: inline-flex;}
 	font-style: Segoe Print;font-size: 28px;}
 #whitecolor{font-size: 120%;color: white;}
 #menu{background-color: #000080;}
-#aside{max-width: auto;height:100%;position: sticky;top: 0;padding: 16px;margin-top: 70px;border-radius: 10px;
-	border-width: thin;background-color: #E6E6FA;box-shadow:#000000 4px 4px 8px, #4d4d4d -4px -4px 8px;margin-right: 50px}
-#body{background-color: #C0C0C0;width: auto;}
-#double{border:double;}
+#body{background-color: #C0C0C0;width: auto;padding: 0px;margin: 0px;}
 #ffbdy{font-family: Arial Narrow;font-size: 16px;line-height: 1.5;text-align: justify;text-justify:inter-word;}
 .ascontent{white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 250px;color: white;line-height: 16px
 	margin-top: 2px;margin-left: 2px;-webkit-line-clamp:3;-webkit-box-orient:vertical;max-height: 32px}
-.title{font-family: Impact;}
+.title{font-family: Arial Narrow;}
 #dimgray{color: #696969;font-size: 12px;}
-.asac{color:blue;font-size: 15px;font-family: Calibri light;line-height: 0.5em;margin-left: 2px;margin-top: 10px}
+.asac{color:blue;font-size: 15px;font-family: calibri light;line-height: 0.5;}
 .blue{color: blue}
 #btn{background-color: #0000FF;color: white;border: solid white}
 .calibri{font-family: Times New Roman;box-shadow: 10px 10px 8px #888888;
@@ -63,8 +60,20 @@ html,body{height: 100%}
 .adname{color: purple;font-size: 12px;font-family: Segoe UI Semibold}
 nav{position:absolute;}
 .frame{padding: 5px;border: double;}
-#about{margin-top: 30px;margin-left: 30px;background-color: #E6E6FA;border: solid gray}
 .font20{font-size: 25px}
+.font14{font-size: 14px}
+#left-side{float: left;background-color: lightblue;right: 0px;position: sticky;box-shadow:#000000 4px 4px 8px, #4d4d4d -4px -4px 8px;
+	top: 0;margin-left: 0px;margin-right: 0px;margin: 12px 0px 0px 12px;}
+#right-side{float: left;margin-right: -125px;width: 320px;box-shadow:#000000 4px 4px 8px, #4d4d4d -4px -4px 8px;height: 100%;position: sticky;
+	top: 0;padding: 10px;background: lavender;margin-left: 5px;margin: 12px 0px 0px 12px;}
+#content-area{float: left;background-color: lavender;width: 100%;box-shadow:#000000 4px 4px 8px, #4d4d4d -4px -4px 8px;
+	display: inline-grid;margin: 12px 0px 0px 12px;}
+#wrapper{padding-left: -200px;padding-right: 0px;}
+#left-side li a:link, #nav li a:visited { font-size: 12pt; font-weight: bold; padding: 3px 0px 3px 3px; color: #000000; 
+	text-decoration: none; display: block; } 
+#left-side li a:hover, #nav li a:active { font-size: 12pt; font-weight: bold; padding: 3px 0px 3px 3px; color: #ffffff; 
+	text-decoration: none; display: block; }
+
 
 @keyframes spin{
 	0%{
@@ -91,7 +100,7 @@ nav{position:absolute;}
 	}
 }
 
-.box{width: 300px;height: 30px;margin: 8px;background: #F5F5DC;position: relative;font-family: Times Roman;text-decoration: underline;
+.box{width: 300px;height: 30px;margin: 8px;position: relative;font-family: Times Roman;text-decoration: underline;
 	text-shadow: 2px 8px 6px rgba(0,0,0,0.2),0px -5px 35px rgba(255,255,255,0.3);
 		-webkit-animation:repeatit 2s linear 0s infinite alternate;
 		animation: repeatit 2s linear 0s infinite alternate;

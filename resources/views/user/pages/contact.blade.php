@@ -3,13 +3,15 @@
 
 @section('content')
 <main role="main" class="container" id="main">
-<br/>
+<div class="row">
+@include('partials.sidebar')
+<div class="col-sm-6" id="content-area">
 <div class="row justify-content-center">
-<div class="col-md-9" style="background-color: lightgray;border-radius: 25px" id="double">
+<div class="col-md-12">
 @include('partials.messages')
 @include('partials.errors')
 <br/>
-<h3 class="center title blue">CONTACT FORM</h3>
+<h3 class="calibri">CONTACT FORM</h3>
 <p class="center" style="font-size: 15px;">
 We are so glad that you are contacting us.Fill the form below and submit to us. 
 </p>
@@ -39,6 +41,9 @@ We are so glad that you are contacting us.Fill the form below and submit to us.
 {!! Form::close() !!}
 </div>
 </div>
-<br/>
+@include('user.posts.tags')
+</div>
+@include('partials.aside_h')
+</div>
 </main>
 @endsection

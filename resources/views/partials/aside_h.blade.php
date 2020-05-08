@@ -1,4 +1,4 @@
-<aside class="col-sm-3 ml-sm-auto blog-sidebar" id="aside">
+<aside class="w3-sidebar w3-bar-block col-sm-3" id="right-side">
     <h4 class="astitle">SEARCH FOR ARTICLES </h4>
     @include('partials.postsearch')
     <div class="sidebar-module">

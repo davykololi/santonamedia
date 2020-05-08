@@ -3,7 +3,7 @@
 	@include('partials.adminhead')
 <body id="body">
     <div id="app">
-       @include('partials.adminheader')
+       @include('partials.adminnavbar')
         <main class="py-4">
             @yield('content')
         </main>
