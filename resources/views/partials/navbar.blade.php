@@ -27,7 +27,7 @@
                                 @foreach($navs as $category)
                             <li class="nav-item active">
                             <a id="white" class="dropdown-item" href="{{route('category.articles',['slug' => $category->slug])}}">
-                                {{$category->name}}
+                                {{strtoupper($category->name)}}
                             </a>
                             </li>   
                                 @endforeach
@@ -43,7 +43,7 @@
                                 @foreach($navs as $category)
                             <li class="nav-item active">
                             <a id="white" class="dropdown-item" href="{{route('category.videos',['slug' => $category->slug])}}">
-                                {{$category->name}}
+                                {{strtoupper($category->name)}}
                             </a>
                             </li>
                                 @endforeach
@@ -59,7 +59,7 @@
                             @foreach($tags as $tag)
                             <li class="nav-item active">
                                 <a id="white" class="dropdown-item" href="{{route('post.tags',['slug' => $tag->slug])}}">
-                                    {{$tag->name}}
+                                    {{strtoupper($tag->name)}}
                                 </a>
                             </li>
                             @endforeach
@@ -75,7 +75,7 @@
                             @foreach($tags as $tag)
                             <li class="nav-item active">
                                 <a id="white" class="dropdown-item" href="{{route('video.tags',['slug' => $tag->slug])}}">
-                                    {{$tag->name}}
+                                    {{strtoupper($tag->name)}}
                                 </a>
                             </li>
                             @endforeach
