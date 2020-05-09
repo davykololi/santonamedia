@@ -2,10 +2,9 @@
 @section('title'|'Home')
 
 @section('content')
-    <div class="container" id="main">
-        <div class="row">
-            @include('partials.sidebar')
-            <div class="col-sm-6" id="content-area">
+    <div class="wrap">
+        <div id="main-content">
+            <div class="pd10">
             @if(!empty($posts))
                @forelse($posts as $post)
                     <div class="blog-post">
@@ -23,15 +22,10 @@
                 <nav class="blog-pagination">
                     {{ $posts->links() }}
                 </nav>
-                @include('user.posts.tags')
-                <br/><br/>
-            </div><!-- /.blog-main -->
-        
-        @include('partials.aside_h')
-        </div><!-- /.row -->
-        <br/>
-        @include('user.newsletter.newsletter')
-        <br/>
-    </div> <!-- /.container -->
+                @include('partials.newsltags')
+            </div> <!--end of pd10 -->
+        </div><!-- end main-content -->
+        @include('partials.sidebars')
+    </div> <!-- end class wrap -->
 @endsection
 

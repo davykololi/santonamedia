@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 	@include('partials.head')
 <body id="body">
-    <div id="wrapper">
+    <div class="container-fluid" id="container">
 	   <div id="app">
         @include('partials.supshare')
         @include('partials.navbar')
@@ -11,9 +11,9 @@
                 @yield('content')
             </main>
             <br/>
-        @include('partials.footer')
         @include('partials.scripts')
-        </div>
-    </div>
+        </div> <!-- end of id app -->
+    </div> <!-- end of container-fluid -->
+    @include('partials.footer')
 </body>
 </html>

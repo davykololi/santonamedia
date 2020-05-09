@@ -15,6 +15,3 @@
 @empty
     <p style="color: red">None</p>
 @endforelse
-    </div>
-@include('partials.categories')
-@include('partials.ext_aside')

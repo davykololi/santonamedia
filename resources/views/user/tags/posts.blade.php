@@ -2,10 +2,9 @@
 @section('title'|'Articles')
 
 @section('content')
-    <main role="main" class="container" id="main">
-        <div class="row">
-            @include('partials.sidebar')
-            <div class="col-sm-6" id="content-area">
+    <div class="wrap">
+        <div id="main-content">
+            <div class="pd10">
                @forelse($posts as $post)
                     <div class="blog-post">
                         @include('partials.tagpost')
@@ -23,13 +22,10 @@
                 <div class="ui card blogger-card fluid no-box-shadow text-center"> 
                     {{ $posts->render() }}
                 </div>
-                @include('user.posts.tags')
-            </div><!-- /.blog-main -->
-            @include('partials.posttag_aside')
-        </div><!-- /.row -->
-        <br/>
-        @include('user.newsletter.newsletter')
-        <br/>
-    </main><!-- /.container -->
+                @include('partials.newsltags')
+            </div> <!--end of pd10 -->
+        </div><!--end of main-content -->
+        @include('partials.sidebars')
+    </div><!--end of wrap -->
 @endsection
 

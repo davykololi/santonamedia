@@ -2,10 +2,9 @@
 @section('title'|'Videos')
 
 @section('content')
-    <main role="main" class="container" id="main">
-        <div class="row">
-            @include('partials.sidebar')
-            <div class="col-sm-6" id="content-area">
+    <div class="wrap">
+        <div id="main-content">
+            <div class="pd10">
                @forelse($videos as $video)
                     <div class="blog-post">
                         @include('partials.video')
@@ -20,15 +19,12 @@
                 <p style="color: red;font-family: Segoe UI Light;font-size: 30px"> Sorry esteemed reader. We are yet to post the <a href="#"> {{strtolower($category->name)}}</a> videos.</p>
                 @endforelse
                 <div class="ui card blogger-card fluid no-box-shadow text-center"> 
-                    {{ $videos->render() }}
+                    {{ $videos->links() }}
                 </div>
-                @include('user.videos.tags')
-            </div><!-- /.blog-main -->
-            @include('partials.vd_aside')
-        </div><!-- /.row -->
-        <br/>
-        @include('user.newsletter.newsletter')
-        <br/>
-    </main><!-- /.container -->
+                @include('partials.newsltags')
+            </div> <!-- end of pd10 -->
+        </div><!-- end of main-content -->
+        @include('partials.sidebars')
+    </div><!-- /.container -->
 @endsection
 

@@ -2,12 +2,10 @@
 @section('title', '| Private Policy')
 
 @section('content')
-    <main class="container" id="main">
-        <div class="row">
-            @include('partials.sidebar')
-            <div class="col-sm-6" id="content-area">
-            	<div style="text-align: justify;">
-                <br/>
+    <div class="wrap">
+        <div id="main-content">
+            <div class="pd10">
+            <div style="text-align: justify;">
                 <h3 class="calibri"> 
                     {{ strtoupper(config('app.name', 'skyluxnews')) }} PRIVATE POLICY STATEMENT
                 </h3>
@@ -75,14 +73,11 @@
                 </ul>
                	<br/><br/>
             </div>
-            @include('user.posts.tags')
-            </div><!-- /.blog-main -->
-            @include('partials.aside_h')
-        </div><!-- /.row -->
-        <br/>
-        @include('user.newsletter.newsletter')
-        <br/>
-    </main><!-- /.container -->
+            @include('partials.newsltags')
+        </div> <!--end of pd10 -->
+        </div><!-- main-content -->
+        @include('partials.sidebars')
+    </div> <!-- end of wrap -->
 @endsection
 
 

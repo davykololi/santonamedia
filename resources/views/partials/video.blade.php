@@ -1,4 +1,3 @@
-<br/>
 <article>
 <div class="dad"></div>
 <h6 class="calibri">SANTONA MEDIA {{ strtoupper($video->category->name) }} VIDEO</h6>
