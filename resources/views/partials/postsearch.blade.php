@@ -1,4 +1,5 @@
-<form class="form-inline my-2 my-lg-0" style="margin-left: 60px" action="{{url('post.lists')}}" method="GET" role="search">
+<div style="margin-left: 60px">
+<form class="form-inline my-2 my-lg-0" action="{{url('post.lists')}}" method="GET" role="search">
 	{{ csrf_field() }}
 	<div class="row">
 		<div class="col-md-6">
@@ -9,3 +10,4 @@
         </div>
      </div>
 </form>
+</div>

@@ -1,9 +1,10 @@
 <hr/>
-<div class="container" style="background-color: grey; border-radius:4px; width:70%; height:70%;padding-top:1%;">
+<br/>
+<div class="container" style="background-color: grey; border-radius:4px;padding-top:1%;margin-bottom: 0px">
 		@include('partials.messages')
      	@include('partials.errors')
-	<h5 class="center" style="color: white;">SUBSCRIBE TO OUR NEWSLETTER</h5>
-	<div id="cwhite" style="text-align: center">
+	<h5 class="center white">SUBSCRIBE TO OUR NEWSLETTER</h5>
+	<div class="center">
 	Sign up here to get the latest news updates and special offers delivered directly to your inbox.
 	</div>
 	<br/>

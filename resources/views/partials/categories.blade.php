@@ -1,5 +1,5 @@
     <div class="sidebar-module" style="background: url('/static/dk.png');">
-        <h4 class="astitle">ARTICLES CATEGORIES </h4>    
+        <h4 class="astitle">CATEGORIES </h4>    
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button" v-pre style="margin-top: 11px">
                     <span class="purple" id="left60"> NEWS </span>

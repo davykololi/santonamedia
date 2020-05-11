@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-	@include('partials.head')
+    @include('partials.head')
 <body id="body">
-    <div class="container-fluid" id="container">
-	   <div id="app">
+    <div class="container" id="container">
+       <div id="app">
         @include('partials.supshare')
         @include('partials.navbar')
-   		   <!-- main content -->
+           <!-- main content -->
             <main class="py-4">
                 @yield('content')
             </main>

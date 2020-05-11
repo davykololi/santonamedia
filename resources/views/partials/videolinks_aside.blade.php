@@ -7,7 +7,7 @@
             <ul class="list-unstyled">
                 <li>
                     <a class="asac white" style="font-size: 15px;" href="{{ route('users.videos.read', ['video_slug' => $archive->slug]) }}">
-                        {!! \Illuminate\Support\Str::words($archive->title, 6, '...') !!}
+                        {!! strtoupper($archive->title)!!}
                     </a>
                 </li>
             </ul>

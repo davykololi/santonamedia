@@ -163,10 +163,10 @@ class VideoController extends Controller
         
         $data = array(
             'tag' => $tag,
+            'tags' => $tags,
             'videos' => $videos,
             'archives' => $archives,
             'categories' => $categories,
-            'tags' => $tags,
         );
 
         return view('user.tags.videos', $data);

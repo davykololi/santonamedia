@@ -16,7 +16,9 @@
     </div>
 </p>
 <figure>
-    <img class="img-responsive" src = "/storage/public/storage/{{ $post->image }}" alt ="{{ $post->title }}">
+    <a href="{{ route('users.posts.read', ['post_slug' => $post->slug]) }}" >
+        <img class="img-responsive" id="grayborder" src = "/storage/public/storage/{{ $post->image }}" alt ="{{ $post->title }}">
+    </a>
     <figcaption> <span id="dimgray"> {{$post->caption}}</span> </figcaption>
 </figure>
 </article>

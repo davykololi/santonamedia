@@ -1,2 +1,2 @@
 @include('partials.categories')
-@include('partials.ext_aside')
+@include('partials.videoext_aside')

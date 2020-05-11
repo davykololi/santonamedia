@@ -22,10 +22,13 @@
                 <div class="ui card blogger-card fluid no-box-shadow text-center"> 
                     {{ $posts->render() }}
                 </div>
-                @include('partials.newsltags')
+                @include('user.posts.tags')
             </div> <!--end of pd10 -->
+            <div id="bottom20">
+                @include('user.newsletter.newsletter')
+            </div>
         </div><!--end of main-content -->
-        @include('partials.sidebars')
+        @include('partials.postcat_sidebars')
     </div><!--end of wrap -->
 @endsection
 

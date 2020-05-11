@@ -22,10 +22,12 @@
                 <nav class="blog-pagination">
                     {{ $posts->links() }}
                 </nav>
-                @include('partials.newsltags')
+                @include('user.posts.tags')
             </div> <!--end of pd10 -->
+            <div id="bottom20">
+                @include('user.newsletter.newsletter')
+            </div>
         </div><!-- end main-content -->
-        @include('partials.sidebars')
+        @include('partials.sidebars_gen')
     </div> <!-- end class wrap -->
 @endsection
-

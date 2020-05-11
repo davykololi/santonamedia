@@ -34,9 +34,12 @@
 				</div>
 			{!! Form::close() !!}
 			</div>
-			@include('partials.newsltags')
+			@include('user.posts.tags')
 		</div> <!--end of pd10 -->
+		<div id="bottom20">
+        	@include('user.newsletter.newsletter')
+        </div>
 	</div> <!--end of main-content -->
-	@include('partials.sidebars')
+	@include('partials.sidebars_gen')
 </div> <!--end of wrap -->
 @endsection

@@ -35,9 +35,12 @@
                     <hr class="style-four">
                 </div><!-- /.blog-post -->
                 @include('partials.vdext')
-                @include('partials.newsltags')
-            </div> <!--end of pd10 -->  
+                @include('user.videos.tags')
+            </div> <!--end of pd10 -->
+            <div id="bottom20">
+                @include('user.newsletter.newsletter')
+            </div>  
         </div><!-- end of main-content -->
-        @include('partials.sidebars')
+        @include('partials.videoread_sidebars')
     </div><!-- end of wrap -->
 @endsection

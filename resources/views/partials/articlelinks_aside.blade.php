@@ -1,6 +1,8 @@
 @forelse($archives as $archive)
     <span class="asidespan">
-        <img class="asideimg" src ="/storage/public/storage/{{ $archive->image }}" alt ="{{ $archive->title }}"/>
+        <a href="{{ route('users.posts.read', ['post_slug' => $archive->slug]) }}">
+            <img class="asideimg" id="grayborder" src ="/storage/public/storage/{{ $archive->image }}" alt ="{{ $archive->title }}"/>
+        </a>
         <br/>
             <ul class="list-unstyled" style="margin-top: 5px">
                 <li>
