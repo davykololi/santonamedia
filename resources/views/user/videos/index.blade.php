@@ -2,32 +2,35 @@
 @section('title'|'Videos')
 
 @section('content')
-    <div class="wrap">
-        <div id="main-content">
-            <div class="pd10">
-               @forelse($videos as $video)
-                    <div class="blog-post">
-                        @include('partials.video')
+<main role="main" class="container-fluid" id="margtop60">
+    <div class="row" id="dispflex">
+        <div class="col-sm-3">
+            @include('partials.sidebar')
+        </div>
+        <div class="blog-main col-sm-6" id="main-content"><!-- blog-main-->
+            @forelse($videos as $video)
+                <div class="blog-post">
+                    @include('partials.video')
                         <p class="card-text" id="ffbdy">{!! Str::limit($video->content,$limit=30,$end= '...') !!}
                             <a class="btn btn-default" id="button" href="{{ route('users.videos.read', ['video_slug' => $video->slug]) }}" >
                             Read more <i class="fa fa-angle-double-right"></i>
                             </a> 
                         </p>
                         <br/><hr/>
-                    </div><!-- /.blog-post -->
-                @empty
+                </div><!-- /.blog-post -->
+            @empty
                 <p style="color: red;font-family: Segoe UI Light;font-size: 30px"> Sorry esteemed reader. We are yet to post the <a href="#"> {{strtolower($category->name)}}</a> videos.</p>
-                @endforelse
-                <div class="ui card blogger-card fluid no-box-shadow text-center"> 
-                    {{ $videos->links() }}
-                </div>
-                @include('user.videos.tags')
-            </div> <!-- end of pd10 -->
-            <div id="bottom20">
-                @include('user.newsletter.newsletter')
+            @endforelse
+            <div class="ui card blogger-card fluid no-box-shadow text-center"> 
+                {{ $videos->links() }}
             </div>
-        </div><!-- end of main-content -->
-        @include('partials.videoread_sidebars')
-    </div><!-- /.container -->
+            @include('user.videos.tags')
+            @include('user.newsletter.newsletter')
+        </div> <!-- end of blog-main -->
+        <div class="col-sm-3">
+            @include('partials.vd_aside')
+        </div>
+    </div><!-- end of row -->
+</main> <!-- end of main -->
 @endsection
 

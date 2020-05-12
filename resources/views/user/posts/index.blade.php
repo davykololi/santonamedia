@@ -2,9 +2,12 @@
 @section('title'|'Articles')
 
 @section('content')
-    <div class="wrap">
-        <div id="main-content">
-            <div class="pd10">
+<main role="main" class="container-fluid" id="margtop60">
+    <div class="row" id="dispflex">
+        <div class="col-sm-3">
+            @include('partials.sidebar')
+        </div>
+        <div class="blog-main col-sm-6" id="main-content"><!-- blog-main-->
             @forelse($posts as $post)
                 <div class="blog-post">
                     @include('partials.post')
@@ -18,16 +21,16 @@
             @empty
                 <p style="color: red;font-family: Segoe UI Light;font-size: 30px"> Sorry esteemed reader. We are yet to post the <a href="#"> {{strtolower($category->name)}}</a> articles.</p>
             @endforelse
-                <div class="ui card blogger-card fluid no-box-shadow text-center"> 
-                    {{ $posts->links() }}
-                </div>
-                @include('user.posts.tags')
-            </div> <!--end of pd10 -->
-            <div id="bottom20">
-                @include('user.newsletter.newsletter')
+            <div class="ui card blogger-card fluid no-box-shadow text-center"> 
+                {{ $posts->links() }}
             </div>
-        </div><!-- end of main-content -->
-        @include('partials.postread_sidebars')
-    </div><!-- end of wrap -->
+            @include('user.posts.tags')
+            @include('user.newsletter.newsletter')
+        </div> <!--end of blog-main -->
+        <div class="col-sm-3">
+            @include('partials.aside')
+        </div>  
+        </div><!-- end of row -->
+    </main> <!-- end of main -->
 @endsection
 

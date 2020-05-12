@@ -2,9 +2,12 @@
 @section('title'|'Articles')
 
 @section('content')
-    <div class="wrap">
-        <div id="main-content">
-            <div class="pd10">
+<main role="main" class="container-fluid" id="margtop60">
+    <div class="row" id="dispflex">
+        <div class="col-sm-3">
+            @include('partials.sidebar')
+        </div>
+        <div class="blog-main col-sm-6" id="main-content"><!-- blog-main-->
                @forelse($videos as $video)
                     <div class="blog-post">
                         @include('partials.tagvideo')
@@ -23,12 +26,12 @@
                     {{ $videos->links() }}
                 </div>
                 @include('user.videos.tags')
-            </div> <!--end of pd10 -->
-            <div id="bottom20">
                 @include('user.newsletter.newsletter')
-            </div>
-        </div><!-- end of main-content -->
-            @include('partials.videocat_sidebars')
-    </div><!-- end of wrap -->
+        </div> <!--end of blog-main -->
+        <div class="col-sm-3">
+            @include('partials.videotag_aside')
+        </div>   
+    </div><!-- end of row -->
+</main> <!-- end of main -->
 @endsection
 

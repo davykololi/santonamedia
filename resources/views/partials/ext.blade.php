@@ -14,4 +14,3 @@
         <nav> 
             {{ $posts->render() }}
         </nav>
-        @include('user.posts.tags')

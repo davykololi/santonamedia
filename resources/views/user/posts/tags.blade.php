@@ -1,4 +1,3 @@
-<hr/>
 <div class="tags">
 	<strong>Tags:</strong>
 	@if(!empty($tags))

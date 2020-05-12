@@ -1,4 +1,4 @@
-<aside class="w3-sidebar w3-bar-block">
+<aside class="aside" id="sidebars">
     <h4 class="astitle">SEARCH FOR VIDEOS </h4>
     @include('partials.videosearch')
     <div class="sidebar-module">

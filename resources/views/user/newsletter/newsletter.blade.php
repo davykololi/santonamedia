@@ -3,9 +3,9 @@
 <div class="container" style="background-color: grey; border-radius:4px;padding-top:1%;margin-bottom: 0px">
 		@include('partials.messages')
      	@include('partials.errors')
-	<h5 class="center white">SUBSCRIBE TO OUR NEWSLETTER</h5>
-	<div class="center">
-	Sign up here to get the latest news updates and special offers delivered directly to your inbox.
+	<h5 class="centwhite">SUBSCRIBE TO OUR NEWSLETTER</h5>
+	<div class="centwhite">
+		<p>Sign up here to get the latest news updates and special offers delivered directly to your inbox.</p>
 	</div>
 	<br/>
 <form method="post" action="{{url('newsletter')}}">
@@ -24,5 +24,6 @@
 	</div>
 </form><!--end of form-->
 </div>
+<br/>
 
 

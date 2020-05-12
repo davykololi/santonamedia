@@ -2,9 +2,12 @@
 @section('title'|'Home')
 
 @section('content')
-    <div class="wrap">
-        <div id="main-content">
-            <div class="pd10">
+    <main role="main" class="container-fluid" id="margtop60">
+        <div class="row" id="dispflex">
+            <div class="col-sm-3">
+                @include('partials.sidebar')
+            </div>
+            <div class="blog-main col-sm-6" id="main-content">
             @if(!empty($posts))
                @forelse($posts as $post)
                     <div class="blog-post">
@@ -23,11 +26,12 @@
                     {{ $posts->links() }}
                 </nav>
                 @include('user.posts.tags')
-            </div> <!--end of pd10 -->
-            <div id="bottom20">
                 @include('user.newsletter.newsletter')
+            </div><!-- /.blog-main -->
+            <div class="col-sm-3">
+                @include('partials.aside_h')
             </div>
-        </div><!-- end main-content -->
-        @include('partials.sidebars_gen')
-    </div> <!-- end class wrap -->
+        </div><!-- /.row -->
+    </main> <!-- /.container -->
 @endsection
+

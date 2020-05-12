@@ -28,7 +28,7 @@ img,video,canvas{max-width: 100%;width: 100%\9;display: inline-flex;}
 .blue{color: blue}
 #btn{background-color: #0000FF;color: white;border: solid white}
 .calibri{font-family: Times New Roman;box-shadow: 10px 10px 8px #888888;
-	text-align: center;background-color: blue;color: white;border-radius: 25px;font-size: 20px;margin-top: 10px}
+	text-align: center;background-color: blue;color: white;border-radius: 25px;font-size: 20px;}
 .astitle{font-family: calibri light;text-align: center;background-color: #1E90FF;color: white}
 .titles{font-family: Times New Roman;color: blue;text-align: center}
 .asc{color:blue;font-size: 16px;font-family: Times New Roman;margin-left: 50px}
@@ -61,59 +61,14 @@ html,body{height: 100%}
 nav{position:absolute;}
 .frame{padding: 5px;border: double;}
 .font20{font-size: 25px}
-.font14{font-size: 14px}
-#container{margin-top: 60px;background-color: #F5F5DC;}
-#bottom20{margin-bottom: 20px;padding: 10px}
-.pd10{margin-left: 10px;margin-right: 10px;width: auto;height: auto;}
+.font14{font-size: 14px;text-align: justify;}
 #grayborder{border: 1px solid gray}
-
-/* Base Mobile Layout */
-.wrap{width: 90%;margin: 0 auto;}
-#main-content,#sidebar-left,#sidebar-right{width: 100%;float: left;}
-
-/* 3 Column Layout */
-@media only screen and (min-width: 1024px){
-	.wrap{width: 1024px;margin: 0 auto;}
-	#main-content{width: 50%;float: left;background-color: lavender;box-shadow:#000000 4px 4px 8px, #4d4d4d -4px -4px 8px;}
-	#sidebar-left{width: 25%;float: left;background-color: skyblue;padding: 0px;position: sticky;box-shadow:#000000 4px 4px 8px, #4d4d4d -4px -4px 8px;}
-	#sidebar-right{width: 25%;float: left;background-color: lightsteelblue;padding: 10px;position: sticky;box-shadow:#000000 4px 4px 8px, #4d4d4d -4px -4px 8px;}
-}
-
-/* Wide Layout */
-@media only screen and (min-width: 1200px){
-	.wrap{width: 1140px;margin: 0 auto;}
-}
-
-/* Move Sidebar Position*/
-@media only screen and (min-width: 1024px){
-	.wrap,#main-content,#sidebar-left,#sidebar-right{
-		position: relative;
-	}
-
-	#main-content,#sidebar-left,#sidebar-right{
-		top: 0;
-	}
-
-	#sidebar-right{right: 0;}
-	#sidebar-left{left: -52% /* width on #main-content */}
-	#main-content{left: 24%; /* Width of #left-sidebar */}
-}
-
-
-/* Hoverable sidebar-left */
-#sidebar-left a:hover{
-	left: 0;background-color: white;color: green;text-decoration: none;
-}
-
-/* Hoverable sidebar-right */
-#sidebar-right a:hover{
-	left: 0;color: black;text-decoration: none;
-}
-
-/* Hoverable main-content */
-#main-content a:hover{
-	left: 0;color: green;text-decoration: none;
-}
+#margtop60{margin-top: 60px;background-color: #F5F5DC;}
+#dispflex{display: flex;}
+#sidebars{border: 1px solid gray;padding: 10px;background-color: #B0E0E6;position: sticky;top: 0;box-shadow:#000000 4px 4px 8px, #4d4d4d -4px -4px 8px;}
+#main-content{background-color: lavender;border: 1px solid gray;margin-bottom: -30px;box-shadow:#000000 4px 4px 8px, #4d4d4d -4px -4px 8px;}
+#headings{margin-top: 10px;margin-bottom: 10px}
+.centwhite{text-align: center;color: white}
 
 /* Hoverable navbar */
 nav a:hover{

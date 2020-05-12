@@ -1,4 +1,4 @@
-<aside class="w3-sidebar w3-bar-block">
+<aside class="aside" id="sidebars">
     <h4 class="astitle">SEARCH FOR ARTICLES </h4>
     @include('partials.postsearch')
     <div class="sidebar-module">

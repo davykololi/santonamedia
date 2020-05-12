@@ -1,6 +1,8 @@
 <article>
 <div class="dad"></div>
+<div id="headings">
 <h6 class="calibri">SANTONA MEDIA {{ strtoupper($video->category->name) }} VIDEO</h6>
+</div>
 <br/>
 <h1 class="blog-post-title">
     <a class="title font20" href="{{ route('users.videos.read', ['video_slug' => $video->slug]) }}" >{{strtoupper($video->title)}}</a>
