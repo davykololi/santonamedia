@@ -25,8 +25,8 @@ class WelcomeController extends Controller
         $posts = Post::latest()->paginate(10);
         $tags = Tag::with('posts')->get();
 
-        $title = 'Latest news in Kenya';
-        $desc = 'Latest news in Kenya,East Africa, Africa,Europe,Asia and America';
+        $title = 'Welcome To Santona Media';
+        $desc = 'The media house for exclusive latest breaking news in Kenya and worldwide';
         $url = 'https://santonamedia.com/';
 
         SEOMeta::setTitle($title);
