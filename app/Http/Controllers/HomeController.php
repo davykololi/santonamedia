@@ -60,10 +60,6 @@ class HomeController extends Controller
         Twitter::setTitle($title);
         Twitter::setSite('@santonamedia');
 
-        JsonLd::setTitle($title);
-        JsonLd::setDescription($desc);
-        JsonLd::addImage('https://santonamedia.com/public/static/globe.png');
-
         $data = array(
             'category' => $category,
             'posts' => $posts,
