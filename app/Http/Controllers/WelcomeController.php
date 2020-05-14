@@ -25,9 +25,9 @@ class WelcomeController extends Controller
         $posts = Post::latest()->paginate(10);
         $tags = Tag::with('posts')->get();
 
-        $title = 'Latest news';
+        $title = 'Latest news in Kenya';
         $desc = 'Latest news in Kenya,East Africa, Africa,Europe,Asia and America';
-        $url = 'http://santonamedia.com/';
+        $url = 'https://santonamedia.com/';
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
@@ -41,6 +41,10 @@ class WelcomeController extends Controller
 
         Twitter::setTitle($title);
         Twitter::setSite('@santonamedia');
+
+        JsonLd::setTitle($title);
+        JsonLd::setDescription($desc);
+        JsonLd::addImage('https://santonamedia.com/public/static/globe.png');
 
         $data = array(
                     'categories' => $categories,

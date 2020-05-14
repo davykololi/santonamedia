@@ -1,8 +1,8 @@
-<h2 class="title box">RECOMMENDED ARTICLES</h2>
+<div class="title box">RECOMMENDED ARTICLES</div>
 @if(!empty($videos))
     @foreach($videos as $video)
         <div class="blog-post">
-            @include('partials.video')
+            @include('partials.videoext')
                 <p class="card-text">{!! Str::limit($video->content,$limit=30,$end= '...') !!}
                 <a class="btn btn-default" id="button" href="{{ route('users.videos.read', ['video_slug' => $video->slug]) }}" >Read more <i class="fa fa-angle-double-right"></i>
                 </a> 

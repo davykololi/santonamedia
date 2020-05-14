@@ -43,9 +43,9 @@ class HomeController extends Controller
             OpenGraph::addImage('http://santonamedia.com/storage/public/storage',[$post->image,'height'=>'300','width' =>'300']);
         }
 
-        $title = 'Latest breaking news in Kenya,East Africa, Africa,Europe,Asia and America';
-        $desc = 'Latest news in Kenya,East Africa, Africa,Europe,Asia and America';
-        $url = 'http://santonamedia.com/home';
+        $title = 'Latest breaking news in Kenya,East Africa,Africa,Europe,Asia and America';
+        $desc = 'Latest news in Kenya,East Africa,Africa,Europe,Asia and America';
+        $url = 'https://santonamedia.com/home';
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
@@ -59,6 +59,10 @@ class HomeController extends Controller
 
         Twitter::setTitle($title);
         Twitter::setSite('@santonamedia');
+
+        JsonLd::setTitle($title);
+        JsonLd::setDescription($desc);
+        JsonLd::addImage('https://santonamedia.com/public/static/globe.png');
 
         $data = array(
             'category' => $category,

@@ -1,8 +1,8 @@
-<h2 class="title box">RECOMMENDED ARTICLES</h2>
+<div class="title box">RECOMMENDED ARTICLES</div>
 @if(!empty($posts))
-    @foreach($posts as $post)
+    @foreach($posts as $postext)
         <div class="blog-post">
-            @include('partials.post')
+            @include('partials.postext')
                 <p class="card-text">{!! Str::limit($post->content,$limit=30,$end= '...') !!}
                 <a class="btn btn-default" id="button" href="{{ route('users.posts.read', ['post_slug' => $post->slug]) }}" >Read more <i class="fa fa-angle-double-right"></i>
                 </a> 

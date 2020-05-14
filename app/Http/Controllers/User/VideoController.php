@@ -50,11 +50,11 @@ class VideoController extends Controller
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
         SEOMeta::setKeywords($category->keywords);
-        SEOMeta::setCanonical('http://santonamedia.com/news',['slug'=>$category->slug],'/videos');
+        SEOMeta::setCanonical('https://santonamedia.com/news',['slug'=>$category->slug],'/videos');
 
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
-        OpenGraph::setUrl('http://santonamedia.com/news',['slug'=>$category->slug],'/videos');
+        OpenGraph::setUrl('https://santonamedia.com/news',['slug'=>$category->slug],'/videos');
         OpenGraph::addProperty('type','videos');
 
         Twitter::setTitle($title);
@@ -64,7 +64,7 @@ class VideoController extends Controller
         JsonLd::setDescription($desc);
 
         foreach($category->videos as $video){
-        OpenGraph::addVideo('http://santonamedia.com/storage/public/videos',[$video->video,'height'=>'240','width' =>'320']);
+        OpenGraph::addVideo('https://santonamedia.com/storage/public/videos',[$video->video,'height'=>'240','width' =>'320']);
         }
         
         $data = array(
@@ -97,15 +97,15 @@ class VideoController extends Controller
         SEOMeta::setKeywords($video->keywords);
         SEOMeta::addMeta('article:published_time', $video->created_at->toW3CString(),'property');
         SEOMeta::addMeta('article:section', strtolower($video->category->name),'property');
-        SEOMeta::setCanonical('http://santonamedia.com/news/videos/details',['video_slug'=>$video->slug]);
+        SEOMeta::setCanonical('https://santonamedia.com/news/videos/details',['video_slug'=>$video->slug]);
 
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
-        OpenGraph::setUrl('http://santonamedia.com/news/videos/details',['video_slug'=>$video->slug]);
+        OpenGraph::setUrl('https://santonamedia.com/news/videos/details',['video_slug'=>$video->slug]);
         OpenGraph::addProperty('type','article');
         OpenGraph::addProperty('locale','en-us');
-        OpenGraph::addVideo('http://santonamedia.com/storage/public/videos',[$video->video,
-                            'secure_url' => 'http://santonamedia.com/storage/public/videos',$video->video,
+        OpenGraph::addVideo('https://santonamedia.com/storage/public/videos',[$video->video,
+                            'secure_url' => 'https://santonamedia.com/storage/public/videos',$video->video,
                             'type' => 'application/x-shockwave-flash','width' => 320,'height' => 240]);
 
         Twitter::setTitle($title);
@@ -143,11 +143,11 @@ class VideoController extends Controller
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
         SEOMeta::setKeywords($tag->keywords);
-        SEOMeta::setCanonical('http://santonamedia.com/news',['slug'=>$tag->slug],'/videos');
+        SEOMeta::setCanonical('https://santonamedia.com/news',['slug'=>$tag->slug],'/videos');
 
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
-        OpenGraph::setUrl('http://santonamedia.com/news',['slug'=>$tag->slug],'/videos');
+        OpenGraph::setUrl('https://santonamedia.com/news',['slug'=>$tag->slug],'/videos');
         OpenGraph::addProperty('type','videos');
 
         Twitter::setTitle($title);
@@ -155,10 +155,10 @@ class VideoController extends Controller
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
-        JsonLd::addImage('http://santonamedia.com/public/static/globe.png');
+        JsonLd::addImage('https://santonamedia.com/public/static/globe.png');
 
         foreach($tag->videos as $video){
-        OpenGraph::addVideo('http://santonamedia.com/storage/public/storage',[$video->video,'height'=>'300','width' =>'300']);
+        OpenGraph::addVideo('https://santonamedia.com/storage/public/storage',[$video->video,'height'=>'300','width' =>'300']);
         }
         
         $data = array(
