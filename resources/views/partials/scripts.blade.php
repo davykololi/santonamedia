@@ -27,27 +27,10 @@
 $.ajaxSetup({headers:{'csrftoken':'{{csrf_token()}}'}});
 </script>
 
-<script>
-	$(document).ready(function(){
-		$("h1").mouseenter(function(){
-			$(this).addClass("hightlight");
-		});
-	});
-</script>
-
 <!--Facebook share button script-->
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=790123938106308&autoLogAppEvents=1"></script>
 
 <!--Twitter share button script-->
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<script>
-	function w3_open(){
-		document.getElementById("mySidebar").style.display="block";
-	}
-
-	function w3_close(){
-		document.getElementById("mySidebar").style.display="none";
-	}
-</script>
 
