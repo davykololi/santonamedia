@@ -1,6 +1,6 @@
 <div class="title box">RECOMMENDED ARTICLES</div>
 @if(!empty($posts))
-    @foreach($posts as $postext)
+    @foreach($posts as $post)
         <div class="blog-post">
             @include('partials.postext')
                 <p class="card-text">{!! Str::limit($post->content,$limit=30,$end= '...') !!}
