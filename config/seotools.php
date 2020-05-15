@@ -35,8 +35,8 @@ return [
          * The default configurations to be used by the opengraph generator.
          */
         'defaults' => [
-            'title'       => 'santonamedia.com', // set false to total remove
-            'description' => 'The home for the latest news in sports,entertainment,business,politics and Healthcare', // set false to total remove
+            'title'       => false, // set false to total remove
+            'description' => false , // set false to total remove
             'url'         => false, // Set null for using Url::current(), set false to total remove
             'type'        => false,
             'site_name'   => false,
@@ -49,7 +49,7 @@ return [
          */
         'defaults' => [
             //'card'        => 'summary',
-            //'site'        => '@LuizVinicius73',
+            'site'        => '@santonamedia',
         ],
     ],
     'json-ld' => [
@@ -59,8 +59,8 @@ return [
         'defaults' => [
             'title'       => false, // set false to total remove
             'description' => false, // set false to total remove
-            'url'         => null, // Set null for using Url::current(), set false to total remove
-            'type'        => false,
+            'url'         => false, // Set null for using Url::current(), set false to total remove
+            'type'        => 'WebPage',
             'images'      => [],
         ],
     ],
