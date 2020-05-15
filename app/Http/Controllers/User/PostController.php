@@ -142,11 +142,11 @@ class PostController extends Controller
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
         SEOMeta::setKeywords($tag->keywords);
-        SEOMeta::setCanonical('https://santonamedia.com/news',['slug'=>$tag->slug],'/articles');
+        SEOMeta::setCanonical('https://santonamedia.com/news/articles',['slug'=>$tag->slug]);
 
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
-        OpenGraph::setUrl('https://santonamedia.com/news',['slug'=>$tag->slug],'/articles');
+        OpenGraph::setUrl('https://santonamedia.com/news/articles',['slug'=>$tag->slug]);
         OpenGraph::addProperty('type','articles');
 
         Twitter::setTitle($title);

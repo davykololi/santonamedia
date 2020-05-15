@@ -143,11 +143,11 @@ class VideoController extends Controller
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
         SEOMeta::setKeywords($tag->keywords);
-        SEOMeta::setCanonical('https://santonamedia.com/news',['slug'=>$tag->slug],'/videos');
+        SEOMeta::setCanonical('https://santonamedia.com/news/videos',['slug'=>$tag->slug]);
 
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
-        OpenGraph::setUrl('https://santonamedia.com/news',['slug'=>$tag->slug],'/videos');
+        OpenGraph::setUrl('https://santonamedia.com/news/videos',['slug'=>$tag->slug]);
         OpenGraph::addProperty('type','videos');
 
         Twitter::setTitle($title);
