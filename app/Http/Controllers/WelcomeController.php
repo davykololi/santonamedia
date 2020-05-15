@@ -44,7 +44,7 @@ class WelcomeController extends Controller
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
-        JsonLd::setType('');
+        JsonLd::setType('/');
 
         $data = array(
                     'categories' => $categories,
