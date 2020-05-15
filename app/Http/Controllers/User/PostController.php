@@ -62,7 +62,6 @@ class PostController extends Controller
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
         JsonLd::addImage('https://santonamedia.com/public/static/globe.png');
-        JsonLd::setType('slug'=>$category->slug,'/articles');
         
         foreach($category->posts as $post){
         OpenGraph::addImage('https://santonamedia.com/storage/public/storage',[$post->image,'height'=>'300','width' =>'300']);
