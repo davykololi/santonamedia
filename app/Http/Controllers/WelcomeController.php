@@ -44,7 +44,7 @@ class WelcomeController extends Controller
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
-        JsonLd::addImage('https://santonamedia.com/public/static/globe.png');
+        JsonLd::setType('');
 
         $data = array(
                     'categories' => $categories,

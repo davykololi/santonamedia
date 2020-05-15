@@ -62,7 +62,8 @@ class HomeController extends Controller
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
-
+        JsonLd::setType('home');
+        
         $data = array(
             'category' => $category,
             'posts' => $posts,
