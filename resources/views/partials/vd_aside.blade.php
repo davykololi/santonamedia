@@ -1,9 +1,9 @@
-<aside class="aside" id="sidebars">
-    <h4 class="astitle">SEARCH FOR VIDEOS </h4>
+<aside class="sidebar-right">
+    <h4> SEARCH FOR VIDEOS </h4>
     @include('partials.videosearch')
     <div class="sidebar-module">
         <br/>
-        <h4 class="astitle">LATEST {!! strtoupper($category->name) !!} VIDEOS </h4>
+        <h4> LATEST {!! $category->name !!} VIDEOS </h4>
             @include('partials.videolinks_aside')
     </div>
     @include('partials.videocat_n_vdext')

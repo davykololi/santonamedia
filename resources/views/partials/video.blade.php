@@ -1,30 +1,26 @@
 <article>
 <div class="dad"></div>
-<div id="headings">
-<h6 class="calibri">SANTONA MEDIA {{ strtoupper($video->category->name) }} VIDEO</h6>
+<div class="headings">
+    <h6>SANTONA MEDIA {{ $video->category->name }} VIDEO</h6>
 </div>
 <br/>
-<h1 class="blog-post-title">
-    <a class="title font20" href="{{ route('users.videos.read', ['video_slug' => $video->slug]) }}" >{{strtoupper($video->title)}}</a>
+<h1 class="feature-title">
+    <a class="post-link" href="{{ route('users.videos.read', ['video_slug' => $video->slug]) }}" >{{ $video->title }}</a>
 </h1>
-<p class="blog-post-meta">
-    <div style="font-family: Calibri Light;font-size: 100%;">
-        	<a style="color: black" href="#"> 
-        		<span style="font-size: 13px">
-                	{{ date("F j,Y,g:i a",strtotime($video->created_at)) }}
-            	</span>
-            </a>
-            By <span class="title adname">{!! $video->admin->name !!}</span>
+<div class="left-ten">
+    <div class="created-time">
+        <a href="#"> {{ date("F j,Y,g:i a",strtotime($video->created_at)) }} By:</a>
+        <span> {!! $video->admin->name !!} </span>
     </div>
-</p>
-<figure>
-    <video width="320" height="240" id="grayborder" controls poster="{{asset('/static/lion.JPG')}}"> 
-        <source type="video/mp4" src = "/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}">
-        <source type="video/ogg" src="/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}">     
-        <source type="video/webm" src="/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}"> 
-            This browser doesn't support video tag.
-    </video>
-    <br/>
- 	<figcaption> <span id="dimgray"> {{$video->caption}}</span> </figcaption>
-</figure>
+    <figure>
+        <video width="320" height="240" controls poster="{{asset('/static/lion.JPG')}}"> 
+            <source type="video/mp4" src = "/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}">
+            <source type="video/ogg" src="/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}">     
+            <source type="video/webm" src="/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}"> 
+                This browser doesn't support video tag.
+        </video>
+        <br/>
+ 	  <figcaption> <span id="dimgray"> {{$video->caption}}</span> </figcaption>
+    </figure>
+</div> <!---end of left-ten -->
 </article>

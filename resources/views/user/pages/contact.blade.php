@@ -2,15 +2,15 @@
 @section('title', '| Contact Us')
 
 @section('content')
-<main role="main" class="container-fluid" id="margtop60">
-	<div class="row" id="dispflex">
-		<div class="col-sm-3">
+<div class="container-fluid features">
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-12">
             @include('partials.sidebar')
         </div>
-		<div class="blog-main col-sm-6" id="main-content">
+		<div class="col-lg-6 col-md-6 col-sm-12 main-content">
 		@include('partials.messages')
 		@include('partials.errors')
-			<div id="headings"> <h3 class="calibri">CONTACT FORM</h3> </div>
+			<div class="headings"> <h6>CONTACT FORM</h6> </div>
 			<p style="font-size: 15px;text-align: center;">
 				 We are so glad that you are contacting us.Fill the form below and submit to us. 
 			</p>
@@ -37,12 +37,13 @@
 				</div>
 			{!! Form::close() !!}
 			</div>
+			<br/>
 			@include('user.posts.tags')
 			@include('user.newsletter.newsletter')
 		</div> <!--end of blog-main -->
-		<div class="col-sm-3">
+		<div class="col-lg-3 col-md-3 col-sm-12">
             @include('partials.aside_h')
         </div>
 	</div> <!--end of row -->
-</main>
+</div>
 @endsection

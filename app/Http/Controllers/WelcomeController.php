@@ -31,13 +31,13 @@ class WelcomeController extends Controller
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
-        SEOMeta::setKeywords('latest,news,Kenya,East Africa, Africa,Europe,Asia,America');
+        SEOMeta::setKeywords('media,house,exclusive,latest,breaking,news,Kenya,worldwide');
         SEOMeta::setCanonical($url);
 
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
         OpenGraph::setUrl($url);
-        OpenGraph::addProperty('type','articles');
+        OpenGraph::addProperty('type','welcome');
 
         Twitter::setTitle($title);
         Twitter::setSite('@santonamedia');

@@ -12,7 +12,6 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-                        <section id="footer">
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
                                 <ul class="list-unstyled list-inline social text-center">
@@ -83,7 +82,6 @@
                                 @endif
                             </div>
                         </div>
-                    </section>
                     </form>
                 </div>
             </div>

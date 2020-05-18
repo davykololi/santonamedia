@@ -164,11 +164,9 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-        Jorenvh\Share\Providers\ShareServiceProvider::class,
         RenatoMarinho\LaravelPageSpeed\ServiceProvider::class,
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
         Spatie\Analytics\AnalyticsServiceProvider::class,
-        Laravolt\Avatar\ServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -236,14 +234,12 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Form' => Collective\Html\FormFacade::class,
         'Htmi' => Collective\Html\HtmlFacade::class,
-        'Share' => Jorenvh\Share\ShareFacade::class,
         'SEOMeta' => Artesaos\SEOTools\Facades\SEOMeta::class,
         'OpenGraph' => Artesaos\SEOTools\Facades\OpenGraph::class,
         'Twitter' => Artesaos\SEOTools\Facades\TwitterCard::class,
         'JsonLd' => Artesaos\SEOTools\Facades\JsonLd::class,
         'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
         'Analytics' => Spatie\Analytics\AnalyticsFacade::class,
-        'Avatar' => Laravolt\Avatar\Facade::class,
 
     ],
 

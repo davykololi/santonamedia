@@ -2,25 +2,25 @@
 @section('title', '| Skyluxnews Portfolio Page')
 
 @section('content')
-    <main role="main" class="container-fluid" id="margtop60">
-        <div class="row" id="dispflex">
-            <div class="col-sm-3">
+    <div class="container-fluid features">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-12">
                 @include('partials.sidebar')
             </div>
-            <div class="blog-main col-sm-6" id="main-content">
-                <div id="headings">
-                    <h3 class="calibri"> {{ strtoupper(config('app.name', 'skyluxnews')) }} PORTFOLIO </h3>
+            <div class="col-lg-6 col-md-6 col-sm-12 main-content">
+                <div class="headings">
+                    <h6> {{ strtoupper(config('app.name', 'skyluxnews')) }} PORTFOLIO </h6>
                 </div>
                     <br/>
                     <p>This is Portifolio Page.</p>
                 @include('user.posts.tags')
                 @include('user.newsletter.newsletter')
             </div> <!-- end of blog-main-->
-            <div class="col-sm-3">
+            <div class="col-lg-3 col-md-3 col-sm-12">
                 @include('partials.aside_h')
             </div>
         </div><!-- /.row -->
-    </main><!-- /.container -->
+    </div> <!-- /.container -->
 @endsection
 
 
