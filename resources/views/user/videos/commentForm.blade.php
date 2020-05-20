@@ -1,4 +1,5 @@
-<h5 class="blue">Comment:</h5>
+<div class="comment-form">
+<h5>Comment:</h5>
 <form method="post" action="{{route('comments.store')}}">
 	@csrf
 	<div class="form-group">
@@ -10,3 +11,4 @@
 		<input type="submit" class="btn btn" id="button" value="Submit"/>
 	</div>
 </form>
+</div>

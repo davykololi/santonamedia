@@ -81,10 +81,6 @@
 .black{
 	color: black;
 }
-.tags{
-	margin-left: 100px;
-	font-size: 15px;
-}
 .drop{
 	margin-top: 12px;
 	margin-left: 5px;
@@ -96,13 +92,10 @@ hr.style-four{
 	background-color: blue;
 	height: 5px;
 }
-
 #lightblue{
 	background-color: lightblue;
 	border-radius: 25px;
 }
-
-
 .dad{
 	position: absolute;
 	width: 20px;
@@ -112,16 +105,13 @@ hr.style-four{
 	animation: spin 5s infinite;
 	transform-origin: center center;
 }
-
 .frame{padding: 5px;
 	border: double;
 }
-
 .headings{
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
-
 .headings h6{
 	font-family: Times New Roman;
 	box-shadow: 10px 10px 8px #888888;
@@ -132,20 +122,17 @@ hr.style-four{
 	font-size: 20px;
 	text-transform: uppercase;
 }
-
 body{
 	padding: 0;
 	margin: 0;
 	background: #f2f6e9;
 }
-
 .header{
 	background-image: url('/static/santonamedia.png');
 	background-size: cover;
 	background-position: center;
 	position: relative;
 }
-
 .overlay{
 	position: absolute;
 	min-height: 100%;
@@ -154,7 +141,6 @@ body{
 	top: 0;
 	background: rgba(0,0,0,0.6);
 }
-
 .description{
 	left: 50%;
 	position: absolute;
@@ -162,11 +148,9 @@ body{
 	transform: translate(-50%,-55%);
 	text-align: center;
 }
-
 .description h1{
 	color: #6ab446;
 }
-
 .description p{
 	color: #fff;
 	font-size: 1.3rem;
@@ -177,47 +161,39 @@ body{
 .navbar{
 	background: #000080;
 }
-
-.nav-link, .navbar-brand{
+.navbar .nav-link, .navbar-brand{
 	color: #fff;
 	cursor: pointer;
 }
-
 .navbar .nav-link{
 	margin-right: 1em !important;
 	color: white;
 	font-size: 13px;
 	font-family: Times New Roman;
 }
-
-.nav-link:hover{
+.navbar .nav-link:hover{
 	color: #f97300;
 }
 
 .navbar-collapse{
 	justify-content: flex-end;
 }
-
 .navbar-toggler{
 	background: #fff !important;
 }
-
 .navbar .dropdown-item{
 	text-transform: uppercase;
 	font-size: 14px;
 	font-family: Times New Roman;
 }
-
 .navbar .dropdown-menu a:hover{
 	background-color: red;
 }
-
 .features{
 	margin-top: 50px;
 	padding: 0em;
 	position: relative;
 }
-
 .feature-title{
 	color: #333;
 	font-size: 2.0rem;
@@ -226,11 +202,13 @@ body{
 	text-transform: uppercase;
 	font-family: Arial Black;
 }
-
+.features .blog-post p{
+	font-family: Helvetica Neue;
+	font-size: 16px;
+}
 .left-ten{
 	margin-left: 10px;
 }
-
 .left-ten p{
 	font-family: Arial Narrow;
 	font-size: 16px;
@@ -238,42 +216,32 @@ body{
 	text-align: justify;
 	text-justify:inter-word;
 }
-
 .left-ten .created-time{
 	font-family: Calibri Light;
 	font-size: 13px;
 	text-transform: uppercase;
 	margin-bottom: 10px;
 }
-
 .left-ten .created-time a{
 	color: black;
 }
-
 .left-ten .created-time span{
 	color: purple;
 }
-
 h1 .post-link{
 	color: black;
-	margin-left: 10px;
 	text-decoration: none;
 }
-
 h1 .post-link:hover{
 	color: green;
 }
-
 h2 .post-link{
 	color: black;
-	margin-left: 10px;
 	text-decoration: none;
 }
-
 h2 .post-link:hover{
 	color: purple;
 }
-
 .features .main-content img{
 	-webkit-box-shadow:1px 1px 4px rgba(0,0,0,0.4);
 	-moz-box-shadow:1px 1px 4px rgba(0,0,0,0.4);
@@ -283,36 +251,49 @@ h2 .post-link:hover{
 	padding: 10px;
 	width: auto;
 }
-
 .main-content{
 	background-color: lavender;
 	border: 1px solid gray;
 	box-shadow:#000000 4px 4px 8px, #4d4d4d -4px -4px 8px;
 }
-
 .main-content p{
 	margin-left: 10px;
 }
-
+.main-content .share-title{
+	font-size: 12px;
+	color: purple;
+}
+.main-content .share span{
+	margin: 5px;
+}
+.main-content .comment-form h5{
+	color: blue;
+	text-align: left;
+}
+.main-content .prev-next h5{
+	font-family: Lucida Sans;
+	color: #333;
+	font-size: 15px;
+}
+.main-content .box{
+	font-size: 15px;
+	text-decoration: none;
+	font-family: Arial Black;
+}
 .private-policy{
 	margin-left: 5px
 }
-
 .private-policy ul li{
 	font-size: 15px;
 	text-align: justify;
 	margin-left: 10px;
 }
-
 .sidebar-right{
 	border: 1px solid gray;
 	padding: 10px;
-	position: sticky;
-	top: 0;
 	background-color: lavender;
 	box-shadow:#000000 4px 4px 8px, #4d4d4d -4px -4px 8px;
 }
-
 .sidebar-right h4{
 	font-family: calibri light;
 	text-align: center;
@@ -320,33 +301,44 @@ h2 .post-link:hover{
 	color: white;
 	text-transform: uppercase;
 }
-
 .sidebar-right .sidebar-module span{
 	color: purple;
+	font-family: Times New Roman;
+	font-size: 15px;
 }
-
 .sidebar-right .sidebar-module .dropdown-menu a{
 	text-transform: uppercase;
 	font-size: 13px;
 }
-
 .sidebar-right .sidebar-module .dropdown-menu a:hover{
 	background: green;
 }
 
+.sidebar-right .tag-aside a{
+	line-height: 1.5px;
+	text-transform: uppercase;
+	font-size: 16px;
+	color: black;
+	margin-left: 20px;
+	text-decoration: none;
+}
+.sidebar-right .tag-aside a:hover{
+	background-color: white;
+	color: orange;
+}
+
+
+
 .sidebar-right .col {
 	border: 1px solid gray;
 }
-
 .sidebar-right .col h5{
 	margin-left: 2px;
 	display: inline;
 }
-
 .sidebar-left{
 	border: 1px solid gray;
 	background-color: #455dc7;
-	padding: 20px;
 	position: sticky;
 	top: 0;
 	box-shadow:#000000 4px 4px 8px, #4d4d4d -4px -4px 8px;
@@ -354,18 +346,15 @@ h2 .post-link:hover{
 	display: block;
 	overflow-y: auto;
 }
-
 .sidebar-left a{
 	font-size: 15px;
 	text-transform: uppercase;
 	color: white;
 }
-
 .sidebar-left a:hover{
 	color: green;
 	background: lightblue;
 }
-
 .sidebar-left h3{
 	text-align: center;
 	color: white;
@@ -376,40 +365,103 @@ h2 .post-link:hover{
 		margin: -250px;
 	}
 }
-
 .main-content .gray{
 	background-color: grey;
 	border-radius:4px;
 	padding-top:1%;
 	margin-bottom: 0px
 }
-
-.main-content .gray p{
+.main-content .gray p,h5{
 	text-align: center;
 	color: white;
 }
-
-.page-footer{
-	background-color: #000080;
-	color: #ccc;
-	padding: 60px 0 30px;
+.main-content .tags a{
+	margin-left: 5px;
+	font-size: 15px;
+	display: inline-flex;
+}
+.tags strong{
+	font-size: 12px;
 }
 
-.footer-copyright{
-	color: #666;
-	padding: 40px;
+/* Footer */
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+section {
+    padding: 60px 0;
 }
 
-.page-footer li a{
-	color: white;
+section .section-title {
+    text-align: center;
+    color: #007b5e;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+#footer {
+    background-color: #000080;
+    border-top: solid white;
+    border-bottom: solid white !important;
+}
+#footer h5{
+	padding-left: 10px;
+    border-left: 3px solid #eeeeee;
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+    color:#ffffff;
+}
+#footer a {
+    color: #ffffff;
+    text-decoration: none !important;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+#footer ul.social li{
+	padding: 3px 0;
+}
+#footer ul.social li a i {
+    margin-right: 5px;
+	font-size:25px;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.social li:hover a i {
+	font-size:30px;
+	margin-top:-10px;
+}
+#footer ul.social li a,
+#footer ul.quick-links li a{
+	color:#ffffff;
+}
+#footer ul.social li a:hover{
+	color:#eeeeee;
+}
+#footer ul.quick-links li{
+	padding: 3px 0;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.quick-links li:hover{
+	padding: 3px 0;
+	margin-left:5px;
+	font-weight:700;
+}
+#footer ul.quick-links li a i{
+	margin-right: 5px;
+}
+#footer ul.quick-links li:hover a i {
+    font-weight: 700;
+}
+@media (max-width:767px){
+	#footer h5 {
+    padding-left: 0;
+    border-left: transparent;
+    border-bottom: solid white;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+}
 }
 
-.page-footer h5{
-	color: white;
-	font-size: 14px;
-	text-decoration: underline;
-	font-family: 	impact;
-}
 
 @keyframes spin{
 	0%{
@@ -436,10 +488,14 @@ h2 .post-link:hover{
 	}
 }
 
-.box{width: 300px;height: 30px;margin: 8px;position: relative;font-family: Times Roman;text-decoration: underline;
+.box{
+	width: 300px;
+	height: 30px;
+	margin: 8px;
+	position: relative;
 	text-shadow: 2px 8px 6px rgba(0,0,0,0.2),0px -5px 35px rgba(255,255,255,0.3);
-		-webkit-animation:repeatit 2s linear 0s infinite alternate;
-		animation: repeatit 2s linear 0s infinite alternate;
+	-webkit-animation:repeatit 2s linear 0s infinite alternate;
+	animation: repeatit 2s linear 0s infinite alternate;
 	}
 
 @webkit-keyframes repeatit{

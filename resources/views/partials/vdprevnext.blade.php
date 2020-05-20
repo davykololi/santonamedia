@@ -1,4 +1,5 @@
-<h5 class="title" style="text-align: center;">PERUSE ALL VIDEOS</h5>
+<div class="prev-next">
+<h5>PERUSE ALL VIDEOS</h5>
 <div class="row">
     <div class="col-md-6">
         @if(isset($previous))
@@ -25,3 +26,5 @@
         @endif
     </div>
 </div>
+</div>
+<hr/>

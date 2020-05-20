@@ -55,13 +55,14 @@ class VideoController extends Controller
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
         OpenGraph::setUrl('https://santonamedia.com/news',['slug'=>$category->slug],'/videos');
-        OpenGraph::addProperty('type','videos');
+        OpenGraph::addProperty('type','Videos');
 
         Twitter::setTitle($title);
         Twitter::setSite('@santonamedia');
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
+        JsonLd::setType('Videos');
 
         foreach($category->videos as $video){
         OpenGraph::addVideo('https://santonamedia.com/storage/public/videos',[$video->video,'height'=>'240','width' =>'320']);
@@ -102,7 +103,7 @@ class VideoController extends Controller
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
         OpenGraph::setUrl('https://santonamedia.com/news/videos/details',['video_slug'=>$video->slug]);
-        OpenGraph::addProperty('type','article');
+        OpenGraph::addProperty('type','Video');
         OpenGraph::addProperty('locale','en-us');
         OpenGraph::addVideo('https://santonamedia.com/storage/public/videos',[$video->video,
                             'secure_url' => 'https://santonamedia.com/storage/public/videos',$video->video,
@@ -148,7 +149,7 @@ class VideoController extends Controller
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
         OpenGraph::setUrl('https://santonamedia.com/news/videos',['slug'=>$tag->slug]);
-        OpenGraph::addProperty('type','videos');
+        OpenGraph::addProperty('type','Place');
 
         Twitter::setTitle($title);
         Twitter::setSite('@santonamedia');
@@ -156,6 +157,7 @@ class VideoController extends Controller
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
         JsonLd::addImage('https://santonamedia.com/public/static/globe.png');
+        JsonLd::setType('Place');
 
         foreach($tag->videos as $video){
         OpenGraph::addVideo('https://santonamedia.com/storage/public/storage',[$video->video,'height'=>'300','width' =>'300']);

@@ -1,3 +1,4 @@
+<br/><br/>
 <div class="tags">
 	<strong>Tags:</strong>
 	@if(!empty($tags))

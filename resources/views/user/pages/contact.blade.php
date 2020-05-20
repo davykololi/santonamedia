@@ -37,7 +37,6 @@
 				</div>
 			{!! Form::close() !!}
 			</div>
-			<br/>
 			@include('user.posts.tags')
 			@include('user.newsletter.newsletter')
 		</div> <!--end of blog-main -->

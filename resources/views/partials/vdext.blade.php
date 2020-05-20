@@ -1,4 +1,4 @@
-<div class="title box">RECOMMENDED ARTICLES</div>
+<div class="box">RECOMMENDED ARTICLES</div>
 @if(!empty($videos))
     @foreach($videos as $video)
         <div class="blog-post">

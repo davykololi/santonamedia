@@ -233,7 +233,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Form' => Collective\Html\FormFacade::class,
-        'Htmi' => Collective\Html\HtmlFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
         'SEOMeta' => Artesaos\SEOTools\Facades\SEOMeta::class,
         'OpenGraph' => Artesaos\SEOTools\Facades\OpenGraph::class,
         'Twitter' => Artesaos\SEOTools\Facades\TwitterCard::class,

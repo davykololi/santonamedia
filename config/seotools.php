@@ -37,9 +37,9 @@ return [
         'defaults' => [
             'title'       => false, // set false to total remove
             'description' => false , // set false to total remove
-            'url'         => false, // Set null for using Url::current(), set false to total remove
+            'url'         => 'http://santonamedia.com', // Set null for using Url::current(), set false to total remove
             'type'        => false,
-            'site_name'   => false,
+            'site_name'   => 'santonamedia',
             'images'      => [],
         ],
     ],
@@ -60,7 +60,7 @@ return [
             'title'       => false, // set false to total remove
             'description' => false, // set false to total remove
             'url'         => false, // Set null for using Url::current(), set false to total remove
-            'type'        => 'WebPage',
+            'type'        => false,
             'images'      => [],
         ],
     ],

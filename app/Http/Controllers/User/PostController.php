@@ -54,7 +54,7 @@ class PostController extends Controller
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
         OpenGraph::setUrl('https://santonamedia.com/news',['slug'=>$category->slug],'/articles');
-        OpenGraph::addProperty('type','articles');
+        OpenGraph::addProperty('type','Articles');
 
         Twitter::setTitle($title);
         Twitter::setSite('@santonamedia');
@@ -62,6 +62,7 @@ class PostController extends Controller
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
         JsonLd::addImage('https://santonamedia.com/public/static/globe.png');
+        JsonLd::setType('Articles');
         
         foreach($category->posts as $post){
         OpenGraph::addImage('https://santonamedia.com/storage/public/storage',[$post->image,'height'=>'300','width' =>'300']);
@@ -147,7 +148,7 @@ class PostController extends Controller
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
         OpenGraph::setUrl('https://santonamedia.com/news/articles',['slug'=>$tag->slug]);
-        OpenGraph::addProperty('type','articles');
+        OpenGraph::addProperty('type','Place');
 
         Twitter::setTitle($title);
         Twitter::setSite('@santonamedia');
@@ -155,6 +156,7 @@ class PostController extends Controller
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
         JsonLd::addImage('https://santonamedia.com/public/static/globe.png');
+        JsonLd::setType('Place');
 
         foreach($tag->posts as $post){
         OpenGraph::addImage('https://santonamedia.com/storage/public/storage',[$post->image,'height'=>'300','width' =>'300']);

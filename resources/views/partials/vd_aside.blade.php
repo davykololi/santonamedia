@@ -8,3 +8,4 @@
     </div>
     @include('partials.videocat_n_vdext')
 </aside><!-- /.blog-sidebar -->
+@include('partials.tags_aside')

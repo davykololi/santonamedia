@@ -55,14 +55,14 @@ class HomeController extends Controller
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
         OpenGraph::setUrl($url);
-        OpenGraph::addProperty('type','home');
+        OpenGraph::addProperty('type','HomePage');
 
         Twitter::setTitle($title);
         Twitter::setSite('@santonamedia');
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
-        JsonLd::setType('home');
+        JsonLd::setType('HomePage');
         
         $data = array(
             'category' => $category,

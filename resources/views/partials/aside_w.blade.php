@@ -8,3 +8,4 @@
     </div>
     @include('partials.postcat_n_ext') 
 </aside><!-- /.blog-sidebar -->
+@include('partials.tags_aside')

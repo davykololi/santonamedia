@@ -19,7 +19,7 @@
                         <span style="color:blue;">  {{$video->comments->count()}} {{ Str::plural('comment',$video->comments->count())}} </span> <i>. Be the first to comment.<span class="red"> You must be logged in to comment</span></i>
                         <br/><br/>
                     </p>
-                    <div id="ffbdy">
+                    <div class="tags">
                         <strong>Tags:</strong>
                             @foreach($video->tags as $tag)
                                 <a href="{{route('video.tags',['slug' => $tag->slug])}}">

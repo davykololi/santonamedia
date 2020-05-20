@@ -58,13 +58,14 @@ class PageController extends Controller
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
         OpenGraph::setUrl($url);
-        OpenGraph::addProperty('type','Contact');
+        OpenGraph::addProperty('type','ContactAddress');
 
         Twitter::setTitle($title);
         Twitter::setSite('@santonamedia');
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
+        JsonLd::setType('ContactAddress');
 
         $data = array(
             'category' => $category,
@@ -116,7 +117,7 @@ class PageController extends Controller
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
         OpenGraph::setUrl($url);
-        OpenGraph::addProperty('type','About');
+        OpenGraph::addProperty('type','Organization');
 
         Twitter::setTitle($title);
         Twitter::setSite('@santonamedia');
@@ -124,6 +125,7 @@ class PageController extends Controller
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
         JsonLd::addImage($image);
+        JsonLd::setType('Organization');
 
         $data = array(
             'category' => $category,
@@ -159,13 +161,14 @@ class PageController extends Controller
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
         OpenGraph::setUrl($url);
-        OpenGraph::addProperty('type','Private Policy');
+        OpenGraph::addProperty('type','PrivatePolicy');
 
         Twitter::setTitle($title);
         Twitter::setSite('@santonamedia');
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
+        JsonLd::setType('PrivatePolicy');
 
         $data = array(
             'category' => $category,
@@ -208,6 +211,7 @@ class PageController extends Controller
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
+        JsonLd::setType('Portfolio');
 
         $data = array(
             'category' => $category,
