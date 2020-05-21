@@ -23,3 +23,20 @@
 <!--Twitter share button script-->
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+<!-- Default Statcounter code for Santona Media https://santonamedia.com -->
+<script type="text/javascript">
+var sc_project=12328161; 
+var sc_invisible=0; 
+var sc_security="28a1d34d"; 
+var sc_https=1; 
+var scJsHost = "https://";
+document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img class="statcounter"
+src="https://c.statcounter.com/12328161/0/28a1d34d/0/" alt="Web
+Analytics"></a></div></noscript>
+<!-- End of Statcounter Code -->
+
+

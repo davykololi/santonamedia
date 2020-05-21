@@ -31,7 +31,7 @@
 					<ul class="list-unstyled quick-links">
 						<li><a href="#"><i class="fa fa-map-marker"></i>Nairobi,Kenya</a></li>
 						<li><a href="tel:+254-0724351952"><i class="fa fa-phone"></i>+254 0724351952</a></li>
-						<li><a href="mailto:kolomdavid@gmail.com"><i class="fa fa-envelope"></i>kolomdavid@gmail.com</a></li>
+						<li><a href="mailto:kolomdavid@gmail.com"><i class="fa fa-envelope"></i>santonamedia79@gmail.com</a></li>
 					</ul>
 				</div>
 			</div>
