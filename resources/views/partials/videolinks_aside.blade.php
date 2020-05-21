@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <video align="left" width="40" class="asideimg" controls> 
+            <video class="float-left pull-left mr-2" width="40" controls> 
                 <source src = "/storage/public/videos/{{ $archive->video }}" alt ="{{ $archive->title }}">
             </video>
             <h5>

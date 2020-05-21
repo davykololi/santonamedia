@@ -328,14 +328,6 @@ h2 .post-link:hover{
 }
 
 
-
-.sidebar-right .col {
-	border: 1px solid gray;
-}
-.sidebar-right .col h5{
-	margin-left: 2px;
-	display: inline;
-}
 .sidebar-left{
 	border: 1px solid gray;
 	background-color: #455dc7;
