@@ -12,8 +12,6 @@
     {!! OpenGraph::generate() !!}
     {!! Twitter::generate() !!}
     {!! JsonLd::generate() !!}
-    <!-- MINIFIED -->
-    {!! SEO::generate(true)!!}
 
     <title> @yield('title') </title>
     <!-- Fonts -->

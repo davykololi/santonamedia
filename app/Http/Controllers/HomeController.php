@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use SEO;
 use JsonLd;
 use SEOMeta;
 use Twitter;

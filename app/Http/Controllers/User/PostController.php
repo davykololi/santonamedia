@@ -7,8 +7,6 @@ use SEOMeta;
 use OpenGraph;
 use Twitter;
 use JsonLd;
-use SEO;
-use Share;
 use App\User;
 use App\Models\Post;
 use App\Models\Tag;
