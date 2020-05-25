@@ -1,6 +1,5 @@
 <aside class="sidebar-right" style="margin-top: 10px"> 
     <h4> VIDEO TAGS</h4> 
-    <div class="sidebar-module">
         <div class="tag-aside">                  
         @if(!empty($tags))
             @foreach($tags as $tag)
@@ -10,7 +9,6 @@
             @endforeach
         @endif 
         </div>
-    </div>
 </aside>
 
 

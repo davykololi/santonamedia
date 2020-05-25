@@ -1,4 +1,4 @@
-    <div class="sidebar-module" style="background: url('/static/dk.png');">
+    <div class="sidebar-module" style="background-color: lightblue">
         <h4>CATEGORIES </h4>    
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button" v-pre style="margin-top: 11px">

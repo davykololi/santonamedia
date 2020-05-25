@@ -31,7 +31,7 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <video width="320" height="240" controls> 
-                <source type="video/mp4" src = "/storage/public/videos/{{ $video->video }}">
+                <source type="video/mp4" src="/storage/public/videos/{{ $video->video }}">
                     This browser doesn't support video tag.
             </video>
         </div>

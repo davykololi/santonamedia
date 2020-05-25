@@ -1,3 +1,17 @@
+/* =Reset ------------------------------------------------------------- */
+
+* {
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	margin-top:0;
+}
+body,html{
+	padding: 0;
+	margin: 0;
+	background-color: #f2f6e9;
+}
+
 header, footer, nav, article, main{
 	display: block;
 }
@@ -28,17 +42,18 @@ header, footer, nav, article, main{
 	min-height: 100%;
 	margin-bottom: 0px;
 }
+.blog-post h6{
+	text-align: center;
+	font-family: Times New Roman;
+	font-size: 12px;
+}
 #prenext{
 	background-color: blue;
 	color: white;
 	text-align: center;
 	background-size: 100px 80px;
 	border: solid white;
-}
-#button{
-	background-color: #0000FF;
-	color: white;
-	border-radius: 25px;
+	font-size: 10px;
 }
 #errors{
 	padding: 10px 20px;
@@ -51,17 +66,8 @@ header, footer, nav, article, main{
 	font-family: Arial Narrow;
 	color: black;
 }
-#dimgray{
-	color: #696969;
-	font-size: 12px;
-}
 .blue{
 	color: blue;
-}
-#btn{
-	background-color: #0000FF;
-	color: white;
-	border: solid white;
 }
 .titles{
 	font-family: Times New Roman;
@@ -125,11 +131,6 @@ hr.style-four{
 	font-size: 20px;
 	text-transform: uppercase;
 }
-body{
-	padding: 0;
-	margin: 0;
-	background: #f2f6e9;
-}
 .header{
 	background-image: url('/static/santonamedia.png');
 	background-size: cover;
@@ -142,7 +143,7 @@ body{
 	min-width: 100%;
 	left: 0;
 	top: 0;
-	background: rgba(0,0,0,0.6);
+	background-color: rgba(0,0,0,0.6);
 }
 .description{
 	left: 50%;
@@ -162,7 +163,7 @@ body{
 
 /* ---- navigation ---*/
 .navbar{
-	background: #000080;
+	background-color: #000080;
 }
 .navbar .nav-link, .navbar-brand{
 	color: #fff;
@@ -182,7 +183,7 @@ body{
 	justify-content: flex-end;
 }
 .navbar-toggler{
-	background: #fff !important;
+	background-color: #fff !important;
 }
 .navbar .dropdown-item{
 	text-transform: uppercase;
@@ -190,7 +191,8 @@ body{
 	font-family: Times New Roman;
 }
 .navbar .dropdown-menu a:hover{
-	background-color: red;
+	background-color: white;
+	color: black;
 }
 .features{
 	margin-top: 50px;
@@ -250,8 +252,6 @@ h2 .post-link:hover{
 	-moz-box-shadow:1px 1px 4px rgba(0,0,0,0.4);
 	box-shadow: 1px 1px 4px rgba(0,0,0,0.4);
 	margin-bottom: 0px;
-	border: 1px solid gray;
-	padding: 10px;
 	width: auto;
 }
 .main-content{
@@ -309,16 +309,19 @@ h2 .post-link:hover{
 	font-family: Times New Roman;
 	font-size: 15px;
 }
-.sidebar-right .sidebar-module .dropdown-menu a{
+.sidebar-right .dropdown-menu a{
 	text-transform: uppercase;
 	font-size: 13px;
 }
-.sidebar-right .sidebar-module .dropdown-menu a:hover{
-	background: green;
+.sidebar-right .dropdown-menu a:hover{
+	background-color: green;
 }
 
+.sidebar-right .tag-aside{
+	background-color: lightblue;
+}
 .sidebar-right .tag-aside a{
-	line-height: 1.5px;
+	line-height: 1.0rem;
 	text-transform: uppercase;
 	font-size: 16px;
 	color: black;
@@ -328,6 +331,12 @@ h2 .post-link:hover{
 .sidebar-right .tag-aside a:hover{
 	background-color: white;
 	color: orange;
+}
+.sidebar-right .card{
+	display: inline-block;
+	width: 100%;
+	background-color: lightgray;
+	line-height: 1.0rem;
 }
 .sidebar-right .card a{
 	font-size: 12px;
@@ -353,7 +362,7 @@ h2 .post-link:hover{
 }
 .sidebar-left a:hover{
 	color: green;
-	background: lightblue;
+	background-color: lightblue;
 }
 .sidebar-left h3{
 	text-align: center;
@@ -363,6 +372,9 @@ h2 .post-link:hover{
 @media (max-width: 768px){
 	.sidebar-left{
 		margin: -250px;
+	}
+	.main-content h6{
+		font-size: 14px;
 	}
 }
 .main-content .gray{
@@ -383,85 +395,24 @@ h2 .post-link:hover{
 .tags strong{
 	font-size: 12px;
 }
-
-/* Footer */
-@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-section {
-    padding: 60px 0;
+.figcaption{
+	color: gray;
+	font-size: 16px;
 }
-
-section .section-title {
-    text-align: center;
-    color: #007b5e;
-    margin-bottom: 30px;
-    text-transform: uppercase;
+.footer{
+	background-color: navy;
+	height: auto;
+	width: auto;
+	color: white;
+	padding: 20px;
 }
-#footer {
-    background-color: #000080;
-    border-top: solid white;
-    border-bottom: solid white !important;
+.footer li a{
+	color: white;
+	margin-left: 150px;
 }
-#footer h5{
-	padding-left: 10px;
-    border-left: 3px solid #eeeeee;
-    padding-bottom: 6px;
-    margin-bottom: 10px;
-    color:#ffffff;
+.footer li a:hover{
+	color: red;
 }
-#footer a {
-    color: #ffffff;
-    text-decoration: none !important;
-    background-color: transparent;
-    -webkit-text-decoration-skip: objects;
-}
-#footer ul.social li{
-	padding: 3px 0;
-}
-#footer ul.social li a i {
-    margin-right: 5px;
-	font-size:25px;
-	-webkit-transition: .5s all ease;
-	-moz-transition: .5s all ease;
-	transition: .5s all ease;
-}
-#footer ul.social li:hover a i {
-	font-size:30px;
-	margin-top:-10px;
-}
-#footer ul.social li a,
-#footer ul.quick-links li a{
-	color:#ffffff;
-}
-#footer ul.social li a:hover{
-	color:#eeeeee;
-}
-#footer ul.quick-links li{
-	padding: 3px 0;
-	-webkit-transition: .5s all ease;
-	-moz-transition: .5s all ease;
-	transition: .5s all ease;
-}
-#footer ul.quick-links li:hover{
-	padding: 3px 0;
-	margin-left:5px;
-	font-weight:700;
-}
-#footer ul.quick-links li a i{
-	margin-right: 5px;
-}
-#footer ul.quick-links li:hover a i {
-    font-weight: 700;
-}
-@media (max-width:767px){
-	#footer h5 {
-    padding-left: 0;
-    border-left: transparent;
-    border-bottom: solid white;
-    padding-bottom: 0px;
-    margin-bottom: 10px;
-}
-}
-
 
 @keyframes spin{
 	0%{
@@ -514,14 +465,14 @@ i.fa.fa-facebook{
 	width:30px;
 	height:30px;
 	line-height:30px;
-    font-size: 16px;
+        font-size: 16px;
 	border-radius:50%;
 	text-align:center;
 	transition:0.5s all;
 	-webkit-transition:0.5s all;
 	-moz-transition:0.5s all;
 	-o-transition:0.5s all;
-    -webkit-border-radius:50%;
+        -webkit-border-radius:50%;
 	-moz-border-radius:50%;
 	-o-border-radius:50%;
 	-ms-border-radius:50%;
@@ -538,14 +489,14 @@ i.fa.fa-whatsapp{
 	width:30px;
 	height:30px;
 	line-height:30px;
-    font-size: 16px;
+        font-size: 16px;
 	border-radius:50%;
 	text-align:center;
 	transition:0.5s all;
 	-webkit-transition:0.5s all;
 	-moz-transition:0.5s all;
 	-o-transition:0.5s all;
-    -webkit-border-radius:50%;
+        -webkit-border-radius:50%;
 	-moz-border-radius:50%;
 	-o-border-radius:50%;
 	-ms-border-radius:50%;
@@ -562,14 +513,14 @@ i.fa.fa-twitter{
 	width:30px;
 	height:30px;
 	line-height:30px;
-    font-size: 16px;
+        font-size: 16px;
 	border-radius:50%;
 	text-align:center;
 	transition:0.5s all;
 	-webkit-transition:0.5s all;
 	-moz-transition:0.5s all;
 	-o-transition:0.5s all;
-    -webkit-border-radius:50%;
+        -webkit-border-radius:50%;
 	-moz-border-radius:50%;
 	-o-border-radius:50%;
 	-ms-border-radius:50%;
@@ -586,14 +537,14 @@ i.fa.fa-linkedin{
 	width:30px;
 	height:30px;
 	line-height:30px;
-    font-size: 16px;
+        font-size: 16px;
 	border-radius:50%;
 	text-align:center;
 	transition:0.5s all;
 	-webkit-transition:0.5s all;
 	-moz-transition:0.5s all;
 	-o-transition:0.5s all;
-    -webkit-border-radius:50%;
+        -webkit-border-radius:50%;
 	-moz-border-radius:50%;
 	-o-border-radius:50%;
 	-ms-border-radius:50%;
@@ -610,14 +561,14 @@ i.fa.fa-google-plus{
 	width:30px;
 	height:30px;
 	line-height:30px;
-    font-size: 16px;
+        font-size: 16px;
 	border-radius:50%;
 	text-align:center;
 	transition:0.5s all;
 	-webkit-transition:0.5s all;
 	-moz-transition:0.5s all;
 	-o-transition:0.5s all;
-    -webkit-border-radius:50%;
+        -webkit-border-radius:50%;
 	-moz-border-radius:50%;
 	-o-border-radius:50%;
 	-ms-border-radius:50%;
@@ -635,14 +586,14 @@ i.fa.fa-pinterest{
 	width:30px;
 	height:30px;
 	line-height:30px;
-    font-size: 16px;
+        font-size: 16px;
 	border-radius:50%;
 	text-align:center;
 	transition:0.5s all;
 	-webkit-transition:0.5s all;
 	-moz-transition:0.5s all;
 	-o-transition:0.5s all;
-    -webkit-border-radius:50%;
+        -webkit-border-radius:50%;
 	-moz-border-radius:50%;
 	-o-border-radius:50%;
 	-ms-border-radius:50%;
@@ -659,14 +610,14 @@ i.fa.fa-reddit{
 	width:30px;
 	height:30px;
 	line-height:30px;
-    font-size: 16px;
+        font-size: 16px;
 	border-radius:50%;
 	text-align:center;
 	transition:0.5s all;
 	-webkit-transition:0.5s all;
 	-moz-transition:0.5s all;
 	-o-transition:0.5s all;
-    -webkit-border-radius:50%;
+        -webkit-border-radius:50%;
 	-moz-border-radius:50%;
 	-o-border-radius:50%;
 	-ms-border-radius:50%;
@@ -677,3 +628,50 @@ i.fa.fa-reddit:hover {
 	background-color:#17233E;
 }
 
+i.fa.fa-bitbucket{
+	color:#fff;
+	background-color:lightblue;
+	width:30px;
+	height:30px;
+	line-height:30px;
+        font-size: 16px;
+	border-radius:50%;
+	text-align:center;
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-o-transition:0.5s all;
+        -webkit-border-radius:50%;
+	-moz-border-radius:50%;
+	-o-border-radius:50%;
+	-ms-border-radius:50%;
+	-ms-transition:0.5s all;
+}
+
+i.fa.fa-bitbucket:hover {
+	background-color:#17233E;
+}
+
+i.fa.fa-github{
+	color:#fff;
+	background-color:lightblue;
+	width:30px;
+	height:30px;
+	line-height:30px;
+        font-size: 16px;
+	border-radius:50%;
+	text-align:center;
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-o-transition:0.5s all;
+        -webkit-border-radius:50%;
+	-moz-border-radius:50%;
+	-o-border-radius:50%;
+	-ms-border-radius:50%;
+	-ms-transition:0.5s all;
+}
+
+i.fa.fa-github:hover {
+	background-color:#17233E;
+}

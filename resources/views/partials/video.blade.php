@@ -5,7 +5,7 @@
 </div>
 <br/>
 <h1 class="feature-title">
-    <a class="post-link" href="{{ route('users.videos.read', ['video_slug' => $video->slug]) }}" >{{ $video->title }}</a>
+    <a class="post-link" href="{{ route('users.videos.read',['video_slug' => $video->slug]) }}" >{{ $video->title }}</a>
 </h1>
 <div class="left-ten">
     <div class="created-time">
@@ -20,7 +20,7 @@
                 This browser doesn't support video tag.
         </video>
         <br/>
- 	  <figcaption> <span id="dimgray"> {{$video->caption}}</span> </figcaption>
+ 	  <figcaption class="figcaption"> {{$video->caption}} </figcaption>
     </figure>
 </div> <!---end of left-ten -->
 </article>

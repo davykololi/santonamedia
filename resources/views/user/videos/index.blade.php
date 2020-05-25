@@ -10,16 +10,18 @@
         <div class="col-lg-6 col-md-6 col-sm-12 main-content"><!-- blog-main-->
             @forelse($videos as $video)
                 <div class="blog-post">
-                    @include('partials.video')
-                        <p class="card-text">{!! Str::limit($video->content,$limit=30,$end= '...') !!}
-                            <a class="btn btn-default" id="button" href="{{ route('users.videos.read', ['video_slug' => $video->slug]) }}" >
+                @include('partials.video')
+                    <p class="card-text">{!! Str::limit($video->content,$limit=30,$end= '...') !!}
+                        <a class="btn btn-primary" href="{{ route('users.videos.read',['video_slug' => $video->slug]) }}" >
                             Read more <i class="fa fa-angle-double-right"></i>
-                            </a> 
-                        </p>
-                        <br/><hr/>
+                        </a> 
+                    </p>
+                    <br/><hr/>
                 </div><!-- /.blog-post -->
             @empty
-                <p style="color: red;font-family: Segoe UI Light;font-size: 30px"> Sorry esteemed reader. We are yet to post the <a href="#"> {{strtolower($category->name)}}</a> videos.</p>
+                <p style="color: red;font-family: Segoe UI Light;font-size: 30px"> 
+                    Sorry esteemed reader. We are yet to post the <a href="#"> {{strtolower($category->name)}}</a> videos.
+                </p>
             @endforelse
             <div class="ui card blogger-card fluid no-box-shadow text-center"> 
                 {{ $videos->links() }}

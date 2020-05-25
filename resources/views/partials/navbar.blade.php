@@ -1,8 +1,8 @@
 <!-- navbar -->  	
     <nav class="navbar navbar-expand-lg fixed-top">
         <a class="navbar-brand" href="{{ url('santonamedia.com') }}">
-            <span style="font-family: FELIX TITLING;font-size: 30px;" class="white">
-                SANT<img width ="30px" height="30px" src= "{{asset('static/globe.png')}}" alt="santonamedia" loading="auto">NA MEDIA
+            <span style="font-family: FELIX TITLING;font-size: 30px;">
+                SANTONA MEDIA
             </span>
         </a>
         <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

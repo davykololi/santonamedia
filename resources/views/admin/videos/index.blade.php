@@ -37,7 +37,7 @@
                             </td>
                             <td class="table-text">
                             <video width="40" height="30" controls> 
-                                <source type="video/mp4" src = "/storage/public/videos/{{ $video->video }}">
+                                <source type="video/mp4" src="/storage/public/videos/{{ $video->video }}">
                                 	This browser doesn't support video tag.
                             </video>
                             </td>

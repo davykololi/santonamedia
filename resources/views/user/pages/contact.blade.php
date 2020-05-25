@@ -33,7 +33,7 @@
 					<span class="text-danger">{{ $errors->first('message') }}</span>
 				</div>
 				<div class="form-group">
-					<button class="btn btn" id="button" value="submit">Submit</button>
+					<button class="btn btn-primary" value="submit">Submit</button>
 				</div>
 			{!! Form::close() !!}
 			</div>

@@ -5,7 +5,7 @@
 </div>
 <br/>
 <h1 class="feature-title">
-    <a class="post-link" href="{{ route('users.posts.read', ['post_slug' => $post->slug]) }}" >{{ $post->title }}</a>
+    <a class="post-link" href="{{ route('users.posts.read',['post_slug' => $post->slug]) }}" >{{ $post->title }}</a>
 </h1>
 <div class="left-ten">
     <div class="created-time">
@@ -13,10 +13,10 @@
         <span> {!! $post->admin->name !!} </span>
     </div>
     <figure>
-        <a href="{{ route('users.posts.read', ['post_slug' => $post->slug]) }}" >
-            <img class="img-fluid" src = "/storage/public/storage/{{ $post->image }}" alt ="{{ $post->title }}">
+        <a href="{{ route('users.posts.read',['post_slug' => $post->slug]) }}" >
+            <img class="img-fluid img-thumbnail" src="/storage/public/storage/{{ $post->image }}" loading="lazy" alt ="{{ $post->title }}"/>
         </a>
-        <figcaption> <span id="dimgray"> {{$post->caption}}</span> </figcaption>
+        <figcaption class="figcaption"> {{$post->caption}} </figcaption>
     </figure>
 </div>
 </article>

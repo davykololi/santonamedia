@@ -77,7 +77,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <input type="submit" class="btn btn" id="button" value="Add Vdeo" />
+                            <input type="submit" class="btn btn-primary" value="Add Vdeo" />
                         </div>
                     </div>
                 </form>

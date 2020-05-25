@@ -23,9 +23,9 @@
     
     <!-- Bootstrap CSS -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{!! asset('css/bootstrap.min.css') !!}">
-    <link rel="stylesheet" type="text/css" href="{!! asset('main/css/fontawesome.css') !!}">
-    <link rel="stylesheet" type="text/css" href="{!! asset('main/css/main.css') !!}">
+    <link rel="stylesheet" href="{!! asset('css/bootstrap.min.css') !!}">
+    <link rel="stylesheet" href="{!! asset('main/css/fontawesome.css') !!}">
+    <link rel="stylesheet" href="{!! asset('main/css/main.css') !!}">
     
     <!-- Styles -->
     <style>

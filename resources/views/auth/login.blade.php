@@ -12,23 +12,30 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
-                                <ul class="list-unstyled list-inline social text-center">
-                                    <span class="login"> Login with: </span> 
-                                    <li class="list-inline-item"><a href="{{url('/auth/redirect/facebook')}}"><i class="fa fa-facebook"></i></a></li>
-                                    <li class="list-inline-item"><a href="{{url('/auth/redirect/twitter')}}"><i class="fa fa-twitter"></i></a></li>
-                                    <li class="list-inline-item"><a href="{{url('/auth/redirect/linkedin')}}"><i class="fa fa-linkedin"></i></a></li>
-                                    <li class="list-inline-item"><a href="{{url('/auth/redirect/google')}}"><i class="fa fa-google-plus"></i></a></li>
-                                    <li class="list-inline-item"><a href="{{url('/auth/redirect/github')}}"><i class="fa fa-github"></i></a></li>
-                                    <li class="list-inline-item"><a href="{{url('/auth/redirect/bitbucket')}}"><i class="fa fa-bitbucket"></i></a>
-                                    </li>
-                                </ul>
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 control-label">Login With</label>
+                            <div class="col-md-6">
+                                <a href="{{url('/auth/redirect/facebook')}}" class="btn btn-social-icon btn-facebook">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a href="{{url('/auth/redirect/twitter')}}" class="btn btn-social-icon btn-twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <a href="{{url('/auth/redirect/linkedin')}}" class="btn btn-social-icon btn-linkedin">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                                <a href="{{url('/auth/redirect/google')}}" class="btn btn-social-icon btn-google-plus">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                                <a href="{{url('/auth/redirect/github')}}" class="btn btn-social-icon btn-github">
+                                    <i class="fa fa-github"></i>
+                                </a>
+                                <a href="{{url('/auth/redirect/bitbucket')}}" class="btn btn-social-icon btn-bitbucket">
+                                    <i class="fa fa-bitbucket"></i>
+                                </a>
                             </div>
-                            </hr>
                         </div>  
-
-                        <br/><br/>
+                        <hr/>
                         <div class="form-group row">
                             <label for="login" class="col-md-4 col-form-label text-md-right" id="cwhite">
                                 {{ __('Username Or Email') }}
@@ -71,7 +78,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn" id="btn">
+                                <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
 

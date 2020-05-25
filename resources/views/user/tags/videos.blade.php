@@ -12,7 +12,7 @@
                     <div class="blog-post left-ten">
                         @include('partials.tagvideo')
                         <p class="card-text">{!! Str::limit($video->content,$limit=30,$end= '...') !!}
-                            <a class="btn btn-default" id="button" href="{{ route('users.videos.read', ['video_slug' => $video->slug]) }}" >
+                            <a class="btn btn-primary" href="{{ route('users.videos.read', ['video_slug' => $video->slug]) }}" >
                             Read more <i class="fa fa-angle-double-right"></i>
                             </a> 
                         </p>

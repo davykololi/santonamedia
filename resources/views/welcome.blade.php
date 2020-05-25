@@ -13,7 +13,7 @@
                     <div class="blog-post">
                         @include('partials.post')
                         <p class="card-text">{!! Str::limit($post->content,$limit=30,$end= '...') !!}
-                            <a class="btn btn" id="button" href="{{ route('users.posts.read', ['post_slug' => $post->slug]) }}" >Read more <i class="fa fa-angle-double-right"></i>
+                            <a class="btn btn-primary" href="{{ route('users.posts.read', ['post_slug' => $post->slug]) }}" >Read more <i class="fa fa-angle-double-right"></i>
                             </a> 
                         </p>
                         <br/> <br/><hr/>
