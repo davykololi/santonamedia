@@ -2,6 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     @include('partials.head')
 <body>
+	@include('partials.supshare')
      @include('partials.navbar')
      <!-- main content -->
      <main class="py-4">

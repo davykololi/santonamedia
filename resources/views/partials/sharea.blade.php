@@ -1,11 +1,7 @@
 <div class="share-title">We will be clad if you share this information on social media.Thank you</div>
 <br/>
 <div class="share">
-<span>
-<a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(Request::fullUrl()) }}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Facebook"><i class="fa fa-facebook"></i>
-</a>
-</span>
-
+<div class="fb-share-button" data-href="https://santonamedia.com" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsantonamedia.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
 <span>
 <a href="whatsapp://send?text={{ urlencode(Request::fullUrl()) }}" data-action="share/whatsapp/share" onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on whatsapp"><i class="fa fa-whatsapp"></i>
 </a>
