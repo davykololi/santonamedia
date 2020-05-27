@@ -10,23 +10,23 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
-        "@babel/preset-react": "^7.8.3",
-        "axios": "^0.19",
-        "bootstrap": "^4.0.0",
+        "@babel/preset-react": "^7.10.0",
+        "axios": "^0.19.2",
+        "bootstrap": "^4.5.0",
         "cross-env": "^5.1",
-        "jquery": "^3.2",
+        "jquery": ">=3.5.0",
         "laravel-mix": "^4.0.7",
         "lodash": "^4.17.13",
-        "popper.js": "^1.12",
-        "react": "^16.2.0",
-        "react-dom": "^16.2.0",
+        "popper.js": "^1.16.1",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
         "resolve-url-loader": "^2.3.1",
-        "sass": "^1.20.1",
+        "sass": "^1.26.5",
         "sass-loader": "7.*"
     },
     "dependencies": {
-        "laravel-echo": "^1.6.1",
-        "pusher-js": "^5.0.3",
+        "laravel-echo": "^1.8.0",
+        "pusher-js": "^5.1.1",
         "serialize-javascript": "^3.0.0"
     }
 }

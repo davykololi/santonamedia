@@ -10,7 +10,6 @@
     "require": {
         "php": "^7.2",
         "algolia/algoliasearch-client-php": "^2.6",
-        "artesaos/seotools": "^0.17.0",
         "cviebrock/eloquent-sluggable": "^7.0",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^6.4",
