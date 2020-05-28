@@ -7,7 +7,7 @@
     <meta name="google-site-verification" content="SQuydwiRzjBXoM3Dp6IU1ICGk-Z2KwDsr0kkkH4ScTM" />
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="fb:app_id" content="{{ config('services.facebook.client_id') }}">
+    <meta property="fb:app_id" content="{{ config('services.facebook.client_id') }}">
     <meta name="twitter:creator" content="David Misiko Kololi">
     <!-- Meta Tags -->
     {!! SEOMeta::generate() !!}
