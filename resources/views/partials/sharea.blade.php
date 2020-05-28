@@ -1,7 +1,8 @@
 <div class="share-title">We will be clad if you share this information on social media.Thank you</div>
 <br/>
 <div class="share">
-<div class="fb-share-button" data-href="https://santonamedia.com/news/articles/details/&#039;,&#039;post_slug&#039;=&gt;$post-&gt;slug" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsantonamedia.com%2Fnews%2Farticles%2Fdetails%2F%27%2C%27post_slug%27%3D%3E%24post-%3Eslug&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+
+<div class="fb-share-button" data-href="https://santonamedia.com/news/articles/details/.$post-&gt;slug" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsantonamedia.com%2Fnews%2Farticles%2Fdetails%2F.%24post-%3Eslug&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
 
 <span>
 <a class="w-inline-block social-share-btn fb" href="https://www.facebook.com/sharer/sharer.php?u=&t=" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"> <i class="fa fa-facebook"></i></a>
