@@ -47,11 +47,11 @@ class PostController extends Controller
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
         SEOMeta::setKeywords($category->keywords);
-        SEOMeta::setCanonical('https://santonamedia.com/news/',['slug'=>$category->slug],'/articles');
+        SEOMeta::setCanonical('https://santonamedia.com/news/'.$category->slug.'/articles');
 
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
-        OpenGraph::setUrl('https://santonamedia.com/news/',['slug'=>$category->slug],'/articles');
+        OpenGraph::setUrl('https://santonamedia.com/news/'.$category->slug.'/articles');
         OpenGraph::addProperty('type','Articles');
 
         TwitterCard::setTitle($title);
@@ -63,7 +63,8 @@ class PostController extends Controller
         JsonLd::setType('Articles');
         
         foreach($category->posts as $post){
-        OpenGraph::addImage('https://santonamedia.com/public/storage/public/storage/',[$post->image,'height'=>'314','width' =>'600']);
+        OpenGraph::addImage('https://santonamedia.com/storage/public/storage/'.$post->image);
+        JsonLd::addImage('https://santonamedia.com/storage/public/storage/'.$post->image);
         }
         
         $data = array(
@@ -96,15 +97,15 @@ class PostController extends Controller
         SEOMeta::setKeywords($post->keywords);
         SEOMeta::addMeta('article:published_time', $post->created_at->toW3CString(),'property');
         SEOMeta::addMeta('article:section', strtolower($post->category->name),'property');
-        SEOMeta::setCanonical('https://santonamedia.com/news/articles/details/',['post_slug'=>$post->slug]);
+        SEOMeta::setCanonical('https://santonamedia.com/news/articles/details/'.$post->slug);
 
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
-        OpenGraph::setUrl('https://santonamedia.com/news/articles/details/',['post_slug'=>$post->slug]);
+        OpenGraph::setUrl('https://santonamedia.com/news/articles/details/'.$post->slug);
         OpenGraph::addProperty('type','article');
         OpenGraph::addProperty('locale','en-us');
-        OpenGraph::addImage(['url'=>'https://santonamedia.com/public/storage/public/storage/',$post->image,'size' =>'300']);
-        OpenGraph::addImage('https://santonamedia.com/public/storage/public/storage/',[$post->image,'height'=>'314','width' =>'600']);
+        OpenGraph::addImage('https://santonamedia.com/storage/public/storage/'.$post->image);
+
         TwitterCard::setTitle($title);
         TwitterCard::setSite('@santonamedia');
         TwitterCard::setDescription($desc);
@@ -112,7 +113,7 @@ class PostController extends Controller
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
         JsonLd::setType('Article');
-        JsonLd::addImage('https://santonamedia.com/public/storage/public/storage/',[$post->image,'height'=>'314','width' =>'600']);
+        JsonLd::addImage('https://santonamedia.com/storage/public/storage/'.$post->image);
 
         $data = array(
             'post' => $post,
@@ -142,11 +143,11 @@ class PostController extends Controller
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
         SEOMeta::setKeywords($tag->keywords);
-        SEOMeta::setCanonical('https://santonamedia.com/news/articles/',['slug'=>$tag->slug]);
+        SEOMeta::setCanonical('https://santonamedia.com/news/articles/'.$tag->slug);
 
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
-        OpenGraph::setUrl('https://santonamedia.com/news/articles/',['slug'=>$tag->slug]);
+        OpenGraph::setUrl('https://santonamedia.com/news/articles/'.$tag->slug);
         OpenGraph::addProperty('type','Place');
 
         TwitterCard::setTitle($title);
@@ -158,7 +159,8 @@ class PostController extends Controller
         JsonLd::setType('Place');
 
         foreach($tag->posts as $post){
-        OpenGraph::addImage('https://santonamedia.com/public/storage/public/storage/',[$post->image,'height'=>'314','width' =>'600']);
+        OpenGraph::addImage('https://santonamedia.com/storage/public/storage/'.$post->image);
+        JsonLd::addImage('https://santonamedia.com/storage/public/storage/'.$post->image);
         }
         
         $data = array(
