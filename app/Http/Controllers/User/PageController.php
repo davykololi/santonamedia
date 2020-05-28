@@ -2,10 +2,6 @@
 
 namespace App\Http\Controllers\User;
 
-use JsonLd;
-use Twitter;
-use SEOMeta;
-use OpenGraph;
 use Carbon\Carbon;
 use App\Models\Contact;
 use App\Models\Tag;
@@ -15,6 +11,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Jobs\SendContactJob;
 use App\Http\Requests\ContactFormRequest;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\TwitterCard;
+use Artesaos\SEOTools\Facades\JsonLd;
 
 class PageController extends Controller
 {
@@ -59,8 +59,9 @@ class PageController extends Controller
         OpenGraph::setUrl($url);
         OpenGraph::addProperty('type','ContactAddress');
 
-        Twitter::setTitle($title);
-        Twitter::setSite('@santonamedia');
+        TwitterCard::setTitle($title);
+        TwitterCard::setSite('@santonamedia');
+        TwitterCard::setDescription($desc);
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
@@ -118,8 +119,9 @@ class PageController extends Controller
         OpenGraph::setUrl($url);
         OpenGraph::addProperty('type','Organization');
 
-        Twitter::setTitle($title);
-        Twitter::setSite('@santonamedia');
+        TwitterCard::setTitle($title);
+        TwitterCard::setSite('@santonamedia');
+        TwitterCard::setDescription($desc);
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
@@ -162,8 +164,9 @@ class PageController extends Controller
         OpenGraph::setUrl($url);
         OpenGraph::addProperty('type','PrivatePolicy');
 
-        Twitter::setTitle($title);
-        Twitter::setSite('@santonamedia');
+        TwitterCard::setTitle($title);
+        TwitterCard::setSite('@santonamedia');
+        TwitterCard::setDescription($desc);
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
@@ -205,8 +208,9 @@ class PageController extends Controller
         OpenGraph::setUrl($url);
         OpenGraph::addProperty('type','Portfolio');
 
-        Twitter::setTitle($title);
-        Twitter::setSite('@santonamedia');
+        TwitterCard::setTitle($title);
+        TwitterCard::setSite('@santonamedia');
+        TwitterCard::setDescription($desc);
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);

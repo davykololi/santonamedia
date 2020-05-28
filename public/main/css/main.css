@@ -296,6 +296,7 @@ h2 .post-link:hover{
 	padding: 10px;
 	background-color: lavender;
 	box-shadow:#000000 4px 4px 8px, #4d4d4d -4px -4px 8px;
+	left: 0;
 }
 .sidebar-right h4{
 	font-family: calibri light;
@@ -308,6 +309,7 @@ h2 .post-link:hover{
 	color: purple;
 	font-family: Times New Roman;
 	font-size: 15px;
+	line-height: 1.0rem;
 }
 .sidebar-right .dropdown-menu a{
 	text-transform: uppercase;

@@ -165,8 +165,8 @@ return [
         Cviebrock\EloquentSluggable\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         RenatoMarinho\LaravelPageSpeed\ServiceProvider::class,
-        Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
         Spatie\Analytics\AnalyticsServiceProvider::class,
+        Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -234,13 +234,11 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-        'SEOMeta' => Artesaos\SEOTools\Facades\SEOMeta::class,
-        'OpenGraph' => Artesaos\SEOTools\Facades\OpenGraph::class,
-        'Twitter' => Artesaos\SEOTools\Facades\TwitterCard::class,
-        'JsonLd' => Artesaos\SEOTools\Facades\JsonLd::class,
-        'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
         'Analytics' => Spatie\Analytics\AnalyticsFacade::class,
-
+        'SEOMeta'   => Artesaos\SEOTools\Facades\SEOMeta::class,
+        'OpenGraph' => Artesaos\SEOTools\Facades\OpenGraph::class,
+        'Twitter'   => Artesaos\SEOTools\Facades\TwitterCard::class,
+        'JsonLd'   => Artesaos\SEOTools\Facades\JsonLd::class,
     ],
 
 ];

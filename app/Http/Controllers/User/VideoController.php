@@ -3,10 +3,6 @@
 namespace App\Http\Controllers\User;
 
 use Str;
-use SEOMeta;
-use OpenGraph;
-use Twitter;
-use JsonLd;
 use App\User;
 use App\Models\Video;
 use App\Models\Tag;
@@ -15,6 +11,10 @@ use App\Models\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\TwitterCard;
+use Artesaos\SEOTools\Facades\JsonLd;
 
 class VideoController extends Controller
 {
@@ -55,8 +55,9 @@ class VideoController extends Controller
         OpenGraph::setUrl('https://santonamedia.com/news',['slug'=>$category->slug],'/videos');
         OpenGraph::addProperty('type','Videos');
 
-        Twitter::setTitle($title);
-        Twitter::setSite('@santonamedia');
+        TwitterCard::setTitle($title);
+        TwitterCard::setSite('@santonamedia');
+        TwitterCard::setDescription($desc);
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
@@ -107,8 +108,9 @@ class VideoController extends Controller
                             'secure_url' => 'https://santonamedia.com/storage/public/videos',$video->video,
                             'type' => 'application/x-shockwave-flash','width' => 320,'height' => 240]);
 
-        Twitter::setTitle($title);
-        Twitter::setSite('@santonamedia');
+        TwitterCard::setTitle($title);
+        TwitterCard::setSite('@santonamedia');
+        TwitterCard::setDescription($desc);
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
@@ -149,8 +151,9 @@ class VideoController extends Controller
         OpenGraph::setUrl('https://santonamedia.com/news/videos',['slug'=>$tag->slug]);
         OpenGraph::addProperty('type','Place');
 
-        Twitter::setTitle($title);
-        Twitter::setSite('@santonamedia');
+        TwitterCard::setTitle($title);
+        TwitterCard::setSite('@santonamedia');
+        TwitterCard::setDescription($desc);
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
