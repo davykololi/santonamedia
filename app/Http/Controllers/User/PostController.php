@@ -58,7 +58,7 @@ class PostController extends Controller
         TwitterCard::setSite('@santonamedia');
         TwitterCard::setDescription($desc);
         TwitterCard::setUrl('https://santonamedia.com/news/'.$category->slug.'/articles');
-        TwitterCard::setType('Summary Card with Large');
+        TwitterCard::setType('summary');
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
@@ -114,7 +114,7 @@ class PostController extends Controller
         TwitterCard::setDescription($desc);
         TwitterCard::setUrl('https://santonamedia.com/news/articles/details/'.$post->slug);
         TwitterCard::setImage('https://santonamedia.com/storage/public/storage/'.$post->image);
-        TwitterCard::setType('Summary Card');
+        TwitterCard::setType('summary');
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
@@ -160,7 +160,7 @@ class PostController extends Controller
         TwitterCard::setSite('@santonamedia');
         TwitterCard::setDescription($desc);
         TwitterCard::setUrl('https://santonamedia.com/news/articles'.$tag->slug);
-        TwitterCard::setType('Summary Card with Large');
+        TwitterCard::setType('summary');
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
