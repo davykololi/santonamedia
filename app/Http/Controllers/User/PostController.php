@@ -57,6 +57,8 @@ class PostController extends Controller
         TwitterCard::setTitle($title);
         TwitterCard::setSite('@santonamedia');
         TwitterCard::setDescription($desc);
+        TwitterCard::setUrl('https://santonamedia.com/news/'.$category->slug.'/articles');
+        TwitterCard::setType('Articles');
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
@@ -65,6 +67,7 @@ class PostController extends Controller
         foreach($category->posts as $post){
         OpenGraph::addImage('https://santonamedia.com/storage/public/storage/'.$post->image);
         JsonLd::addImage('https://santonamedia.com/storage/public/storage/'.$post->image);
+        TwitterCard::setImage('https://santonamedia.com/storage/public/storage/'.$post->image);
         }
         
         $data = array(
@@ -109,6 +112,9 @@ class PostController extends Controller
         TwitterCard::setTitle($title);
         TwitterCard::setSite('@santonamedia');
         TwitterCard::setDescription($desc);
+        TwitterCard::setUrl('https://santonamedia.com/news/articles/details/'.$post->slug);
+        TwitterCard::setImage('https://santonamedia.com/storage/public/storage/'.$post->image);
+        TwitterCard::setType('Article');
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
@@ -153,6 +159,8 @@ class PostController extends Controller
         TwitterCard::setTitle($title);
         TwitterCard::setSite('@santonamedia');
         TwitterCard::setDescription($desc);
+        TwitterCard::setUrl('https://santonamedia.com/news/articles'.$tag->slug);
+        TwitterCard::setType('Place');
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
@@ -161,6 +169,7 @@ class PostController extends Controller
         foreach($tag->posts as $post){
         OpenGraph::addImage('https://santonamedia.com/storage/public/storage/'.$post->image);
         JsonLd::addImage('https://santonamedia.com/storage/public/storage/'.$post->image);
+        TwitterCard::setImage('https://santonamedia.com/storage/public/storage/'.$post->image);
         }
         
         $data = array(
