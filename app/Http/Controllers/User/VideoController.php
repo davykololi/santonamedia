@@ -54,7 +54,7 @@ class VideoController extends Controller
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
         OpenGraph::setUrl(URL::current());
-        OpenGraph::addProperty('type','Videos');
+        OpenGraph::addProperty('type','Articles');
 
         TwitterCard::setTitle($title);
         TwitterCard::setSite('@santonamedia');
@@ -63,7 +63,7 @@ class VideoController extends Controller
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
-        JsonLd::setType('Videos');
+        JsonLd::setType('Articles');
 
         foreach($category->videos as $video){
         OpenGraph::addVideo('https://santonamedia.com/storage/public/videos/'.$video->video,
@@ -108,7 +108,7 @@ class VideoController extends Controller
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
         OpenGraph::setUrl(URL::current());
-        OpenGraph::addProperty('type','Video');
+        OpenGraph::addProperty('type','Article');
         OpenGraph::addProperty('locale','en-us');
         OpenGraph::addVideo('https://santonamedia.com/storage/public/videos/'.$video->video,
                             ['secure_url' => 'https://santonamedia.com/storage/public/videos/'.$video->video,
@@ -123,7 +123,7 @@ class VideoController extends Controller
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
-        JsonLd::setType('Video');
+        JsonLd::setType('Article');
 
         $data = array(
             'video' => $video,
