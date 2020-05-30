@@ -68,8 +68,9 @@ class VideoController extends Controller
         foreach($category->videos as $video){
         OpenGraph::addVideo('https://santonamedia.com/storage/public/videos/'.$video->video,
             ['secure_url' => 'https://santonamedia.com/storage/public/videos/'.$video->video,
-            'type' => 'application/x-shockwave-flash','width' => 400,'height' => 300
+            'type' => 'video/mp4','width' => 400,'height' => 300
             ]);
+        OpenGraph::addImage('https://santonamedia.com/static/lion.jpg',['height'=>'628','width' =>'1200']);
         }
         
         $data = array(
@@ -111,8 +112,9 @@ class VideoController extends Controller
         OpenGraph::addProperty('locale','en-us');
         OpenGraph::addVideo('https://santonamedia.com/storage/public/videos/'.$video->video,
                             ['secure_url' => 'https://santonamedia.com/storage/public/videos/'.$video->video,
-                            'type' => 'application/x-shockwave-flash','width' => 400,'height' => 300
+                            'type' => 'video/mp4','width' => 400,'height' => 300
                             ]);
+        OpenGraph::addImage('https://santonamedia.com/static/lion.jpg',['height'=>'628','width' =>'1200']);
 
         TwitterCard::setTitle($title);
         TwitterCard::setSite('@santonamedia');
@@ -170,8 +172,9 @@ class VideoController extends Controller
         foreach($tag->videos as $video){
         OpenGraph::addVideo('https://santonamedia.com/storage/public/videos/'.$video->video,
             ['secure_url' => 'https://santonamedia.com/storage/public/videos/'.$video->video,
-            'type' => 'application/x-shockwave-flash','width' => 400,'height' => 300
+            'type' => 'video/mp4','width' => 400,'height' => 300
             ]);
+        OpenGraph::addImage('https://santonamedia.com/static/lion.jpg',['height'=>'628','width' =>'1200']);
         }
         
         $data = array(
