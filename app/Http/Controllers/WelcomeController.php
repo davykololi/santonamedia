@@ -10,6 +10,7 @@ use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Artesaos\SEOTools\Facades\TwitterCard;
 use Artesaos\SEOTools\Facades\JsonLd;
+use Illuminate\Support\Facades\URL;
 
 class WelcomeController extends Controller
 {
@@ -24,23 +25,27 @@ class WelcomeController extends Controller
         $posts = Post::latest()->paginate(10);
         $tags = Tag::with('posts')->get();
 
+        foreach ($posts as $post) {
+            OpenGraph::addImage('https://santonamedia.com/storage/public/storage/'.$post->image,['height'=>'628','width' =>'1200']);
+        }
+
         $title = 'Welcome To Santona Media';
         $desc = 'The media house for exclusive latest breaking news in Kenya and worldwide';
-        $url = 'https://santonamedia.com/';
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
         SEOMeta::setKeywords('media,house,exclusive,latest,breaking,news,Kenya,worldwide');
-        SEOMeta::setCanonical($url);
+        SEOMeta::setCanonical(URL::current());
 
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
-        OpenGraph::setUrl($url);
+        OpenGraph::setUrl(URL::current());
         OpenGraph::addProperty('type','Website');
 
         TwitterCard::setTitle($title);
         TwitterCard::setSite('@santonamedia');
         TwitterCard::setDescription($desc);
+        TwitterCard::setUrl(URL::current());
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);

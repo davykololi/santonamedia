@@ -10,6 +10,7 @@ use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Artesaos\SEOTools\Facades\TwitterCard;
 use Artesaos\SEOTools\Facades\JsonLd;
+use Illuminate\Support\Facades\URL;
 
 class HomeController extends Controller
 {
@@ -39,26 +40,26 @@ class HomeController extends Controller
         $tags = Tag::with('posts')->get();
 
         foreach ($posts as $post) {
-            OpenGraph::addImage('http://santonamedia.com/storage/public/storage',[$post->image,'height'=>'300','width' =>'300']);
+            OpenGraph::addImage('https://santonamedia.com/storage/public/storage/'.$post->image,['height'=>'628','width' =>'1200']);
         }
 
         $title = 'Latest breaking news in Kenya,East Africa,Africa,Europe,Asia and America';
         $desc = 'Latest news in Kenya,East Africa,Africa,Europe,Asia and America';
-        $url = 'https://santonamedia.com/home';
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
         SEOMeta::setKeywords('latest,news,Kenya,East Africa, Africa,Europe,Asia,America');
-        SEOMeta::setCanonical($url);
+        SEOMeta::setCanonical(URL::current());
 
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
-        OpenGraph::setUrl($url);
+        OpenGraph::setUrl(URL::current());
         OpenGraph::addProperty('type','Homepage');
 
         TwitterCard::setTitle($title);
         TwitterCard::setSite('@santonamedia');
         TwitterCard::setDescription($desc);
+        TwitterCard::setUrl(URL::current());
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);

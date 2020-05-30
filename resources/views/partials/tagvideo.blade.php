@@ -13,7 +13,7 @@
          <span> {!! $video->admin->name !!} </span>
     </div>
     <figure>
-        <video width="320" height="240" controls poster="{{asset('/static/lion.JPG')}}"> 
+        <video width="512" height="288" controls poster="{{asset('/static/lion.JPG')}}"> 
             <source type="video/mp4" src = "/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}">
             <source type="video/ogg" src="/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}">     
             <source type="video/webm" src="/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}"> 

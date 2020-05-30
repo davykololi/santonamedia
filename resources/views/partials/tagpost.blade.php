@@ -13,7 +13,7 @@
          <span> {!! $post->admin->name !!}</span>
     </div>
     <figure>
-        <img class="img-fluid img-thumbnail" src = "/storage/public/storage/{{ $post->image }}" loading="lazy" alt ="{{ $post->title }}"/>
+        <img class="img-thumbnail" width="600" height="314" src = "/storage/public/storage/{{ $post->image }}" loading="lazy" alt ="{{ $post->title }}"/>
  	  <figcaption class="figcaption"> {{$post->caption}} </figcaption>
     </figure>
 </div>

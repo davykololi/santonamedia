@@ -14,7 +14,7 @@
     </div>
     <figure>
         <a href="{{ route('users.posts.read',['post_slug' => $post->slug]) }}" >
-            <img class="img-fluid img-thumbnail" src = "/storage/public/storage/{{ $post->image }}" loading="lazy" alt ="{{ $post->title }}">
+            <img class="img-thumbnail" width="600" height="314" src = "/storage/public/storage/{{ $post->image }}" loading="lazy" alt ="{{ $post->title }}">
         </a>
         <figcaption class="figcaption"> {{$post->caption}} </figcaption>
     </figure>

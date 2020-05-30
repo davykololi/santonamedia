@@ -309,7 +309,6 @@ h2 .post-link:hover{
 	color: purple;
 	font-family: Times New Roman;
 	font-size: 15px;
-	line-height: 1.0rem;
 }
 .sidebar-right .dropdown-menu a{
 	text-transform: uppercase;
@@ -323,7 +322,6 @@ h2 .post-link:hover{
 	background-color: lightblue;
 }
 .sidebar-right .tag-aside a{
-	line-height: 1.0rem;
 	text-transform: uppercase;
 	font-size: 16px;
 	color: black;

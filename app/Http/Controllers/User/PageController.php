@@ -15,6 +15,7 @@ use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Artesaos\SEOTools\Facades\TwitterCard;
 use Artesaos\SEOTools\Facades\JsonLd;
+use Illuminate\Support\Facades\URL;
 
 class PageController extends Controller
 {
@@ -47,21 +48,21 @@ class PageController extends Controller
 
         $title = 'Contact Us';
         $desc = 'Santona Media News Contact Us Page';
-        $url = 'https://santonamedia.com/contact-us';
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
         SEOMeta::setKeywords('Contac,Us');
-        SEOMeta::setCanonical($url);
+        SEOMeta::setCanonical(URL::current());
 
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
-        OpenGraph::setUrl($url);
+        OpenGraph::setUrl(URL::current());
         OpenGraph::addProperty('type','ContactAddress');
 
         TwitterCard::setTitle($title);
         TwitterCard::setSite('@santonamedia');
         TwitterCard::setDescription($desc);
+        TwitterCard::setUrl(URL::current());
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
@@ -106,22 +107,22 @@ class PageController extends Controller
 
         $title = 'About Us';
         $desc = 'Santona Media News About Us Page';
-        $url = 'https://santonamedia.com/about-us';
         $image = 'https://santonamedia.com/static/david.jpg';
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
         SEOMeta::setKeywords('Santona,Media,News,About,Us,Page');
-        SEOMeta::setCanonical($url);
+        SEOMeta::setCanonical(URL::current());
 
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
-        OpenGraph::setUrl($url);
+        OpenGraph::setUrl(URL::current());
         OpenGraph::addProperty('type','Organization');
 
         TwitterCard::setTitle($title);
         TwitterCard::setSite('@santonamedia');
         TwitterCard::setDescription($desc);
+        TwitterCard::setUrl(URL::current());
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
@@ -152,21 +153,21 @@ class PageController extends Controller
 
         $title = 'Private Policy';
         $desc = 'Santona Media News Private Policy Page';
-        $url = 'https://santonamedia.com/private-policy';
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
         SEOMeta::setKeywords('Santona,Media,News,Private,Policy,Page');
-        SEOMeta::setCanonical($url);
+        SEOMeta::setCanonical(URL::current());
 
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
-        OpenGraph::setUrl($url);
+        OpenGraph::setUrl(URL::current());
         OpenGraph::addProperty('type','PrivatePolicy');
 
         TwitterCard::setTitle($title);
         TwitterCard::setSite('@santonamedia');
         TwitterCard::setDescription($desc);
+        TwitterCard::setUrl(URL::current());
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
@@ -196,21 +197,21 @@ class PageController extends Controller
 
         $title = 'Portfolio';
         $desc = 'Santona Media News Portfolio Page';
-        $url = 'https://santonamedia.com/portfolio';
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
         SEOMeta::setKeywords('Santona,Media,News,Portfolio,Page');
-        SEOMeta::setCanonical($url);
+        SEOMeta::setCanonical(URL::current());
 
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
-        OpenGraph::setUrl($url);
+        OpenGraph::setUrl(URL::current());
         OpenGraph::addProperty('type','Portfolio');
 
         TwitterCard::setTitle($title);
         TwitterCard::setSite('@santonamedia');
         TwitterCard::setDescription($desc);
+        TwitterCard::setUrl(URL::current());
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
