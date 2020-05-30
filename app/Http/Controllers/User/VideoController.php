@@ -68,7 +68,7 @@ class VideoController extends Controller
         foreach($category->videos as $video){
         OpenGraph::addVideo('https://santonamedia.com/storage/public/videos/'.$video->video,
             ['secure_url' => 'https://santonamedia.com/storage/public/videos/'.$video->video,
-            'type' => 'video.movie','width' => 400,'height' => 300
+            'type' => 'application/x-shockwave-flash','width' => 400,'height' => 300
             ]);
         OpenGraph::addImage('https://santonamedia.com/storage/public/videos/'.$video->video,['height'=>'628','width' =>'1200']);
         }
@@ -112,7 +112,7 @@ class VideoController extends Controller
         OpenGraph::addProperty('locale','en-us');
         OpenGraph::addVideo('https://santonamedia.com/storage/public/videos/'.$video->video,
                             ['secure_url' => 'https://santonamedia.com/storage/public/videos/'.$video->video,
-                            'type' => 'video.movie','width' => 400,'height' => 300
+                            'type' => 'application/x-shockwave-flash','width' => 400,'height' => 300
                             ]);
         OpenGraph::addImage('https://santonamedia.com/storage/public/videos/'.$video->video,['height'=>'628','width' =>'1200']);
 
@@ -172,7 +172,7 @@ class VideoController extends Controller
         foreach($tag->videos as $video){
         OpenGraph::addVideo('https://santonamedia.com/storage/public/videos/'.$video->video,
             ['secure_url' => 'https://santonamedia.com/storage/public/videos/'.$video->video,
-            'type' => 'video.movie','width' => 400,'height' => 300
+            'type' => 'application/x-shockwave-flash','width' => 400,'height' => 300
             ]);
         OpenGraph::addImage('https://santonamedia.com/storage/public/videos/'.$video->video,['height'=>'628','width' =>'1200']);
         }
