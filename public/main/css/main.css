@@ -433,7 +433,7 @@ h3 .post-link:hover{
 	margin-right: 10px;
 }
 .tags a{
-	margin-left: 5px;
+	margin: 5px;
 	font-size: 15px;
 	display: inline-flex;
 	text-decoration: none;

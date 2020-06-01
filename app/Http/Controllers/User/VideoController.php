@@ -66,11 +66,11 @@ class VideoController extends Controller
         JsonLd::setType('Articles');
 
         foreach($category->videos as $video){
-        OpenGraph::addVideo('www.santonamedia.com/storage/public/videos/'.$video->video,
-            ['secure_url' => 'www.santonamedia.com/storage/public/videos/'.$video->video,
+        OpenGraph::addVideo('https://santonamedia.com/storage/public/videos/'.$video->video,
+            ['secure_url' => 'https://santonamedia.com/storage/public/videos/'.$video->video,
             'type' => 'application/x-shockwave-flash','width' => 400,'height' => 300
             ]);
-        OpenGraph::addImage('www.santonamedia.com/storage/public/videos/'.$video->video,['height'=>'628','width' =>'1200']);
+        OpenGraph::addImage('https://santonamedia.com/storage/public/videos/'.$video->video,['height'=>'628','width' =>'1200']);
         }
         
         $data = array(
@@ -110,11 +110,11 @@ class VideoController extends Controller
         OpenGraph::setUrl(URL::current());
         OpenGraph::addProperty('type','Article');
         OpenGraph::addProperty('locale','en-us');
-        OpenGraph::addVideo('www.santonamedia.com/storage/public/videos/'.$video->video,
-                            ['secure_url' => 'www.santonamedia.com/storage/public/videos/'.$video->video,
+        OpenGraph::addVideo('https://santonamedia.com/storage/public/videos/'.$video->video,
+                            ['secure_url' => 'https://santonamedia.com/storage/public/videos/'.$video->video,
                             'type' => 'application/x-shockwave-flash','width' => 400,'height' => 300
                             ]);
-        OpenGraph::addImage('www.santonamedia.com/storage/public/videos/'.$video->video,['height'=>'628','width' =>'1200']);
+        OpenGraph::addImage('https://santonamedia.com/storage/public/videos/'.$video->video,['height'=>'628','width' =>'1200']);
 
         TwitterCard::setTitle($title);
         TwitterCard::setSite('@santonamedia');
@@ -170,11 +170,11 @@ class VideoController extends Controller
         JsonLd::setType('Place');
 
         foreach($tag->videos as $video){
-        OpenGraph::addVideo('www.santonamedia.com/storage/public/videos/'.$video->video,
-            ['secure_url' => 'www.santonamedia.com/storage/public/videos/'.$video->video,
+        OpenGraph::addVideo('https://santonamedia.com/storage/public/videos/'.$video->video,
+            ['secure_url' => 'https://santonamedia.com/storage/public/videos/'.$video->video,
             'type' => 'application/x-shockwave-flash','width' => 400,'height' => 300
             ]);
-        OpenGraph::addImage('www.santonamedia.com/storage/public/videos/'.$video->video,['height'=>'628','width' =>'1200']);
+        OpenGraph::addImage('https://santonamedia.com/storage/public/videos/'.$video->video,['height'=>'628','width' =>'1200']);
         }
         
         $data = array(
