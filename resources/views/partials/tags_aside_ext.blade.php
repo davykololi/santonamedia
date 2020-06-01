@@ -1,6 +1,6 @@
-<aside class="sidebar-right">
+<div class="sidebar-right">
 	<h4> TAGS </h4>
     @include('partials.tags')
-</aside><!-- /.blog-sidebar -->
+</div>> <!-- /.blog-sidebar -->
 
 

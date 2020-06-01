@@ -1,4 +1,4 @@
-<aside class="sidebar-right" style="margin-top: 10px"> 
+<div class="sidebar-right" style="margin-top: 10px"> 
     <h4> VIDEO TAGS</h4> 
         <div class="tag-aside">                  
         @if(!empty($tags))
@@ -9,7 +9,7 @@
             @endforeach
         @endif 
         </div>
-</aside>
+</div>
 
 
 

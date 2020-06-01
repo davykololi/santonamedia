@@ -105,8 +105,8 @@ class PageController extends Controller
         $posts = Post::latest()->paginate(10);
         $tags = Tag::with('posts')->get();
 
-        $title = 'About Us';
-        $desc = 'Santona Media News About Us Page';
+        $title = 'Santona Media Group Ltd';
+        $desc = 'The media house for the latest breaking news and captivating entertainment';
         $image = 'https://santonamedia.com/static/david.jpg';
 
         SEOMeta::setTitle($title);

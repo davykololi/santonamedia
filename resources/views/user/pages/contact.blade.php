@@ -4,13 +4,11 @@
 @section('content')
 <div class="container-fluid features">
     <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-12">
-            @include('partials.sidebar')
-        </div>
-		<div class="col-lg-6 col-md-6 col-sm-12 main-content">
+        @include('partials.sidebar_left_col')
+		<main class="col-lg-6 col-md-6 col-sm-12 main-content">
 		@include('partials.messages')
 		@include('partials.errors')
-			<div class="headings"> <h6>CONTACT FORM</h6> </div>
+			<div class="headings"> <h1>CONTACT FORM</h1> </div>
 			<p style="font-size: 15px;text-align: center;">
 				 We are so glad that you are contacting us.Fill the form below and submit to us. 
 			</p>
@@ -39,10 +37,8 @@
 			</div>
 			@include('user.posts.tags')
 			@include('user.newsletter.newsletter')
-		</div> <!--end of blog-main -->
-		<div class="col-lg-3 col-md-3 col-sm-12">
-            @include('partials.aside_h')
-        </div>
-	</div> <!--end of row -->
+		</main> <!--end of blog-main -->
+        @include('partials.sidebar_right_hcol')
+	</main> <!--end of row -->
 </div>
 @endsection

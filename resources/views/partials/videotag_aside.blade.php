@@ -1,4 +1,4 @@
-<aside class="sidebar-right">
+<div class="sidebar-right">
     <h4> SEARCH FOR VIDEOS </h4>
     	@include('partials.videosearch')
     <div class="sidebar-module">
@@ -7,5 +7,5 @@
            @include('partials.videolinks_aside')
     </div>
     @include('partials.videocat_n_vdext')
-</aside><!-- /.blog-sidebar -->
+</div> <!-- /.blog-sidebar -->
 @include('partials.tags_aside')

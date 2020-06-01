@@ -1,4 +1,4 @@
-<aside class="sidebar-right">
+<div class="sidebar-right">
     <h4> SEARCH FOR ARTICLES </h4>
     @include('partials.postsearch')
     <div class="sidebar-module">
@@ -7,5 +7,5 @@
             @include('partials.articlelinks_aside')
     </div>
     @include('partials.postcat_n_ext') 
-</aside><!-- /.blog-sidebar -->
+</div> <!-- /.blog-sidebar -->
 @include('partials.tags_aside')

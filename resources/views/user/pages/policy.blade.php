@@ -4,14 +4,12 @@
 @section('content')
     <div class="container-fluid features">
         <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-12">
-                @include('partials.sidebar')
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 main-content">
+            @include('partials.sidebar_left_col')
+            <main class="col-lg-6 col-md-6 col-sm-12 main-content">
                 <div class="headings">
-                <h6> 
+                <h1> 
                     {{ config('app.name', 'skyluxnews') }} PRIVATE POLICY STATEMENT
-                </h6>
+                </h1>
                 </div>
                 <div class="private-policy">
                     <h4><strong>TYPE OF DATA COLLECTED</strong></h4>
@@ -87,10 +85,8 @@
                     </div>
                     @include('user.posts.tags')
                     @include('user.newsletter.newsletter')
-            </div> <!--end of blog-main -->
-            <div class="col-lg-3 col-md-3 col-sm-12">
-                @include('partials.aside_h')
-            </div>
+            </main> <!--end of blog-main -->
+            @include('partials.sidebar_right_hcol')
         </div><!-- /.row -->
     </div> <!-- /.container -->
 @endsection

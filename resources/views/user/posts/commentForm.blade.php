@@ -8,7 +8,7 @@
 		<input type="hidden" name="category_id" value="{{$category->id}}">
 	</div>
 	<div class="form-group">
-		<input type="submit" class="btn btn" id="button" value="Submit"/>
+		<input type="submit" class="btn btn-primary" value="Submit"/>
 	</div>
 </form>
 </div>

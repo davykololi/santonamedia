@@ -1,4 +1,4 @@
-<aside class="sidebar-left">
+<div class="sidebar-left">
 <br/>
 <div class="label">
     <img width="300"  src= "{{asset('static/santonamedia.png')}}" alt="santonamedia label">
@@ -19,8 +19,8 @@
         @endforeach
     @endif
 </div>
-</aside>
+</div>
 
-<aside class="sidebar-left" style="margin-top: 10px;">
+<div class="sidebar-left" style="margin-top: 10px;">
     ANOTHER ONE
-</aside>
+</div>

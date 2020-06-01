@@ -8,10 +8,8 @@
 @section('content')
 <div class="container-fluid features">
     <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-12">
-            @include('partials.sidebar')
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-12 main-content"><!-- blog-main-->
+        @include('partials.sidebar_left_col')
+        <main class="col-lg-6 col-md-6 col-sm-12 main-content"><!-- blog-main-->
             <div class="blog-post">
                 @include('partials.video')
                     <p class="card-text">{{ $video->content }} 
@@ -40,10 +38,8 @@
             @include('partials.vdext')
             @include('user.videos.tags')
             @include('user.newsletter.newsletter')
-        </div> <!--end of blog-main -->
-        <div class="col-lg-3 col-md-3 col-sm-12">
-            @include('partials.vd_aside')
-        </div>  
+        </main> <!--end of blog-main -->
+        @include('partials.sidebar_right_vdcol')
     </div><!-- end of row -->
-</div> <!-- end of main -->
+</div> <!-- end of container -->
 @endsection

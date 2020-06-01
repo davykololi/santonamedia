@@ -4,11 +4,9 @@
 @section('content')
     <div class="container-fluid features">
         <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-12">
-                @include('partials.sidebar')
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 main-content">
-                <div class="headings"><h6>ABOUT US</h6></div>
+            @include('partials.sidebar_left_col')
+            <main class="col-lg-6 col-md-6 col-sm-12 main-content">
+                <div class="headings"><h1>Santona Media Group Ltd</h1></div>
                 <div class="left-ten">
                 <figure>                
                     <img class="img-fluid" src="{{asset('static/santonamedia.com.jpg')}}" alt="Santona Media about"/>
@@ -20,10 +18,8 @@
                 </div>
                 @include('user.posts.tags')
                 @include('user.newsletter.newsletter')
-            </div> <!--end of blog-main-->
-            <div class="col-lg-3 col-md-3 col-sm-12">
-                @include('partials.aside_h')
-            </div>
+            </main> <!--end of blog-main-->
+            @include('partials.sidebar_right_hcol')
         </div><!-- /.row -->
     </div> <!-- /.container -->
 @endsection

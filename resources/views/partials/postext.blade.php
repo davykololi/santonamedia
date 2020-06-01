@@ -1,12 +1,12 @@
-<article>
+<article class="page-extention">
 <div class="dad"></div>
 <div class="headings">
-    <h6>SANTONA MEDIA {{ $post->category->name }} ARTICLE</h6>
+    <h2>SANTONA MEDIA {{ $post->category->name }} ARTICLE</h2>
 </div>
 <br/>
-<h2 class="feature-title">
+<h3>
     <a class="post-link" href="{{ route('users.posts.read',['post_slug' => $post->slug]) }}" >{{ $post->title }}</a>
-</h2>
+</h3>
 <div class="left-ten">
     <div class="created-time">
         <a href="#"> {{ date("F j,Y,g:i a",strtotime($post->created_at)) }} By:</a>

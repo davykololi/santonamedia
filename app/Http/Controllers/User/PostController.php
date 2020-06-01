@@ -66,9 +66,9 @@ class PostController extends Controller
         JsonLd::setType('Articles');
         
         foreach($category->posts as $post){
-        OpenGraph::addImage('https://santonamedia.com/storage/public/storage/'.$post->image,['height'=>'628','width' =>'1200']);
-        JsonLd::addImage('https://santonamedia.com/storage/public/storage/'.$post->image);
-        TwitterCard::setImage('https://santonamedia.com/storage/public/storage/'.$post->image);
+        OpenGraph::addImage('www.santonamedia.com/storage/public/storage/'.$post->image,['height'=>'628','width' =>'1200']);
+        JsonLd::addImage('www.santonamedia.com/storage/public/storage/'.$post->image);
+        TwitterCard::setImage('www.santonamedia.com/storage/public/storage/'.$post->image);
         }
         
         $data = array(
@@ -108,19 +108,19 @@ class PostController extends Controller
         OpenGraph::setUrl(URL::current());
         OpenGraph::addProperty('type','article');
         OpenGraph::addProperty('locale','en-us');
-        OpenGraph::addImage('https://santonamedia.com/storage/public/storage/'.$post->image,['height'=>'628','width' =>'1200']);
+        OpenGraph::addImage('www.santonamedia.com/storage/public/storage/'.$post->image,['height'=>'628','width' =>'1200']);
 
         TwitterCard::setTitle($title);
         TwitterCard::setSite('@santonamedia');
         TwitterCard::setDescription($desc);
         TwitterCard::setUrl(URL::current());
-        TwitterCard::setImage('https://santonamedia.com/storage/public/storage/'.$post->image);
+        TwitterCard::setImage('www.santonamedia.com/storage/public/storage/'.$post->image);
         TwitterCard::setType('summary_large_image');
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
         JsonLd::setType('Article');
-        JsonLd::addImage('https://santonamedia.com/storage/public/storage/'.$post->image);
+        JsonLd::addImage('www.santonamedia.com/storage/public/storage/'.$post->image);
 
         $data = array(
             'post' => $post,
@@ -168,9 +168,9 @@ class PostController extends Controller
         JsonLd::setType('Place');
 
         foreach($tag->posts as $post){
-        OpenGraph::addImage('https://santonamedia.com/storage/public/storage/'.$post->image,['height'=>'628','width' =>'1200']);
-        JsonLd::addImage('https://santonamedia.com/storage/public/storage/'.$post->image);
-        TwitterCard::setImage('https://santonamedia.com/storage/public/storage/'.$post->image);
+        OpenGraph::addImage('www.santonamedia.com/storage/public/storage/'.$post->image,['height'=>'628','width' =>'1200']);
+        JsonLd::addImage('www.santonamedia.com/storage/public/storage/'.$post->image);
+        TwitterCard::setImage('www.santonamedia.com/storage/public/storage/'.$post->image);
         }
         
         $data = array(

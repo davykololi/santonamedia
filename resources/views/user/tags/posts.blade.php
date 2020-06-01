@@ -4,10 +4,8 @@
 @section('content')
 <div class="container-fluid features">
     <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-12">
-            @include('partials.sidebar')
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-12 main-content"><!-- blog-main-->
+        @include('partials.sidebar_left_col')
+        <main class="col-lg-6 col-md-6 col-sm-12 main-content"><!-- blog-main-->
                @forelse($posts as $post)
                     <div class="blog-post">
                         @include('partials.tagpost')
@@ -28,10 +26,10 @@
                 </div>
                 @include('user.posts.tags')
                 @include('user.newsletter.newsletter')
-        </div> <!--end of blog-main -->
-        <div class="col-lg-3 col-md-3 col-sm-12">
+        </main> <!--end of blog-main -->
+        <aside class="col-lg-3 col-md-3 col-sm-12">
             @include('partials.posttag_aside')
-        </div>
+        </aside>
     </div><!--end of row -->
 </div> <!--end of main -->
 @endsection

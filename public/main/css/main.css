@@ -117,11 +117,31 @@ hr.style-four{
 .frame{padding: 5px;
 	border: double;
 }
+.headings h1{
+	font-family: Times New Roman;
+	box-shadow: 10px 10px 8px #888888;
+	text-align: center;
+	background-color: blue;
+	color: white;
+	border-radius: 25px;
+	font-size: 20px;
+	text-transform: uppercase;
+}
 .headings{
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
-.headings h6{
+.page-main .headings h1{
+	font-family: Times New Roman;
+	box-shadow: 10px 10px 8px #888888;
+	text-align: center;
+	background-color: blue;
+	color: white;
+	border-radius: 25px;
+	font-size: 20px;
+	text-transform: uppercase;
+}
+.page-extention .headings h2{
 	font-family: Times New Roman;
 	box-shadow: 10px 10px 8px #888888;
 	text-align: center;
@@ -199,7 +219,15 @@ hr.style-four{
 	padding: 0em;
 	position: relative;
 }
-.feature-title{
+.page-main h2{
+	color: #333;
+	font-size: 2.0rem;
+	font-weight: 700;
+	margin-bottom: 0px;
+	text-transform: uppercase;
+	font-family: Arial Black;
+}
+.page-extention h3{
 	color: #333;
 	font-size: 2.0rem;
 	font-weight: 700;
@@ -233,18 +261,20 @@ hr.style-four{
 .left-ten .created-time span{
 	color: purple;
 }
-h1 .post-link{
-	color: black;
-	text-decoration: none;
-}
-h1 .post-link:hover{
-	color: green;
-}
 h2 .post-link{
 	color: black;
 	text-decoration: none;
+	margin-left: 10px;
 }
 h2 .post-link:hover{
+	color: green;
+}
+h3 .post-link{
+	color: black;
+	text-decoration: none;
+	margin-left: 10px;
+}
+h3 .post-link:hover{
 	color: purple;
 }
 .features .main-content img{
@@ -264,6 +294,10 @@ h2 .post-link:hover{
 .main-content .share-title{
 	font-size: 12px;
 	color: purple;
+	text-align: center;
+}
+.share{
+	text-align: center;
 }
 .main-content .share span{
 	margin: 5px;
@@ -291,6 +325,7 @@ h2 .post-link:hover{
 	margin-left: 10px;
 }
 .sidebar-right{
+	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
 	padding: 10px;
@@ -332,17 +367,17 @@ h2 .post-link:hover{
 	background-color: white;
 	color: orange;
 }
-.sidebar-right .card{
+.sidebar-right .sidebar-header{
 	display: inline-block;
 	width: 100%;
 	background-color: lightgray;
 	line-height: 1.0rem;
 }
-.sidebar-right .card a{
+.sidebar-right .sidebar-header a{
 	font-size: 12px;
 	color: black;
 }
-.sidebar-right .card a:hover{
+.sidebar-right .sidebar-header a:hover{
 	color: green;
 	text-decoration: none;
 }
@@ -373,8 +408,24 @@ h2 .post-link:hover{
 	.sidebar-left{
 		margin: -250px;
 	}
-	.main-content h6{
+	.page-main .headings h1{
 		font-size: 14px;
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+	.page-extention .headings h2{
+		font-size: 14px;
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+	h2 .post-link{
+		font-size: 15px;
+	}
+	h3 .post-link{
+		font-size: 15px;
+	}
+	body{
+		padding: 5px;
 	}
 }
 .main-content .gray{
@@ -387,10 +438,15 @@ h2 .post-link:hover{
 	text-align: center;
 	color: white;
 }
-.main-content .tags a{
+.tags{
+	margin-left: 20px;
+	margin-right: 10px;
+}
+.tags a{
 	margin-left: 5px;
 	font-size: 15px;
 	display: inline-flex;
+	text-decoration: none;
 }
 .tags strong{
 	font-size: 12px;

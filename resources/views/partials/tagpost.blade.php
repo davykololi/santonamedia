@@ -1,12 +1,12 @@
-<article>
+<article class="page-main">
 <div class="dad"></div>
 <div class="headings">
-    <h6>SANTONA MEDIA {{ $tag->name }} {{ $post->category->name }} ARTICLE</h6>
+    <h1>SANTONA MEDIA {{ $tag->name }} {{ $post->category->name }} ARTICLE</h1>
 </div>
 <br/>
-<h1 class="feature-title">
+<h2>
     <a class="post-link" href="{{ route('users.posts.read',['post_slug' => $post->slug]) }}" >{{ $post->title }}</a>
-</h1>
+</h2>
 <div class="left-ten">
     <div class="created-time">
         <a href="#"> {{ date("F j,Y,g:i a",strtotime($post->created_at)) }} By:</a>
