@@ -2,10 +2,9 @@
 @section('title'|'Articles')
 
 @section('content')
-<div class="container-fluid features">
+<main class="container features">
     <div class="row">
-        @include('partials.sidebar_left_col')
-        <main class="col-lg-6 col-md-6 col-sm-12 main-content"><!-- blog-main-->
+        <div class="col-lg-8 col-md-8 col-sm-8 main-content"><!-- blog-main-->
                @forelse($posts as $post)
                     <div class="blog-post">
                         @include('partials.tagpost')
@@ -14,7 +13,7 @@
                             Read more <i class="fa fa-angle-double-right"></i>
                             </a> 
                         </p>
-                        <br/><hr/>
+                        <hr/>
                     </div><!-- /.blog-post -->
                 @empty
                 <p style="color: red;font-family: Segoe UI Light;font-size: 30px"> 
@@ -26,11 +25,11 @@
                 </div>
                 @include('user.posts.tags')
                 @include('user.newsletter.newsletter')
-        </main> <!--end of blog-main -->
-        <aside class="col-lg-3 col-md-3 col-sm-12">
+        </div> <!--end of blog-main -->
+        <aside class="col-lg-4 col-md-4 col-sm-4">
             @include('partials.posttag_aside')
         </aside>
     </div><!--end of row -->
-</div> <!--end of main -->
+</main> <!--end of main -->
 @endsection
 

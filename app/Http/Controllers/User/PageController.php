@@ -64,10 +64,6 @@ class PageController extends Controller
         TwitterCard::setDescription($desc);
         TwitterCard::setUrl(URL::current());
 
-        JsonLd::setTitle($title);
-        JsonLd::setDescription($desc);
-        JsonLd::setType('ContactAddress');
-
         $data = array(
             'category' => $category,
             'posts' => $posts,
@@ -124,11 +120,6 @@ class PageController extends Controller
         TwitterCard::setDescription($desc);
         TwitterCard::setUrl(URL::current());
 
-        JsonLd::setTitle($title);
-        JsonLd::setDescription($desc);
-        JsonLd::addImage($image);
-        JsonLd::setType('Organization');
-
         $data = array(
             'category' => $category,
             'posts' => $posts,
@@ -169,10 +160,6 @@ class PageController extends Controller
         TwitterCard::setDescription($desc);
         TwitterCard::setUrl(URL::current());
 
-        JsonLd::setTitle($title);
-        JsonLd::setDescription($desc);
-        JsonLd::setType('PrivatePolicy');
-
         $data = array(
             'category' => $category,
             'posts' => $posts,
@@ -212,10 +199,6 @@ class PageController extends Controller
         TwitterCard::setSite('@santonamedia');
         TwitterCard::setDescription($desc);
         TwitterCard::setUrl(URL::current());
-
-        JsonLd::setTitle($title);
-        JsonLd::setDescription($desc);
-        JsonLd::setType('Portfolio');
 
         $data = array(
             'category' => $category,

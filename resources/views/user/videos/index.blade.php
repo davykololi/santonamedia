@@ -2,12 +2,9 @@
 @section('title'|'Videos')
 
 @section('content')
-<div class="container-fluid features">
+<main class="container features">
     <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-12">
-            @include('partials.sidebar')
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-12 main-content"><!-- blog-main-->
+        <div class="col-lg-8 col-md-8 col-sm-8 main-content"><!-- blog-main-->
             @forelse($videos as $video)
                 <div class="blog-post">
                 @include('partials.video')
@@ -16,7 +13,7 @@
                             Read more <i class="fa fa-angle-double-right"></i>
                         </a> 
                     </p>
-                    <br/><hr/>
+                    <hr/>
                 </div><!-- /.blog-post -->
             @empty
                 <p style="color: red;font-family: Segoe UI Light;font-size: 30px"> 
@@ -29,10 +26,10 @@
             @include('user.videos.tags')
             @include('user.newsletter.newsletter')
         </div> <!-- end of blog-main -->
-        <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="col-lg-4 col-md-4 col-sm-4">
             @include('partials.vd_aside')
         </div>
     </div><!-- end of row -->
-</div> <!-- end of main -->
+</main> <!-- end of main -->
 @endsection
 

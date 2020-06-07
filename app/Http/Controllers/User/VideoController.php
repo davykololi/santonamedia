@@ -39,7 +39,7 @@ class VideoController extends Controller
     {
         $category = Category::whereSlug($slug)->first();
         $videos = $category->videos()->with('admin','category')->latest()->paginate(5);
-        $archives = $category->videos()->latest()->limit(10)->get();
+        $archives = $category->videos()->latest()->limit(5)->get();
         $categories = Category::cursor();
         $tags = Tag::with('videos')->get();
 
@@ -60,10 +60,6 @@ class VideoController extends Controller
         TwitterCard::setSite('@santonamedia');
         TwitterCard::setDescription($desc);
         TwitterCard::setUrl(URL::current());
-
-        JsonLd::setTitle($title);
-        JsonLd::setDescription($desc);
-        JsonLd::setType('Articles');
 
         foreach($category->videos as $video){
         OpenGraph::addVideo('https://santonamedia.com/storage/public/videos/'.$video->video,
@@ -89,7 +85,7 @@ class VideoController extends Controller
         $video = Video::with('admin','user','comments','tags','category')->where('videos.slug','=',$video_slug)->firstOrFail();
         $previous = $video->where('id','<',$video->id)->orderBy('id','desc')->first();
         $next = $video->where('id','>',$video->id)->orderBy('id')->first();
-        $archives = $video->where('category_id','=',$video->category->id)->latest()->limit(10)->get();
+        $archives = $video->where('category_id','=',$video->category->id)->latest()->limit(5)->get();
         $category = $video->category()->with('videos')->firstOrFail();
         $videos = $category->videos()->with('admin','category')->inRandomOrder()->paginate(5);
         $categories = Category::cursor();
@@ -121,10 +117,6 @@ class VideoController extends Controller
         TwitterCard::setDescription($desc);
         TwitterCard::setUrl(URL::current());
 
-        JsonLd::setTitle($title);
-        JsonLd::setDescription($desc);
-        JsonLd::setType('Article');
-
         $data = array(
             'video' => $video,
             'videos' => $videos,
@@ -143,7 +135,7 @@ class VideoController extends Controller
     {
         $tag = Tag::whereSlug($slug)->first();
         $videos = $tag->videos()->with('admin','category')->latest()->paginate(5);
-        $archives = $tag->videos()->latest()->limit(10)->get();
+        $archives = $tag->videos()->latest()->limit(5)->get();
         $categories = Category::cursor();
         $tags = Tag::with('videos')->get();
 
@@ -164,10 +156,6 @@ class VideoController extends Controller
         TwitterCard::setSite('@santonamedia');
         TwitterCard::setDescription($desc);
         TwitterCard::setUrl(URL::current());
-
-        JsonLd::setTitle($title);
-        JsonLd::setDescription($desc);
-        JsonLd::setType('Place');
 
         foreach($tag->videos as $video){
         OpenGraph::addVideo('https://santonamedia.com/storage/public/videos/'.$video->video,

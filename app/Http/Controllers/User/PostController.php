@@ -38,7 +38,7 @@ class PostController extends Controller
     {
         $category = Category::whereSlug($slug)->first();
         $posts = $category->posts()->with('admin','category')->latest()->paginate(5);
-        $archives = $category->posts()->latest()->limit(10)->get();
+        $archives = $category->posts()->latest()->limit(5)->get();
         $categories = Category::cursor();
         $tags = Tag::with('posts')->get();
 
@@ -60,14 +60,9 @@ class PostController extends Controller
         TwitterCard::setDescription($desc);
         TwitterCard::setUrl(URL::current());
         TwitterCard::setType('summary_large_image');
-
-        JsonLd::setTitle($title);
-        JsonLd::setDescription($desc);
-        JsonLd::setType('Articles');
         
         foreach($category->posts as $post){
         OpenGraph::addImage('https://santonamedia.com/storage/public/storage/'.$post->image,['height'=>'628','width' =>'1200']);
-        JsonLd::addImage('https://santonamedia.com/storage/public/storage/'.$post->image);
         TwitterCard::setImage('https://santonamedia.com/storage/public/storage/'.$post->image);
         }
         
@@ -87,7 +82,7 @@ class PostController extends Controller
         $post = Post::with('admin','user','comments','tags','category')->where('posts.slug', '=', $post_slug)->firstOrFail();
         $previous = $post->where('id','<',$post->id)->orderBy('id','desc')->first();
         $next = $post->where('id','>',$post->id)->orderBy('id')->first();
-        $archives = $post->where('category_id','=',$post->category->id)->latest()->limit(10)->get();
+        $archives = $post->where('category_id','=',$post->category->id)->latest()->limit(5)->get();
         $category = $post->category()->with('posts')->firstOrFail();
         $posts = $category->posts()->with('admin','category')->inRandomOrder()->paginate(5);
         $categories = Category::cursor();
@@ -117,11 +112,6 @@ class PostController extends Controller
         TwitterCard::setImage('https://santonamedia.com/storage/public/storage/'.$post->image);
         TwitterCard::setType('summary_large_image');
 
-        JsonLd::setTitle($title);
-        JsonLd::setDescription($desc);
-        JsonLd::setType('Article');
-        JsonLd::addImage('https://santonamedia.com/storage/public/storage/'.$post->image);
-
         $data = array(
             'post' => $post,
             'posts' => $posts,
@@ -140,7 +130,7 @@ class PostController extends Controller
     {
         $tag = Tag::whereSlug($slug)->first();
         $posts = $tag->posts()->with('admin','category')->latest()->paginate(5);
-        $archives = $tag->posts()->latest()->limit(10)->get();
+        $archives = $tag->posts()->latest()->limit(5)->get();
         $categories = Category::cursor();
         $tags = Tag::with('posts')->get();
 
@@ -163,13 +153,8 @@ class PostController extends Controller
         TwitterCard::setUrl(URL::current());
         TwitterCard::setType('summary_large_image');
 
-        JsonLd::setTitle($title);
-        JsonLd::setDescription($desc);
-        JsonLd::setType('Place');
-
         foreach($tag->posts as $post){
         OpenGraph::addImage('https://santonamedia.com/storage/public/storage/'.$post->image,['height'=>'628','width' =>'1200']);
-        JsonLd::addImage('https://santonamedia.com/storage/public/storage/'.$post->image);
         TwitterCard::setImage('https://santonamedia.com/storage/public/storage/'.$post->image);
         }
         

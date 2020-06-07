@@ -6,15 +6,16 @@
 	box-sizing:border-box;
 	margin-top:0;
 }
-body,html{
-	padding: 0;
-	margin: 0;
-	background-color: #f2f6e9;
-}
+body{background:#f5f5f5}
+ul{padding:0; margin:0; list-style:none}
+a{text-decoration:none; color:#2f2f2f}
+a:hover{color:#646464; text-decoration:none}
+a:focus{outline:none; text-decoration:none}
+h1, h2, h3, h4, h5, h6{font-family:'Oswald',sans-serif}
+h2{line-height:23px}
+img{border:none}
+img:hover{opacity:0.75}
 
-header, footer, nav, article, main{
-	display: block;
-}
 .font{
 	font-family: Arial Black;
 	color: blue;
@@ -277,16 +278,13 @@ h3 .post-link{
 h3 .post-link:hover{
 	color: purple;
 }
-.features .main-content img{
-	-webkit-box-shadow:1px 1px 4px rgba(0,0,0,0.4);
-	-moz-box-shadow:1px 1px 4px rgba(0,0,0,0.4);
-	box-shadow: 1px 1px 4px rgba(0,0,0,0.4);
-	margin-bottom: 0px;
-	width: auto;
-}
 .main-content{
 	background-color: lavender;
 	box-shadow:#000000 4px 4px 8px, #4d4d4d -4px -4px 8px;
+}
+.main-content img{
+	height:350px; 
+	width:450px
 }
 .main-content p{
 	margin-left: 10px;
@@ -326,8 +324,6 @@ h3 .post-link:hover{
 }
 .sidebar-right{
 	position: -webkit-sticky;
-	position: sticky;
-	top: 0;
 	padding: 10px;
 	background-color: lavender;
 	box-shadow:#000000 4px 4px 8px, #4d4d4d -4px -4px 8px;
@@ -339,6 +335,7 @@ h3 .post-link:hover{
 	background-color: #1E90FF;
 	color: white;
 	text-transform: uppercase;
+	width: 100%;
 }
 .sidebar-right .sidebar-module span{
 	color: purple;
@@ -428,17 +425,16 @@ h3 .post-link:hover{
 	text-align: center;
 	color: white;
 }
-.tags{
-	margin-left: 20px;
-	margin-right: 10px;
+.main-content .tags{
+	padding: 20px;
 }
-.tags a{
+.main-content .tags a{
 	margin: 5px;
 	font-size: 15px;
 	display: inline-flex;
 	text-decoration: none;
 }
-.tags strong{
+.main-content .tags strong{
 	font-size: 12px;
 }
 .figcaption{
@@ -446,7 +442,7 @@ h3 .post-link:hover{
 	font-size: 16px;
 }
 .footer{
-	background-color: navy;
+	background-color: #000080;
 	height: auto;
 	width: auto;
 	color: white;
@@ -459,6 +455,15 @@ h3 .post-link:hover{
 .footer li a:hover{
 	color: red;
 }
+.latest_post{float:left; display:inline; width:100%}
+.latest_post > h2{background:none repeat scroll 0 0 #151515; color:#fff; font-family:'Oswald',sans-serif; font-size:18px; margin-top:5px; font-weight:400; margin-bottom:10px; margin-left:0; padding:0; position:relative; text-align:center; text-transform:uppercase}
+.latest_post > h2 span{padding:4px 10px}
+.latest_postnav{height:auto !important; margin-top:5px}
+.latest_postnav li{margin-bottom:10px; float:left; width:100%}
+.latest_post_container{display:inline; float:left; height:auto; position:relative; width:100%}
+.latest_post_container:hover #prev-button, .latest_post_container:hover #next-button{display:block}
+.media-left > img{height:70px; width:90px}
+.media-body > a{font-family:"Oswald",sans-serif}
 
 @keyframes spin{
 	0%{
@@ -489,6 +494,7 @@ h3 .post-link:hover{
 	width: 300px;
 	height: 30px;
 	margin: 8px;
+	text-transform: uppercase;
 	position: relative;
 	text-shadow: 2px 8px 6px rgba(0,0,0,0.2),0px -5px 35px rgba(255,255,255,0.3);
 	-webkit-animation:repeatit 2s linear 0s infinite alternate;
@@ -721,3 +727,20 @@ i.fa.fa-github{
 i.fa.fa-github:hover {
 	background-color:#17233E;
 }
+
+
+#footer{display:inline; float:left; width:100%; margin-bottom:20px;}
+#footer li a{color: white;line-height: 1.5rem;}
+.footer_top{background-color:navy; color:#ddd; display:inline; float:left; padding:10px 30px 48px; width:100%}
+.footer_widget{display:inline; float:left; width:100%; min-height:310px}
+.footer_widget > h2{border-bottom:3px solid #666; font-family:Oswald,arial,Georgia,serif; font-size:16px; padding:10px 0; text-transform:uppercase}
+.tag_nav{}
+.tag_nav li{}
+.tag_nav li a{border-bottom:1px solid #ddd; color:#ccc; display:block; padding:6px 6px 6px 0; -webkit-transition:all 0.5s; -o-transition:all 0.5s; transition:all 0.5s}
+.tag_nav li a:hover{padding-left:10px}
+.footer_bottom{float:left; display:inline; width:100%; padding:10px 30px; background-color:#303030; color:#ccc}
+.copyright{float:left; width:50%; padding-top:5px; text-align:left}
+.copyright a{color:#ccc}
+.developer{float:right; width:50%; text-align:right; padding-top:5px; color:#222}
+.developer a{color:#222}
+

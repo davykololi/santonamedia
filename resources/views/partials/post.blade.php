@@ -3,7 +3,6 @@
 <div class="headings">
     <h1>SANTONA MEDIA {{ $post->category->name }} ARTICLE</h1>
 </div>
-<br/>
 <h2>
     <a class="post-link" href="{{ route('users.posts.read',['post_slug' => $post->slug]) }}" >{{ $post->title }}</a>
 </h2>
@@ -14,7 +13,7 @@
     </div>
     <figure>
         <a href="{{ route('users.posts.read',['post_slug' => $post->slug]) }}" >
-            <img class="img-thumbnail" width="600" height="314" src = "/storage/public/storage/{{ $post->image }}" loading="lazy" alt ="{{ $post->title }}"/>
+            <img src="/storage/public/storage/{{ $post->image }}" loading="lazy" alt="{{ $post->title }}"/>
         </a>
         <figcaption class="figcaption"> {{$post->caption}} </figcaption>
     </figure>

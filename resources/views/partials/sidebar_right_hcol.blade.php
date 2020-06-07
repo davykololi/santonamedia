@@ -1,3 +1,3 @@
-<aside class="col-lg-3 col-md-3 col-sm-12 sidebar" dada-role="sidebar">
+<aside class="col-lg-4 col-md-4 col-sm-4">
 	@include('partials.aside_h')
 </aside>

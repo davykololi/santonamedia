@@ -1,4 +1,4 @@
-<div class="box">RECOMMENDED ARTICLES</div>
+<div class="box">Related Aeticles</div>
 @if(!empty($posts))
     @foreach($posts as $post)
         <div class="blog-post">

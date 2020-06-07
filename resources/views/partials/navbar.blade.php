@@ -1,4 +1,4 @@
-<!-- navbar -->  	
+<!-- navbar -->   
     <nav class="navbar navbar-expand-lg fixed-top">
         <a class="navbar-brand" href="{{ url('santonamedia.com') }}">
             <span style="font-family: FELIX TITLING;font-size: 30px;">

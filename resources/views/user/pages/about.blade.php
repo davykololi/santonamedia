@@ -2,10 +2,9 @@
 @section('title', '| About Us')
 
 @section('content')
-    <div class="container-fluid features">
+    <main class="container features">
         <div class="row">
-            @include('partials.sidebar_left_col')
-            <main class="col-lg-6 col-md-6 col-sm-12 main-content">
+            <div class="col-lg-8 col-md-8 col-sm-8 main-content">
                 <div class="headings"><h1>Santona Media Group Ltd</h1></div>
                 <div class="left-ten">
                 <figure>                
@@ -18,10 +17,10 @@
                 </div>
                 @include('user.posts.tags')
                 @include('user.newsletter.newsletter')
-            </main> <!--end of blog-main-->
+            </div> <!--end of blog-main-->
             @include('partials.sidebar_right_hcol')
         </div><!-- /.row -->
-    </div> <!-- /.container -->
+    </main> <!-- /.container -->
 @endsection
 
 

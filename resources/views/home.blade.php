@@ -2,10 +2,9 @@
 @section('title'|'Home')
 
 @section('content')
-    <div class="container-fluid features">
+    <main class="container features">
         <div class="row">
-            @include('partials.sidebar_left_col')
-            <main class="col-lg-6 col-md-6 col-sm-12 main-content">
+            <div class="col-lg-8 col-md-8 col-sm-8 main-content">
             @if(!empty($posts))
                @forelse($posts as $post)
                     <div class="blog-post">
@@ -14,7 +13,7 @@
                             <a class="btn btn-primary" href="{{ route('users.posts.read', ['post_slug' => $post->slug]) }}" >Read more <i class="fa fa-angle-double-right"></i>
                             </a> 
                         </p>
-                        <br/> <br/><hr/>
+                        <hr/>
                     </div><!-- /.blog-post -->
                 @empty
                 <p style="color: red;font-family: Segoe UI Light;font-size: 30px"> 
@@ -27,9 +26,9 @@
                 </nav>
                 @include('user.posts.tags')
                 @include('user.newsletter.newsletter')
-            </main> <!-- /.blog-main -->
+            </div> <!-- /.blog-main -->
             @include('partials.sidebar_right_hcol')
         </div><!-- /.row -->
-    </div> <!-- /.container -->
+    </main> <!-- /.container -->
 @endsection
 

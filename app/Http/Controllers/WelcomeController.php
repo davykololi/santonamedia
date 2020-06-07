@@ -21,7 +21,7 @@ class WelcomeController extends Controller
 
         foreach($categories as $category){
         $posts = $category->posts;
-        $archives = Post::latest()->limit(10)->get();
+        $archives = Post::latest()->limit(5)->get();
         $posts = Post::latest()->paginate(10);
         $tags = Tag::with('posts')->get();
 
@@ -46,10 +46,6 @@ class WelcomeController extends Controller
         TwitterCard::setSite('@santonamedia');
         TwitterCard::setDescription($desc);
         TwitterCard::setUrl(URL::current());
-
-        JsonLd::setTitle($title);
-        JsonLd::setDescription($desc);
-        JsonLd::setType('Website');
 
         $data = array(
                     'categories' => $categories,

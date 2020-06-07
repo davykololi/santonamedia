@@ -60,10 +60,6 @@ class HomeController extends Controller
         TwitterCard::setSite('@santonamedia');
         TwitterCard::setDescription($desc);
         TwitterCard::setUrl(URL::current());
-
-        JsonLd::setTitle($title);
-        JsonLd::setDescription($desc);
-        JsonLd::setType('Homepage');
         
         $data = array(
             'category' => $category,

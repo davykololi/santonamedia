@@ -3,7 +3,6 @@
 <div class="headings">
     <h2>SANTONA MEDIA {{ $video->category->name }} VIDEO</h2>
 </div>
-<br/>
 <h3>
     <a class="post-link" href="{{ route('users.videos.read',['video_slug' => $video->slug]) }}" >{{ $video->title }}</a>
 </h3>
