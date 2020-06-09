@@ -5,7 +5,7 @@
         <br/>
         <h4> Latest {!! $category->name !!} Articles </h4>
         @include('partials.articlelinks_aside')
-        @include('partials.postcat_n_ext') 
+        @include('partials.popularpost') 
     </div>
 </div> <!-- /.blog-sidebar -->
 @include('partials.tags_aside')

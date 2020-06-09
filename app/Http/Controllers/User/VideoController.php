@@ -61,6 +61,10 @@ class VideoController extends Controller
         TwitterCard::setDescription($desc);
         TwitterCard::setUrl(URL::current());
 
+        JsonLd::setTitle($title);
+        JsonLd::setDescription($desc);
+        JsonLd::setType('Articles');
+
         foreach($category->videos as $video){
         OpenGraph::addVideo('https://santonamedia.com/storage/public/videos/'.$video->video,
             ['secure_url' => 'https://santonamedia.com/storage/public/videos/'.$video->video,
@@ -117,6 +121,10 @@ class VideoController extends Controller
         TwitterCard::setDescription($desc);
         TwitterCard::setUrl(URL::current());
 
+        JsonLd::setTitle($title);
+        JsonLd::setDescription($desc);
+        JsonLd::setType('Article');
+
         $data = array(
             'video' => $video,
             'videos' => $videos,
@@ -156,6 +164,10 @@ class VideoController extends Controller
         TwitterCard::setSite('@santonamedia');
         TwitterCard::setDescription($desc);
         TwitterCard::setUrl(URL::current());
+
+        JsonLd::setTitle($title);
+        JsonLd::setDescription($desc);
+        JsonLd::setType('Place');
 
         foreach($tag->videos as $video){
         OpenGraph::addVideo('https://santonamedia.com/storage/public/videos/'.$video->video,

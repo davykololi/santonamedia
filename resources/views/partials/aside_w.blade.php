@@ -6,6 +6,6 @@
         <h4> Latest Articles </h4>
         @include('partials.articlelinks_aside')
     </div>
-    @include('partials.postcat_n_ext') 
+    @include('partials.popularpost') 
 </div> <!-- /.blog-sidebar -->
 @include('partials.tags_aside')

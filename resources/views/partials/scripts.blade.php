@@ -50,3 +50,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-KVS6TJV');</script>
 <!-- End Google Tag Manager -->
+
+<script>
+var slideIndex = 0;
+carousel();
+
+function carousel(){
+	var i;
+	var x = document.getElementsByClassName("mySlides");
+	for(i = 0; i < x.length; i++){
+		x[i].style.display = "none";
+	}
+	slideIndex++;
+	if (slideIndex > x.length){
+		slideIndex = 1
+	}
+	x[slideIndex-1].style.display = "block";
+	setTimeout(carousel, 2000);// Change image every 2 seconds
+}
+</script>

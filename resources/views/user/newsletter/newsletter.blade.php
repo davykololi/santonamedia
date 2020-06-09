@@ -12,7 +12,7 @@
 		<div class="row">
 			<div class="col-md-4"></div>
 				<div class="form-group col-md-5">
-					<input type="text" class="form-control" placeholder="Enter your email address here" name="email" id="email">
+					<input type="text" class="form-control" placeholder="Enter your email address here" name="email" id="email" autocorrect="off">
 				</div>		
 		</div>
 		<div class="row">

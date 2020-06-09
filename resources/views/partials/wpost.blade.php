@@ -12,10 +12,10 @@
         <span> {!! $post->admin->name !!} </span>
     </div>
     <figure>
-        <a href="{{ route('users.posts.read',['post_slug' => $post->slug]) }}" >
-            <img class="ri" src="/storage/public/storage/{{ $post->image }}" loading="lazy" alt="{{ $post->title }}"/>
-        </a>
+        <img class="mySlides" src="/storage/public/storage/{{ $post->image }}" alt="{{ $post->title }}"/>
         <figcaption class="figcaption"> {{$post->caption}} </figcaption>
     </figure>
 </div>
 </article>
+
+

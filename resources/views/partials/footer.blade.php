@@ -13,8 +13,8 @@
             </li>
             <li><a href="{{ route ('pages.portfolio') }}"><i class="fa fa-angle-double-right"></i>Portfolio</a></li>
           </ul>
-          </div>
-        </div>
+          </div> <!--end of footer-widget -->
+        </div> <!--end of col -->
         <div class="col-lg-4 col-md-4 col-sm-4">
           <div class="footer_widget wow fadeInDown">
             <h2>Tag</h2>
@@ -29,8 +29,8 @@
             @endforeach
             @endif
             </ul>
-          </div>
-        </div>
+          </div> <!--end of footer-widget -->
+        </div> <!--end of col -->
         <div class="col-lg-4 col-md-4 col-sm-4">
           <div class="footer_widget wow fadeInRightBig">
             <h2>Contact</h2>
@@ -41,12 +41,18 @@
                 <li><a href="mailto:santonamedia79@gmail.com"><i class="fa fa-envelope"></i>santonamedia79@gmail.com</a></li>
               </ul>
             </address>
-          </div>
+          </div> <!--end of footer-widget -->
+        </div> <!--end of col -->
+      </div> <!--end of row -->
+    </div> <!--end of footer-top -->
+    <div class="footer_bottom">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 text-center text-white">
+          <p class="copyright">Copyright &copy; {{ date('Y')}}
+            <a href="https://santonamedia.com">santonamedia.com</a> All Rights Reserved 
+          </p>
+          <span class="developer">Developed By DMK</span>
         </div>
       </div>
-    </div>
-    <div class="footer_bottom">
-      <p class="copyright">Copyright &copy; {{ date('Y')}} <a href="index.html">NewsFeed</a></p>
-      <p class="developer">Developed By DMK</p>
     </div>
   </footer>

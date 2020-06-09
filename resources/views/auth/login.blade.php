@@ -37,11 +37,11 @@
                         </div>  
                         <hr/>
                         <div class="form-group row">
-                            <label for="login" class="col-md-4 col-form-label text-md-right" id="cwhite">
+                            <label for="login" class="col-md-4 col-form-label text-md-right">
                                 {{ __('Username Or Email') }}
                             </label>
                             <div class="col-md-6">
-                                <input id="login" type="text" class="form-control {{ $errors->has('username') || $errors->has('email') ? 'is_valid' : ''}}" name="login" value="{{ old('username') }}" required autofocus>
+                                <input id="login" type="text" class="form-control {{ $errors->has('username') || $errors->has('email') ? 'is_valid' : ''}}" name="login" value="{{ old('username') }}" autocorrect="off" required autofocus>
 
                                 @if($errors->has('username') || $errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
@@ -52,10 +52,10 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right" id="cwhite">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" autocorrect="off">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -68,8 +68,8 @@
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}><br/>
-                                    <label class="form-check-label" for="remember" id="cwhite">
+                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} autocorrect="off"><br/>
+                                    <label class="form-check-label" for="remember">
                                         {{ __('Remember Me') }}
                                     </label>
                                 </div>

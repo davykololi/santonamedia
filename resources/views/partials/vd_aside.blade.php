@@ -6,6 +6,6 @@
         <h4> Latest {!! $category->name !!} Videos </h4>
             @include('partials.videolinks_aside')
     </div>
-    @include('partials.videocat_n_vdext')
+    @include('partials.popularvideo')
 </div> <!-- /.blog-sidebar -->
 @include('partials.tags_aside')
