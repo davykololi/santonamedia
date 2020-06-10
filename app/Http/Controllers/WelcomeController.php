@@ -22,7 +22,7 @@ class WelcomeController extends Controller
         foreach($categories as $category){
         $posts = $category->posts;
         $archives = Post::latest()->limit(5)->get();
-        $posts = Post::latest()->get();
+        $posts = Post::latest()->paginate(10);
         $tags = Tag::with('posts')->get();
 
         foreach ($posts as $post) {

@@ -15,14 +15,7 @@
                         <strong> This Article Has: </strong>
                         <span style="color:blue;">  {{$video->comments->count()}} {{ Str::plural('comment',$video->comments->count())}} </span> <i>. Be the first to comment.<span class="red"> You must be logged in to comment</span></i>
                     </p>
-                    <div class="tags">
-                        <strong>Tags:</strong>
-                            @foreach($video->tags as $tag)
-                                <a href="{{route('video.tags',['slug' => $tag->slug])}}">
-                                    <label class="label label-info">{{$tag->name}}</label>
-                                </a>
-                            @endforeach
-                    </div>
+                    @include('partials.readvideotags')
                     <hr/>
                     @include('partials.vdprevnext')
                     <br/>

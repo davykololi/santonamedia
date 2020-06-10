@@ -3,8 +3,8 @@
       <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-4">
           <div class="footer_widget wow fadeInLeftBig">
-            <h2>Flickr Images</h2>
-            <ul class="list-unstyled quick-links">
+            <h2>Quick Links</h2>
+            <ul class="tag_nav">
             <li><a href="/home"><i class="fa fa-angle-double-right"></i>Home</a></li>
             <li><a href="{{route('users.pages.about')}}"><i class="fa fa-angle-double-right"></i>About</a></li>
             <li><a href="{{ route ('users.pages.contact') }}"><i class="fa fa-angle-double-right"></i>Contact Us</a>
@@ -17,7 +17,7 @@
         </div> <!--end of col -->
         <div class="col-lg-4 col-md-4 col-sm-4">
           <div class="footer_widget wow fadeInDown">
-            <h2>Tag</h2>
+            <h2>Categories</h2>
             <ul class="tag_nav">
             @if(isset($categories) && count($categories))
             @foreach($categories as $category)
@@ -35,7 +35,7 @@
           <div class="footer_widget wow fadeInRightBig">
             <h2>Contact</h2>
             <address>
-              <ul class="list-unstyled quick-links">
+              <ul class="tag_nav">
                 <li><a href="#"><i class="fa fa-map-marker"></i>Nairobi,Kenya</a></li>
                 <li><a href="tel:+254-0724351952"><i class="fa fa-phone"></i>+254 0724351952</a></li>
                 <li><a href="mailto:santonamedia79@gmail.com"><i class="fa fa-envelope"></i>santonamedia79@gmail.com</a></li>
@@ -51,7 +51,7 @@
           <p class="copyright">Copyright &copy; {{ date('Y')}}
             <a href="https://santonamedia.com">santonamedia.com</a> All Rights Reserved 
           </p>
-          <span class="developer">Developed By DMK</span>
+          <p class="developer">Developed By DMK</p>
         </div>
       </div>
     </div>
