@@ -16,7 +16,7 @@
                         <hr/>
                     </div><!-- /.blog-post -->
                 @empty
-                <p style="color: red;font-family: Segoe UI Light;font-size: 30px"> 
+                <p style="color: red;font-family: Segoe UI Light;font-size: 30px;"> 
                     Sorry esteemed reader. We are yet to post <a href="#"> {{ config('app.name', 'SKYLUX') }} Blog </a> articles.
                 </p>
                 @endforelse

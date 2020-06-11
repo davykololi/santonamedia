@@ -7,7 +7,7 @@
 		<div class="col-lg-8 col-md-8 col-sm-8 main-content">
 		@include('partials.messages')
 		@include('partials.errors')
-			<div class="headings"> <h1>CONTACT FORM</h1> </div>
+			<div class="headings"> <h2>CONTACT FORM</h2></div>
 			<p style="font-size: 15px;text-align: center;">
 				 We are so glad that you are contacting us.Fill the form below and submit to us. 
 			</p>

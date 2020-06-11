@@ -5,7 +5,7 @@
     <main class="container features">
         <div class="row">
             <div class="col-lg-8 col-md-8 col-sm-8 main-content">
-                <div class="headings"><h1>Santona Media Group Ltd</h1></div>
+                <div class="headings"><h2>Santona Media Group Ltd</h2></div>
                 <div class="left-ten">
                 <figure>                
                     <img class="img-fluid" src="{{asset('static/santonamedia.com.jpg')}}" alt="Santona Media about"/>

@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-lg-8 col-md-8 col-sm-8 main-content">
                 <div class="headings">
-                    <h1> {{ strtoupper(config('app.name', 'skyluxnews')) }} PORTFOLIO </h1>
+                    <h2> {{ strtoupper(config('app.name', 'skyluxnews')) }} PORTFOLIO </h2>
                 </div>
                     <br/>
                     <p>This is Portifolio Page.</p>

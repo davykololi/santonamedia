@@ -3,9 +3,9 @@
 <div class="headings">
     <h2>SANTONA MEDIA {{ $post->category->name }} ARTICLE</h2>
 </div>
-<h3>
+<h2>
     <a class="post-link" href="{{ route('users.posts.read',['post_slug' => $post->slug]) }}" >{{ $post->title }}</a>
-</h3>
+</h2>
 <div class="left-ten">
     <div class="created-time">
         <a href="#"> {{ date("F j,Y,g:i a",strtotime($post->created_at)) }} By:</a>

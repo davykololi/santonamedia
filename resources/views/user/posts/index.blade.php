@@ -2,7 +2,7 @@
 @section('title'|'Articles')
 
 @section('content')
-<main class="container features">
+<main role="main" class="container features">
     <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-8 main-content"><!-- blog-main-->
             @forelse($posts as $post)

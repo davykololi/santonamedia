@@ -118,7 +118,7 @@ hr.style-four{
 .frame{padding: 5px;
 	border: double;
 }
-.headings h1{
+.headings h2{
 	font-family: Times New Roman;
 	box-shadow: 10px 10px 8px #888888;
 	text-align: center;
@@ -220,7 +220,7 @@ hr.style-four{
 	padding: 0em;
 	position: relative;
 }
-.page-main h2{
+.page-main h1{
 	color: #333;
 	font-size: 2.0rem;
 	font-weight: 700;
@@ -228,17 +228,13 @@ hr.style-four{
 	text-transform: uppercase;
 	font-family: Arial Black;
 }
-.page-extention h3{
+.page-extention h2{
 	color: #333;
 	font-size: 2.0rem;
 	font-weight: 700;
 	margin-bottom: 0px;
 	text-transform: uppercase;
 	font-family: Arial Black;
-}
-.features .blog-post p{
-	font-family: Helvetica Neue;
-	font-size: 16px;
 }
 .left-ten{
 	margin-left: 10px;
@@ -262,18 +258,18 @@ hr.style-four{
 .left-ten .created-time span{
 	color: purple;
 }
+h1 .post-link{
+	color: black;
+	text-decoration: none;
+}
+h1 .post-link:hover{
+	color: green;
+}
 h2 .post-link{
 	color: black;
 	text-decoration: none;
 }
 h2 .post-link:hover{
-	color: green;
-}
-h3 .post-link{
-	color: black;
-	text-decoration: none;
-}
-h3 .post-link:hover{
 	color: purple;
 }
 .main-content{
@@ -281,14 +277,16 @@ h3 .post-link:hover{
 	box-shadow:#000000 4px 4px 8px, #4d4d4d -4px -4px 8px;
 }
 .main-content img{
-	height:350px; 
+	height:350px%; 
 	width:450px;
 	box-shadow: 0 0 2px 1px rgba(0,140,186,0.5);
 	display: block;
 	padding: 10px 20px;
 }
-.main-content p{
-	margin-left: 10px;
+.features .blog-post p{
+	font-family: Helvetica Neue;
+	font-size: 20px;
+	text-align: justify;
 }
 .main-content .share-title{
 	font-size: 12px;
@@ -331,12 +329,13 @@ h3 .post-link:hover{
 	left: 0;
 }
 .sidebar-right h4{
-	font-family: calibri light;
+	font-family: Oswald;
 	text-align: center;
 	background-color: #1E90FF;
 	color: white;
 	text-transform: uppercase;
 	width: 100%;
+	font-size: 16px;
 }
 .sidebar-right .sidebar-module span{
 	color: purple;
@@ -409,14 +408,26 @@ h3 .post-link:hover{
 	.sidebar-left{
 		margin: -250px;
 	}
-	h2 .post-link{
+	h1 .post-link{
 		font-size: 15px;
 	}
-	h3 .post-link{
+	h2 .post-link{
 		font-size: 15px;
 	}
 	body{
 		padding: 5px;
+	}
+	.main-content img{
+		height: 100%;
+		width: 100%;
+	}
+	.main-content video{
+		height: 100%;
+		width: 100%;
+	}
+	.responsive{
+		width: 100%;
+		height: 100%;
 	}
 }
 @media only screen and (max-width: 700px){
@@ -460,6 +471,7 @@ h3 .post-link:hover{
 .main-content .gray p,h5{
 	text-align: center;
 	color: white;
+	font-size: 16px;
 }
 .main-content .tags{
 	padding: 20px;
@@ -476,6 +488,9 @@ h3 .post-link:hover{
 .figcaption{
 	color: gray;
 	font-size: 16px;
+}
+.newsletter{
+	padding: 10px;
 }
 .footer{
 	background-color: #000080;

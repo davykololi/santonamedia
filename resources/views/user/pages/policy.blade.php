@@ -6,9 +6,9 @@
         <div class="row">
             <div class="col-lg-8 col-md-8 col-sm-8 main-content">
                 <div class="headings">
-                <h1> 
+                <h2> 
                     {{ config('app.name', 'skyluxnews') }} PRIVATE POLICY STATEMENT
-                </h1>
+                </h2>
                 </div>
                 <div class="private-policy">
                     <h4><strong>TYPE OF DATA COLLECTED</strong></h4>

@@ -29,7 +29,7 @@ class WelcomeController extends Controller
             OpenGraph::addImage('https://santonamedia.com/storage/public/storage/'.$post->image,['height'=>'628','width' =>'1200']);
         }
 
-        $title = 'Welcome To Santona Media';
+        $title = 'Santona Media Group Ltd Landing Page';
         $desc = 'The media house for exclusive latest breaking news in Kenya and worldwide';
 
         SEOMeta::setTitle($title);
