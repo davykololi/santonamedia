@@ -13,8 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::feeds();
-
 Route::get('/','WelcomeController@index');
 
 Route::group(['middleware' => 'prevent-back-history'],function(){
