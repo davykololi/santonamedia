@@ -23,6 +23,7 @@
         "pusher/pusher-php-server": "^4.1",
         "renatomarinho/laravel-page-speed": "^1.8",
         "spatie/laravel-analytics": "^3.9",
+        "spatie/laravel-feed": "^2.7",
         "spatie/laravel-newsletter": "^4.7"
     },
     "require-dev": {

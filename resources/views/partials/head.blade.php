@@ -10,6 +10,7 @@
     <meta property="fb:app_id" content="{{ config('services.facebook.client_id') }}">
     <meta name="twitter:creator" content="David Misiko Kololi">
     <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
     <!-- Meta Tags -->
     {!! SEOMeta::generate() !!}
     {!! OpenGraph::generate() !!}
@@ -30,6 +31,9 @@
     <link rel="stylesheet" href="{!! asset('css/bootstrap.min.css') !!}">
     <link rel="stylesheet" href="{!! asset('main/css/fontawesome.css') !!}">
     <link rel="stylesheet" href="{!! asset('main/css/main.css') !!}">
+    <link rel="alternate" type="application/atom+xml" title="News" href="/article.rss">
+
+    @include('feed::links')
     
     <!-- Styles -->
     <style>

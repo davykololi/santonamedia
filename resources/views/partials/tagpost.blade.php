@@ -12,7 +12,7 @@
          <span> {!! $post->admin->name !!}</span>
     </div>
     <figure>
-        <img src="/storage/public/storage/{{ $post->image }}" loading="lazy" alt="{{ $post->title }}"/>
+        <img src = "/storage/public/storage/{{ $post->image }}" loading="lazy" alt="{{ $post->title }}"/>
  	  <figcaption class="figcaption"> {{$post->caption}} </figcaption>
     </figure>
 </div>
