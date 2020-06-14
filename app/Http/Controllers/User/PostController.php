@@ -181,6 +181,6 @@ class PostController extends Controller
             'categories' => $categories
         );
 
-        return view('articles.show', $data);
+        return view('user.tags.posts', $data);
     }  
 }

@@ -30,28 +30,6 @@ class Post extends Model
         ];
     }
 
-    public function toFeedItem()
-    {
-        return FeedItem::create([
-        'id' => $this->id,
-        'title' => $this->title,
-        'summary' => $this->description,
-        'updated' => $this->created_at,
-        'link' => $this->link,
-        'admin' => $this->admin->name,
-        ]);
-    }
-
-    public static function getFeedItems()
-    {
-        return static::all();
-    }
-
-    public function getLinkAttribute()
-    {
-        return route('category.articles',$this);
-    }
-
     public function searchableAs()
     {
         return 'posts_index';

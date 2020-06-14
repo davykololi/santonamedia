@@ -31,9 +31,6 @@
     <link rel="stylesheet" href="{!! asset('css/bootstrap.min.css') !!}">
     <link rel="stylesheet" href="{!! asset('main/css/fontawesome.css') !!}">
     <link rel="stylesheet" href="{!! asset('main/css/main.css') !!}">
-    <link rel="alternate" type="application/atom+xml" title="News" href="/article.rss">
-
-    @include('feed::links')
     
     <!-- Styles -->
     <style>
