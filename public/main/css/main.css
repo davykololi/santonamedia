@@ -277,7 +277,7 @@ h2 .post-link:hover{
 	box-shadow:#000000 4px 4px 8px, #4d4d4d -4px -4px 8px;
 }
 .main-content img{
-	height:350px%; 
+	height:350px; 
 	width:450px;
 	box-shadow: 0 0 2px 1px rgba(0,140,186,0.5);
 	display: block;
@@ -430,38 +430,17 @@ h2 .post-link:hover{
 		height: 100%;
 	}
 }
-@media only screen and (max-width: 700px){
-	.responsive{
-		width: 49.99999%;
-		margin: 6px 0;
-	}
+
+@media screen and (max-width: 1024px){
+	img.responsive{width: 200px;}
 }
-@media only screen and (max-width: 500px){
-	.responsive{
-		width: 100%;
-	}
+@media screen and (min-width: 1025px)and (max-width: 1280px){
+	img.responsive{width: 300px;}
 }
-@media screen and (max-width:992px){
-	body{
-		background-color: white;
-	}
+@media screen and (min-width: 1081px){
+	img.responsive{width: 400px;}
 }
-@media screen and (max-width: 600px){
-	body{
-		background-color: gray;
-	}
-	i.fa.fa-facebook{
-		text-align: center;
-	}
-	i.fa.fa-twitter{
-		text-align: center;
-	}
-}
-@media screen and (max-width:800px){
-	.sidebar-right, .main-content{
-		width: 100%; /* The width is 100%. when the viewport is 800px or smaller */
-	}
-}
+img.responsive{height: auto;}
 .main-content .gray{
 	background-color: grey;
 	border-radius:4px;
