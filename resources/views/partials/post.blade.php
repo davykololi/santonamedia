@@ -13,7 +13,8 @@
     </div>
     <figure>
         <a href="{{ route('users.posts.read',['post_slug' => $post->slug]) }}" >
-            <img class="ri" src = "/storage/public/storage/{{ $post->image }}" loading="lazy" alt="{{ $post->title }}"/>
+            <img src = "/storage/public/storage/{{ $post->image }}" loading="lazy" alt="{{ $post->title }}" sizes="(min-width: 600px) 25vw,(min-width: 500px) 50vw, 100vw"
+            srcset="/storage/public/storage/{{ $post->image }}" />
         </a>
         <figcaption class="figcaption"> {{$post->caption}} </figcaption>
     </figure>

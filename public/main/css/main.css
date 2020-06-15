@@ -15,6 +15,7 @@ h1, h2, h3, h4, h5, h6{font-family:'Oswald',sans-serif}
 h2{line-height:23px;}
 img{border:none;}
 img:hover{opacity:0.75;}
+img{width: auto;max-width: 100%;height: auto;}
 
 .font{
 	font-family: Arial Black;
