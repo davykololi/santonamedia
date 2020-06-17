@@ -1,10 +1,10 @@
 @extends('layouts.app')
-@section('title'| 'News')
+@section('title'|'News')
 
 @section('content')
 <main class="container features">
     <div class="row">
-        <div class="col-lg-8 col-md-8 col-sm-8 main-content"><!-- blog-main-->
+        <div class="col-lg-8 col-md-8 col-sm-8 main-content"> <!-- blog-main-->
             @if(!empty($posts))
                @forelse($posts as $post)
                     <div class="blog-post">
@@ -14,7 +14,7 @@
                             </a>
                         </p>
                         <hr/>
-                    </div><!-- /.blog-post -->
+                    </div> <!-- /.blog-post -->
                 @empty
                 <p style="color: red;font-family: Segoe UI Light;font-size: 30px"> Sorry esteemed reader. We are yet to post <a href="#"> {{ config('app.name', 'santonamedia') }} Blog </a> articles.</p>
                 @endforelse
