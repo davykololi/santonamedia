@@ -276,9 +276,8 @@ h2 .post-link:hover{
 	background-color: lavender;
 	box-shadow:#000000 4px 4px 8px, #4d4d4d -4px -4px 8px;
 }
-.main-content img{
-	height:350px; 
-	width:450px;
+.main-content img{ 
+	width:50%;
 	box-shadow: 0 0 2px 1px rgba(0,140,186,0.5);
 	display: block;
 	padding: 10px 20px;
@@ -467,6 +466,9 @@ img.responsive{height: auto;}
 .figcaption{
 	color: gray;
 	font-size: 16px;
+}
+#prenext span{
+	text-transform: uppercase;
 }
 .newsletter{
 	padding: 10px;

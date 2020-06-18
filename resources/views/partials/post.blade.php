@@ -8,7 +8,7 @@
 </h1>
 <div class="left-ten">
     <div class="created-time">
-        <a href="#"> {{ date("F j,Y,g:i a",strtotime($post->created_at)) }} By:</a> 
+        <a href="#"> {{ $post->created_at->toDayDateTimeString() }} By:</a> 
         <span> {!! $post->admin->name !!} </span>
     </div>
     <figure>

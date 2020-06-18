@@ -1,8 +1,11 @@
 <div class="tags">
    <strong>Tags:</strong>
-   	@foreach($video->tags as $tag)
-  		<a href="{{route('video.tags',['slug' => $tag->slug])}}">
-       		<label class="label label-info">{{$tag->name}}</label>
-   		</a>
-  	@endforeach
+   	@forelse ($video->tags as $tag)
+    	<a href="{{route('video.tags',['slug' => $tag->slug])}}">                        	
+        	<span class="label label-info">{{ $tag->name }}</span>                        	
+    	</a>
+	@empty
+    	<span class="label label-danger">No tag found.</span>
+	@endforelse
 </div>
+
