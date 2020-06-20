@@ -25,9 +25,9 @@ class PostFormRequest extends FormRequest
     {
         return [
             //
-            'title' => 'required',
+            'title' => 'required|string|unique:posts|min|max:100',
             'description' => 'required',
-            'content' => 'required',
+            'content' => 'required|string|min:5|max:2000',
             'caption' => 'required',
             'keywords' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp,svg,bmp|max:2048',

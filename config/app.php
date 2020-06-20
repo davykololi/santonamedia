@@ -164,7 +164,6 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-        RenatoMarinho\LaravelPageSpeed\ServiceProvider::class,
         Spatie\Analytics\AnalyticsServiceProvider::class,
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
         /*

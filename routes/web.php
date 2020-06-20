@@ -85,7 +85,9 @@ Route::group(['namespace' => 'Admin','prefix'=>'admin'],function(){
     Route::get('/comments/{comment}','CommentController@delete')->name('admin.comments.delete');
     });
 
-//Static pages routes
+//Minified Routes
+Route::group(['middleware'=>'HtmlMinifier'],function(){
+    //Static pages routes
 Route::group(['namespace'=>'User','prefix'=>'news'],function(){
     Route::get('/about-us','PageController@about')->name('users.pages.about');
     Route::get('/contact-us','PageController@contact')->name('users.pages.contact');
@@ -122,6 +124,8 @@ Route::group(['namespace'=>'Search'],function(){
     Route::get('/post.lists','SearchPostController@search')->name('post.list');
     Route::get('/video.lists','SearchVideoController@search')->name('video.list');
     });
+}); 
+
 
 //Admin view contacts messages
 Route::group(['namespace' => 'Admin','prefix'=>'admin'],function(){

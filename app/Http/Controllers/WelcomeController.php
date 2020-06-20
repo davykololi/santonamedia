@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\URL;
 
 class WelcomeController extends Controller
 {
-    //
     public function index()
     {
         $categories = Category::with('posts')->get();

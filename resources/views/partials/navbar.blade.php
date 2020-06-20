@@ -1,10 +1,17 @@
 <!-- navbar -->   
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <a class="navbar-brand" href="{{ url('santonamedia.com') }}">
-            <span style="font-family: FELIX TITLING;font-size: 30px;">
-                SANTONA MEDIA
+<nav class="navbar navbar-expand-lg fixed-top" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a href="{{ url('santonamedia.com') }}" class="nav-item">
+            <span style="font-family: FELIX TITLING;font-size: 30px;" class="white">
+                SANT<img width ="30px" height="30px" src= "{{asset('static/globe.png')}}" alt="" loading="auto">NA MEDIA
             </span>
         </a>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-toggle="navMenu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
         <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
