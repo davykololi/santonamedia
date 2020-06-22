@@ -2,7 +2,7 @@
 @section('title', '| Comments')
 
 @section('content')
-<main class="container"  style="margin-top: 5px" id="main">
+<main role="main" class="container" id="main">
 <div class="row">
     <div class="col-lg-12">
         @include('partials.messages')

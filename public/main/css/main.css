@@ -410,8 +410,52 @@ h2 .post-link:hover{
 	color: white;
 }
 
-@media (max-width: 768px){
-	.sidebar-left{
+/* 
+##Device = Destops
+##Screen = 1281px to higher resolution desktops
+*/
+@media (min-width: 1281px){
+	img.responsive{width: 200px;}
+}
+
+/* 
+##Device = Laptops, Destops
+##Screen = B/w 1025px to 1280px
+*/
+@media (min-width: 1025px)and (max-width: 1280px){
+	img.responsive{width: 300px;}
+}
+
+/* 
+##Device = Tablets, Ipads (portrait)
+##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px){
+	img.responsive{width: 400px;}
+}
+
+/* 
+##Device = Tablets, Ipads (landscape)
+##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape){
+    .inner-body {
+      width: 100% !important;
+    }
+    .footer {
+      width: 100% !important;
+    }
+}
+
+/* 
+##Device = Low Resolution Tablets, Mobiles (Landscape)
+##Screen = B/w 481px to 767px
+*/
+@media (min-width: 481px) and (max-width: 767px){
+    .button {
+     width: 100% !important;
+     }
+     .sidebar-left{
 		margin: -250px;
 	}
 	h1 .post-link{
@@ -437,25 +481,11 @@ h2 .post-link:hover{
 	}
 }
 
-@media screen and (max-width: 1024px){
-	img.responsive{width: 200px;}
-}
-@media screen and (min-width: 1025px)and (max-width: 1280px){
-	img.responsive{width: 300px;}
-}
-@media screen and (min-width: 1081px){
-	img.responsive{width: 400px;}
-}
-@media only screen and (max-width: 600px) {
-    .inner-body {
-      width: 100% !important;
-    }
-    .footer {
-      width: 100% !important;
-    }
-}
-
-@media only screen and (max-width: 500px) {
+/* 
+##Device = Most of the Smartphones Mobiles (Portrait)
+##Screen = B/w 320px to 479px
+*/
+@media (min-width: 320px) and (max-width: 480px){
     .button {
      width: 100% !important;
      }
