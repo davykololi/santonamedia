@@ -410,49 +410,96 @@ h2 .post-link:hover{
 	color: white;
 }
 
-/* 
-##Device = Destops
-##Screen = 1281px to higher resolution desktops
-*/
-@media (min-width: 1281px){
-	img.responsive{width: 200px;}
-}
-
-/* 
-##Device = Laptops, Destops
-##Screen = B/w 1025px to 1280px
-*/
-@media (min-width: 1025px)and (max-width: 1280px){
-	img.responsive{width: 300px;}
-}
-
-/* 
-##Device = Tablets, Ipads (portrait)
-##Screen = B/w 768px to 1024px
-*/
-@media (min-width: 768px) and (max-width: 1024px){
-	img.responsive{width: 400px;}
-}
-
-/* 
-##Device = Tablets, Ipads (landscape)
-##Screen = B/w 768px to 1024px
-*/
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape){
-    .inner-body {
+/* Smartphones (portrait and landscape) -----------------------*/
+@media only screen (min-device-width: 320px) and (max-device-width: 480px){
+	body{
+		padding: 10px;
+	}
+	.btn{
+     width: 100% !important;
+     }
+    img{height: auto;max-width: 100%}
+	ul{font-size: 16px}
+	a{font-size: 16px}
+	a:hover{font-size: 16px}
+	a:focus{font-size: 160x}
+	h1, h2, h3, h4, h5, h6{font-size: 20px}
+	h2{line-height:23px;}
+	p{font-size: 16px;}
+	.footer {
       width: 100% !important;
     }
+}
+
+/* Smartphones (landscape) ----------------------*/
+@media only screen and (min-width: 321px){
+	body{
+		padding: 10px;
+	}
+	.btn{
+     width: 100% !important;
+     }
+    img{height: auto;max-width: 100%}
+	ul{font-size: 16px}
+	a{font-size: 16px}
+	a:hover{font-size: 16px}
+	a:focus{font-size: 160x}
+	h1, h2, h3, h4, h5, h6{font-size: 20px}
+	h2{line-height:23px;}
+	p{font-size: 16px;}
+	.footer {
+      width: 100% !important;
+    }
+}
+
+/* Smartphones (portrait) -----------------------*/
+@media only screen and (max-width: 320px){
+	body{
+		padding: 10px;
+	}
+	.btn{
+     width: 100% !important;
+     }
+    img{height: auto;max-width: 100%}
+	ul{font-size: 16px}
+	a{font-size: 16px}
+	a:hover{font-size: 16px}
+	a:focus{font-size: 160x}
+	h1, h2, h3, h4, h5, h6{font-size: 20px}
+	h2{line-height:23px;}
+	p{font-size: 16px;}
+	.footer {
+      width: 100% !important;
+    }
+}
+
+/* iPads (portrait and landscape) ----------------*/
+@media only screen and(min-device-width: 768px) and (max-device-width: 1024px){
+	body{
+		padding: 10px;
+	}
+    .btn{
+     width: 100% !important;
+     }
+    img{height: auto;max-width: 100%}
+	ul{font-size: 16px}
+	a{font-size: 16px}
+	a:hover{font-size: 16px}
+	a:focus{font-size: 160x}
+	h1, h2, h3, h4, h5, h6{font-size: 20px}
+	h2{line-height:23px;}
+	p{font-size: 16px;}
     .footer {
       width: 100% !important;
     }
 }
 
-/* 
-##Device = Low Resolution Tablets, Mobiles (Landscape)
-##Screen = B/w 481px to 767px
-*/
-@media (min-width: 481px) and (max-width: 767px){
-    .button {
+/* iPads (landscape) --------------------------*/
+@media only and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:landscape){
+	body{
+		padding: 10px;
+	}
+    .btn {
      width: 100% !important;
      }
      .sidebar-left{
@@ -468,29 +515,124 @@ h2 .post-link:hover{
 		padding: 5px;
 	}
 	.main-content img{
-		height: 100%;
-		width: 100%;
+		height: auto;
+		max-width: 100%;
 	}
 	.main-content video{
-		height: 100%;
-		width: 100%;
+		height: auto;
+		max-width: 100%;
 	}
-	.responsive{
-		width: 100%;
-		height: 100%;
-	}
-}
-
-/* 
-##Device = Most of the Smartphones Mobiles (Portrait)
-##Screen = B/w 320px to 479px
-*/
-@media (min-width: 320px) and (max-width: 480px){
-    .button {
+	.btn{
      width: 100% !important;
      }
+    img{height: auto;max-width: 100%}
+	ul{font-size: 16px}
+	a{font-size: 16px}
+	a:hover{font-size: 16px}
+	a:focus{font-size: 160x}
+	h1, h2, h3, h4, h5, h6{font-size: 20px}
+	h2{line-height:23px;}
+	p{font-size: 16px;}
+	.footer {
+      width: 100% !important;
+    }
 }
-img.responsive{height: auto;}
+
+/* iPads (portrait) ---------------------------------*/
+@media only screen and(min-device-width: 768px) and (max-device-width: 1024px) and (orientation:portrait){
+	body{
+		padding: 10px;
+	}
+    .btn{
+     width: 100% !important;
+     }
+    img{height: auto;max-width: 100%}
+	ul{font-size: 16px}
+	a{font-size: 16px}
+	a:hover{font-size: 16px}
+	a:focus{font-size: 160x}
+	h1, h2, h3, h4, h5, h6{font-size: 20px}
+	h2{line-height:23px;}
+	p{font-size: 16px;}
+	.footer {
+      width: 100% !important;
+    }
+}
+
+/* Desktops and Laptops ----------------------------*/
+@media only screen and (min-width: 1224px){
+
+}
+
+/* Large screens -----------------------------------*/
+@media only screen and (min-width: 1824px){
+
+}
+
+/* iPhone 5 (portrait &amp; landscape) -------------*/
+@media only screen and (min-device-width: 320px) and (max-device-width:568px){
+	body{
+		padding: 10px;
+	}
+	.btn{
+     width: 100% !important;
+     }
+    img{height: auto;max-width: 100%}
+	ul{font-size: 16px}
+	a{font-size: 16px}
+	a:hover{font-size: 16px}
+	a:focus{font-size: 160x}
+	h1, h2, h3, h4, h5, h6{font-size: 20px}
+	h2{line-height:23px;}
+	p{font-size: 16px;}
+	.footer {
+      width: 100% !important;
+    }
+
+}
+
+/* iPhone 5 (landscape) ----------------------------*/
+@media only screen and (min-device-width: 320px) and (max-device-width:568px) and (orientation:landscape){
+	body{
+		padding: 10px;
+	}
+	.btn{
+     width: 100% !important;
+     }
+    img{height: auto;max-width: 100%}
+	ul{font-size: 16px}
+	a{font-size: 16px}
+	a:hover{font-size: 16px}
+	a:focus{font-size: 160x}
+	h1, h2, h3, h4, h5, h6{font-size: 20px}
+	h2{line-height:23px;}
+	p{font-size: 16px;}
+	.footer {
+      width: 100% !important;
+    }
+}
+
+/* iPhone 5 (portrait) -----------------------------*/
+@media only screen and (min-device-width: 320px) and (max-device-width:568px) and (orientation:portrait){
+	body{
+		padding: 10px;
+	}
+	.btn{
+     width: 100% !important;
+     }
+    img{height: auto;max-width: 100%}
+	ul{font-size: 16px}
+	a{font-size: 16px}
+	a:hover{font-size: 16px}
+	a:focus{font-size: 160x}
+	h1, h2, h3, h4, h5, h6{font-size: 20px}
+	h2{line-height:23px;}
+	p{font-size: 16px;}
+	.footer {
+      width: 100% !important;
+    }
+}
+
 .main-content .gray{
 	background-color: grey;
 	border-radius:4px;
