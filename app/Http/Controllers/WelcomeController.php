@@ -28,18 +28,19 @@ class WelcomeController extends Controller
             OpenGraph::addImage('https://santonamedia.com/storage/public/storage/'.$post->image,['height'=>'628','width' =>'1200']);
         }
 
-        $title = 'Santona Media Group Ltd Landing Page';
-        $desc = 'The media house for exclusive latest breaking news in Kenya and worldwide';
+        $title = 'The media house for the latest breaking news in Kenya and around the world';
+        $desc = 'The number one media house in Kenya offering exclusive latest breaking news in Kenya and worldwide';
+        $keywords = 'Santona Media, Latest news, Breaking news, news online, Kenya news, world news, Santona Media, news video, weather, business, money, politics, technology, entertainment, education, travel, health, special reports, autos';
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
-        SEOMeta::setKeywords('media,house,exclusive,latest,breaking,news,Kenya,worldwide');
+        SEOMeta::setKeywords($keywords);
         SEOMeta::setCanonical(URL::current());
 
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
         OpenGraph::setUrl(URL::current());
-        OpenGraph::addProperty('type','Website');
+        OpenGraph::addProperty('type','WebSite');
 
         TwitterCard::setTitle($title);
         TwitterCard::setSite('@santonamedia');

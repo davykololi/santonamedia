@@ -53,7 +53,7 @@ class PostController extends Controller
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
         OpenGraph::setUrl(URL::current());
-        OpenGraph::addProperty('type','NewsArticles');
+        OpenGraph::addProperty('type','Articles');
 
         TwitterCard::setTitle($title);
         TwitterCard::setSite('@santonamedia');
@@ -106,7 +106,7 @@ class PostController extends Controller
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
         OpenGraph::setUrl(URL::current());
-        OpenGraph::addProperty('type','NewsArticle');
+        OpenGraph::addProperty('type','Article');
         OpenGraph::addProperty('locale','en-us');
         OpenGraph::addImage('https://santonamedia.com/storage/public/storage/'.$post->image,['height'=>'628','width' =>'1200']);
 

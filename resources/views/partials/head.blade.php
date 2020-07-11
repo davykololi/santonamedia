@@ -4,12 +4,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="content-language" content="en">
     <meta name="author" content="David Misiko Kololi">
+    <meta name="developer" content="David Misiko Kololi">
+    <meta name="developer:email" content="kololimdavid@gmail.com">
+    <meta name="designer" content="David Misiko Kololi">
+    <meta name="designer:email" content="kololimdavid@gmail.com">
     <!--Webmaster Tool meta tag -->
     <meta name="google-site-verification" content="SQuydwiRzjBXoM3Dp6IU1ICGk-Z2KwDsr0kkkH4ScTM" />
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta property="fb:app_id" content="{{ config('services.facebook.client_id') }}">
-    <meta name="twitter:creator" content="David Misiko Kololi">
+    <meta name="twitter:creator" content="@santonamedia">
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <!-- Meta Tags -->

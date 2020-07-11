@@ -43,8 +43,9 @@ class HomeController extends Controller
             OpenGraph::addImage('https://santonamedia.com/storage/public/storage/'.$post->image,['height'=>'628','width' =>'1200']);
         }
 
-        $title = 'Santona Media Group Ltd Home Page';
-        $desc = 'The media house that delivers to you the latest news in Kenya and around the globe';
+        $title = 'Home';
+        $desc = 'The media house that delivers to you the latest breaking news in Kenya and around the globe. This include news in politics, sports, business, health, entertainment, technology and science';
+        $keywords = 'Santona Media, Media House, Latest Breaking News, News in Kenya, Home';
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);

@@ -105,13 +105,13 @@ class PageController extends Controller
         $posts = Post::latest()->paginate(10);
         $tags = Tag::with('posts')->get();
 
-        $title = 'Santona Media Group Ltd';
-        $desc = 'The media house for the latest breaking news and captivating entertainment';
+        $title = 'About Us';
+        $desc = 'The media house for the latest breaking news in Kenya and around the world';
         $image = 'https://santonamedia.com/static/david.jpg';
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
-        SEOMeta::setKeywords('Santona,Media,News,About,Us,Page');
+        SEOMeta::setKeywords('Santona Media, Media House, Latest breaking news, About Us, News in Kenya, Around the world');
         SEOMeta::setCanonical(URL::current());
 
         OpenGraph::setTitle($title);
@@ -152,11 +152,11 @@ class PageController extends Controller
         $tags = Tag::with('posts')->get();
 
         $title = 'Private Policy';
-        $desc = 'Santona Media News Private Policy Page';
+        $desc = 'Santona Media Private Policy Statement';
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
-        SEOMeta::setKeywords('Santona,Media,News,Private,Policy,Page');
+        SEOMeta::setKeywords('Santona Media, Private Policy Statement');
         SEOMeta::setCanonical(URL::current());
 
         OpenGraph::setTitle($title);
@@ -196,11 +196,11 @@ class PageController extends Controller
         $tags = Tag::with('posts')->get();
 
         $title = 'Portfolio';
-        $desc = 'Santona Media News Portfolio Page';
+        $desc = 'Santona Media Portfolio Page';
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
-        SEOMeta::setKeywords('Santona,Media,News,Portfolio,Page');
+        SEOMeta::setKeywords('Santona Media, Portfolio');
         SEOMeta::setCanonical(URL::current());
 
         OpenGraph::setTitle($title);
