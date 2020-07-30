@@ -1,35 +1,267 @@
 @extends('layouts.app')
-@section('title'|'Articles')
+@section('title'|'Videos')
 
 @section('content')
-<main class="container features">
+  <section id="sliderSection">
     <div class="row">
-        <div class="col-lg-8 col-md-8 col-sm-8 main-content"><!-- blog-main-->
-               @forelse($videos as $video)
-                    <div class="blog-post left-ten">
-                        @include('partials.tagvideo')
-                        <p class="card-text">{!! Str::limit($video->content,$limit=30,$end= '...') !!}
-                            <a class="btn btn-primary" href="{{ route('users.videos.read', ['video_slug' => $video->slug]) }}" >
-                            Read more <i class="fa fa-angle-double-right"></i>
-                            </a> 
-                        </p>
-                        <hr/>
-                    </div><!-- /.blog-post -->
-                @empty
-                <p style="color: red;font-family: Segoe UI Light;font-size: 30px"> 
-                    Sorry esteemed reader. We are yet to post the <a href="#"> {{$tag->name}}</a> videos.
-                </p>
-                @endforelse
-                <div class="ui card blogger-card fluid no-box-shadow text-center"> 
-                    {{ $videos->links() }}
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="slick">
+          @if(!empty($videos))
+               @foreach($videos as $video)
+          <div class="single_iteam">
+            <figure>
+                <video width="512" height="288" controls poster="{{asset('/static/lion.JPG')}}"> 
+                  <source type="video/mp4" src = "/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}">
+                  <source type="video/ogg" src="/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}">     
+                  <source type="video/webm" src="/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}"> 
+                  This browser doesn't support video tag.
+                </video>
+                <figcaption class="figcaption"> {{$video->title}} </figcaption>
+              </figure>
+              <br/>
+            <div>
+              <p>
+                {{ Str::limit($video->content,$limit=30,$end= '...') }}
+                <a href="{{ route('users.videos.read',['video_slug' => $video->slug]) }}" class="btn btn-blue">Read More</a>
+              </p>
+            </div>
+          </div>
+          @endforeach
+          @endif
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4">
+        <div class="latest_post">
+          <h2><span>Latest {{$tag->name}} Videos</span></h2>
+          <div class="latest_post_container">
+            <div id="prev-button"><i class="fa fa-chevron-up"></i></div>
+            <ul class="latest_postnav">
+              <li>
+                @foreach($archives as $archive)
+                <div class="media">
+                  <figure>
+                <video width="150" height="84.5" controls poster="{{asset('/static/lion.JPG')}}"> 
+                  <source type="video/mp4" src = "/storage/public/videos/{{ $archive->video }}" alt="{{$archive->title}}">
+                  <source type="video/ogg" src="/storage/public/videos/{{ $archive->video }}" alt="{{$archive->title}}">     
+                  <source type="video/webm" src="/storage/public/videos/{{ $archive->video }}" alt="{{$archive->title}}"> 
+                  This browser doesn't support video tag.
+                </video>
+              </figure>
+                  <div class="media-body"> <a href="{{ route('users.videos.read', ['video_slug' => $archive->slug]) }}" class="catg_title">{!! $archive->title !!}</a> </div>
                 </div>
-                @include('user.videos.tags')
-                @include('user.newsletter.newsletter')
-        </div> <!--end of blog-main -->
-        <aside class="col-lg-4 col-md-4 col-sm-4">
-            @include('partials.videotag_aside')
-        </aside>  
-    </div><!-- end of row -->
-</main> <!-- end of main -->
+                @endforeach
+              </li>
+            </ul>
+            <div id="next-button"><i class="fa  fa-chevron-down"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="contentSection">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="left_content">
+          <div class="single_post_content">
+            <h2><span>{{$tag->name}} Videos</span></h2>
+            <div class="single_post_content_left">
+              <ul class="business_catgnav  wow fadeInDown">
+                @if(!empty($videos))
+                  @foreach($videos as $video)
+                <li>
+                  <figure class="bsbig_fig">
+                    <figure>
+                      <video width="300" height="169" controls poster="{{asset('/static/lion.JPG')}}"> 
+                        <source type="video/mp4" src = "/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}">
+                        <source type="video/ogg" src="/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}">   <source type="video/webm" src="/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}"> 
+                        This browser doesn't support video tag.
+                      </video>
+                    <figcaption> <a href="{{ route('users.videos.read', ['video_slug' => $video->slug]) }}">{{$video->title}}</a></figcaption>
+                    <p>{{ Str::limit($video->content,$limit=30,$end= '...') }}</p>
+                  </figure>
+                </li>
+                  @endforeach
+                @endif
+              </ul>
+            </div>
+            <div class="single_post_content_right">
+              <ul class="spost_nav">
+                @if(!empty($archives))
+                  @foreach($archives as $archive)
+                <li>
+                  <div class="media wow fadeInDown"> 
+                    <figure>
+                      <video width="150" height="84.5" controls poster="{{asset('/static/lion.JPG')}}"> 
+                      <source type="video/mp4" src = "/storage/public/videos/{{ $archive->video }}" alt="{{$archive->title}}">
+                      <source type="video/ogg" src="/storage/public/videos/{{ $archive->video }}" alt="{{$archive->title}}">  
+                      <source type="video/webm" src="/storage/public/videos/{{ $archive->video }}" alt="{{$archive->title}}"> 
+                      This browser doesn't support video tag.
+                      </video>
+                    </figure>
+                    <div class="media-body"> <a href="{{ route('users.videos.read', ['video_slug' => $archive->slug]) }}" class="catg_title">{{$archive->title}}</a> </div>
+                  </div>
+                </li>
+                @endforeach
+                @endif
+              </ul>
+            </div>
+          </div>
+          
+            
+          <div class="single_post_content">
+            <h2><span>General News</span></h2>
+            <div class="single_post_content_left">
+              <ul class="business_catgnav">
+                @if(!empty($featured))
+                  @foreach($featured as $video)
+                <li>
+                  <figure class="bsbig_fig  wow fadeInDown">
+                    <figure>
+                      <video width="512" height="288" controls poster="{{asset('/static/lion.JPG')}}"> 
+                        <source type="video/mp4" src = "/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}">
+                        <source type="video/ogg" src="/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}">   <source type="video/webm" src="/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}"> 
+                        This browser doesn't support video tag.
+                      </video>
+                    <figcaption> <a href="{{ route('users.videos.read', ['video_slug' => $video->slug]) }}">{{$video->title}}</a> </figcaption>
+                    <p>{{ Str::limit($video->content,$limit=30,$end= '...') }}</p>
+                  </figure>
+                </li>
+                  @endforeach
+                @endif
+              </ul>
+            </div>
+            <div class="single_post_content_right">
+              <ul class="spost_nav">
+                @if(!empty($allVideos))
+                  @foreach($allVideos as $video)
+                <li>
+                  <div class="media wow fadeInDown"> 
+                  <figure>
+                    <video width="512" height="288" controls poster="{{asset('/static/lion.JPG')}}"> 
+                      <source type="video/mp4" src = "/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}">
+                      <source type="video/ogg" src="/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}">     
+                      <source type="video/webm" src="/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}"> 
+                      This browser doesn't support video tag.
+                    </video>
+                    <figcaption class="figcaption"> {{$video->caption}} </figcaption>
+                  </figure>
+                    <div class="media-body"> <a href="{{ route('users.videos.read', ['video_slug' => $video->slug]) }}" class="catg_title">{{$video->title}}</a> </div>
+                  </div>
+                </li>
+                  @endforeach
+                @endif
+              </ul>
+            </div>
+          </div>
+          @include('user.videos.tags')
+          @include('user.newsletter.newsletter')
+          <br/><br/>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4">
+        <aside class="right_content">
+          <div class="single_sidebar">
+            <h2><span>Popular Post</span></h2>
+            <ul class="spost_nav">
+              <li>
+                <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
+                  <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 1</a> </div>
+                </div>
+              </li>
+              <li>
+                <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
+                  <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 2</a> </div>
+                </div>
+              </li>
+              <li>
+                <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
+                  <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 3</a> </div>
+                </div>
+              </li>
+              <li>
+                <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
+                  <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 4</a> </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="single_sidebar">
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#category" aria-controls="home" role="tab" data-toggle="tab">Category</a></li>
+              <li role="presentation"><a href="#video" aria-controls="profile" role="tab" data-toggle="tab">Video</a></li>
+              <li role="presentation"><a href="#comments" aria-controls="messages" role="tab" data-toggle="tab">Comments</a></li>
+            </ul>
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="category">
+                <ul>
+                  @if(!empty($categories))
+                    @foreach($categories as $category)
+                  <li class="cat-item">
+                    <a href="{{route('category.videos',['slug' => $category->slug])}}">
+                      {{ $category->name }}
+                    </a>
+                  </li>
+                    @endforeach
+                  @endif
+                </ul>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="video">
+                <div class="vide_area">
+                  <iframe width="100%" height="250" src="http://www.youtube.com/embed/h5QWbURNEpA?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="comments">
+                <ul class="spost_nav">
+                  <li>
+                    <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
+                      <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 1</a> </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
+                      <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 2</a> </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
+                      <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 3</a> </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
+                      <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 4</a> </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="single_sidebar wow fadeInDown">
+            <h2><span>Sponsor</span></h2>
+            <a class="sideAdd" href="#"><img src="images/add_img.jpg" alt=""></a> </div>
+          <div class="single_sidebar wow fadeInDown">
+            <h2><span>Category Archive</span></h2>
+            <select class="catgArchive">
+              <option>Select Category</option>
+              <option>Life styles</option>
+              <option>Sports</option>
+              <option>Technology</option>
+              <option>Treads</option>
+            </select>
+          </div>
+          <div class="single_sidebar wow fadeInDown">
+            <h2><span>Links</span></h2>
+            <ul>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Rss Feed</a></li>
+              <li><a href="#">Login</a></li>
+              <li><a href="#">Life &amp; Style</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
 @endsection
+
 

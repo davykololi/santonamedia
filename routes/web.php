@@ -18,7 +18,6 @@ Route::get('/','WelcomeController@index');
 Route::group(['middleware' => 'prevent-back-history'],function(){
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/user/logout','Auth\LoginController@userLogout')->name('user.logout');
 
 //admin route for our multi-auth system

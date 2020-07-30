@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('image');
             $table->string('caption', 100);
-            $table->text('content');
+            $table->longText('content');
             $table->text('description');
             $table->text('keywords');
             $table->bigInteger('category_id')->unsigned();

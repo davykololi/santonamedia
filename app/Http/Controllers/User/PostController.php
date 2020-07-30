@@ -76,7 +76,7 @@ class PostController extends Controller
             'posts' => $posts,
             'tags' => $tags,
             'archives' => $archives,
-            'categories' => $categories
+            'categories' => $categories,
         );
 
         return view('user.posts.index', $data);
@@ -143,6 +143,8 @@ class PostController extends Controller
         $archives = $tag->posts()->latest()->limit(5)->get();
         $categories = Category::cursor();
         $tags = Tag::with('posts')->get();
+        $allPosts = Post::with('category','admin')->orderBy('created_at','desc')->limit(10)->get();
+        $featured = Post::with('category','admin')->inRandomOrder()->limit(1)->get();
 
         $title = $tag->name;
         $desc = $tag->desc;
@@ -178,7 +180,9 @@ class PostController extends Controller
             'tags' => $tags,
             'posts' => $posts,
             'archives' => $archives,
-            'categories' => $categories
+            'categories' => $categories,
+            'allPosts' => $allPosts,
+            'featured' => $featured,
         );
 
         return view('user.tags.posts', $data);

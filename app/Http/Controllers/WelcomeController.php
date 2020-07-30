@@ -24,6 +24,12 @@ class WelcomeController extends Controller
         $posts = Post::latest()->paginate(10);
         $tags = Tag::with('posts')->get();
 
+        $politics = Post::where('category_id','=',2)->inRandomOrder()->limit(1)->get();
+        $poles = Post::where('category_id','=',2)->latest()->limit(5)->get();
+
+        $sports = Post::where('category_id','=',1)->inRandomOrder()->limit(1)->get();
+        $sides = Post::where('category_id','=',1)->latest()->limit(5)->get();
+
         foreach ($posts as $post) {
             OpenGraph::addImage('https://santonamedia.com/storage/public/storage/'.$post->image,['height'=>'628','width' =>'1200']);
         }
@@ -57,6 +63,10 @@ class WelcomeController extends Controller
                     'archives' => $archives,
                     'category' => $category,
                     'tags' => $tags,
+                    'politics' => $politics,
+                    'poles' => $poles,
+                    'sports' => $sports,
+                    'sides' => $sides,
                     );
 
         return view('welcome',$data);

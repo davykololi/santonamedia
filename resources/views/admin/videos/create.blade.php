@@ -60,7 +60,7 @@
                     <div class="form-group">
                         <label class="control-label col-sm-2" >Content</label>
                         <div class="col-sm-10">
-                            <textarea name="content" id="content" value="{{old('content')}}" class="form-control" placeholder="Write your content here."></textarea>
+                            <textarea name="content" id="content" rows="5" cols="40" value="{{old('content')}}" class="form-control tinymce-editor" placeholder="Write your content here."></textarea>
                         </div>
                     </div>
                     <div class="form-group">

@@ -60,7 +60,7 @@
                     <div class="form-group">
                         <label class="control-label col-sm-2" >Content</label>
                         <div class="col-sm-10">
-                            <textarea name="content" id="content" class="form-control">{{ $video->content }}</textarea>
+                            <textarea name="content" id="content" rows="5" cols="40" class="form-control tinymce-editor">{{ $video->content }}</textarea>
                         </div>
                     </div>
                     <div class="form-group">

@@ -1,18 +1,30 @@
 <!-- Scripts -->
-<script src="{{ asset('js/app.js') }}" defer></script>
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="{{ asset('js/fontawesome.js') }}"></script>
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-<!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-<!-- Latest compiled Javascript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="{!! asset('main/js/jquery.min.js') !!}"></script> 
+<script src="{!! asset('main/js/wow.min.js') !!}"></script> 
+<script src="{!! asset('main/js/bootstrap.min.js') !!}"></script> 
+<script src="{!! asset('main/js/slick.min.js') !!}"></script> 
+<script src="{!! asset('main/js/jquery.li-scroller.1.0.js') !!}"></script> 
+<script src="{!! asset('main/js/jquery.newsTicker.min.js') !!}"></script> 
+<script src="{!! asset('main/js/jquery.fancybox.pack.js') !!}"></script> 
+<script src="{!! asset('main/js/custom.js') !!}"></script>
+<!--TinyMCE editor -->
+<script src="https://cdn.tiny.cloud/1/k8jocthh3k544guzds894oh6v1tiwgk94d2ukps4av4a2ejn/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>  
+<script type="text/javascript">
+        tinymce.init({
+            selector: 'textarea.tinymce-editor',
+            width: 900,
+            height: 300,
+            menubar: true,
+            plugins: [
+                'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+      			'searchreplace wordcount visualblocks visualchars code fullscreen',
+      			'insertdatetime media nonbreaking save table contextmenu directionality',
+      			'emoticons template paste textcolor colorpicker textpattern imagetools'
+            ],
+            toolbar: 'insertfile undo redo | stylesheet |formatselect | ' +
+                'bold italic backcolor emoticons | alignleft aligncenter ' +
+                'alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage|' +
+                'removeformat | help',
+            content_css: '//www.tiny.cloud/css/codepen.min.css',
+        });
+</script>

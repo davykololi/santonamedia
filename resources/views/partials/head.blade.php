@@ -25,17 +25,21 @@
     <title> @yield('title') </title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    
     <!-- Bootstrap CSS -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{!! asset('css/bootstrap.min.css') !!}">
-    <link rel="stylesheet" href="{!! asset('main/css/fontawesome.css') !!}">
-    <link rel="stylesheet" href="{!! asset('main/css/main.css') !!}">
+    <link rel="stylesheet" type="text/css" href="{!! asset('main/css/bootstrap.min.css') !!}">
+    <link rel="stylesheet" type="text/css" href="{!! asset('main/css/font-awesome.min.css') !!}">
+    <link rel="stylesheet" type="text/css" href="{!! asset('main/css/animate.css') !!}">
+    <link rel="stylesheet" type="text/css" href="{!! asset('main/css/font.css') !!}">
+    <link rel="stylesheet" type="text/css" href="{!! asset('main/css/li-scroller.css') !!}">
+    <link rel="stylesheet" type="text/css" href="{!! asset('main/css/slick.css') !!}">
+    <link rel="stylesheet" type="text/css" href="{!! asset('main/css/jquery.fancybox.css') !!}">
+    <link rel="stylesheet" type="text/css" href="{!! asset('main/css/theme.css') !!}">
+    <link rel="stylesheet" type="text/css" href="{!! asset('main/css/style.css') !!}">
+
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.min.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
     
     <!-- Styles -->
     <style>
