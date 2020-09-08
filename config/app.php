@@ -166,6 +166,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Spatie\Analytics\AnalyticsServiceProvider::class,
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
+        RenatoMarinho\LaravelPageSpeed\ServiceProvider::class,
 
         /*
          * Package Service Providers...

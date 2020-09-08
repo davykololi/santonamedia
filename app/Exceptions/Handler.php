@@ -71,6 +71,9 @@ class Handler extends ExceptionHandler
  
         //using switch statement to switch between the guards
         switch ($guard) {
+            case 'superadmin':
+                $login = 'superadmin.login';
+                break;
             case 'admin':
                 $login = 'admin.login';
                 break;

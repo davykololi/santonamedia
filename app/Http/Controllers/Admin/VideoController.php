@@ -123,6 +123,7 @@ class VideoController extends Controller
      */
     public function update(StoreRequest $request, Video $video)
     {
+        $this->authorize('update',$video);
         //Handle the file upload
         if($request->hasfile('video')){
         //Get filename with extention
@@ -162,6 +163,7 @@ class VideoController extends Controller
      */
     public function destroy(Video $video)
     {
+        $this->authorize('delete',$video);
         if($video){
             Storage::delete('public/videos/'.$video->video);
             $video->delete();

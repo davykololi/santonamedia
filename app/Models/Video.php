@@ -12,7 +12,7 @@ class Video extends Model
     use Sluggable,Searchable;
 
     protected $table = 'videos';
-    protected $fillable = ['title','video','caption','content','description','keywords','admin_id','category_id'];
+    protected $fillable = ['title','video','caption','content','summary','description','keywords','admin_id','category_id'];
     protected $appends = ['createdDate'];
 
     public function sluggable()

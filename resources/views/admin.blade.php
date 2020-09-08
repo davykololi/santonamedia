@@ -1,4 +1,5 @@
 @extends('layouts.adminmaster')
+@section('title'|'Admin')
  
 @section('content')
     <div class="container" id="main">

@@ -18,6 +18,7 @@ class CreateVideosTable extends Migration
             $table->string('slug')->unique();
             $table->string('title');
             $table->string('video');
+            $table->string('summary');
             $table->string('caption', 100);
             $table->text('content');
             $table->text('description');

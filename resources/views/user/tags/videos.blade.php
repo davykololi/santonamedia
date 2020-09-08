@@ -1,53 +1,62 @@
 @extends('layouts.app')
-@section('title'|'Videos')
+@section('title'|'Tag Videos')
 
 @section('content')
+@include('partials.videosection')
   <section id="sliderSection">
     <div class="row">
       <div class="col-lg-8 col-md-8 col-sm-8">
         <div class="slick">
-          @if(!empty($videos))
-               @foreach($videos as $video)
+          @if(!empty($tagVideos))
+               @forelse($tagVideos as $kc)
           <div class="single_iteam">
             <figure>
-                <video width="512" height="288" controls poster="{{asset('/static/lion.JPG')}}"> 
-                  <source type="video/mp4" src = "/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}">
-                  <source type="video/ogg" src="/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}">     
-                  <source type="video/webm" src="/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}"> 
+                <video width="512" height="288" controls> 
+                  <source type="video/mp4" src = "/storage/public/videos/{!! $kc->video !!}" alt="{!! $kc->title !!}">
+                  <source type="video/ogg" src="/storage/public/videos/{!! $kc->video !!}" alt="{!! $kc->title !!}"> 
+                  <source type="video/webm" src="/storage/public/videos/{!! $kc->video !!}" alt="{!! $kc->title !!}"> 
                   This browser doesn't support video tag.
                 </video>
-                <figcaption class="figcaption"> {{$video->title}} </figcaption>
+                <figcaption class="figcaption"> {!! $kc->title !!} </figcaption>
               </figure>
               <br/>
             <div>
               <p>
-                {{ Str::limit($video->content,$limit=30,$end= '...') }}
-                <a href="{{ route('users.videos.read',['video_slug' => $video->slug]) }}" class="btn btn-blue">Read More</a>
+                {!! Str::limit($kc->content,$limit=30,$end= '...') !!}
+                <a href="{!! route('users.videos.read',['video_slug' => $kc->slug]) !!}" class="btn btn-black">Read More</a>
               </p>
             </div>
           </div>
-          @endforeach
+          @empty
+            <p style="color: blue;font-size: 20px">Sorry esteemed viewer, We are yet to post 
+            <span style="color: red;margin: 5px"> {!! $tag->name !!} Videos</span>
+          </p>
+          @endforelse
           @endif
         </div>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-4">
         <div class="latest_post">
-          <h2><span>Latest {{$tag->name}} Videos</span></h2>
+          <h2><span>Latest {!! $tag->name !!} Videos</span></h2>
           <div class="latest_post_container">
             <div id="prev-button"><i class="fa fa-chevron-up"></i></div>
             <ul class="latest_postnav">
               <li>
-                @foreach($archives as $archive)
+                @foreach($tagVidSides as $py)
                 <div class="media">
                   <figure>
-                <video width="150" height="84.5" controls poster="{{asset('/static/lion.JPG')}}"> 
-                  <source type="video/mp4" src = "/storage/public/videos/{{ $archive->video }}" alt="{{$archive->title}}">
-                  <source type="video/ogg" src="/storage/public/videos/{{ $archive->video }}" alt="{{$archive->title}}">     
-                  <source type="video/webm" src="/storage/public/videos/{{ $archive->video }}" alt="{{$archive->title}}"> 
+                <video width="150" height="84.5" controls poster="{!! asset('/static/lion.JPG') !!}"> 
+                  <source type="video/mp4" src = "/storage/public/videos/{!! $py->video !!}" alt="{!! $py->title !!}">
+                  <source type="video/ogg" src="/storage/public/videos/{!! $py->video !!}" alt="{!! $py->title !!}">     
+                  <source type="video/webm" src="/storage/public/videos/{!! $py->video !!}" alt="{!! $py->title !!}"> 
                   This browser doesn't support video tag.
                 </video>
               </figure>
-                  <div class="media-body"> <a href="{{ route('users.videos.read', ['video_slug' => $archive->slug]) }}" class="catg_title">{!! $archive->title !!}</a> </div>
+                  <div class="media-body"> 
+                    <a href="{!! route('users.videos.read', ['video_slug' => $py->slug]) !!}" class="catg_title">
+                      {!! $py->title !!}
+                    </a> 
+                  </div>
                 </div>
                 @endforeach
               </li>
@@ -63,21 +72,22 @@
       <div class="col-lg-8 col-md-8 col-sm-8">
         <div class="left_content">
           <div class="single_post_content">
-            <h2><span>{{$tag->name}} Videos</span></h2>
+            <h2><span>{!! $tag->name !!} Videos</span></h2>
             <div class="single_post_content_left">
               <ul class="business_catgnav  wow fadeInDown">
-                @if(!empty($videos))
-                  @foreach($videos as $video)
+                @if(!empty($tagVideos))
+                  @foreach($tagVideos as $video)
                 <li>
                   <figure class="bsbig_fig">
                     <figure>
-                      <video width="300" height="169" controls poster="{{asset('/static/lion.JPG')}}"> 
-                        <source type="video/mp4" src = "/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}">
-                        <source type="video/ogg" src="/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}">   <source type="video/webm" src="/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}"> 
+                      <video width="300" height="169" controls poster="{!! asset('/static/lion.JPG') !!}"> 
+                        <source type="video/mp4" src = "/storage/public/videos/{!! $video->video !!}" alt="{ !!$video->title !!}">
+                        <source type="video/ogg" src="/storage/public/videos/{!! $video->video !!}" alt="{!! $video->title !!}">   
+                        <source type="video/webm" src="/storage/public/videos/{!! $video->video !!}" alt="{!!$video->title!!}"> 
                         This browser doesn't support video tag.
                       </video>
-                    <figcaption> <a href="{{ route('users.videos.read', ['video_slug' => $video->slug]) }}">{{$video->title}}</a></figcaption>
-                    <p>{{ Str::limit($video->content,$limit=30,$end= '...') }}</p>
+                    <figcaption> <a href="{!! route('users.videos.read', ['video_slug' => $video->slug]) !!}">{!! $video->title !!}</a></figcaption>
+                    <p>{!! Str::limit($video->content,$limit=30,$end= '...') !!}</p>
                   </figure>
                 </li>
                   @endforeach
@@ -91,14 +101,14 @@
                 <li>
                   <div class="media wow fadeInDown"> 
                     <figure>
-                      <video width="150" height="84.5" controls poster="{{asset('/static/lion.JPG')}}"> 
-                      <source type="video/mp4" src = "/storage/public/videos/{{ $archive->video }}" alt="{{$archive->title}}">
-                      <source type="video/ogg" src="/storage/public/videos/{{ $archive->video }}" alt="{{$archive->title}}">  
-                      <source type="video/webm" src="/storage/public/videos/{{ $archive->video }}" alt="{{$archive->title}}"> 
+                      <video width="150" height="84.5" controls poster="{!! asset('/static/lion.JPG') !!}"> 
+                      <source type="video/mp4" src = "/storage/public/videos/{!! $archive->video !!}" alt="{!! $archive->title !!}">
+                      <source type="video/ogg" src="/storage/public/videos/{!! $archive->video !!}" alt="{!! $archive->title !!}">  
+                      <source type="video/webm" src="/storage/public/videos/{!! $archive->video !!}" alt="{!! $archive->title !!}"> 
                       This browser doesn't support video tag.
                       </video>
                     </figure>
-                    <div class="media-body"> <a href="{{ route('users.videos.read', ['video_slug' => $archive->slug]) }}" class="catg_title">{{$archive->title}}</a> </div>
+                    <div class="media-body"> <a href="{!! route('users.videos.read', ['video_slug' => $archive->slug]) !!}" class="catg_title">{!! $archive->title !!}</a> </div>
                   </div>
                 </li>
                 @endforeach
@@ -117,13 +127,14 @@
                 <li>
                   <figure class="bsbig_fig  wow fadeInDown">
                     <figure>
-                      <video width="512" height="288" controls poster="{{asset('/static/lion.JPG')}}"> 
-                        <source type="video/mp4" src = "/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}">
-                        <source type="video/ogg" src="/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}">   <source type="video/webm" src="/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}"> 
+                      <video width="512" height="288" controls poster="{!! asset('/static/lion.JPG') !!}"> 
+                        <source type="video/mp4" src = "/storage/public/videos/{!! $video->video !!}" alt="{!! $video->title !!}">
+                        <source type="video/ogg" src="/storage/public/videos/{!! $video->video !!}" alt="{!! $video->title !!}">   
+                        <source type="video/webm" src="/storage/public/videos/{!! $video->video !!}" alt="{!!$video->title !!}"> 
                         This browser doesn't support video tag.
                       </video>
-                    <figcaption> <a href="{{ route('users.videos.read', ['video_slug' => $video->slug]) }}">{{$video->title}}</a> </figcaption>
-                    <p>{{ Str::limit($video->content,$limit=30,$end= '...') }}</p>
+                    <figcaption> <a href="{!! route('users.videos.read', ['video_slug' => $video->slug]) !!}">{!! $video->title !!}</a> </figcaption>
+                    <p>{!! Str::limit($video->content,$limit=30,$end= '...') !!}</p>
                   </figure>
                 </li>
                   @endforeach
@@ -137,15 +148,15 @@
                 <li>
                   <div class="media wow fadeInDown"> 
                   <figure>
-                    <video width="512" height="288" controls poster="{{asset('/static/lion.JPG')}}"> 
-                      <source type="video/mp4" src = "/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}">
-                      <source type="video/ogg" src="/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}">     
-                      <source type="video/webm" src="/storage/public/videos/{{ $video->video }}" alt="{{$video->title}}"> 
+                    <video width="512" height="288" controls poster="{!! asset('/static/lion.JPG') !!}"> 
+                      <source type="video/mp4" src = "/storage/public/videos/{!! $video->video !!}" alt="{!! $video->title !!}">
+                      <source type="video/ogg" src="/storage/public/videos/{!! $video->video !!}" alt="{!! $video->title !!}">     
+                      <source type="video/webm" src="/storage/public/videos/{!! $video->video !!}" alt="{!! $video->title !!}"> 
                       This browser doesn't support video tag.
                     </video>
-                    <figcaption class="figcaption"> {{$video->caption}} </figcaption>
+                    <figcaption class="figcaption"> {!! $video->caption !!} </figcaption>
                   </figure>
-                    <div class="media-body"> <a href="{{ route('users.videos.read', ['video_slug' => $video->slug]) }}" class="catg_title">{{$video->title}}</a> </div>
+                    <div class="media-body"> <a href="{!! route('users.videos.read', ['video_slug' => $video->slug]) !!}" class="catg_title">{!! $video->title !!}</a> </div>
                   </div>
                 </li>
                   @endforeach
@@ -197,8 +208,8 @@
                   @if(!empty($categories))
                     @foreach($categories as $category)
                   <li class="cat-item">
-                    <a href="{{route('category.videos',['slug' => $category->slug])}}">
-                      {{ $category->name }}
+                    <a href="{!! route('category.videos',['slug' => $category->slug]) !!}">
+                      {!! $category->name !!}
                     </a>
                   </li>
                     @endforeach

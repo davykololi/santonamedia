@@ -2,6 +2,7 @@
 @section('title', '| Private Policy')
 
 @section('content')
+@include('partials.allnews')
 <section id="contentSection">
     <div class="row">
       <div class="col-lg-8 col-md-8 col-sm-8">
@@ -63,10 +64,10 @@
                     <h4><strong>CONTACT INFORMATION</strong></h4>
                         <ul>
                             <li>
-                                You are free to contact us using the mobile number <a href="tel:+254-0724351952"></i>+254 0724351952</a>.
+                                You are free to contact us using the mobile number <a style="margin: 5px;" href="tel:+254-0724351952"></i>+254 0724351952</a>.
                             </li>
                             <li>
-                                You can as we reach us via our official email address at <a href="mailto:santonamedia79@gmail.com">santonamedia79@gmail.com</a> or via our app <a href="{{ route ('users.pages.contact') }}">Contact Us</a> link.
+                                You can as we reach us via our official email address at <a style="margin: 5px;" href="mailto:santonamedia79@gmail.com">santonamedia79@gmail.com</a> or via our app <a style="margin: 5px;" href="{{ route ('users.pages.contact') }}">Contact Us</a> link.
                             </li>
                         </ul>
                     <h4><strong>DISCLAIMER NOTE</strong></h4>

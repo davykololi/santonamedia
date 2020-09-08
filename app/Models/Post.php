@@ -8,13 +8,13 @@ use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 
-class Post extends Model
+class Post extends Model implements Feedable
 {
     //
     use Sluggable,Searchable;
 
     protected $table = 'posts';
-    protected $fillable = ['title','image','caption','content','description','keywords','admin_id','category_id'];
+    protected $fillable = ['title','image','caption','summary','content','description','keywords','admin_id','category_id'];
     protected $appends = ['createdDate'];
 
     public function sluggable()
@@ -68,5 +68,22 @@ class Post extends Model
     public function tags()
     {
         return $this->belongsToMany('App\Models\Tag','post_tag')->withTimestamps();
+    }
+
+    public function toFeedItem()
+    {
+        return FeedItem::create([
+                'id'=>$this->id,
+                'title'=>$this->title,
+                'summary'=>$this->summary,
+                'updated'=>$this->updated_at,
+                'link'=>route('users.posts.read',$this->slug),
+                'author'=>$this->admin->name,
+                ]);
+    }
+
+    public static function getFeedItems()
+    {
+        return Post::orderBy('created_at','desc')->limit(50)->get();
     }
 }

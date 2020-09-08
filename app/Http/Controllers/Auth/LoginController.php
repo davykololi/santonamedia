@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -35,9 +36,16 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest')->except('logout','userlogout');
         Session::put('preUrl',URL::previous());
         $this->username = $this->findUsername();
+    }
+
+    public function userlogout()
+    {
+        Auth::guard('web')->logout();
+ 
+        return redirect('/');
     }
 
     /**

@@ -7,6 +7,7 @@ use App\Models\Contact;
 use App\Models\Tag;
 use App\Models\Post;
 use App\Models\Category;
+use Spatie\SchemaOrg\Schema;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Jobs\SendContactJob;
@@ -41,23 +42,23 @@ class PageController extends Controller
         $categories = Category::with('posts')->get();
 
         foreach($categories as $category){
-        $posts = $category->posts;
-        $archives = Post::latest()->limit(10)->get();
-        $posts = Post::latest()->paginate(10);
+        $categoryPosts = $category->posts;
+        $allPosts = Post::with('category','admin')->latest()->get();
+        $allPostsSide = Post::latest()->limit(5)->get();
         $tags = Tag::with('posts')->get();
 
         $title = 'Contact Us';
-        $desc = 'Santona Media News Contact Us Page';
+        $desc = 'Santona Media News Contact Page';
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
-        SEOMeta::setKeywords('Contac,Us');
+        SEOMeta::setKeywords('Contact,Us');
         SEOMeta::setCanonical(URL::current());
 
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
         OpenGraph::setUrl(URL::current());
-        OpenGraph::addProperty('type','ContactAddress');
+        OpenGraph::addProperty('type','ContactPage');
 
         TwitterCard::setTitle($title);
         TwitterCard::setSite('@santonamedia');
@@ -66,14 +67,25 @@ class PageController extends Controller
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
-        JsonLd::setType('ContactAddress');
+        JsonLd::setType('ContactPage');
+
+        $contact = Schema::ContactPage()
+                ->name($title)
+                ->description($desc)
+                ->url(URL::current())
+                ->logo("https://santonamedia.com/static/logo.jpg")
+                ->sameAS("http://www.santonamedia.com")
+                ->contactPoint([Schema::ContactPoint()
+                ->telephone('254 0724351952')
+                ->email('santonamedia79@gmail.com')]);
+        echo $contact->toScript();
 
         $data = array(
             'category' => $category,
-            'posts' => $posts,
+            'allPosts' => $allPosts,
+            'allPostsSide' => $allPostsSide,
             'tags' => $tags,
-            'archives' => $archives,
-            'categories' => $categories
+            'categories' => $categories,
         );
 
         return view('user.pages.contact',$data);
@@ -85,6 +97,7 @@ class PageController extends Controller
         $contact = new Contact;
         $contact->name = $request->name;
         $contact->email = $request->email;
+        $contact->subject = $request->subject;
         $contact->message = $request->message;
         $contact->save();
         // Mail Delivery logic goes here
@@ -100,9 +113,9 @@ class PageController extends Controller
         $categories = Category::with('posts')->get();
 
         foreach($categories as $category){
-        $posts = $category->posts;
-        $archives = Post::latest()->limit(10)->get();
-        $posts = Post::latest()->paginate(10);
+        $categoryPosts = $category->posts;
+        $allPosts = Post::with('category','admin')->latest()->get();
+        $allPostsSide = Post::latest()->limit(5)->get();
         $tags = Tag::with('posts')->get();
 
         $title = 'About Us';
@@ -129,12 +142,21 @@ class PageController extends Controller
         JsonLd::addImage($image);
         JsonLd::setType('Organization');
 
+        $aboutUs = Schema::Organization()
+                ->name($title)
+                ->description($desc)
+                ->email('santonamedia79@gmail.com')
+                ->url(URL::current())
+                ->sameAS("http://www.santonamedia.com")
+                ->logo("https://santonamedia.com/static/logo.jpg");
+        echo $aboutUs->toScript();
+
         $data = array(
             'category' => $category,
-            'posts' => $posts,
+            'allPosts' => $allPosts,
+            'allPostsSide' => $allPostsSide,
             'tags' => $tags,
-            'archives' => $archives,
-            'categories' => $categories
+            'categories' => $categories,
         );
 
         return view('user.pages.about',$data);
@@ -146,9 +168,9 @@ class PageController extends Controller
         $categories = Category::with('posts')->get();
 
         foreach($categories as $category){
-        $posts = $category->posts;
-        $archives = Post::latest()->limit(10)->get();
-        $posts = Post::latest()->paginate(10);
+        $categoryPosts = $category->posts;
+        $allPosts = Post::with('category','admin')->latest()->get();
+        $allPostsSide = Post::latest()->limit(5)->get();
         $tags = Tag::with('posts')->get();
 
         $title = 'Private Policy';
@@ -173,11 +195,20 @@ class PageController extends Controller
         JsonLd::setDescription($desc);
         JsonLd::setType('PrivatePolicy');
 
+        $privatePolicy = Schema::Policy()
+                ->name($title)
+                ->description($desc)
+                ->email('santonamedia79@gmail.com')
+                ->url(URL::current())
+                ->sameAS("http://www.santonamedia.com")
+                ->logo("https://santonamedia.com/static/logo.jpg");
+        echo $privatePolicy->toScript();
+
         $data = array(
             'category' => $category,
-            'posts' => $posts,
+            'allPosts' => $allPosts,
+            'allPostsSide' => $allPostsSide,
             'tags' => $tags,
-            'archives' => $archives,
             'categories' => $categories
         );
 
@@ -190,9 +221,9 @@ class PageController extends Controller
         $categories = Category::with('posts')->get();
 
         foreach($categories as $category){
-        $posts = $category->posts;
-        $archives = Post::latest()->limit(10)->get();
-        $posts = Post::latest()->paginate(10);
+        $categoryPosts = $category->posts;
+        $allPosts = Post::with('category','admin')->latest()->get();
+        $allPostsSide = Post::latest()->limit(5)->get();
         $tags = Tag::with('posts')->get();
 
         $title = 'Portfolio';
@@ -217,11 +248,20 @@ class PageController extends Controller
         JsonLd::setDescription($desc);
         JsonLd::setType('Portfolio');
 
+        $portfolio = Schema::Portfolio()
+                ->name($title)
+                ->description($desc)
+                ->email('santonamedia79@gmail.com')
+                ->url(URL::current())
+                ->sameAS("http://www.santonamedia.com")
+                ->logo("https://santonamedia.com/static/logo.jpg");
+        echo $portfolio->toScript();
+
         $data = array(
             'category' => $category,
-            'posts' => $posts,
+            'allPosts' => $allPosts,
+            'allPostsSide' => $allPostsSide,
             'tags' => $tags,
-            'archives' => $archives,
             'categories' => $categories
         );
 

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('partials.allnews')
 <div class="container" id="main">
     <br/>
     <div class="row justify-content-center">

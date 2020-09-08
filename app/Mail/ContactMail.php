@@ -7,21 +7,21 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ContactMail extends Mailable
+class ContactMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
-    protected $contact;
+    protected $exactContact;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($contact)
+    public function __construct($exactContact)
     {
         //
-        $this->contact = $contact;
+        $this->exactContact = $exactContact;
     }
 
     /**
@@ -34,9 +34,10 @@ class ContactMail extends Mailable
         return $this->markdown('emails.contactmail')
                     ->subject('Santona Media Reader Mail')
                     ->with([
-                            'name'=>$this->contact->name,
-                            'email'=>$this->contact->email,
-                            'message'=>$this->contact->message,
+                            'name'=>$this->exactContact->name,
+                            'email'=>$this->exactContact->email,
+                            'subject'=>$this->exactContact->subject,
+                            'message'=>$this->exactContact->message,
                             ]);
     }
 }

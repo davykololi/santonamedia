@@ -7,24 +7,54 @@
 <script src="{!! asset('main/js/jquery.newsTicker.min.js') !!}"></script> 
 <script src="{!! asset('main/js/jquery.fancybox.pack.js') !!}"></script> 
 <script src="{!! asset('main/js/custom.js') !!}"></script>
-<!--TinyMCE editor -->
-<script src="https://cdn.tiny.cloud/1/k8jocthh3k544guzds894oh6v1tiwgk94d2ukps4av4a2ejn/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>  
-<script type="text/javascript">
-        tinymce.init({
-            selector: 'textarea.tinymce-editor',
-            width: 900,
-            height: 300,
-            menubar: true,
-            plugins: [
-                'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-      			'searchreplace wordcount visualblocks visualchars code fullscreen',
-      			'insertdatetime media nonbreaking save table contextmenu directionality',
-      			'emoticons template paste textcolor colorpicker textpattern imagetools'
-            ],
-            toolbar: 'insertfile undo redo | stylesheet |formatselect | ' +
-                'bold italic backcolor emoticons | alignleft aligncenter ' +
-                'alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage|' +
-                'removeformat | help',
-            content_css: '//www.tiny.cloud/css/codepen.min.css',
-        });
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+<script>
+CKEDITOR.replace( 'summary-ckeditor');
 </script>
+
+<script>
+        $('#keywordDensityInputForm').on('submit', function (e) { // Listen for submit button click and form submission.
+            e.preventDefault(); // Prevent the form from submitting
+            let kdInput = $('#keywordDensityInput').val(); // Get the input
+            if (kdInput !== "") { // If input is not empty.
+			// Set CSRF token up with ajax.
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({ // Pass data to backend
+                    type: "POST",
+                    url: "admin/tool/calculate-and-get-density",
+                    data: {'keywordInput': kdInput},
+                    success: function (response) {
+                        // On Success, build a data table with keyword and densities
+                        if (response.length > 0) {
+                            let html = "<table class='table'><tbody><thead>";
+                            html += "<th>Keyword</th>";
+                            html += "<th>Count</th>";
+                            html += "<th>Density</th>";
+                            html += "</thead><tbody>";
+
+                            for (let i = 0; i < response.length; i++) {
+                                html += "<tr><td>"+response[i].keyword+"</td>";
+                                html += "<td>"+response[i].count+"</td>";
+                                html += "<td>"+response[i].density+"%</td></tr>";
+                            }
+
+                            html += "</tbody></table>";
+
+                            $('#keywordDensityInputForm').after(html); // Append the html table after the form.
+                        }
+                    },
+                });
+            }
+        })
+</script>
+
+
+
+
+
+

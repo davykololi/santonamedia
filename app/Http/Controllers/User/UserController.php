@@ -4,16 +4,37 @@ namespace App\Http\Controllers\User;
 
 use Auth;
 use App\User;
+use Spatie\SchemaOrg\Schema;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\URL;
 
 class UserController extends Controller
 {
     //
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function profile()
     {
     	$user = Auth::user();
+        $title = 'Profile Page';
+
+        $profile = Schema::ProfilePage()
+                ->name($title)
+                ->email('santonamedia79@gmail.com')
+                ->url(URL::current())
+                ->sameAS("http://www.santonamedia.com")
+                ->logo("https://santonamedia.com/wp-content/uploads/2019/04/Muva-Kwetu Hub-Logo.png");
+        echo $profile->toScript();
 
     	return view('user.profile.profile',compact('user',$user));
     }
@@ -29,9 +50,9 @@ class UserController extends Controller
     	$request->avatar->storeAs('avatars',$avatarName);
 
         if($user){
-        Storage::delete('avatars/'.$user->avatar);
-    	$user->avatar = $avatarName;
-    	$user->save();
+        Storage::delete('avatars/{!! $user->avatar !!}');
+        $user->avatar = $avatarName;
+        $user->save();
 
     	return back()->withSuccess('You have successfully uploaded the image');
         }

@@ -1,7 +1,8 @@
 @extends('layouts.app')
-@section('title', '| Contact Us')
+@section('title', '| Contact')
 
 @section('content')
+@include('partials.allnews')
 <section id="contentSection">
     <div class="row">
       <div class="col-lg-8 col-md-8 col-sm-8">
@@ -17,11 +18,15 @@
 					{!! Form::text('name', old('name'), ['class'=>'form-control', 'placeholder'=>'Enter Name']) !!}
 					<span class="text-danger">{{ $errors->first('name') }}</span>
 				</div>
- 
 				<div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
 					{!! Form::label('Email:') !!}
 					{!! Form::text('email', old('email'), ['class'=>'form-control', 'placeholder'=>'Enter Email Address']) !!}
 					<span class="text-danger">{{ $errors->first('email') }}</span>
+				</div>
+				<div class="form-group {{ $errors->has('subject') ? 'has-error' : '' }}">
+					{!! Form::label('Subject:') !!}
+					{!! Form::text('subject', old('subject'), ['class'=>'form-control', 'placeholder'=>'Enter Subject']) !!}
+					<span class="text-danger">{{ $errors->first('subject') }}</span>
 				</div>
 				<div class="form-group {{ $errors->has('message') ? 'has-error' : '' }}">
 					{!! Form::label('Message:') !!}
@@ -38,35 +43,7 @@
           <br/><br/>
         </div>
       </div>
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <aside class="right_content">
-          <div class="single_sidebar">
-            <h2><span>Popular Post</span></h2>
-            <ul class="spost_nav">
-              <li>
-                <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="../images/post_img1.jpg"> </a>
-                  <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 1</a> </div>
-                </div>
-              </li>
-              <li>
-                <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="../images/post_img2.jpg"> </a>
-                  <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 2</a> </div>
-                </div>
-              </li>
-              <li>
-                <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="../images/post_img1.jpg"> </a>
-                  <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 3</a> </div>
-                </div>
-              </li>
-              <li>
-                <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="../images/post_img2.jpg"> </a>
-                  <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 4</a> </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </aside>
-      </div>
+      @include('partials.aside_videoextension')
     </div>
   </section>
 @endsection

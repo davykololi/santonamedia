@@ -16,24 +16,18 @@
                     <a class="nav-link" href="{{route('admin.posts.index')}}">POSTS</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{route('admin.categories.index')}}">CATEGORIES</a>
-                </li>
-                <li class="nav-item active">
                     <a class="nav-link" href="{{route('contactus.contacts')}}">CONTACTS</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{route('admin.tags.index')}}">TAGS</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="{{route('admin.videos.index')}}">VIDEOS</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{route('admin.comments.index')}}">COMMENTS</a>
+                    <a class="nav-link" href="{{route('KDTool')}}">TOOL</a>
                 </li>
             </ul>
 
             <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar">
                 <!-- Authentication Links -->
                 @guest
                 <li class="nav-item">

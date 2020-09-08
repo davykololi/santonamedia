@@ -1,8 +1,8 @@
 <?php echo '<?xml version="1.0" encoding="UTF-8"?>'; ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    @foreach ($videos as $video)
+    @foreach ($sitemapVideos as $video)
         <url>
-            <loc>http://santonamedia.com/news/videos/details/{{ $video->slug }}</loc>
+            <loc>http://santonamedia.com/videos/details/{{ $video->slug }}</loc>
             <lastmod>{{ $video->created_at->tz('UTC')->toAtomString() }}</lastmod>
             <changefreq>weekly</changefreq>
             <priority>0.9</priority>

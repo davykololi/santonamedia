@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     @foreach ($tags as $tag)
         <url>
-            <loc>http://santonamedia.com/news/articles/{{ $tag->slug }}</loc>
+            <loc>http://santonamedia.com/articles/{{ $tag->slug }}</loc>
             <lastmod>{{ $tag->created_at->tz('UTC')->toAtomString() }}</lastmod>
             <changefreq>weekly</changefreq>
             <priority>0.9</priority>

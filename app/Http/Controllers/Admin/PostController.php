@@ -61,7 +61,6 @@ class PostController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        //
         //Handle the file upload
         if($request->hasfile('image')){
         //Get filename with extention
@@ -124,7 +123,7 @@ class PostController extends Controller
      */
     public function update(UpdateRequest $request, Post $post)
     {
-        //
+        $this->authorize('update',$post);
         //Handle the file upload
         if($request->hasfile('image')){
         //Get filename with extention
@@ -163,6 +162,7 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+        $this->authorize('delete',$post);
         if($post){
             Storage::delete('public/storage/'.$post->image);
             $post->delete();

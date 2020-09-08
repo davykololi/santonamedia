@@ -10,7 +10,7 @@ return [
          */
         'defaults'       => [
             'title'        => 'Santona Media', // set false to total remove
-            'titleBefore'  => false, // Put defaults.title before page title, like 'It's Over 9000! - Dashboard'
+            'titleBefore'  => true, // Put defaults.title before page title, like 'It's Over 9000! - Dashboard'
             'description'  => false, // set false to total remove
             'separator'    => ' - ',
             'keywords'     => [],

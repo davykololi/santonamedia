@@ -1,36 +1,57 @@
 @extends('layouts.app')
-@section('title'|'Articles')
+@section('title'|'Tag Articles')
 
 @section('content')
+@include('partials.tagnews')
   <section id="sliderSection">
     <div class="row">
       <div class="col-lg-8 col-md-8 col-sm-8">
         <div class="slick_slider">
-          @if(!empty($posts))
-               @foreach($posts as $post)
-          <div class="single_iteam"> <a href="{{ route('users.posts.read',['post_slug' => $post->slug]) }}"> <img src="/storage/public/storage/{{ $post->image }}" alt="{{$post->title}}"></a>
+          @if(!empty($tagPosts))
+               @forelse($tagPosts as $pic)
+          <div class="single_iteam"> 
+            <a href="{!! route('users.posts.read',['post_slug' => $pic->slug]) !!}"> 
+              <img src="/storage/public/storage/{!! $pic->image !!}" alt="{!! $pic->title !!}"/>
+            </a>
             <div class="slider_article">
-              <h2><a class="slider_tittle" href="{{ route('users.posts.read',['post_slug' => $post->slug]) }}">{{$post->title}}</a></h2>
+              <h2>
+                <a class="slider_tittle" href="{!! route('users.posts.read',['post_slug' => $pic->slug]) !!}">
+                  {!! $pic->title !!}
+                </a>
+              </h2>
               <p>
-                {{ Str::limit($post->content,$limit=30,$end= '...') }}
-                <a href="{{ route('users.posts.read',['post_slug' => $post->slug]) }}" class="btn btn-blue">Read More</a>
+                {!! Illuminate\Support\Str::limit(strip_tags($pic->content),200,'...') !!}
+                <a href="{!! route('users.posts.read',['post_slug' => $pic->slug]) !!}"/>
+                  <i style="color: lightblue;">Read More</i>
+                </a>
               </p>
             </div>
           </div>
-          @endforeach
+          @empty
+            <p style="color: blue;font-size: 20px">Sorry esteemed viewer, We are yet to post 
+              <span style="color: red;margin: 5px"> {!! $tag->name !!} Articles</span>
+            </p>
+          @endforelse
           @endif
         </div>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-4">
         <div class="latest_post">
-          <h2><span>Latest {{$tag->name}} News</span></h2>
+          <h2><span>Latest {!! $tag->name !!} News</span></h2>
           <div class="latest_post_container">
             <div id="prev-button"><i class="fa fa-chevron-up"></i></div>
             <ul class="latest_postnav">
               <li>
-                @foreach($archives as $archive)
-                <div class="media"> <a href="{{ route('users.posts.read', ['post_slug' => $archive->slug]) }}" class="media-left"> <img alt="{{ $archive->title }}" src="/storage/public/storage/{{ $archive->image }}"> </a>
-                  <div class="media-body"> <a href="{{ route('users.posts.read', ['post_slug' => $archive->slug]) }}" class="catg_title">{!! $archive->title !!}</a> </div>
+                @foreach($tagPostsSide as $ar)
+                <div class="media"> 
+                  <a href="{!! route('users.posts.read', ['post_slug' => $ar->slug]) !!}" class="media-left"> 
+                    <img alt="{!! $ar->title !!}" src="/storage/public/storage/{!! $ar->image !!}"/> 
+                  </a>
+                  <div class="media-body"> 
+                    <a href="{!! route('users.posts.read', ['post_slug' => $ar->slug]) !!}" class="catg_title">
+                      {!! $ar->title !!}
+                    </a> 
+                  </div>
                 </div>
                 @endforeach
               </li>
@@ -46,15 +67,26 @@
       <div class="col-lg-8 col-md-8 col-sm-8">
         <div class="left_content">
           <div class="single_post_content">
-            <h2><span>{{$tag->name}} News</span></h2>
+            <h2><span>General News</span></h2>
             <div class="single_post_content_left">
               <ul class="business_catgnav  wow fadeInDown">
-                @if(!empty($posts))
-                  @foreach($posts as $post)
+                @if(!empty($allPosts))
+                  @foreach($allPosts as $pac)
                 <li>
-                  <figure class="bsbig_fig"> <a href="{{ route('users.posts.read', ['post_slug' => $post->slug]) }}" class="featured_img"> <img alt="{{ $post->title }}" src="/storage/public/storage/{{ $post->image }}"> <span class="overlay"></span> </a>
-                    <figcaption> <a href="{{ route('users.posts.read', ['post_slug' => $post->slug]) }}">{{$post->title}}</a> </figcaption>
-                    <p>{{ Str::limit($post->content,$limit=30,$end= '...') }}</p>
+                  <figure class="bsbig_fig"> 
+                    <a href="{!! route('users.posts.read', ['post_slug' => $pac->slug]) !!}" class="featured_img"> 
+                      <img alt="{!! $pac->title !!}" src="/storage/public/storage/{!! $pac->image !!}"/> 
+                      <span class="overlay"></span> 
+                    </a>
+                    <figcaption> 
+                      <a href="{!! route('users.posts.read', ['post_slug' => $pac->slug]) !!}">{!! $pac->title !!}</a> 
+                    </figcaption>
+                    <p>
+                      {!! Illuminate\Support\Str::limit(strip_tags($pac->content),200,'...') !!}
+                      <a href="{!! route('users.posts.read',['post_slug' => $pac->slug]) !!}">
+                        <i style="color: lightblue;">Read More</i>
+                      </a>
+                    </p>
                   </figure>
                 </li>
                   @endforeach
@@ -63,30 +95,46 @@
             </div>
             <div class="single_post_content_right">
               <ul class="spost_nav">
-                @if(!empty($archives))
-                  @foreach($archives as $archive)
+                @if(!empty($allpostSides))
+                  @foreach($allpostSides as $arcs)
                 <li>
-                  <div class="media wow fadeInDown"> <a href="{{ route('users.posts.read', ['post_slug' => $archive->slug]) }}" class="media-left"> <img alt="{{ $archive->title }}" src="/storage/public/storage/{{ $archive->image }}"> </a>
-                    <div class="media-body"> <a href="{{ route('users.posts.read', ['post_slug' => $archive->slug]) }}" class="catg_title">{{$archive->title}}</a> </div>
+                  <div class="media wow fadeInDown"> 
+                    <a href="{!! route('users.posts.read', ['post_slug' => $arcs->slug]) !!}" class="media-left"> 
+                      <img alt="{!! $arcs->title !!}" src="/storage/public/storage/{!! $arcs->image !!}"/> 
+                    </a>
+                    <div class="media-body"> 
+                      <a href="{!! route('users.posts.read', ['post_slug' => $arcs->slug]) !!}" class="catg_title">
+                        {!! $arcs->title !!}
+                      </a> 
+                    </div>
                   </div>
                 </li>
                 @endforeach
                 @endif
               </ul>
             </div>
-          </div>
-          
-            
-          <div class="single_post_content">
-            <h2><span>General News</span></h2>
+          </div> <!-- end of single post content -->
+          <div class="single_post_content"> <!-- start of single post content -->
+            <h2><span>Politics News</span></h2>
             <div class="single_post_content_left">
               <ul class="business_catgnav">
-                @if(!empty($featured))
-                  @foreach($featured as $post)
+                @if(!empty($politicsNews))
+                  @foreach($politicsNews as $pol)
                 <li>
-                  <figure class="bsbig_fig  wow fadeInDown"> <a class="featured_img" href="{{ route('users.posts.read', ['post_slug' => $post->slug]) }}"> <img src="/storage/public/storage/{{ $post->image }}" alt="{{ $post->title }}"> <span class="overlay"></span> </a>
-                    <figcaption> <a href="{{ route('users.posts.read', ['post_slug' => $post->slug]) }}">{{$post->title}}</a> </figcaption>
-                    <p>{{ Str::limit($post->content,$limit=30,$end= '...') }}</p>
+                  <figure class="bsbig_fig  wow fadeInDown"> 
+                    <a class="featured_img" href="{!! route('users.posts.read', ['post_slug' => $pol->slug]) !!}"> 
+                      <img src="/storage/public/storage/{!! $pol->image !!}" alt="{!! $pol->title !!}"> 
+                      <span class="overlay"></span> 
+                    </a>
+                    <figcaption> 
+                      <a href="{!! route('users.posts.read', ['post_slug' => $pol->slug]) !!}">{!! $pol->title !!}</a> 
+                    </figcaption>
+                    <p>
+                      {!! Illuminate\Support\Str::limit(strip_tags($pol->content),200,'...') !!}
+                      <a href="{!! route('users.posts.read',['post_slug' => $pol->slug]) !!}">
+                        <i style="color: lightblue;">Read More</i>
+                      </a>
+                    </p>
                   </figure>
                 </li>
                   @endforeach
@@ -95,125 +143,79 @@
             </div>
             <div class="single_post_content_right">
               <ul class="spost_nav">
-                @if(!empty($allPosts))
-                  @foreach($allPosts as $post)
+                @if(!empty($politicSides))
+                  @foreach($politicSides as $mas)
                 <li>
-                  <div class="media wow fadeInDown"> <a href="{{ route('users.posts.read', ['post_slug' => $post->slug]) }}" class="media-left"> <img alt="{{ $post->title }}" src="/storage/public/storage/{{ $post->image }}"> </a>
-                    <div class="media-body"> <a href="{{ route('users.posts.read', ['post_slug' => $post->slug]) }}" class="catg_title">{{$post->title}}</a> </div>
+                  <div class="media wow fadeInDown"> 
+                    <a href="{!! route('users.posts.read', ['post_slug' => $mas->slug]) !!}" class="media-left"> 
+                      <img alt="{!! $mas->title !!}" src="/storage/public/storage/{!! $mas->image !!}"/> 
+                    </a>
+                    <div class="media-body"> 
+                      <a href="{!! route('users.posts.read', ['post_slug' => $mas->slug]) !!}" class="catg_title">
+                        {!! $mas->title !!}
+                      </a> 
+                    </div>
                   </div>
                 </li>
                   @endforeach
                 @endif
               </ul>
             </div>
-          </div>
+          </div> <!-- end of single post content -->
+          <div class="single_post_content"> <!-- start of single post content -->
+            <h2><span>Sports News</span></h2>
+            <div class="single_post_content_left">
+              <ul class="business_catgnav">
+                @if(!empty($sportsNews))
+                  @foreach($sportsNews as $sp)
+                <li>
+                  <figure class="bsbig_fig  wow fadeInDown"> 
+                    <a class="featured_img" href="{!! route('users.posts.read', ['post_slug' => $sp->slug]) !!}"> 
+                      <img src="/storage/public/storage/{!! $sp->image !!}" alt="{!! $sp->title !!}"> 
+                      <span class="overlay"></span> 
+                    </a>
+                    <figcaption> 
+                      <a href="{!! route('users.posts.read', ['post_slug' => $sp->slug]) !!}">{!! $sp->title !!}</a> 
+                    </figcaption>
+                    <p>
+                      {!! Illuminate\Support\Str::limit(strip_tags($sp->content),200,'...') !!}
+                      <a href="{!! route('users.posts.read',['post_slug' => $sp->slug]) !!}">
+                        <i style="color: lightblue;">Read More</i>
+                      </a>
+                    </p>
+                  </figure>
+                </li>
+                  @endforeach
+                @endif
+              </ul>
+            </div>
+            <div class="single_post_content_right">
+              <ul class="spost_nav">
+                @if(!empty($spSides))
+                  @foreach($spSides as $spac)
+                <li>
+                  <div class="media wow fadeInDown"> 
+                    <a href="{!! route('users.posts.read', ['post_slug' => $spac->slug]) !!}" class="media-left"> 
+                      <img alt="{!! $spac->title !!}" src="/storage/public/storage/{!! $spac->image !!}"> 
+                    </a>
+                    <div class="media-body"> 
+                      <a href="{!! route('users.posts.read', ['post_slug' => $spac->slug]) !!}" class="catg_title">
+                        {!! $spac->title !!}
+                      </a> 
+                    </div>
+                  </div>
+                </li>
+                  @endforeach
+                @endif
+              </ul>
+            </div>
+          </div> <!-- end of single post content -->
           @include('user.posts.tags')
           @include('user.newsletter.newsletter')
           <br/><br/>
         </div>
       </div>
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <aside class="right_content">
-          <div class="single_sidebar">
-            <h2><span>Popular Post</span></h2>
-            <ul class="spost_nav">
-              <li>
-                <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                  <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 1</a> </div>
-                </div>
-              </li>
-              <li>
-                <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
-                  <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 2</a> </div>
-                </div>
-              </li>
-              <li>
-                <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                  <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 3</a> </div>
-                </div>
-              </li>
-              <li>
-                <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
-                  <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 4</a> </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="single_sidebar">
-            <ul class="nav nav-tabs" role="tablist">
-              <li role="presentation" class="active"><a href="#category" aria-controls="home" role="tab" data-toggle="tab">Category</a></li>
-              <li role="presentation"><a href="#video" aria-controls="profile" role="tab" data-toggle="tab">Video</a></li>
-              <li role="presentation"><a href="#comments" aria-controls="messages" role="tab" data-toggle="tab">Comments</a></li>
-            </ul>
-            <div class="tab-content">
-              <div role="tabpanel" class="tab-pane active" id="category">
-                <ul>
-                  @if(!empty($categories))
-                    @foreach($categories as $category)
-                  <li class="cat-item">
-                    <a href="{{route('category.articles',['slug' => $category->slug])}}">
-                      {{ $category->name }}
-                    </a>
-                  </li>
-                    @endforeach
-                  @endif
-                </ul>
-              </div>
-              <div role="tabpanel" class="tab-pane" id="video">
-                <div class="vide_area">
-                  <iframe width="100%" height="250" src="http://www.youtube.com/embed/h5QWbURNEpA?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
-                </div>
-              </div>
-              <div role="tabpanel" class="tab-pane" id="comments">
-                <ul class="spost_nav">
-                  <li>
-                    <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                      <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 1</a> </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
-                      <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 2</a> </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                      <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 3</a> </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
-                      <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 4</a> </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="single_sidebar wow fadeInDown">
-            <h2><span>Sponsor</span></h2>
-            <a class="sideAdd" href="#"><img src="images/add_img.jpg" alt=""></a> </div>
-          <div class="single_sidebar wow fadeInDown">
-            <h2><span>Category Archive</span></h2>
-            <select class="catgArchive">
-              <option>Select Category</option>
-              <option>Life styles</option>
-              <option>Sports</option>
-              <option>Technology</option>
-              <option>Treads</option>
-            </select>
-          </div>
-          <div class="single_sidebar wow fadeInDown">
-            <h2><span>Links</span></h2>
-            <ul>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Rss Feed</a></li>
-              <li><a href="#">Login</a></li>
-              <li><a href="#">Life &amp; Style</a></li>
-            </ul>
-          </div>
-        </aside>
-      </div>
+      @include('partials.aside_postextension')
     </div>
   </section>
 @endsection

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Admin;
 use App\Models\Tag;
 use App\Models\Post;
 use App\Models\Video;
@@ -26,17 +27,17 @@ class SitemapController extends Controller
 
     public function posts()
     {
-        $posts = Post::latest()->get();
+        $sitemapPosts = Post::latest()->get();
         return response()->view('sitemap.posts', [
-            'posts' => $posts,
+            'sitemapPosts' => $sitemapPosts,
         ])->header('Content-Type', 'text/xml');
     }
 
     public function videos()
     {
-        $videos = Video::latest()->get();
+        $sitemapVideos = Video::latest()->get();
         return response()->view('sitemap.videos', [
-            'videos' => $videos,
+            'sitemapVideos' => $sitemapVideos,
         ])->header('Content-Type', 'text/xml');
     }
 
@@ -72,6 +73,22 @@ class SitemapController extends Controller
         ])->header('Content-Type', 'text/xml');
     }
 
+    public function authorArticles()
+    {
+        $admins = Admin::all();
+        return response()->view('sitemap.adminarticles', [
+            'admins' => $admins,
+        ])->header('Content-Type', 'text/xml');
+    }
+
+    public function authorVideos()
+    {
+        $admins = Admin::all();
+        return response()->view('sitemap.adminvideos', [
+            'admins' => $admins,
+        ])->header('Content-Type', 'text/xml');
+    }
+
     public function about()
     {
         return response()->view('sitemap.about')->header('Content-Type', 'text/xml');
@@ -81,11 +98,4 @@ class SitemapController extends Controller
     {
         return response()->view('sitemap.contact')->header('Content-Type', 'text/xml');
     }
-
-    public function home()
-    {
-        return response()->view('sitemap.home')->header('Content-Type', 'text/xml');
-    }
-
-
 }

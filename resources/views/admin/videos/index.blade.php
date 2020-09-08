@@ -30,30 +30,30 @@
                     @foreach($videos as $video)
                         <tr>
                             <td class="table-text">
-                                <div>{{$video->category->name}}</div>
+                                <div>{!! $video->category->name !!}</div>
                             </td>
                             <td class="table-text">
-                                <div>{{$video->title}}</div>
+                                <div>{!! $video->title !!}</div>
                             </td>
                             <td class="table-text">
                             <video width="40" height="30" controls> 
-                                <source type="video/mp4" src="/storage/public/videos/{{ $video->video }}">
+                                <source type="video/mp4" src="/storage/public/videos/{!! $video->video !!}">
                                 	This browser doesn't support video tag.
                             </video>
                             </td>
                             <td class="table-text">
-                                <div>{{$video->caption}}</div>
+                                <div>{!! $video->caption !!}</div>
                             </td>
                             <td class="table-text">
-                                <div>{!! Str::limit($video->content,$limit=30,$end= '...') !!}</div>
+                                <div>{!! Illuminate\Support\Str::words($video->content,10,'...') !!}</div>
                             </td>
                             <td class="table-text">
-                                <div>{{$video->created_at}}</div>
+                                <div>{!! $video->created_at !!}</div>
                             </td>
                             <td>
-                                <a href="{{ route('admin.videos.show', $video->id) }}" class="label label-success">Details</a>
-                                <a href="{{ route('admin.videos.edit', $video->id) }}" class="label label-warning">Edit</a>
-                                <a href="{{ route('admin.videos.delete', $video->id) }}" class="label label-danger" onclick="return confirm('Are you sure to delete?')">
+                                <a href="{!! route('admin.videos.show', $video->id) !!}" class="label label-success">Details</a>
+                                <a href="{!! route('admin.videos.edit', $video->id) !!}" class="label label-warning">Edit</a>
+                                <a href="{!! route('admin.videos.delete', $video->id) !!}" class="label label-danger" onclick="return confirm('Are you sure to delete?')">
                                     Delete
                                 </a>
                             </td>

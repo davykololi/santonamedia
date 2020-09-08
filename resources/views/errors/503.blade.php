@@ -1,13 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Application Under Maintenance</title>
-	<link rel="stylesheet" href="{!! asset('gencss/general.css') !!}" type="text/css">
-	<style>
-		#body{background-image: url('/static/lights.JPG');background-position: center;background-repeat: no-repeat;background-size: cover}
-	</style>
-</head>
-<body id="body">
-	<p id="errors">Sorry to our esteemed viewers. This website is under maintanance and we will be back online soon.</p>
-</body>
-</html>
+@extends('layouts.app')
+@section('title'|'Applicatin Under Maintanance')
+
+@section('content')
+  <section id="contentSection">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="left_content">
+          <div class="error_page">
+            <h3>We Are Sorry</h3>
+            <h1>503</h1>
+            <p>To our esteemed viewer, this website is under maintanance and we will be back online soon. Keep in touch.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+@endsection
+  

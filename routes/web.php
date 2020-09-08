@@ -19,6 +19,20 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 Auth::routes();
 
 Route::get('/user/logout','Auth\LoginController@userLogout')->name('user.logout');
+Route::resource('admins','Superadmin\AdminController');
+//superadmin route for our multi-auth system
+Route::prefix('superadmin')->group(function () {
+    Route::get('/', 'SuperadminController@index')->name('superadmin.dashboard');
+    Route::get('/login', 'Auth\SuperadminLoginController@showLoginForm')->name('superadmin.login');
+    Route::post('/login', 'Auth\SuperadminLoginController@login')->name('superadmin.login.submit');
+    Route::get('/logout','Auth\SuperadminLoginController@logout')->name('superadmin.logout');
+
+    //superadmin password reset routes
+    Route::post('/password/email','Auth\SuperadminForgotPasswordController@sendResetLinkEmail')->name('superadmin.password.email');
+    Route::get('/password/reset','Auth\SuperadminForgotPasswordController@showLinkRequestForm')->name('superadmin.password.request');
+    Route::post('/password/reset','Auth\SuperadminResetPasswordController@reset');
+    Route::get('/password/reset/{token}','Auth\SuperadminResetPasswordController@showResetForm')->name('superadmin.password.reset');
+});
 
 //admin route for our multi-auth system
 Route::prefix('admin')->group(function () {
@@ -54,40 +68,39 @@ Route::group(['namespace' => 'Admin','prefix'=>'admin'],function(){
     Route::get('/videos/{video}/edit','VideoController@edit')->name('admin.videos.edit');
     Route::post('/videos/{video}','VideoController@update')->name('admin.videos.update');
     Route::get('/videos/{video}','VideoController@destroy')->name('admin.videos.delete');
+    Route::get('/tool','ToolController@index')->name('KDTool');
+    Route::post('/tool/calculate-and-get-density', 'ToolController@CalculateAndGetDensity');
     });
 
-//Admin category routes
-Route::group(['namespace' => 'Admin','prefix'=>'admin'],function(){
-    Route::get('/categories/','CategoryController@index')->name('admin.categories.index');
-    Route::get('/categories/create','CategoryController@create')->name('admin.categories.create');
-    Route::get('/categories/show/{category}','CategoryController@show')->name('admin.categories.show');
-    Route::post('/categories','CategoryController@store')->name('admin.categories.store');
-    Route::get('/categories/{category}/edit','CategoryController@edit')->name('admin.categories.edit');
-    Route::post('/categories/{category}','CategoryController@update')->name('admin.categories.update');
-    Route::get('/categories/{category}','CategoryController@destroy')->name('admin.categories.delete');
-    });
+//Superadmin routes
+Route::group(['namespace' => 'Superadmin','prefix'=>'superadmin'],function(){
+    //Superadmin category routes
+    Route::get('/categories/','CategoryController@index')->name('superadmin.categories.index');
+    Route::get('/categories/create','CategoryController@create')->name('superadmin.categories.create');
+    Route::get('/categories/show/{category}','CategoryController@show')->name('superadmin.categories.show');
+    Route::post('/categories','CategoryController@store')->name('superadmin.categories.store');
+    Route::get('/categories/{category}/edit','CategoryController@edit')->name('superadmin.categories.edit');
+    Route::post('/categories/{category}','CategoryController@update')->name('superadmin.categories.update');
+    Route::get('/categories/{category}','CategoryController@destroy')->name('superadmin.categories.delete');
 
-//Admin tag routes
-Route::group(['namespace' => 'Admin','prefix'=>'admin'],function(){
-    Route::get('/tags','TagController@index')->name('admin.tags.index');
-    Route::get('/tags/create','TagController@create')->name('admin.tags.create');
-    Route::get('/tags/show/{tag}','TagController@show')->name('admin.tags.show');
-    Route::post('/tags','TagController@store')->name('admin.tags.store');
-    Route::get('/tags/{tag}/edit','TagController@edit')->name('admin.tags.edit');
-    Route::post('/tags/{tag}','TagController@update')->name('admin.tags.update');
-    Route::get('/tags/{tag}','TagController@destroy')->name('admin.tags.delete');
-    });
+    //Superadmin tag routes
+    Route::get('/tags','TagController@index')->name('superadmin.tags.index');
+    Route::get('/tags/create','TagController@create')->name('superadmin.tags.create');
+    Route::get('/tags/show/{tag}','TagController@show')->name('superadmin.tags.show');
+    Route::post('/tags','TagController@store')->name('superadmin.tags.store');
+    Route::get('/tags/{tag}/edit','TagController@edit')->name('superadmin.tags.edit');
+    Route::post('/tags/{tag}','TagController@update')->name('superadmin.tags.update');
+    Route::get('/tags/{tag}','TagController@destroy')->name('superadmin.tags.delete');
 
-//Admin comment routes
-Route::group(['namespace' => 'Admin','prefix'=>'admin'],function(){
-    Route::get('/comments','CommentController@index')->name('admin.comments.index');
-    Route::get('/comments/{comment}','CommentController@delete')->name('admin.comments.delete');
+    //Superadmin comment routes
+    Route::get('/comments','CommentController@index')->name('superadmin.comments.index');
+    Route::get('/comments/{comment}','CommentController@delete')->name('superadmin.comments.delete');
     });
 
 //Minified Routes
 Route::group(['middleware'=>'HtmlMinifier'],function(){
     //Static pages routes
-Route::group(['namespace'=>'User','prefix'=>'news'],function(){
+Route::group(['namespace'=>'User'],function(){
     Route::get('/about-us','PageController@about')->name('users.pages.about');
     Route::get('/contact-us','PageController@contact')->name('users.pages.contact');
     Route::post('/contact-us','PageController@store')->name('contactus.store');
@@ -97,10 +110,13 @@ Route::group(['namespace'=>'User','prefix'=>'news'],function(){
     Route::get('/{slug}/articles', 'PostController@getIndex')->name('category.articles');
     Route::get('/articles/details/{post_slug}', 'PostController@getFullNews')->name('users.posts.read');
     Route::get('/articles/{slug}', 'PostController@tags')->name('post.tags');
+    Route::get('/article-author/{slug}', 'PostController@authors')->name('author.posts');
     Route::get('/{slug}/videos', 'VideoController@getIndex')->name('category.videos');
     Route::get('/videos/details/{video_slug}', 'VideoController@getFullVideos')->name('users.videos.read');
     Route::get('/videos/{slug}', 'VideoController@tags')->name('video.tags');
+    Route::get('/video-author/{slug}', 'VideoController@authors')->name('author.videos');
     Route::post('/comments','CommentController@store')->name('comments.store');
+
     //Most popular post route
     Route::get('/popular/{slug}', 'PopularPostController@popular')->name('popular');
     Route::get('/seven-days','GeneralController@getData')->name('seven.days');
@@ -135,14 +151,21 @@ Route::group(['namespace' => 'Admin','prefix'=>'admin'],function(){
 //Sitemap Routes
 Route::group(['prefix' => 'sitemap.xml',],function(){
     Route::get('/', 'SitemapController@index');
-    Route::get('/articles', 'SitemapController@posts');
-    Route::get('/videos', 'SitemapController@videos');
+    Route::get('/arts', 'SitemapController@posts');
+    Route::get('/vids', 'SitemapController@videos');
     Route::get('/tags/videos', 'SitemapController@tagVideos');
     Route::get('/tags/articles', 'SitemapController@tagArticles');
     Route::get('/category/videos', 'SitemapController@categoryVideos');
     Route::get('/category/articles', 'SitemapController@categoryArticles');
+    Route::get('/videos/author', 'SitemapController@authorVideos');
+    Route::get('/articles/author', 'SitemapController@authorArticles');
     Route::get('/about', 'SitemapController@about');
     Route::get('/contact', 'SitemapController@contact');
-    Route::get('/home', 'SitemapController@home');
     });
 });
+
+//RSS Feed route
+Route::feeds();
+
+
+

@@ -2,13 +2,16 @@
  
 namespace App;
 
+use App\Models\Post;
+use App\Models\Video;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\AdminResetPasswordNotification;
+use Cviebrock\EloquentSluggable\Sluggable;
  
 class Admin extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable,Sluggable;
  
     protected $guard = 'admin';
  
@@ -18,7 +21,7 @@ class Admin extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','title',
+        'name', 'email', 'password','title','phone_no','area','image','keywords','slug',
     ];
  
     /**
@@ -29,6 +32,19 @@ class Admin extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name',
+                'separator' => '-',
+                'unique' => true,
+                'maxLenghKeepWords' => true,
+                'onUpdate' => true,
+            ]
+        ];
+    }
  
     public function sendPasswordResetNotification($token)
     {
@@ -38,5 +54,20 @@ class Admin extends Authenticatable
     public function posts()
     {
     return $this->hasMany('App\Models\Post', 'admin_id', 'id');
+    }
+
+    public function videos()
+    {
+    return $this->hasMany('App\Models\Video', 'admin_id', 'id');
+    }
+
+    public function ownsPost(Post $post)
+    {
+        return auth()->id() == $post->admin->id;
+    }
+
+    public function ownsVideo(Video $video)
+    {
+        return auth()->id() == $video->admin->id;
     }
 }
