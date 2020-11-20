@@ -27,7 +27,7 @@
                     @include('partials.vdhead')
                     <!-- Table Body -->
                     <tbody>
-                    @foreach($videos as $video)
+                    @forelse($videos as $video)
                         <tr>
                             <td class="table-text">
                                 <div>{!! $video->category->name !!}</div>
@@ -37,12 +37,15 @@
                             </td>
                             <td class="table-text">
                             <video width="40" height="30" controls> 
-                                <source type="video/mp4" src="/storage/public/videos/{!! $video->video !!}">
+                                <source type="video/mp4" src="{!! $video->videoUrl() !!}" alt="{!! $video->title !!}"/>
                                 	This browser doesn't support video tag.
                             </video>
                             </td>
                             <td class="table-text">
                                 <div>{!! $video->caption !!}</div>
+                            </td>
+                            <td class="table-text">
+                                <div>{!! Illuminate\Support\Str::words($video->description,10,'...') !!}</div>
                             </td>
                             <td class="table-text">
                                 <div>{!! Illuminate\Support\Str::words($video->content,10,'...') !!}</div>
@@ -53,12 +56,16 @@
                             <td>
                                 <a href="{!! route('admin.videos.show', $video->id) !!}" class="label label-success">Details</a>
                                 <a href="{!! route('admin.videos.edit', $video->id) !!}" class="label label-warning">Edit</a>
-                                <a href="{!! route('admin.videos.delete', $video->id) !!}" class="label label-danger" onclick="return confirm('Are you sure to delete?')">
+                                <a href="{!! route('admin.videos.delete', $video->id) !!}" class="label label-danger" onclick="return confirm('Are you sure to delete {!! $video->title !!}?')">
                                     Delete
                                 </a>
                             </td>
+                    @empty
+                            <td>
+                                <div>You have not posted any video yet.</div>
+                            </td>
                         </tr>
-                    @endforeach
+                    @endforelse
                     </tbody>
                 </table>
             </div>

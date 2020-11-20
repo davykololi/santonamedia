@@ -26,6 +26,12 @@ class CommentController extends Controller
     	return view('superadmin.comments.index',compact('comments'));
 	}
 
+    public function show(Comment $comment)
+    {
+
+        return view('superadmin.comments.show',compact('comment'));
+    }
+
 	public function delete(Comment $comment)
 	{
 		$comment->delete();

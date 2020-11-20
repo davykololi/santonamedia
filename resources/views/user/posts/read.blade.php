@@ -14,20 +14,20 @@
           <div class="single_page">
             <ol class="breadcrumb">
               <li><a href="{!! url('/') !!}">Home</a></li>
-              <li><a href="#">Technology</a></li>
-              <li class="active">Mobile</li>
+              <li><a href="{!! $category->path() !!}">{{$category->name}}</a></li>
+              <li class="active">{{$post->title}}</li>
             </ol>
-            <h1><a href="{!! route('users.posts.read',['post_slug' => $post->slug]) !!}">{!! $post->title !!}</a></h1>
+            <h1><a href="{!! $post->path() !!}">{!! $post->title !!}</a></h1>
             <div class="post_commentbox"> 
-              <a href="{!! route('users.posts.read',['post_slug' => $post->slug]) !!}">
+              <a href="{!! $post->path() !!}">
                 <i class="fa fa-user"></i>Wpfreeware
               </a> 
-              <span><i class="fa fa-calendar"></i>{!! date('d/m/Y H:i:s') !!}</span> 
-              <a href="{!! route('category.articles',['slug' => $category->slug]) !!}"><i class="fa fa-tags"></i>
+              <span><i class="fa fa-calendar"></i>Posted On: {!! $post->created_at->toDayDateTimeString() !!}</span> 
+              <a href="{!! $category->path() !!}"><i class="fa fa-tags"></i>
                 {!! $post->category->name !!}
               </a> 
               <span>Article By:</span>
-              <a href="{!! route('author.posts',['slug' => $post->admin->slug]) !!}">
+              <a href="{!! $post->admin->path() !!}">
                 <span style="margin: 5px;color: #696969"> 
                   <b>{!! $post->admin->name !!}</b>
                   <img style="width: 5%;margin: 10px;border-radius: 50%" src="/storage/public/storage/{!! $post->admin->image !!}" alt="{!! $post->admin->name !!}">
@@ -35,17 +35,18 @@
               </a> 
             </div>
             <div class="single_page_content"> 
-              <img class="img-center" src="/storage/public/storage/{!! $post->image !!}" alt="{!! $post->title !!}">
-              <p class="img-center" style="color: gray;font-size: 16px">{!! $post->caption !!}</p>
-              <p style="text-align: justify-all;color:;background-color: lightgray;border-radius: 10px">
+                <img class="img-center" src="{!! $post->imageUrl() !!}" alt="{!! $post->title !!}">
+                <span style="display: block;text-align: center;font-size: 16px;color: gray;margin-bottom: 20px;margin-top: -10px">
+                  {!! $post->caption !!}
+                </span>
+              <p style="text-align: justify-all;color:;background-color: lightgray;">
                 <b><u style="margin: 5px">Summary:</u></b>
-                <i>{!! $post->summary !!}</i>
+                <i>{!! $post->description !!}</i>
               </p>
-              <p style="text-align: justify;">{!! $post->content !!}</p>
+              <p>{!! $post->content !!}</p>
 
               @include('user.posts.commentForm')
               @include('user.posts.commentsDisplay')
-              <blockquote> Donec volutpat nibh sit amet libero ornare non laoreet arcu luctus. Donec id arcu quis mauris euismod placerat sit amet ut metus. Sed imperdiet fringilla sem eget euismod. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque adipiscing, neque ut pulvinar tincidunt, est sem euismod odio, eu ullamcorper turpis nisl sit amet velit. Nullam vitae nibh odio, non scelerisque nibh. Vestibulum ut est augue, in varius purus. </blockquote>
             </div>
             @include('partials.share')
             <div class="related_post">
@@ -53,8 +54,11 @@
               <ul class="spost_nav wow fadeInDown animated">
                 @foreach($categoryPosts as $xv)
                 <li>
-                  <div class="media"> <a class="media-left" href="{!! route('users.posts.read',['post_slug' => $xv->slug]) !!}"> <img src="/storage/public/storage/{!! $xv->image !!}" alt="{!! $xv->title !!}"> </a>
-                    <div class="media-body"> <a class="catg_title" href="{!! route('users.posts.read',['post_slug' => $xv->slug]) !!}">{!! $xv->title !!}</a> </div>
+                  <div class="media"> 
+                    <a class="media-left" href="{!! $xv->path() !!}"> 
+                      <img src="{!! $xv->imageUrl() !!}" loading="lazy" alt="{!! $xv->title !!}"> 
+                    </a>
+                    <div class="media-body"> <a class="catg_title" href="{!! $xv->path() !!}">{!! $xv->title !!}</a> </div>
                   </div>
                 </li>
                 @endforeach
@@ -69,13 +73,14 @@
       <nav class="nav-slit"> <a class="prev" href="#"> <span class="icon-wrap"><i class="fa fa-angle-left"></i></span>
         <div>
           <h3>City Lights</h3>
-          <img src="../images/post_img1.jpg" alt=""/> </div>
-        </a> <a class="next" href="#"> <span class="icon-wrap"><i class="fa fa-angle-right"></i></span>
+          <img src="{{asset('/static/globe.png')}}" alt="Logo"/> </div>
+        </a> <a class="next" href=""> <span class="icon-wrap"><i class="fa fa-angle-right"></i></span>
         <div>
-          <h3>Street Hills</h3>
-          <img src="../images/post_img1.jpg" alt=""/> </div>
+          <h3>Web Developer 0724351952</h3>
+          <img src="{{asset('/static/David Kololi.JPG')}}" alt="Web Developer"/> </div>
         </a> </nav>
       @include('partials.posts_readext')
+      @include('partials.aside_postextension')
     </div>
   </section>
 @endsection

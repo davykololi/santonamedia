@@ -24,10 +24,10 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <table class="table table-striped task-table">
                     <!-- Table Headings -->
-                    @include('partials.thead')
+                    @include('partials.tbhead')
                     <!-- Table Body -->
                     <tbody>
-                    @foreach($posts as $post)
+                    @forelse($posts as $post)
                         <tr>
                             <td class="table-text">
                                 <div>{!! $post->category->name !!}</div>
@@ -36,13 +36,13 @@
                                 <div>{!! $post->title !!}</div>
                             </td>
                             <td class="table-text">
-                            <img style = "width:15%" src="/storage/public/storage/{!! $post->image !!}">
+                                <img style = "width:15%" src="/storage/public/storage/{!! $post->image !!}" alt="{!! $post->title !!}"/>
                             </td>
                             <td class="table-text">
                                 <div>{!! $post->caption !!}</div>
                             </td>
                             <td class="table-text">
-                                <div>{!! Illuminate\Support\Str::words($post->summary,5,'...') !!}</div>
+                                <div>{!! Illuminate\Support\Str::words($post->description,5,'...') !!}</div>
                             </td>
                             <td class="table-text">
                                 <div>{!! Illuminate\Support\Str::words($post->content,5,'...') !!}</div>
@@ -53,12 +53,18 @@
                             <td>
                                 <a href="{!! route('admin.posts.show', $post->id) !!}" class="label label-success">Details</a>
                                 <a href="{!! route('admin.posts.edit', $post->id) !!}" class="label label-warning">Edit</a>
-                                <a href="{!! route('admin.posts.delete', $post->id) !!}" class="label label-danger" onclick="return confirm('Are you sure to delete?')">
+                                <a href="{!! route('admin.posts.delete', $post->id) !!}" class="label label-danger" onclick="return confirm('Are you sure to delete {!! $post->title !!}?')">
                                     Delete
                                 </a>
                             </td>
+                    @empty
+                            <td colspan="10">
+                                <div style="font-size: 16px;color: red;font-family: Times New Roman">
+                                	<h3>You have not posted any article yet.</h3>
+                            	</div>
+                            </td>
                         </tr>
-                    @endforeach
+                    @endforelse
                     </tbody>
                 </table>
             </div>

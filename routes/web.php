@@ -19,7 +19,6 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 Auth::routes();
 
 Route::get('/user/logout','Auth\LoginController@userLogout')->name('user.logout');
-Route::resource('admins','Superadmin\AdminController');
 //superadmin route for our multi-auth system
 Route::prefix('superadmin')->group(function () {
     Route::get('/', 'SuperadminController@index')->name('superadmin.dashboard');
@@ -49,7 +48,7 @@ Route::prefix('admin')->group(function () {
 });
 
 //Admin news posts
-Route::group(['namespace' => 'Admin','prefix'=>'admin'],function(){
+Route::group(['namespace' => 'Admin','prefix'=>'admin','middleware'=>'doNotCacheResponse'],function(){
     Route::get('/posts','PostController@index')->name('admin.posts.index');
     Route::get('/posts/create','PostController@create')->name('admin.posts.create');
     Route::get('/posts/show/{post}','PostController@show')->name('admin.posts.show');
@@ -57,10 +56,11 @@ Route::group(['namespace' => 'Admin','prefix'=>'admin'],function(){
     Route::get('/posts/{post}/edit','PostController@edit')->name('admin.posts.edit');
     Route::post('/posts/{post}','PostController@update')->name('admin.posts.update');
     Route::get('/posts/{post}','PostController@destroy')->name('admin.posts.delete');
+    Route::post('/upload-image','CKEditorController@upload')->name('upload');
     });
 
 //Admin news videos
-Route::group(['namespace' => 'Admin','prefix'=>'admin'],function(){
+Route::group(['namespace' => 'Admin','prefix'=>'admin','middleware'=>'doNotCacheResponse'],function(){
     Route::get('/videos','VideoController@index')->name('admin.videos.index');
     Route::get('/videos/create','VideoController@create')->name('admin.videos.create');
     Route::get('/videos/show/{video}','VideoController@show')->name('admin.videos.show');
@@ -73,7 +73,7 @@ Route::group(['namespace' => 'Admin','prefix'=>'admin'],function(){
     });
 
 //Superadmin routes
-Route::group(['namespace' => 'Superadmin','prefix'=>'superadmin'],function(){
+Route::group(['namespace' => 'Superadmin','prefix'=>'superadmin','middleware'=>'doNotCacheResponse'],function(){
     //Superadmin category routes
     Route::get('/categories/','CategoryController@index')->name('superadmin.categories.index');
     Route::get('/categories/create','CategoryController@create')->name('superadmin.categories.create');
@@ -92,10 +92,20 @@ Route::group(['namespace' => 'Superadmin','prefix'=>'superadmin'],function(){
     Route::post('/tags/{tag}','TagController@update')->name('superadmin.tags.update');
     Route::get('/tags/{tag}','TagController@destroy')->name('superadmin.tags.delete');
 
+    //Impersonation Controller
+    Route::get('impersonate/{admin_id}','ImpersonateController@impersonate')->name('impersonate');
+    Route::get('impersonate_leave','ImpersonateController@impersonate_leave')->name('impersonate.leave');
+
     //Superadmin comment routes
     Route::get('/comments','CommentController@index')->name('superadmin.comments.index');
+    Route::get('/show/comments','CommentController@show')->name('superadmin.comments.show');
     Route::get('/comments/{comment}','CommentController@delete')->name('superadmin.comments.delete');
-    });
+
+    //Superadmin posts and videos routes
+    Route::resource('admins','AdminController');
+    Route::resource('posts','PostController');
+    Route::resource('videos','VideoController');
+});
 
 //Minified Routes
 Route::group(['middleware'=>'HtmlMinifier'],function(){
@@ -132,7 +142,9 @@ Route::group(['namespace'=>'User'],function(){
     //User Profile Routes
     Route::get('profile','UserController@profile');
     Route::post('profile','UserController@update_avatar');
-    //One week old Articles
+    //Article search route
+    Route::get('artcle-search','ArticleSearchController@index')->name('article.search');
+    Route::get('video-search','VideoSearchController@index')->name('video.search');
     });
 
 Route::group(['namespace'=>'Search'],function(){
@@ -148,24 +160,8 @@ Route::group(['namespace' => 'Admin','prefix'=>'admin'],function(){
     Route::get('/contacts/{contact}/show','GeneralController@getContact')->name('contact.show');
     Route::get('/contacts/{id}','GeneralController@destroy')->name('contact.destroy');
     });
-//Sitemap Routes
-Route::group(['prefix' => 'sitemap.xml',],function(){
-    Route::get('/', 'SitemapController@index');
-    Route::get('/arts', 'SitemapController@posts');
-    Route::get('/vids', 'SitemapController@videos');
-    Route::get('/tags/videos', 'SitemapController@tagVideos');
-    Route::get('/tags/articles', 'SitemapController@tagArticles');
-    Route::get('/category/videos', 'SitemapController@categoryVideos');
-    Route::get('/category/articles', 'SitemapController@categoryArticles');
-    Route::get('/videos/author', 'SitemapController@authorVideos');
-    Route::get('/articles/author', 'SitemapController@authorArticles');
-    Route::get('/about', 'SitemapController@about');
-    Route::get('/contact', 'SitemapController@contact');
-    });
 });
 
 //RSS Feed route
 Route::feeds();
-
-
 

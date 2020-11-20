@@ -1,4 +1,5 @@
 <div class="social_link">
+    <div style="font-size: 16px;text-align: center;"><strong>Share This Article:</strong></div>
     <ul class="sociallink_nav">
         <li>
         	<a href="https://www.facebook.com/sharer/sharer.php?u=&t=" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook"></i>

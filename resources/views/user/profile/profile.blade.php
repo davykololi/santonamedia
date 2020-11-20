@@ -2,16 +2,14 @@
 @section('title'|'Profile')
 
 @section('content')
-@include('partials.newsection')
+@include('partials.allnews')
     <section id="contentSection">
         <div class="row">
             @include('partials.messages')
             <div class="col-lg-8 col-md-8 col-sm-8">
                 <div class="left_content">
                     <div class="contact_area">
-                        <h2>
-                            Profile
-                        </h2>
+                        <h2>{!! $user->name !!} Profile</h2>
                     </div>
 
                     <div class="panel-body">
@@ -42,7 +40,7 @@
                                 </tr>
                                 <tr>
                                     <td>Number of Comments</td>
-                                    <td>{!! $user->comments_count !!}</td>
+                                    <td>{!! $comments_count !!}</td>
                                 </tr>
                                 <tr>
                                     <td>Upload Your Photo</td>

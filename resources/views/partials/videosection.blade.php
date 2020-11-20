@@ -6,9 +6,7 @@
             @if(!empty($videos))
               @foreach($videos as $vs)
               <li> 
-                <video width="51.2" height="28.8" controls>
-                  <source type="video/mp4" src = "/storage/public/videos/{!! $vs->video !!}" alt="{!! $vs->title !!}">
-                </video>
+                <a href="{!! $vs->path() !!}">{!! $vs->title !!}</a>
               </li>
               @endforeach
             @endif

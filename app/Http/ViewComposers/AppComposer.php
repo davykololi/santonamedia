@@ -15,8 +15,8 @@ class AppComposer
      */
 
     public function compose(View $view){
-        $categories = Category::all();
-        $navs = Category::limit(10)->get();
-        $view->with(['categories'=>$categories,'navs'=>$navs]);
+        $categories = Category::with('posts')->get();
+        $navs = Category::with('posts')->limit(10)->get();
+        $view->with(['categories'=>$categories,'navs'=>$navs]); 
     }
 }

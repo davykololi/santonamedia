@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         //
         Commands\clearComments::class,
+        Commands\GenerateSitemap::class,
     ];
 
     /**
@@ -28,6 +29,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')
         //          ->hourly();
         $schedule->command('clear:comments')->monthly();
+        $schedule->command('sitemap:generate')->daily();
     }
 
     /**

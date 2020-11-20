@@ -19,7 +19,7 @@
             <ul class="tag_nav">
               @if(!empty($navs))
                 @foreach($navs as $category)
-              <li><a href="{{route('category.articles',['slug' => $category->slug])}}">{{ $category->name }}</a></li>
+              <li><a href="{!! $category->path() !!}">{{ $category->name }}</a></li>
                 @endforeach
               @endif
             </ul>
@@ -32,6 +32,16 @@
               <li><a href="#"><i class="fa fa-map-marker"></i>Nairobi,Kenya</a></li>
               <li><a href="tel:+254-0724351952"><i class="fa fa-phone"></i>+254 0724351952</a></li>
               <li><a href="mailto:santonamedia79@gmail.com"><i class="fa fa-envelope"></i>santonamedia79@gmail.com</a></li>
+              <li>
+              	<a href="{{url('/news-feed')}}">
+              		<img src="" width="10" height="10" alt="Subscribe to Latest Santona Media News">
+              	</a>
+              </li>
+              <li>
+              	<a href="{{url('/videos-feed')}}">
+              		<img src="" width="10" height="10" alt="Subscribe to Latest Santona Media Videos">
+              	</a>
+              </li>
             </ul>
           </div>
         </div>

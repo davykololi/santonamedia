@@ -15,7 +15,7 @@ class TagComposer
      */
 
     public function compose(View $view){
-        $tags = Tag::all();
+        $tags = Tag::with('posts')->get();
         $view->with(['tags'=>$tags]);
     }
 }

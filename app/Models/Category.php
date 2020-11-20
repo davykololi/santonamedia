@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Post;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 
@@ -38,5 +39,15 @@ class Category extends Model
     public function comments()
     {
         return $this->hasMany('App\Models\Comment','category_id','id');
+    }
+
+    public function path()
+    {
+        return route('category.articles', $this->slug);
+    }
+
+    public function videoPath()
+    {
+        return route('category.videos', $this->slug);
     }
 }

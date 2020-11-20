@@ -34,7 +34,7 @@ class VideoController extends Controller
     public function index()
     {
         //
-        $videos = Video::latest()->get();
+        $videos = auth()->user()->videos()->latest()->get();
 
         return view('admin.videos.index',compact('videos'));
     }
@@ -139,13 +139,13 @@ class VideoController extends Controller
         $fileNameToStore = 'novideo.mp4';
         }
 
-
         if($video){
         Storage::delete('public/videos/'.$video->video);
         $input = $request->all();
         $input['video'] = $fileNameToStore;
         $input['admin_id'] = Auth::id();
         $input['category_id'] = $request->category;
+        $input['is_published']  = $request->has('publish');
 
         $video->update($input);
         $tags = $request->tags;
@@ -167,8 +167,9 @@ class VideoController extends Controller
         if($video){
             Storage::delete('public/videos/'.$video->video);
             $video->delete();
+            $video->tags()->detach();
 
         return redirect()->route('admin.videos.index')->withSuccess('The video deleted successfully');
+        }
     }
-}
 }

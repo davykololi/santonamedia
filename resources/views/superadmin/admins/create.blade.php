@@ -14,7 +14,7 @@
                 <form action="{{ route('admins.store') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="form-group">
-                        <label class="control-label col-sm-2" >Admin Name</label>
+                        <label class="control-label col-sm-2" >Name</label>
                         <div class="col-sm-10">
                             <input type="text" name="name" id="name" class="form-control" placeholder="Name">
                         </div>

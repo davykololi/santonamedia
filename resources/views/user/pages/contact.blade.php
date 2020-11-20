@@ -7,8 +7,8 @@
     <div class="row">
       <div class="col-lg-8 col-md-8 col-sm-8">
         <div class="left_content">
-          @include('partials.messages')
-			     @include('partials.errors')
+        @include('partials.messages')
+		@include('partials.errors')
           <div class="contact_area">
             <h2>Contact Us</h2>
             <p>We are glad that you are contacting us. Fill in the form below and submit to us.</p>
@@ -34,7 +34,7 @@
 					<span class="text-danger">{{ $errors->first('message') }}</span>
 				</div>
 				<div class="form-group">
-          <button class="btn btn-theme" value="submit">Submit</button>
+          			<button class="btn btn-theme" value="submit">Submit</button>
 				</div>
 			{!! Form::close() !!}
           </div>
@@ -43,7 +43,8 @@
           <br/><br/>
         </div>
       </div>
-      @include('partials.aside_videoextension')
+      @include('partials.latest_posts')
+      @include('partials.aside_postextension')
     </div>
   </section>
 @endsection

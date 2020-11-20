@@ -8,6 +8,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\AdminResetPasswordNotification;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Support\Facades\URL;
  
 class Admin extends Authenticatable
 {
@@ -69,5 +70,25 @@ class Admin extends Authenticatable
     public function ownsVideo(Video $video)
     {
         return auth()->id() == $video->admin->id;
+    }
+
+    public function path()
+    {
+        return route('author.posts', $this->slug);
+    }
+
+    public function videoPath()
+    {
+        return route('author.videos', $this->slug);
+    }
+
+    public function scopeBanned($query)
+    {
+        return $query->where('is_banned', true);
+    }
+
+    public function imageUrl()
+    {
+        return URL::to('/storage/public/storage/'.$this->image);
     }
 }

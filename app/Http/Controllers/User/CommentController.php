@@ -34,10 +34,9 @@ class CommentController extends Controller
     
         $comment = new Comment();
         $comment->content = $request->content;
+        $comment->commentable_id = $request->commentable_id;
+        $comment->commentable_type = $request->commentable_type;
         $comment->user_id = Auth::id();
-        $comment->post_id = $request->post_id;
-        $comment->video_id = $request->video_id;
-        $comment->category_id = $request->category_id;
         $comment->save();
 
         return back();

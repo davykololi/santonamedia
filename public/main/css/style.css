@@ -18,6 +18,7 @@ h1, h2, h3, h4, h5, h6{font-family:'Oswald',sans-serif}
 h2{line-height:23px}
 img{border:none}
 img:hover{opacity:0.75}
+video{max-width: 100%;max-height: 100%;}
 .img-center{display:block; margin-left:auto; margin-right:auto; text-align:center}
 .img-right{display:block; margin-left:auto}
 .img-left{display:block; margin-right:auto}
@@ -220,7 +221,7 @@ figure.effect-layla:hover figcaption::after, figure.effect-layla:hover h2, figur
 .breadcrumb{background-color:#303030; border-radius:0}
 .breadcrumb li a{color:#fff}
 .single_page_content{display:inline; float:left; padding-top:20px; width:100%; border-bottom:1px solid #ddd; padding-bottom:20px}
-.single_page_content > img{max-width:100%; width:40%; margin-bottom:15px}
+.single_page_content > img{max-width:100%; width:320px; height:213px; margin-bottom:15px}
 .single_page_content ul{position:relative; padding-left:25px}
 .single_page_content ul li{line-height:25px}
 .single_page_content ul li:before{content:""; height:5px; left:5px; position:absolute; width:9px; margin-top:8px}
@@ -276,3 +277,11 @@ figure.effect-layla:hover figcaption::after, figure.effect-layla:hover h2, figur
 @media(max-width:480px ){.top_nav{text-align:center}.single_post_content_left{width:100%}.single_post_content_right{width:100%}.fashion{width:100%}.technology{width:100%}.copyright{text-align:center;width:100%}.developer{text-align:center;width:100%}.single_iteam{height:300px}.photo_grid figure{height:200px}.photograph_nav li{width:100%;margin-left:0}.nav > li > a{padding:8px 12px}.nav-tabs > li{width:32.6%}}
 @media(max-width:360px ){.latest_newsarea span{font-size:12px;line-height:2.2em;padding:2px 10px 1px 10px}.single_iteam{height:210px}.slider_article > p{display:none}.error_page > span{width:80px}.nav-tabs > li{width:32.3%}.pagination > li > a,.pagination > li > span{padding:4px 8px}}
 @media(max-width:320px ){.sociallink_nav li a{padding:5px 10px}.sociallink_nav li:nth-child(1) > a{padding:5px 13px}.nav-tabs > li{width:32.1%}}
+
+.private-policy{
+	text-align: justify;
+}
+.media-body p{color: gray}
+.articles_page{float:left; display:inline; width:100%}
+.articles_page > h2{color:#333; font-family:Oswald,arial,Georgia,serif; font-size:30px; line-height:1.4em; margin:10px 0 -10px; padding:0 0 4px; text-transform:uppercase}
+

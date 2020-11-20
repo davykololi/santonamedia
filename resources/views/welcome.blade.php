@@ -8,51 +8,29 @@
       <div class="col-lg-8 col-md-8 col-sm-8">
         <div class="slick_slider">
           @if(!empty($allPosts))
-               @foreach($allPosts as $c)
+               @forelse($allPosts as $c)
           <div class="single_iteam"> 
-            <a href="{!! route('users.posts.read',['post_slug' => $c->slug]) !!}"> 
-              <img src="/storage/public/storage/{!! $c->image !!}" alt="{!! $c->title !!}"/>
+            <a href="{!! $c->path() !!}"> 
+              <img src="{!! $c->imageUrl() !!}" alt="{!! $c->title !!}"/>
             </a>
             <div class="slider_article">
               <h2>
-                <a class="slider_tittle" href="{!! route('users.posts.read',['post_slug' => $c->slug]) !!}">
+                <a class="slider_tittle" href="{!! $c->path() !!}">
                   {!! $c->title !!}
                 </a>
               </h2>
-              <p>{!! Illuminate\Support\Str::limit(strip_tags($c->content),200,'...') !!}
-                <a href="{!! route('users.posts.read',['post_slug' => $c->slug]) !!}" class="btn btn-black">Read More</a>
+              <p>{!! $c->excerpt !!} ...
+                <a href="{!! $c->path() !!}" class="btn btn-blue">Read More</a>
               </p>
             </div>
           </div>
-          @endforeach
+          @empty
+            <p>Sorry esteemed viewer, we are yet to publish articles!!</p>
+          @endforelse
           @endif
         </div>
       </div>
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="latest_post">
-          <h2><span>Latest news</span></h2>
-          <div class="latest_post_container">
-            <div id="prev-button"><i class="fa fa-chevron-up"></i></div>
-            <ul class="latest_postnav">
-              <li>
-                @foreach($allPostsSide as $arc)
-                <div class="media"> 
-                  <a href="{!! route('users.posts.read', ['post_slug' => $arc->slug]) !!}" class="media-left"> 
-                    <img alt="{!! $arc->title !!}" src="/storage/public/storage/{!! $arc->image !!}"/> 
-                  </a>
-                  <div class="media-body"> 
-                    <a href="{!! route('users.posts.read', ['post_slug' => $arc->slug]) !!}" class="catg_title">
-                      {!! $arc->title !!}
-                    </a> 
-                  </div>
-                </div>
-                @endforeach
-              </li>
-            </ul>
-            <div id="next-button"><i class="fa  fa-chevron-down"></i></div>
-          </div>
-        </div>
-      </div>
+      @include('partials.latest_posts')
     </div>
   </section>
   <section id="contentSection">
@@ -60,23 +38,23 @@
       <div class="col-lg-8 col-md-8 col-sm-8">
         <div class="left_content">
           <div class="single_post_content">
-            <h2><span>Politics</span></h2>
+            <h2><span>{!! $political->name !!}</span></h2>
             <div class="single_post_content_left">
               <ul class="business_catgnav  wow fadeInDown">
                 @if(!empty($politics))
                   @foreach($politics as $tic)
                 <li>
                   <figure class="bsbig_fig"> 
-                    <a href="{!! route('users.posts.read', ['post_slug' => $tic->slug]) !!}" class="featured_img"> 
-                      <img alt="{!! $tic->title !!}" src="/storage/public/storage/{!! $tic->image !!}"/> 
+                    <a href="{!! $tic->path() !!}" class="featured_img"> 
+                      <img src="{!! $tic->imageUrl() !!}" loading="lazy" alt="{!! $tic->title !!}"/> 
                       <span class="overlay"></span> 
                     </a>
                     <figcaption> 
-                      <a href="{!! route('users.posts.read', ['post_slug' => $tic->slug]) !!}">{!! $tic->title !!}</a> 
+                      <a href="{!! $tic->path() !!}">{!! $tic->title !!}</a> 
                     </figcaption>
                     <p>
-                      {!! Illuminate\Support\Str::limit(strip_tags($tic->content),200,'...') !!}
-                      <a href="{!! route('users.posts.read', ['post_slug' => $tic->slug]) !!}">Read More</a>
+                      {!! $tic->excerpt !!} ...
+                      <a href="{!! $tic->path() !!}" class="btn btn-link">Read More</a>
                     </p>
                   </figure>
                 </li>
@@ -90,11 +68,11 @@
                   @foreach($politicSides as $pu)
                 <li>
                   <div class="media wow fadeInDown"> 
-                    <a href="{!! route('users.posts.read', ['post_slug' => $pu->slug]) !!}" class="media-left"> 
-                      <img alt="{!! $pu->title !!}" src="/storage/public/storage/{!! $pu->image !!}"/> 
+                    <a href="{!! $pu->path() !!}" class="media-left"> 
+                      <img src="{!! $pu->imageUrl() !!}" loading="lazy" alt="{!! $pu->title !!}"/> 
                     </a>
                     <div class="media-body"> 
-                      <a href="{!! route('users.posts.read', ['post_slug' => $pu->slug]) !!}" class="catg_title">
+                      <a href="{!! $pu->path() !!}" class="catg_title">
                         {!! $pu->title !!}
                       </a> 
                     </div>
@@ -108,22 +86,22 @@
           <div class="fashion_technology_area">
             <div class="fashion">
               <div class="single_post_content">
-                <h2><span>Sports</span></h2>
+                <h2><span>{!! $spt->name !!}</span></h2>
                 <ul class="business_catgnav wow fadeInDown">
                   @if(!empty($sports))
                   @forelse($sports as $sp)
                   <li>
                     <figure class="bsbig_fig"> 
-                      <a href="{!! route('users.posts.read', ['post_slug' => $sp->slug]) !!}" class="featured_img"> 
-                        <img alt="{!! $sp->title !!}" src="/storage/public/storage/{!! $sp->image !!}"/> 
+                      <a href="{!! $sp->path() !!}" class="featured_img"> 
+                        <img src="{!! $sp->imageUrl() !!}" loading="lazy" alt="{!! $sp->title !!}"/> 
                         <span class="overlay"></span> 
                       </a>
                       <figcaption> 
-                        <a href="{!! route('users.posts.read', ['post_slug' => $sp->slug]) !!}">{!! $sp->title !!}</a> 
+                        <a href="{!! $sp->path() !!}">{!! $sp->title !!}</a> 
                       </figcaption>
                       <p>
-                        {!! Illuminate\Support\Str::limit(strip_tags($sp->content),200,'...') !!}
-                        <a href="{!! route('users.posts.read', ['post_slug' => $sp->slug]) !!}">Read More</a>
+                        {!! $sp->excerpt !!} ...
+                        <a href="{!! $sp->path() !!}" class="btn btn-link">Read More</a>
                       </p>
                     </figure>
                   </li>
@@ -132,18 +110,18 @@
                     Sorry Esteemed viewer, <i style="color: red">Sports News</i> has not been published.
                   </p>
                   @endforelse
-                @endif
+                  @endif
                 </ul>
                 <ul class="spost_nav">
                   @if(!empty($sportSides))
                   @foreach($sportSides as $sid)
                   <li>
                     <div class="media wow fadeInDown"> 
-                      <a href="{!! route('users.posts.read', ['post_slug' => $sid->slug]) !!}" class="media-left"> 
-                        <img alt="{!! $sid->title !!}" src="/storage/public/storage/{!! $sid->image !!}"/> 
+                      <a href="{!! $sid->path() !!}" class="media-left"> 
+                        <img src="{!! $sid->imageUrl() !!}" loading="lazy" alt="{!! $sid->title !!}"/> 
                       </a>
                       <div class="media-body"> 
-                        <a href="{!! route('users.posts.read', ['post_slug' => $sid->slug]) !!}" class="catg_title">
+                        <a href="{!! $sid->path() !!}" class="catg_title">
                           {!! $sid->title !!}
                         </a> 
                       </div>
@@ -156,50 +134,59 @@
             </div>
             <div class="technology">
               <div class="single_post_content">
-                <h2><span>Technology</span></h2>
+                <h2><span>{!! $techCart->name !!}</span></h2>
                 <ul class="business_catgnav">
+                  @if(!empty($techNews))
+                  @forelse($techNews as $tech)
                   <li>
-                    <figure class="bsbig_fig wow fadeInDown"> <a href="pages/single_page.html" class="featured_img"> <img alt="" src="images/featured_img3.jpg"> <span class="overlay"></span> </a>
-                      <figcaption> <a href="pages/single_page.html">Proin rhoncus consequat nisl eu ornare mauris</a> </figcaption>
-                      <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a phare...</p>
+                    <figure class="bsbig_fig wow fadeInDown"> 
+                      <a href="{!! $tech->path() !!}" class="featured_img"> 
+                        <img src="{!! $tech->imageUrl() !!}" alt="{!! $tech->title !!}"> <span class="overlay"></span> 
+                      </a>
+                      <figcaption> <a href="{!! $tech->path() !!}">{!! $tech->title !!}</a> </figcaption>
+                      <p>
+                        {!! $tech->excerpt !!} ... <a href="{!! $tech->path() !!}" class="btn btn-link">Read More</a>
+                      </p>
                     </figure>
                   </li>
+                  @empty
+                  <p style="margin-left: 20px;font-size: 20px;">
+                    Sorry Esteemed viewer, <i style="color: red">{!! $techCart->name !!} News</i> has not been published.
+                  </p>
+                  @endforelse
+                  @endif
                 </ul>
                 <ul class="spost_nav">
+                  @if(!empty($techSides))
+                  @foreach($techSides as $tecno)
                   <li>
-                    <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                      <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 1</a> </div>
+                    <div class="media wow fadeInDown"> 
+                      <a href="{!! $tech->path() !!}" class="media-left"> 
+                        <img src="{!! $tecno->imageUrl() !!}" alt="{!! $tecno->title !!}"> 
+                      </a>
+                      <div class="media-body"> 
+                        <a href="{!! $tecno->path() !!}" class="catg_title"> 
+                          {!! $tecno->title !!}
+                        </a> 
+                      </div>
                     </div>
                   </li>
-                  <li>
-                    <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
-                      <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 2</a> </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                      <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 3</a> </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
-                      <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 4</a> </div>
-                    </div>
-                  </li>
+                  @endforeach
+                  @endif
                 </ul>
               </div>
             </div>
           </div>
           <div class="single_post_content">
-            <h2><span>Santona Magazine</span></h2>
+            <h2><span>{!! $magazine->name !!}</span></h2>
             <ul class="photograph_nav  wow fadeInDown">
               @if(!empty($magazines))
               @forelse($magazines as $mag)
               <li>
                 <div class="photo_grid">
                   <figure class="effect-layla"> 
-                    <a class="fancybox-buttons" data-fancybox-group="button" href="images/photograph_img2.jpg" title="Photography Ttile 1"> 
-                      <img src="images/photograph_img2.jpg" alt=""/>
+                    <a class="fancybox-buttons" data-fancybox-group="button" href="{!! $mag->path() !!}" title="{!! $mag->title !!}"> 
+                      <img src="{!! $mag->imageUrl() !!}" loading="lazy" alt="{!! $mag->title !!}"/>
                     </a> 
                   </figure>
                 </div>
@@ -248,6 +235,58 @@
                 </li>
               </ul>
             </div>
+
+            <div class="single_post_content">
+            <h2><span>Videos</span></h2>
+            <div class="single_post_content_left">
+              <ul class="business_catgnav">
+                @if(!empty($videos))
+                @foreach($videos as $vx)
+                <li>
+                  <figure class="bsbig_fig  wow fadeInDown">  
+                      <video width="256" height="144" controls> 
+                        <source type="video/mp4" src="{!! $vx->videoUrl() !!}" alt="{!! $vx->title !!}">
+                        <source type="video/ogg" src="{!! $vx->videoUrl() !!}" alt="{!! $vx->title !!}"> 
+                        <source type="video/webm" src="{!! $vx->videoUrl() !!}" alt="{!! $vx->title !!}">
+                        This browser doesn't support video tag.
+                      </video>
+                      <figcaption>
+                        <a href="{!! $vx->path() !!}">
+                          {!! $vx->title !!}
+                        </a>
+                      </figcaption>
+                    <p>
+                      {!! $vx->excerpt !!} ...
+                      <a href="{!! $vx->path() !!}" class="btn btn-link">Read More</a>
+                    </p>
+                  </figure>
+                </li>
+                @endforeach
+                @endif
+              </ul>
+            </div>
+            <div class="single_post_content_right">
+              <ul class="spost_nav">
+                @foreach($videoSides as $sac)
+                <li>
+                  <div class="media wow fadeInDown"> 
+                    <video width="150" height="84.5" controls> 
+                      <source type="video/mp4" src = "{!! $sac->videoUrl() !!}" alt="{!! $sac->title !!}">
+                      <source type="video/ogg" src="{!! $sac->videoUrl() !!}" alt="{!! $sac->title !!}"> 
+                      <source type="video/webm" src="{!! $sac->videoUrl() !!}" alt="{!! $sac->title !!}">
+                      This browser doesn't support video tag.
+                    </video>
+                    <div class="media-body"> 
+                      <a href="{!! $sac->path() !!}" class="catg_title"> 
+                        {!! $sac->title !!}
+                      </a> 
+                    </div>
+                  </div>
+                </li>
+                @endforeach
+              </ul>
+            </div>
+          </div>
           </div>
           @include('user.posts.tags')
           @include('user.newsletter.newsletter')

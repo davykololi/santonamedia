@@ -35,4 +35,14 @@ class Tag extends Model
     {
     	return $this->belongsToMany('App\Models\Video','tag_video')->withTimestamps();
     }
+
+    public function path()
+    {
+        return route('post.tags', $this->slug);
+    }
+
+    public function videoPath()
+    {
+        return route('video.tags', $this->slug);
+    }
 }

@@ -11,7 +11,7 @@
                @forelse($adminPosts as $pic)
           <div class="single_iteam"> 
             <a href="{!! route('users.posts.read',['post_slug' => $pic->slug]) !!}"> 
-              <img src="/storage/public/storage/{!! $pic->image !!}" alt="{!! $pic->title !!}"/>
+              <img src="{!! $pic->imageUrl() !!}" alt="{!! $pic->title !!}"/>
             </a>
             <div class="slider_article">
               <h2>
@@ -20,7 +20,7 @@
                 </a>
               </h2>
               <p>
-                {!! Illuminate\Support\Str::limit(strip_tags($pic->content),200,'...') !!}
+                {!! $pic->excerpt !!} ...
                 <a href="{!! route('users.posts.read',['post_slug' => $pic->slug]) !!}"/>
                   <i style="color: lightblue;">Read More</i>
                 </a>
@@ -35,38 +35,7 @@
           @endif
         </div>
       </div>
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="latest_post">
-          <h2>
-            <span>
-              Latest {!! $admin->name !!}'s Articles 
-              <a href="{!! route('author.posts',['slug' => $admin->slug]) !!}">
-                <img style="width: 8%;margin: 10px;border-radius: 50%" src="/storage/public/storage/{!! $admin->image !!}" alt="{!! $admin->name !!}">
-              </a>
-            </span>
-          </h2>
-          <div class="latest_post_container">
-            <div id="prev-button"><i class="fa fa-chevron-up"></i></div>
-            <ul class="latest_postnav">
-              <li>
-                @foreach($adminPostsSide as $ar)
-                <div class="media"> 
-                  <a href="{!! route('users.posts.read', ['post_slug' => $ar->slug]) !!}" class="media-left"> 
-                    <img alt="{!! $ar->title !!}" src="/storage/public/storage/{!! $ar->image !!}"/> 
-                  </a>
-                  <div class="media-body"> 
-                    <a href="{!! route('users.posts.read', ['post_slug' => $ar->slug]) !!}" class="catg_title">
-                      {!! $ar->title !!}
-                    </a> 
-                  </div>
-                </div>
-                @endforeach
-              </li>
-            </ul>
-            <div id="next-button"><i class="fa  fa-chevron-down"></i></div>
-          </div>
-        </div>
-      </div>
+      @include('partials.aside_adminarticles')
     </div>
   </section>
   <section id="contentSection">
@@ -82,14 +51,14 @@
                 <li>
                   <figure class="bsbig_fig"> 
                     <a href="{!! route('users.posts.read', ['post_slug' => $pac->slug]) !!}" class="featured_img"> 
-                      <img alt="{!! $pac->title !!}" src="/storage/public/storage/{!! $pac->image !!}"/> 
+                      <img src="{!! $pac->imageUrl() !!}" alt="{!! $pac->title !!}"/> 
                       <span class="overlay"></span> 
                     </a>
                     <figcaption> 
                       <a href="{!! route('users.posts.read', ['post_slug' => $pac->slug]) !!}">{!! $pac->title !!}</a> 
                     </figcaption>
                     <p>
-                      {!! Illuminate\Support\Str::limit(strip_tags($pac->content),200,'...') !!}
+                      {!! $pac->excerpt !!} ...
                       <a href="{!! route('users.posts.read',['post_slug' => $pac->slug]) !!}">
                         <i style="color: lightblue;">Read More</i>
                       </a>
@@ -107,7 +76,7 @@
                 <li>
                   <div class="media wow fadeInDown"> 
                     <a href="{!! route('users.posts.read', ['post_slug' => $arcs->slug]) !!}" class="media-left"> 
-                      <img alt="{!! $arcs->title !!}" src="/storage/public/storage/{!! $arcs->image !!}"/> 
+                      <img src="{!! $arcs->imageUrl() !!}" alt="{!! $arcs->title !!}"/> 
                     </a>
                     <div class="media-body"> 
                       <a href="{!! route('users.posts.read', ['post_slug' => $arcs->slug]) !!}" class="catg_title">
@@ -122,7 +91,7 @@
             </div>
           </div> <!-- end of single post content -->
           <div class="single_post_content"> <!-- start of single post content -->
-            <h2><span>Politics News</span></h2>
+            <h2><span>{!! $politicsCart->name !!} News</span></h2>
             <div class="single_post_content_left">
               <ul class="business_catgnav">
                 @if(!empty($politicsNews))
@@ -130,14 +99,14 @@
                 <li>
                   <figure class="bsbig_fig  wow fadeInDown"> 
                     <a class="featured_img" href="{!! route('users.posts.read', ['post_slug' => $pol->slug]) !!}"> 
-                      <img src="/storage/public/storage/{!! $pol->image !!}" alt="{!! $pol->title !!}"> 
+                      <img src="{!! $pol->imageUrl() !!}" alt="{!! $pol->title !!}"> 
                       <span class="overlay"></span> 
                     </a>
                     <figcaption> 
                       <a href="{!! route('users.posts.read', ['post_slug' => $pol->slug]) !!}">{!! $pol->title !!}</a> 
                     </figcaption>
                     <p>
-                      {!! Illuminate\Support\Str::limit(strip_tags($pol->content),200,'...') !!}
+                      {!! $pol->excerpt !!} ...
                       <a href="{!! route('users.posts.read',['post_slug' => $pol->slug]) !!}">
                         <i style="color: lightblue;">Read More</i>
                       </a>
@@ -155,7 +124,7 @@
                 <li>
                   <div class="media wow fadeInDown"> 
                     <a href="{!! route('users.posts.read', ['post_slug' => $mas->slug]) !!}" class="media-left"> 
-                      <img alt="{!! $mas->title !!}" src="/storage/public/storage/{!! $mas->image !!}"/> 
+                      <img src="{!! $mas->imageUrl() !!}" alt="{!! $mas->title !!}"/> 
                     </a>
                     <div class="media-body"> 
                       <a href="{!! route('users.posts.read', ['post_slug' => $mas->slug]) !!}" class="catg_title">
@@ -170,7 +139,7 @@
             </div>
           </div> <!-- end of single post content -->
           <div class="single_post_content"> <!-- start of single post content -->
-            <h2><span>Sports News</span></h2>
+            <h2><span>{!! $sportsCart->name !!} News</span></h2>
             <div class="single_post_content_left">
               <ul class="business_catgnav">
                 @if(!empty($sportsNews))
@@ -178,14 +147,14 @@
                 <li>
                   <figure class="bsbig_fig  wow fadeInDown"> 
                     <a class="featured_img" href="{!! route('users.posts.read', ['post_slug' => $sp->slug]) !!}"> 
-                      <img src="/storage/public/storage/{!! $sp->image !!}" alt="{!! $sp->title !!}"> 
+                      <img src="{!! $sp->imageUrl() !!}" alt="{!! $sp->title !!}"> 
                       <span class="overlay"></span> 
                     </a>
                     <figcaption> 
                       <a href="{!! route('users.posts.read', ['post_slug' => $sp->slug]) !!}">{!! $sp->title !!}</a> 
                     </figcaption>
                     <p>
-                      {!! Illuminate\Support\Str::limit(strip_tags($sp->content),200,'...') !!}
+                      {!! $sp->excerpt !!} ...
                       <a href="{!! route('users.posts.read',['post_slug' => $sp->slug]) !!}">
                         <i style="color: lightblue;">Read More</i>
                       </a>
@@ -203,7 +172,7 @@
                 <li>
                   <div class="media wow fadeInDown"> 
                     <a href="{!! route('users.posts.read', ['post_slug' => $spac->slug]) !!}" class="media-left"> 
-                      <img alt="{!! $spac->title !!}" src="/storage/public/storage/{!! $spac->image !!}"> 
+                      <img src="{!! $spac->imageUrl() !!}" alt="{!! $spac->title !!}"/> 
                     </a>
                     <div class="media-body"> 
                       <a href="{!! route('users.posts.read', ['post_slug' => $spac->slug]) !!}" class="catg_title">

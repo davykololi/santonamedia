@@ -1,28 +1,27 @@
 <div class="col-lg-4 col-md-4 col-sm-4">
         <aside class="right_content">
           <div class="single_sidebar">
-            <h2><span>Popular Post</span></h2>
+            <h2><span>Popular Videos</span></h2>
             <ul class="spost_nav">
+              @if(!empty($trendings))
+              @foreach($trendings as $pop)
               <li>
-                <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="../images/post_img1.jpg"> </a>
-                  <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 1</a> </div>
+                <div class="media wow fadeInDown"> 
+                  <video width="150" height="84.5" controls>
+                    <source type="video/mp4" src="{!! $pop->videoUrl() !!}" alt="{!! $pop->title !!}">
+                    <source type="video/ogg" src="{!! $pop->videoUrl() !!}" alt="{!! $pop->title !!}">
+                    <source type="video/webm" src="{!! $pop->videoUrl() !!}" alt="{!! $pop->title !!}">
+                      This browser doesn't support video tag.
+                  </video>
+                  <div class="media-body"> 
+                    <a href="{!! $pop->path() !!}" class="catg_title"> 
+                      {!! $pop->title !!}
+                    </a> 
+                  </div>
                 </div>
               </li>
-              <li>
-                <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="../images/post_img2.jpg"> </a>
-                  <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 2</a> </div>
-                </div>
-              </li>
-              <li>
-                <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="../images/post_img1.jpg"> </a>
-                  <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 3</a> </div>
-                </div>
-              </li>
-              <li>
-                <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="../images/post_img2.jpg"> </a>
-                  <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 4</a> </div>
-                </div>
-              </li>
+              @endforeach
+              @endif
             </ul>
           </div>
           <div class="single_sidebar">
@@ -37,7 +36,7 @@
                   @if(!empty($categories))
                     @foreach($categories as $category)
                   <li class="cat-item">
-                    <a href="{!! route('category.videos',['slug' => $category->slug]) !!}">
+                    <a href="{!! $category->videoPath() !!}">
                       {!! $category->name !!}
                     </a>
                   </li>
@@ -81,18 +80,18 @@
             <a class="sideAdd" href="#"><img src="../images/add_img.jpg" alt=""></a> </div>
           <div class="single_sidebar wow fadeInDown">
             <h2><span>Category Archive</span></h2>
-            <ul class="catgArchive">
+            <select class="catgArchive">
               Select Category 
               @if(!empty($categories))
                 @foreach($categories as $category)
-              <li>
-                <a href="{!! route('category.videos',['slug' => $category->slug]) !!}">
+              <option>
+                <a href="{!! $category->videoPath() !!}">
                   {!! $category->name !!}
                 </a>
-              </li>
+              </option>
                 @endforeach
               @endif
-              </ul>
+              </select>
           </div>
           <div class="single_sidebar wow fadeInDown">
             <h2><span>Links</span></h2>
@@ -105,7 +104,7 @@
               @if(!empty($categories))
                 @foreach($categories as $category)
               <li>
-                <a href="{!! route('category.videos',['slug' => $category->slug]) !!}">{!! $category->name !!}</a></li>
+                <a href="{!! $category->videoPath() !!}">{!! $category->name !!}</a></li>
                 @endforeach
               @endif
             </ul>

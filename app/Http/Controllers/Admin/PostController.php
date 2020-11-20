@@ -34,7 +34,7 @@ class PostController extends Controller
     public function index()
     {
         //
-        $posts = Post::latest()->get();
+        $posts = auth()->user()->posts()->latest()->get();
 
         return view('admin.posts.index',['posts'=>$posts]);
     }
@@ -145,6 +145,7 @@ class PostController extends Controller
             $input['image'] = $fileNameToStore;
             $input['admin_id'] = Auth::id();
             $input['category_id'] = $request->category;
+            $input['is_published']  = $request->has('publish');
             $post->update($input);
             $tags = $request->tags;
             $post->tags()->sync($tags);
@@ -166,6 +167,7 @@ class PostController extends Controller
         if($post){
             Storage::delete('public/storage/'.$post->image);
             $post->delete();
+            $post->tags()->detach();
             
         return redirect()->route('admin.posts.index')->withSuccess('The post deleted successfully');
         }

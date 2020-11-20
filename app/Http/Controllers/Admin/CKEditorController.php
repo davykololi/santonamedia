@@ -10,25 +10,18 @@ class CKEditorController extends Controller
     public function upload(Request $request)
     {
         if($request->hasFile('upload')) {
-            //get filename with extension
-            $filenamewithextension = $request->file('upload')->getClientOriginalName();
-      
+            $file = $request->file('upload');
             //get filename without extension
-            $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+            $fileName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+
+            $fileName = $fileName.'-'.time().'.'.$file->getClientOriginalExtension();
       
-            //get file extension
-            $extension = $request->file('upload')->getClientOriginalExtension();
-      
-            //filename to store
-            $filenametostore = $filename.'_'.time().'.'.$extension;
-      
-            //Upload File
-            $request->file('upload')->storeAs('public/uploads', $filenametostore);
+            $file->move(public_path('uploads'),$fileName);
  
-            $CKEditorFuncNum = $request->input('CKEditorFuncNum');
-            $url = asset('storage/uploads/'.$filenametostore);
+            $ckeditor = $request->input('CKEditorFuncNum');
+            $url = asset('uploads/'.$fileName);
             $msg = 'Image successfully uploaded';
-            $re = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";
+            $re = "<script>window.parent.CKEDITOR.tools.callFunction($ckeditor, '$url', '$msg')</script>";
              
             // Render HTML output
             @header('Content-type: text/html; charset=utf-8');

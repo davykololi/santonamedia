@@ -10,18 +10,18 @@
           @if(!empty($tagPosts))
                @forelse($tagPosts as $pic)
           <div class="single_iteam"> 
-            <a href="{!! route('users.posts.read',['post_slug' => $pic->slug]) !!}"> 
-              <img src="/storage/public/storage/{!! $pic->image !!}" alt="{!! $pic->title !!}"/>
+            <a href="{!! $pic->path() !!}"> 
+              <img src="{!! $pic->imageUrl() !!}" alt="{!! $pic->title !!}"/>
             </a>
             <div class="slider_article">
               <h2>
-                <a class="slider_tittle" href="{!! route('users.posts.read',['post_slug' => $pic->slug]) !!}">
+                <a class="slider_tittle" href="{!! $pic->path() !!}">
                   {!! $pic->title !!}
                 </a>
               </h2>
               <p>
-                {!! Illuminate\Support\Str::limit(strip_tags($pic->content),200,'...') !!}
-                <a href="{!! route('users.posts.read',['post_slug' => $pic->slug]) !!}"/>
+                {!! $pic->excerpt !!} ...
+                <a href="{!! $pic->path() !!}">
                   <i style="color: lightblue;">Read More</i>
                 </a>
               </p>
@@ -44,11 +44,11 @@
               <li>
                 @foreach($tagPostsSide as $ar)
                 <div class="media"> 
-                  <a href="{!! route('users.posts.read', ['post_slug' => $ar->slug]) !!}" class="media-left"> 
-                    <img alt="{!! $ar->title !!}" src="/storage/public/storage/{!! $ar->image !!}"/> 
+                  <a href="{!! $ar->path() !!}" class="media-left"> 
+                    <img src="{!! $ar->imageUrl() !!}" alt="{!! $ar->title !!}"/> 
                   </a>
                   <div class="media-body"> 
-                    <a href="{!! route('users.posts.read', ['post_slug' => $ar->slug]) !!}" class="catg_title">
+                    <a href="{!! $ar->path() !!}" class="catg_title">
                       {!! $ar->title !!}
                     </a> 
                   </div>
@@ -74,16 +74,16 @@
                   @foreach($allPosts as $pac)
                 <li>
                   <figure class="bsbig_fig"> 
-                    <a href="{!! route('users.posts.read', ['post_slug' => $pac->slug]) !!}" class="featured_img"> 
-                      <img alt="{!! $pac->title !!}" src="/storage/public/storage/{!! $pac->image !!}"/> 
+                    <a href="{!! $pac->path() !!}" class="featured_img"> 
+                      <img src="{!! $pac->imageUrl() !!}" alt="{!! $pac->title !!}"/> 
                       <span class="overlay"></span> 
                     </a>
                     <figcaption> 
-                      <a href="{!! route('users.posts.read', ['post_slug' => $pac->slug]) !!}">{!! $pac->title !!}</a> 
+                      <a href="{!! $pac->path() !!}">{!! $pac->title !!}</a> 
                     </figcaption>
                     <p>
-                      {!! Illuminate\Support\Str::limit(strip_tags($pac->content),200,'...') !!}
-                      <a href="{!! route('users.posts.read',['post_slug' => $pac->slug]) !!}">
+                      {!! $pac->excerpt !!} ...
+                      <a href="{!! $pac->path() !!}">
                         <i style="color: lightblue;">Read More</i>
                       </a>
                     </p>
@@ -99,11 +99,11 @@
                   @foreach($allpostSides as $arcs)
                 <li>
                   <div class="media wow fadeInDown"> 
-                    <a href="{!! route('users.posts.read', ['post_slug' => $arcs->slug]) !!}" class="media-left"> 
-                      <img alt="{!! $arcs->title !!}" src="/storage/public/storage/{!! $arcs->image !!}"/> 
+                    <a href="{!! $arcs->path() !!}" class="media-left"> 
+                      <img src="{!! $arcs->imageUrl() !!}" alt="{!! $arcs->title !!}"/> 
                     </a>
                     <div class="media-body"> 
-                      <a href="{!! route('users.posts.read', ['post_slug' => $arcs->slug]) !!}" class="catg_title">
+                      <a href="{!! $arcs->path() !!}" class="catg_title">
                         {!! $arcs->title !!}
                       </a> 
                     </div>
@@ -115,23 +115,23 @@
             </div>
           </div> <!-- end of single post content -->
           <div class="single_post_content"> <!-- start of single post content -->
-            <h2><span>Politics News</span></h2>
+            <h2><span>{{$politicsCart->name}} News</span></h2>
             <div class="single_post_content_left">
               <ul class="business_catgnav">
                 @if(!empty($politicsNews))
                   @foreach($politicsNews as $pol)
                 <li>
                   <figure class="bsbig_fig  wow fadeInDown"> 
-                    <a class="featured_img" href="{!! route('users.posts.read', ['post_slug' => $pol->slug]) !!}"> 
-                      <img src="/storage/public/storage/{!! $pol->image !!}" alt="{!! $pol->title !!}"> 
+                    <a class="featured_img" href="{!! $pol->path() !!}"> 
+                      <img src="{!! $pol->imageUrl() !!}" alt="{!! $pol->title !!}"> 
                       <span class="overlay"></span> 
                     </a>
                     <figcaption> 
-                      <a href="{!! route('users.posts.read', ['post_slug' => $pol->slug]) !!}">{!! $pol->title !!}</a> 
+                      <a href="{!! $pol->path() !!}">{!! $pol->title !!}</a> 
                     </figcaption>
                     <p>
-                      {!! Illuminate\Support\Str::limit(strip_tags($pol->content),200,'...') !!}
-                      <a href="{!! route('users.posts.read',['post_slug' => $pol->slug]) !!}">
+                      {!! $pol->excerpt !!} ...
+                      <a href="{!! $pol->path() !!}">
                         <i style="color: lightblue;">Read More</i>
                       </a>
                     </p>
@@ -147,11 +147,11 @@
                   @foreach($politicSides as $mas)
                 <li>
                   <div class="media wow fadeInDown"> 
-                    <a href="{!! route('users.posts.read', ['post_slug' => $mas->slug]) !!}" class="media-left"> 
-                      <img alt="{!! $mas->title !!}" src="/storage/public/storage/{!! $mas->image !!}"/> 
+                    <a href="{!! $mas->path() !!}" class="media-left"> 
+                      <img src="{!! $mas->imageUrl() !!}" alt="{!! $mas->title !!}"/> 
                     </a>
                     <div class="media-body"> 
-                      <a href="{!! route('users.posts.read', ['post_slug' => $mas->slug]) !!}" class="catg_title">
+                      <a href="{!! $mas->path() !!}" class="catg_title">
                         {!! $mas->title !!}
                       </a> 
                     </div>
@@ -163,23 +163,23 @@
             </div>
           </div> <!-- end of single post content -->
           <div class="single_post_content"> <!-- start of single post content -->
-            <h2><span>Sports News</span></h2>
+            <h2><span>{{$sportsCart->name}} News</span></h2>
             <div class="single_post_content_left">
               <ul class="business_catgnav">
                 @if(!empty($sportsNews))
                   @foreach($sportsNews as $sp)
                 <li>
                   <figure class="bsbig_fig  wow fadeInDown"> 
-                    <a class="featured_img" href="{!! route('users.posts.read', ['post_slug' => $sp->slug]) !!}"> 
-                      <img src="/storage/public/storage/{!! $sp->image !!}" alt="{!! $sp->title !!}"> 
+                    <a class="featured_img" href="{!! $sp->path() !!}"> 
+                      <img src="{!! $sp->imageUrl() !!}" alt="{!! $sp->title !!}"> 
                       <span class="overlay"></span> 
                     </a>
                     <figcaption> 
-                      <a href="{!! route('users.posts.read', ['post_slug' => $sp->slug]) !!}">{!! $sp->title !!}</a> 
+                      <a href="{!! $sp->path() !!}">{!! $sp->title !!}</a> 
                     </figcaption>
                     <p>
-                      {!! Illuminate\Support\Str::limit(strip_tags($sp->content),200,'...') !!}
-                      <a href="{!! route('users.posts.read',['post_slug' => $sp->slug]) !!}">
+                      {!! $sp->excerpt !!} ...
+                      <a href="{!! $sp->path() !!}">
                         <i style="color: lightblue;">Read More</i>
                       </a>
                     </p>
@@ -195,11 +195,11 @@
                   @foreach($spSides as $spac)
                 <li>
                   <div class="media wow fadeInDown"> 
-                    <a href="{!! route('users.posts.read', ['post_slug' => $spac->slug]) !!}" class="media-left"> 
-                      <img alt="{!! $spac->title !!}" src="/storage/public/storage/{!! $spac->image !!}"> 
+                    <a href="{!! $spac->path() !!}" class="media-left"> 
+                      <img src="{!! $spac->imageUrl() !!}" alt="{!! $spac->title !!}"/> 
                     </a>
                     <div class="media-body"> 
-                      <a href="{!! route('users.posts.read', ['post_slug' => $spac->slug]) !!}" class="catg_title">
+                      <a href="{!! $spac->path() !!}" class="catg_title">
                         {!! $spac->title !!}
                       </a> 
                     </div>

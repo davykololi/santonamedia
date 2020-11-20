@@ -22,6 +22,7 @@ h1, h2, h3, h4, h5, h6{font-family:'Oswald',sans-serif}
 h2{line-height:23px;}
 img{border:none;}
 img:hover{opacity:0.75;}
+video{max-width: 100%;max-height: 100%;}
 
 .font{
 	font-family: Arial Black;
@@ -42,7 +43,7 @@ img:hover{opacity:0.75;}
 	color: white;
 }
 #main{
-	margin-top: 50px;
+	margin-top: 0;
 	background-color: #F5F5DC;
 	width: auto;
 	height: 100%;
@@ -302,6 +303,7 @@ h2 .post-link:hover{
 .share{
 	text-align: center;
 }
+
 
 
 

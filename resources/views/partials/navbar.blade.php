@@ -11,18 +11,17 @@
             <ul class="dropdown-menu" role="menu">
               @if(!empty($navs))
                 @foreach($navs as $category)
-              <li><a href="{{route('category.articles',['slug' => $category->slug])}}">{{ $category->name }}</a></li>
+              <li><a href="{!! $category->path() !!}">{{ $category->name }}</a></li>
                 @endforeach
               @endif
             </ul>
           </li>
-            
 
           <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Videos</a>
             <ul class="dropdown-menu" role="menu">
               @if(!empty($navs))
                 @foreach($navs as $category)
-              <li><a href="{{route('category.videos',['slug' => $category->slug])}}">{{ $category->name }}</a></li>
+              <li><a href="{!! $category->videoPath() !!}">{{ $category->name }}</a></li>
                 @endforeach
               @endif
             </ul>
@@ -32,7 +31,7 @@
             <ul class="dropdown-menu" role="menu">
               @if(!empty($tags))
                 @foreach($tags as $tag)
-              <li><a href="{{route('post.tags',['slug' => $tag->slug])}}">{{ $tag->name }}</a></li>
+              <li><a href="{!! $tag->path() !!}">{{ $tag->name }}</a></li>
                 @endforeach
               @endif
             </ul>
@@ -42,7 +41,7 @@
             <ul class="dropdown-menu" role="menu">
               @if(!empty($tags))
                 @foreach($tags as $tag)
-              <li><a href="{{route('video.tags',['slug' => $tag->slug])}}">{{ $tag->name }}</a></li>
+              <li><a href="{!! $tag->videoPath() !!}">{{ $tag->name }}</a></li>
                 @endforeach
               @endif
             </ul>

@@ -3,8 +3,7 @@
 
 @section('content')
 <main role="main" class="container" id="main">
-    <br/>
-    <div class="row">
+<div class="row">
     <div class="col-md-12 margin-tb">
         <div class="pull-left">
             <h3 class="titles">VIDEO DETAILS</h3>
@@ -31,7 +30,7 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <video width="320" height="240" controls> 
-                <source type="video/mp4" src="/storage/public/videos/{!! $video->video !!}">
+                <source type="video/mp4" src="{!! $video->videoUrl() !!}" alt="{!! $video->title !!}"/>
                     This browser doesn't support video tag.
             </video>
         </div>
@@ -40,6 +39,12 @@
         <div class="form-group">
             <strong>Name:</strong>
             {!! $video->caption !!}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Description:</strong>
+            {!! $video->description !!}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">

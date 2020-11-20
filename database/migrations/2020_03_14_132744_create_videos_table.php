@@ -15,18 +15,18 @@ class CreateVideosTable extends Migration
     {
         Schema::create('videos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('slug')->unique();
-            $table->string('title');
+            $table->string('slug',200)->unique();
+            $table->string('title',100);
             $table->string('video');
-            $table->string('summary');
             $table->string('caption', 100);
-            $table->text('content');
-            $table->text('description');
+            $table->text('content',2000);
+            $table->text('description',200);
             $table->text('keywords');
+            $table->boolean('is_published')->default(false);
             $table->bigInteger('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->bigInteger('admin_id')->unsigned()->index()->default();
-            $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
+            $table->foreign('admin_id')->references('id')->on('admins');
             $table->timestamps();
         });
     }

@@ -12,10 +12,9 @@ class Post extends Model implements Feedable
 {
     //
     use Sluggable,Searchable;
-
     protected $table = 'posts';
-    protected $fillable = ['title','image','caption','summary','content','description','keywords','admin_id','category_id'];
-    protected $appends = ['createdDate'];
+    protected $fillable = ['title','image','caption','content','description','keywords','is_published','admin_id','category_id','slug'];
+    protected $appends = ['createdDate','excerpt','image_url'];
 
     public function sluggable()
     {
@@ -47,7 +46,7 @@ class Post extends Model implements Feedable
 
     public function comments()
     {
-    return $this->hasMany('App\Models\Comment','post_id','id');
+    return $this->morphMany('App\Models\Comment','commentable');
     }
 
     public function category()
@@ -70,12 +69,12 @@ class Post extends Model implements Feedable
         return $this->belongsToMany('App\Models\Tag','post_tag')->withTimestamps();
     }
 
-    public function toFeedItem()
+    public function toFeedItem():FeedItem
     {
         return FeedItem::create([
                 'id'=>$this->id,
                 'title'=>$this->title,
-                'summary'=>$this->summary,
+                'summary'=>$this->description,
                 'updated'=>$this->updated_at,
                 'link'=>route('users.posts.read',$this->slug),
                 'author'=>$this->admin->name,
@@ -85,5 +84,30 @@ class Post extends Model implements Feedable
     public static function getFeedItems()
     {
         return Post::orderBy('created_at','desc')->limit(50)->get();
+    }
+
+    public function getExcerptAttribute()
+    {
+        return substr(strip_tags($this->content),0,100);
+    }
+
+    public function scopePublished($query)
+    {
+        return $query->where('is_published', true);
+    }
+
+    public function scopeDrafted($query)
+    {
+        return $query->where('is_published', false);
+    }
+
+    public function path()
+    {
+        return route('users.posts.read', $this->slug);
+    }
+
+    public function imageUrl()
+    {
+        return url('/storage/public/storage/'.$this->image);
     }
 }

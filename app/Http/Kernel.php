@@ -42,6 +42,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \Spatie\ResponseCache\Middlewares\CacheResponse::class,
         ],
 
         'api' => [
@@ -68,7 +69,8 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'prevent-back-history' => \App\Http\Middleware\PreventBackHistory::class,
-        'HtmlMinifier' => \App\Http\Middleware\HtmlMinifier::class
+        'HtmlMinifier' => \App\Http\Middleware\HtmlMinifier::class,
+        'doNotCacheResponse' => \Spatie\ResponseCache\Middlewares\doNotCacheResponse::class,
     ];
 
     /**

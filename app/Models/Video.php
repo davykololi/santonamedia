@@ -2,18 +2,19 @@
 
 namespace App\Models;
 
+use Spatie\Feed\Feedable;
+use Spatie\Feed\FeedItem;
 use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 
-class Video extends Model
+class Video extends Model implements Feedable
 {
     //
     use Sluggable,Searchable;
-
     protected $table = 'videos';
-    protected $fillable = ['title','video','caption','content','summary','description','keywords','admin_id','category_id'];
-    protected $appends = ['createdDate'];
+    protected $fillable = ['title','video','caption','content','description','keywords','is_published','admin_id','category_id'];
+    protected $appends = ['createdDate','excerpt'];
 
     public function sluggable()
     {
@@ -45,7 +46,7 @@ class Video extends Model
 
     public function comments()
     {
-    return $this->hasMany('App\Models\Comment','video_id','id');
+    return $this->morphMany('App\Models\Comment','commentable');
     }
 
     public function category()
@@ -66,5 +67,47 @@ class Video extends Model
     public function tags()
     {
         return $this->belongsToMany('App\Models\Tag','tag_video')->withTimestamps();
+    }
+
+    public function toFeedItem():FeedItem
+    {
+        return FeedItem::create([
+                'id'=>$this->id,
+                'title'=>$this->title,
+                'summary'=>$this->description,
+                'updated'=>$this->updated_at,
+                'link'=>route('users.videos.read',$this->slug),
+                'author'=>$this->admin->name,
+                ]);
+    }
+
+    public static function getFeedItems()
+    {
+        return Video::orderBy('created_at','desc')->limit(50)->get();
+    }
+
+    public function getExcerptAttribute()
+    {
+        return substr(strip_tags($this->content),0,100);
+    }
+
+    public function scopePublished($query)
+    {
+        return $query->where('is_published', true);
+    }
+
+    public function scopeDrafted($query)
+    {
+        return $query->where('is_published', false);
+    }
+
+    public function path()
+    {
+        return route('users.videos.read', $this->slug);
+    }
+
+    public function videoUrl()
+    {
+        return url('/storage/public/videos/'.$this->video);
     }
 }

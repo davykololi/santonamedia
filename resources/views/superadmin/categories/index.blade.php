@@ -51,7 +51,7 @@
                                 <a href="{!! route('superadmin.categories.edit', $category->id) !!}" class="label label-warning">
                                 Edit
                                 </a>
-                                <a href="{!! route('superadmin.categories.delete', $category->id) !!}" class="label label-danger" onclick="return confirm('Are you sure to delete?')">
+                                <a href="{!! route('superadmin.categories.delete', $category->id) !!}" class="label label-danger" onclick="return confirm('Are you sure to delete {!! $category->name !!}?')">
                                 Delete
                                 </a>
                             </td>

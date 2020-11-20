@@ -13,6 +13,12 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
+                    <a class="nav-link" href="{{route('posts.index')}}">POSTS</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{route('videos.index')}}">VIDEOS</a>
+                </li>
+                <li class="nav-item active">
                     <a class="nav-link" href="{{route('admins.index')}}">ADMINS</a>
                 </li>
                 <li class="nav-item active">
@@ -43,7 +49,6 @@
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         <span>{{ Auth::user()->name }}</span>
                     </a>
-
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();

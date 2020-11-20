@@ -23,7 +23,7 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <img style="width: 15%" src="/storage/public/storage/{!! $admin->image !!}" alt="{!! $admin->name !!}">
+            <img style="width: 15%" src="{!! $admin->imageUrl() !!}" alt="{!! $admin->name !!}">
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">

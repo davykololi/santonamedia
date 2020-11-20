@@ -42,28 +42,29 @@ class PageController extends Controller
         $categories = Category::with('posts')->get();
 
         foreach($categories as $category){
-        $categoryPosts = $category->posts;
-        $allPosts = Post::with('category','admin')->latest()->get();
-        $allPostsSide = Post::latest()->limit(5)->get();
+        $categoryPosts = $category->posts()->with('admin','category')->published()->get();
+        $allPosts = Post::with('category','admin')->published()->latest()->get();
+        $allPostsSide = Post::latest()->published()->take(5)->get();
         $tags = Tag::with('posts')->get();
 
         $title = 'Contact Us';
         $desc = 'Santona Media News Contact Page';
+        $url = URL::current();
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
-        SEOMeta::setKeywords('Contact,Us');
-        SEOMeta::setCanonical(URL::current());
+        SEOMeta::setKeywords('contact us');
+        SEOMeta::setCanonical($url);
 
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
-        OpenGraph::setUrl(URL::current());
+        OpenGraph::setUrl($url);
         OpenGraph::addProperty('type','ContactPage');
 
         TwitterCard::setTitle($title);
         TwitterCard::setSite('@santonamedia');
         TwitterCard::setDescription($desc);
-        TwitterCard::setUrl(URL::current());
+        TwitterCard::setUrl($url);
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
@@ -72,7 +73,7 @@ class PageController extends Controller
         $contact = Schema::ContactPage()
                 ->name($title)
                 ->description($desc)
-                ->url(URL::current())
+                ->url($url)
                 ->logo("https://santonamedia.com/static/logo.jpg")
                 ->sameAS("http://www.santonamedia.com")
                 ->contactPoint([Schema::ContactPoint()
@@ -113,29 +114,30 @@ class PageController extends Controller
         $categories = Category::with('posts')->get();
 
         foreach($categories as $category){
-        $categoryPosts = $category->posts;
-        $allPosts = Post::with('category','admin')->latest()->get();
-        $allPostsSide = Post::latest()->limit(5)->get();
+        $categoryPosts = $category->posts()->with('admin','category','user')->withCount('comments')->published()->get();
+        $allPosts = Post::with('category','admin','user')->withCount('comments')->published()->latest()->get();
+        $allPostsSide = Post::latest()->published()->take(5)->get();
         $tags = Tag::with('posts')->get();
 
         $title = 'About Us';
         $desc = 'The media house for the latest breaking news in Kenya and around the world';
         $image = 'https://santonamedia.com/static/david.jpg';
+        $url = URL::current();
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
-        SEOMeta::setKeywords('Santona Media, Media House, Latest breaking news, About Us, News in Kenya, Around the world');
-        SEOMeta::setCanonical(URL::current());
+        SEOMeta::setKeywords('about us');
+        SEOMeta::setCanonical($url);
 
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
-        OpenGraph::setUrl(URL::current());
+        OpenGraph::setUrl($url);
         OpenGraph::addProperty('type','Organization');
 
         TwitterCard::setTitle($title);
         TwitterCard::setSite('@santonamedia');
         TwitterCard::setDescription($desc);
-        TwitterCard::setUrl(URL::current());
+        TwitterCard::setUrl($url);
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
@@ -146,7 +148,7 @@ class PageController extends Controller
                 ->name($title)
                 ->description($desc)
                 ->email('santonamedia79@gmail.com')
-                ->url(URL::current())
+                ->url($url)
                 ->sameAS("http://www.santonamedia.com")
                 ->logo("https://santonamedia.com/static/logo.jpg");
         echo $aboutUs->toScript();
@@ -168,38 +170,39 @@ class PageController extends Controller
         $categories = Category::with('posts')->get();
 
         foreach($categories as $category){
-        $categoryPosts = $category->posts;
-        $allPosts = Post::with('category','admin')->latest()->get();
-        $allPostsSide = Post::latest()->limit(5)->get();
+        $categoryPosts = $category->posts()->with('admin','category','user')->withCount('comments')->published()->get();
+        $allPosts = Post::with('category','admin','user')->withCount('comments')->published()->latest()->get();
+        $allPostsSide = Post::latest()->published()->take(5)->get();
         $tags = Tag::with('posts')->get();
 
         $title = 'Private Policy';
         $desc = 'Santona Media Private Policy Statement';
+        $url = URL::current();
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
-        SEOMeta::setKeywords('Santona Media, Private Policy Statement');
-        SEOMeta::setCanonical(URL::current());
+        SEOMeta::setKeywords('private policy statement');
+        SEOMeta::setCanonical($url);
 
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
-        OpenGraph::setUrl(URL::current());
+        OpenGraph::setUrl($url);
         OpenGraph::addProperty('type','PrivatePolicy');
 
         TwitterCard::setTitle($title);
         TwitterCard::setSite('@santonamedia');
         TwitterCard::setDescription($desc);
-        TwitterCard::setUrl(URL::current());
+        TwitterCard::setUrl($url);
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
         JsonLd::setType('PrivatePolicy');
 
-        $privatePolicy = Schema::Policy()
+        $privatePolicy = Schema::WebPage()
                 ->name($title)
                 ->description($desc)
                 ->email('santonamedia79@gmail.com')
-                ->url(URL::current())
+                ->url($url)
                 ->sameAS("http://www.santonamedia.com")
                 ->logo("https://santonamedia.com/static/logo.jpg");
         echo $privatePolicy->toScript();
@@ -221,38 +224,39 @@ class PageController extends Controller
         $categories = Category::with('posts')->get();
 
         foreach($categories as $category){
-        $categoryPosts = $category->posts;
-        $allPosts = Post::with('category','admin')->latest()->get();
-        $allPostsSide = Post::latest()->limit(5)->get();
+        $categoryPosts = $category->posts()->with('admin','category','user')->withCount('comments')->published()->get();
+        $allPosts = Post::with('category','admin','user')->withCount('comments')->published()->latest()->get();
+        $allPostsSide = Post::latest()->published()->take(5)->get();
         $tags = Tag::with('posts')->get();
 
         $title = 'Portfolio';
         $desc = 'Santona Media Portfolio Page';
+        $url = URL::current();
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
-        SEOMeta::setKeywords('Santona Media, Portfolio');
-        SEOMeta::setCanonical(URL::current());
+        SEOMeta::setKeywords('our portfolio');
+        SEOMeta::setCanonical($url);
 
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
-        OpenGraph::setUrl(URL::current());
+        OpenGraph::setUrl($url);
         OpenGraph::addProperty('type','Portfolio');
 
         TwitterCard::setTitle($title);
         TwitterCard::setSite('@santonamedia');
         TwitterCard::setDescription($desc);
-        TwitterCard::setUrl(URL::current());
+        TwitterCard::setUrl($url);
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
         JsonLd::setType('Portfolio');
 
-        $portfolio = Schema::Portfolio()
+        $portfolio = Schema::WebPage()
                 ->name($title)
                 ->description($desc)
                 ->email('santonamedia79@gmail.com')
-                ->url(URL::current())
+                ->url($url)
                 ->sameAS("http://www.santonamedia.com")
                 ->logo("https://santonamedia.com/static/logo.jpg");
         echo $portfolio->toScript();

@@ -22,34 +22,28 @@
                     @include('partials.cmdhead')
                     <!-- Table Body -->
                     <tbody>
+                    @if(!empty($comments))
                     @foreach($comments as $comment)
                         <tr>
                             <td class="table-text">
                                 <div>{!! $comment->user->name !!}</div>
                             </td>
                             <td class="table-text">
-                                <div>{!! $comment->category->name !!}</div>
-                            </td>
-                            <td class="table-text">
                                 <div>{!! $comment->content !!}</div>
                             </td>
                             <td class="table-text">
-                                @foreach($comment->category->posts as $post)
-                                <div>{!! $post->title !!}</div>
-                                @endforeach
-                                @foreach($comment->category->videos as $video)
-                                <div>{!! $video->title !!}</div>
-                                @endforeach
+                                <div>{!! $comment->commentable->title !!}</div>
                             </td>
                             <td class="table-text">
                                 <div>{!! $comment->created_date !!}</div>
                             </td>
                             <td>
                                 <a href="{!! route('superadmin.comments.index', $comment->id) !!}" class="label label-success">Details</a>
-                                <a href="{!! route('superadmin.comments.delete', $comment->id) !!}" class="label label-danger" onclick="return confirm('Are you sure to delete?')">Delete</a>
+                                <a href="{!! route('superadmin.comments.delete', $comment->id) !!}" class="label label-danger" onclick="return confirm('Are you sure to delete {!! $comment->content !!}?')">Delete</a>
                             </td>
                         </tr>
                     @endforeach
+                    @endif
                     </tbody>
                 </table>
             </div>

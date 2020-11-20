@@ -6,35 +6,51 @@
   <section id="sliderSection">
     <div class="row">
       <div class="col-lg-8 col-md-8 col-sm-8">
-        <div class="slick">
-          @if(!empty($tagVideos))
-               @forelse($tagVideos as $kc)
-          <div class="single_iteam">
-            <figure>
-                <video width="512" height="288" controls> 
-                  <source type="video/mp4" src = "/storage/public/videos/{!! $kc->video !!}" alt="{!! $kc->title !!}">
-                  <source type="video/ogg" src="/storage/public/videos/{!! $kc->video !!}" alt="{!! $kc->title !!}"> 
-                  <source type="video/webm" src="/storage/public/videos/{!! $kc->video !!}" alt="{!! $kc->title !!}"> 
-                  This browser doesn't support video tag.
-                </video>
-                <figcaption class="figcaption"> {!! $kc->title !!} </figcaption>
-              </figure>
-              <br/>
-            <div>
-              <p>
-                {!! Str::limit($kc->content,$limit=30,$end= '...') !!}
-                <a href="{!! route('users.videos.read',['video_slug' => $kc->slug]) !!}" class="btn btn-black">Read More</a>
-              </p>
+        <div class="left_content">
+        	<div class="articles_page">
+          	@if(!empty($tagVideos))
+          	@forelse($tagVideos as $kc)
+          	<h2 style="text-transform: uppercase;"><a href="{!! $kc->path() !!}">{{$kc->title}}</a></h2>
+            <div class="post_commentbox" style="margin-bottom: 15px"> 
+              <a href="{!! $kc->path() !!}">
+                <i class="fa fa-user"></i>Wpfreeware
+              </a> 
+              <span><i class="fa fa-calendar"></i>Posted On: {!! $kc->created_at->toDayDateTimeString() !!}</span> 
+              <a href="{!! $kc->category->path() !!}"><i class="fa fa-tags"></i>
+                {!! $kc->category->name !!}
+              </a> 
+              <span>Article By:</span>
+              <a href="{!! $kc->admin->videoPath() !!}">
+                <span style="margin: 5px;color: #696969"> 
+                  <b>{!! $kc->admin->name !!}</b>
+                </span>
+              </a>  
             </div>
-          </div>
+          <figure>
+            <video width="512" height="288" controls> 
+              <source type="video/mp4" src="{!! $kc->videoUrl() !!}" alt="{!! $kc->title !!}">
+              <source type="video/ogg" src="{!! $kc->videoUrl() !!}" alt="{!! $kc->title !!}"> 
+              <source type="video/webm" src="{!! $kc->videoUrl() !!}" alt="{!! $kc->title !!}"> 
+              This browser doesn't support video tag.
+            </video>
+            <figcaption class="figcaption"> <b>{!! $kc->caption !!}</b> </figcaption>
+          </figure>
+          <br/>
+          <p>
+            {!! $kc->excerpt !!} ...
+            <a href="{!! $kc->path() !!}">
+              <i style="color: lightblue;">Read More</i>
+            </a>
+          </p>
           @empty
-            <p style="color: blue;font-size: 20px">Sorry esteemed viewer, We are yet to post 
+          <p style="color: blue;font-size: 20px">Sorry esteemed viewer, We are yet to post 
             <span style="color: red;margin: 5px"> {!! $tag->name !!} Videos</span>
           </p>
           @endforelse
           @endif
-        </div>
-      </div>
+      	</div>
+        </div><!--end of left-content -->
+      </div><!--end of col -->
       <div class="col-lg-4 col-md-4 col-sm-4">
         <div class="latest_post">
           <h2><span>Latest {!! $tag->name !!} Videos</span></h2>
@@ -45,15 +61,15 @@
                 @foreach($tagVidSides as $py)
                 <div class="media">
                   <figure>
-                <video width="150" height="84.5" controls poster="{!! asset('/static/lion.JPG') !!}"> 
-                  <source type="video/mp4" src = "/storage/public/videos/{!! $py->video !!}" alt="{!! $py->title !!}">
-                  <source type="video/ogg" src="/storage/public/videos/{!! $py->video !!}" alt="{!! $py->title !!}">     
-                  <source type="video/webm" src="/storage/public/videos/{!! $py->video !!}" alt="{!! $py->title !!}"> 
-                  This browser doesn't support video tag.
-                </video>
-              </figure>
+                    <video width="150" height="84.5" controls> 
+                      <source type="video/mp4" src="{!! $py->videoUrl() !!}" alt="{!! $py->title !!}">
+                      <source type="video/ogg" src="{!! $py->videoUrl() !!}" alt="{!! $py->title !!}">     
+                      <source type="video/webm" src="{!! $py->videoUrl() !!}" alt="{!! $py->title !!}"> 
+                      This browser doesn't support video tag.
+                    </video>
+                  </figure>
                   <div class="media-body"> 
-                    <a href="{!! route('users.videos.read', ['video_slug' => $py->slug]) !!}" class="catg_title">
+                    <a href="{!! $py->path() !!}" class="catg_title">
                       {!! $py->title !!}
                     </a> 
                   </div>
@@ -80,14 +96,20 @@
                 <li>
                   <figure class="bsbig_fig">
                     <figure>
-                      <video width="300" height="169" controls poster="{!! asset('/static/lion.JPG') !!}"> 
-                        <source type="video/mp4" src = "/storage/public/videos/{!! $video->video !!}" alt="{ !!$video->title !!}">
-                        <source type="video/ogg" src="/storage/public/videos/{!! $video->video !!}" alt="{!! $video->title !!}">   
-                        <source type="video/webm" src="/storage/public/videos/{!! $video->video !!}" alt="{!!$video->title!!}"> 
+                      <video width="300" height="169" controls> 
+                        <source type="video/mp4" src="{!! $video->videoUrl() !!}" alt="{ !!$video->title !!}">
+                        <source type="video/ogg" src="{!! $video->videoUrl() !!}" alt="{!! $video->title !!}">   
+                        <source type="video/webm" src="{!! $video->videoUrl() !!}" alt="{!!$video->title!!}"> 
                         This browser doesn't support video tag.
                       </video>
-                    <figcaption> <a href="{!! route('users.videos.read', ['video_slug' => $video->slug]) !!}">{!! $video->title !!}</a></figcaption>
-                    <p>{!! Str::limit($video->content,$limit=30,$end= '...') !!}</p>
+                    <figcaption> 
+                      <a href="{!! $video->path() !!}">
+                        {!! $video->title !!}
+                      </a>
+                    </figcaption>
+                    <p>
+                      {!! $video->excerpt !!} ...
+                    </p>
                   </figure>
                 </li>
                   @endforeach
@@ -96,19 +118,19 @@
             </div>
             <div class="single_post_content_right">
               <ul class="spost_nav">
-                @if(!empty($archives))
-                  @foreach($archives as $archive)
+                @if(!empty($tagVidSides))
+                  @foreach($tagVidSides as $archive)
                 <li>
                   <div class="media wow fadeInDown"> 
                     <figure>
-                      <video width="150" height="84.5" controls poster="{!! asset('/static/lion.JPG') !!}"> 
-                      <source type="video/mp4" src = "/storage/public/videos/{!! $archive->video !!}" alt="{!! $archive->title !!}">
-                      <source type="video/ogg" src="/storage/public/videos/{!! $archive->video !!}" alt="{!! $archive->title !!}">  
-                      <source type="video/webm" src="/storage/public/videos/{!! $archive->video !!}" alt="{!! $archive->title !!}"> 
+                      <video width="150" height="84.5" controls> 
+                      <source type="video/mp4" src="{!! $archive->videoUrl() !!}" alt="{!! $archive->title !!}">
+                      <source type="video/ogg" src="{!! $archive->videoUrl() !!}" alt="{!! $archive->title !!}">  
+                      <source type="video/webm" src="{!! $archive->videoUrl() !!}" alt="{!! $archive->title !!}"> 
                       This browser doesn't support video tag.
                       </video>
                     </figure>
-                    <div class="media-body"> <a href="{!! route('users.videos.read', ['video_slug' => $archive->slug]) !!}" class="catg_title">{!! $archive->title !!}</a> </div>
+                    <div class="media-body"> <a href="{!! $archive->path() !!}" class="catg_title">{!! $archive->title !!}</a> </div>
                   </div>
                 </li>
                 @endforeach
@@ -116,8 +138,6 @@
               </ul>
             </div>
           </div>
-          
-            
           <div class="single_post_content">
             <h2><span>General News</span></h2>
             <div class="single_post_content_left">
@@ -127,14 +147,18 @@
                 <li>
                   <figure class="bsbig_fig  wow fadeInDown">
                     <figure>
-                      <video width="512" height="288" controls poster="{!! asset('/static/lion.JPG') !!}"> 
-                        <source type="video/mp4" src = "/storage/public/videos/{!! $video->video !!}" alt="{!! $video->title !!}">
-                        <source type="video/ogg" src="/storage/public/videos/{!! $video->video !!}" alt="{!! $video->title !!}">   
-                        <source type="video/webm" src="/storage/public/videos/{!! $video->video !!}" alt="{!!$video->title !!}"> 
+                      <video width="512" height="288" controls> 
+                        <source type="video/mp4" src="{!! $video->videoUrl() !!}" alt="{!! $video->title !!}">
+                        <source type="video/ogg" src="{!! $video->videoUrl() !!}" alt="{!! $video->title !!}">   
+                        <source type="video/webm" src="{!! $video->videoUrl() !!}" alt="{!!$video->title !!}"> 
                         This browser doesn't support video tag.
                       </video>
-                    <figcaption> <a href="{!! route('users.videos.read', ['video_slug' => $video->slug]) !!}">{!! $video->title !!}</a> </figcaption>
-                    <p>{!! Str::limit($video->content,$limit=30,$end= '...') !!}</p>
+                    <figcaption> 
+                      <a href="{!! $video->path() !!}">
+                        {!! $video->title !!}
+                      </a> 
+                    </figcaption>
+                    <p>{!! $video->excerpt !!} ...</p>
                   </figure>
                 </li>
                   @endforeach
@@ -148,15 +172,19 @@
                 <li>
                   <div class="media wow fadeInDown"> 
                   <figure>
-                    <video width="512" height="288" controls poster="{!! asset('/static/lion.JPG') !!}"> 
-                      <source type="video/mp4" src = "/storage/public/videos/{!! $video->video !!}" alt="{!! $video->title !!}">
-                      <source type="video/ogg" src="/storage/public/videos/{!! $video->video !!}" alt="{!! $video->title !!}">     
-                      <source type="video/webm" src="/storage/public/videos/{!! $video->video !!}" alt="{!! $video->title !!}"> 
+                    <video width="512" height="288" controls> 
+                      <source type="video/mp4" src="{!! $video->videoUrl() !!}" alt="{!! $video->title !!}">
+                      <source type="video/ogg" src="{!! $video->videoUrl() !!}" alt="{!! $video->title !!}">     
+                      <source type="video/webm" src="{!! $video->videoUrl() !!}" alt="{!! $video->title !!}"> 
                       This browser doesn't support video tag.
                     </video>
                     <figcaption class="figcaption"> {!! $video->caption !!} </figcaption>
                   </figure>
-                    <div class="media-body"> <a href="{!! route('users.videos.read', ['video_slug' => $video->slug]) !!}" class="catg_title">{!! $video->title !!}</a> </div>
+                    <div class="media-body"> 
+                      <a href="{!! $video->path() !!}" class="catg_title">
+                        {!! $video->title !!}
+                      </a> 
+                    </div>
                   </div>
                 </li>
                   @endforeach

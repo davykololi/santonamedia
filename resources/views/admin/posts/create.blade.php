@@ -3,7 +3,6 @@
 
 @section('content')
 <main role="main" class="container" id="main">
-<br/>
 <div class="row" id="lightblue">
     <div class="col-lg-12">
         @include('partials.errors')
@@ -31,12 +30,6 @@
                         <label class="control-label col-sm-2" >Name</label>
                         <div class="col-sm-10">
                             <input type="text" name="caption" id="caption" value="{!! old('caption') !!}" class="form-control" placeholder="Name or Title of your image.">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-2" >Summary</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="summary" id="summary" value="{!! old('summary') !!}" class="form-control" placeholder="Article Summary.">
                         </div>
                     </div>
                     <div class="form-group">
@@ -78,6 +71,12 @@
                         <label class="control-label col-sm-2" >Tags</label>
                         <div class="col-sm-10">
                             {!! Form::select('tags[]',$tags,old('tags'),['class'=>'form-control','multiple'=>'multiple']) !!}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox col-sm-offset-2 col-sm-10">
+                            <input type="checkbox" class="custom-control-input" name="publish" id="publish-post" checked>
+                            <label class="custom-control-label" for="publish-post">Do you want to publish this post?</label>
                         </div>
                     </div>
                     <div class="form-group">

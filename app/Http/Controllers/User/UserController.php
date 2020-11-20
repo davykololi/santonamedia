@@ -26,17 +26,20 @@ class UserController extends Controller
     public function profile()
     {
     	$user = Auth::user();
-        $title = 'Profile Page';
+        $user_name = $user->name;
+        $user_email = $user->email;
+        $url = URL::current();
+        $comments_count = $user->comments->count();
 
         $profile = Schema::ProfilePage()
-                ->name($title)
-                ->email('santonamedia79@gmail.com')
-                ->url(URL::current())
+                ->name($user_name)
+                ->email($user_email)
+                ->url($url)
                 ->sameAS("http://www.santonamedia.com")
-                ->logo("https://santonamedia.com/wp-content/uploads/2019/04/Muva-Kwetu Hub-Logo.png");
+                ->logo("https://santonamedia.com/static/logo.jpg");
         echo $profile->toScript();
 
-    	return view('user.profile.profile',compact('user',$user));
+    	return view('user.profile.profile',compact('user','comments_count'));
     }
 
     public function update_avatar(Request $request)

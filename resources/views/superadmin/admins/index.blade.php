@@ -4,6 +4,7 @@
 @section('content')
 <main role="main" class="container"  style="margin-top: 5px" id="main">
 <div class="row">
+    <div class="col-lg-12">
     @include('partials.messages')
     <!-- Posts list -->
     @if(!empty($admins))
@@ -31,7 +32,7 @@
                             </td>
                             <td class="table-text">
                                 <div>
-                                    <img style="width: 25%" src="/storage/public/storage/{!! $admin->image !!}" alt="{!! $admin->name !!}">
+                                    <img style="width: 25%" src="{!! $admin->imageUrl() !!}" alt="{!! $admin->name !!}">
                                 </div>
                             </td>
                             <td class="table-text">
@@ -53,13 +54,15 @@
                                 <div>{{$admin->created_at}}</div>
                             </td>
                             <td>
-                                <form action="{{url('admins',$admin->id)}}" method="POST">
-                                    {{method_field('DELETE')}}
-                                    <input type="hidden" name="_token" value="{{csrf_token()}}">
-                                    <a href="{{ route('admins.show', $admin->id) }}" class="label label-success">Details</a>
-                                    <a href="{{ route('admins.edit', $admin->id) }}" class="label label-warning">Edit</a>
-                                    <input type="submit" class="label label-danger" onclick="return confirm('Are you sure to delete?')" value="Delete">
-                                </form>
+                                <form action="{!! route('admins.destroy',$admin->id) !!}" method="POST">
+                                    {!! csrf_field() !!}
+                                    @method('DELETE')
+                                    <a href="{!! route('admins.show',$admin->id) !!}" class="label label-success">Details</a>
+                                    <a href="{!! route('admins.edit',$admin->id) !!}" class="label label-warning">Edit</a>
+                                    <button type="submit" class="label label-warning" onclick="return confirm('Are you sure to delete {{$admin->name}}?')">
+                                        Delete
+                                    </button>
+                                <form>
                             </td>
                         </tr>
                     @endforeach

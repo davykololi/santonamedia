@@ -3,7 +3,6 @@
 
 @section('content')
 <main role="main" class="container" id="main">
-<br/>
 <div class="row" id="lightblue">
     <div class="col-lg-12">
         @include('partials.errors')
@@ -34,18 +33,14 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-2" >Summary</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="summary" id="summary" class="form-control" value="{!! $post->summary !!}">
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <label class="control-label col-sm-2">Category</label>
                         <div class="col-md-10">
                             <select id="category" type="category" class="form-control" name="category">
                                 <option value="">Select category</option>
                                 @foreach ($categories as $category)
-                            <option value="{!! $category->id !!}">{!! $category->name !!}</option>
+                                    <option value="{!! $category->id !!}" @if($post->category_id == $category->id) selected @endif>
+                                        {!! $category->name !!}
+                                    </option>
                                 @endforeach
                             </select>
 
@@ -83,8 +78,14 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <div class="custom-control custom-checkbox col-sm-offset-2 col-sm-10">
+                            <input type="checkbox" class="custom-control-input" name="publish" id="publish-post" @if($post->is_published) checked @endif>
+                            <label class="custom-control-label" for="publish-post">Do you want to publish this post?</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <input type="submit" class="btn btn-primary" value="Update" />
+                            <input type="submit" class="btn btn-primary" value="Update"/>
                         </div>
                     </div>
                 </form>

@@ -6,6 +6,7 @@ use Str;
 use App\Admin;
 use App\User;
 use App\Models\Post;
+use App\Models\Video;
 use App\Models\Tag;
 use App\Models\Comment;
 use App\Models\Category;
@@ -36,43 +37,51 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getIndex($slug)
+    public function getIndex(string $slug)
     {
-        $category = Category::whereSlug($slug)->first();
-        $categoryPosts = $category->posts()->with('admin','category')->latest()->get();
-        $catPostsSide = $category->posts()->latest()->limit(5)->get();
+        $category = Category::query()->whereSlug($slug)->first();
+        $categoryPosts = $category->posts()->with('admin','category','user')->published()->withCount('comments')->latest()->get();
+        $catPostsSide = $category->posts()->with('admin','category','user')->published()->withCount('comments')->latest()->take(5)->get();
         $categories = Category::cursor();
         $tags = Tag::with('posts')->get();
+        $videos = Video::with('category','admin','user')->published()->withCount('comments')->inRandomOrder()->take(2)->get();
+        $videoSides = Video::with('admin','category','user')->published()->withCount('comments')->latest()->take(5)->get();
 
-        $allPosts = Post::with('category','admin')->inRandomOrder()->limit(2)->get();
-        $allSides = Post::latest()->limit(5)->get();
+        $allPosts = Post::with('category','admin','user')->published()->withCount('comments')->inRandomOrder()->take(2)->get();
+        $allSides = Post::latest()->published()->take(5)->get();
 
-        $poliCart = Category::whereName('Politics')->first();
-        $politicArticles = $poliCart->posts()->inRandomOrder()->limit(2)->get();
-        $poliSides = $poliCart->posts()->latest()->limit(5)->get();
+        $poliCart = Category::query()->whereName('Politics')->first();
+        $politicArticles=$poliCart->posts()->with('admin','category','user')->published()->withCount('comments')->inRandomOrder()->take(2)->get();
+        $poliSides = $poliCart->posts()->with('admin','category','user')->published()->withCount('comments')->latest()->take(5)->get();
 
-        $sportCart = Category::whereName('Sports')->first();
-        $sportNews = $sportCart->posts()->inRandomOrder()->limit(2)->get();
-        $sportSides = $sportCart->posts()->latest()->limit(5)->get();
+        $sportCart = Category::query()->whereName('Sports')->first();
+        $sportNews=$sportCart->posts()->with('admin','category','user')->published()->withCount('comments')->inRandomOrder()->take(2)->get();
+        $sportSides = $sportCart->posts()->with('admin','category','user')->published()->withCount('comments')->latest()->take(5)->get();
+
+        $techCart = Category::query()->whereName('Technology')->first();
+        $techNews=$techCart->posts()->with('admin','category','user')->published()->withCount('comments')->inRandomOrder()->take(2)->get();
+        $techSides = $techCart->posts()->with('admin','category','user')->published()->withCount('comments')->latest()->take(5)->get();
 
         $title = $category->name;
         $desc = $category->description;
         $published = $category->created_at;
+        $modified = $category->updated_at;
+        $url = URL::current();
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
         SEOMeta::setKeywords($category->keywords);
-        SEOMeta::setCanonical(URL::current());
+        SEOMeta::setCanonical($url);
 
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
-        OpenGraph::setUrl(URL::current());
+        OpenGraph::setUrl($url);
         OpenGraph::addProperty('type','Articles');
 
         TwitterCard::setTitle($title);
         TwitterCard::setSite('@santonamedia');
         TwitterCard::setDescription($desc);
-        TwitterCard::setUrl(URL::current());
+        TwitterCard::setUrl($url);
         TwitterCard::setType('summary_large_image');
 
         JsonLd::setTitle($title);
@@ -80,7 +89,10 @@ class PostController extends Controller
         JsonLd::setType('Articles');
         
         foreach($categoryPosts as $post){
-        OpenGraph::addImage('https://santonamedia.com/storage/public/storage/'.$post->image,['height'=>'628','width' =>'1200']);
+        OpenGraph::addImage('https://santonamedia.com/storage/public/storage/'.$post->image,
+            ['secure_url' => 'https://santonamedia.com/storage/public/storage/'.$post->image,
+            'height'=>'628','width' =>'1200'
+        ]);
         JsonLd::addImage('https://santonamedia.com/storage/public/storage/'.$post->image);
         TwitterCard::setImage('https://santonamedia.com/storage/public/storage/'.$post->image);
         }
@@ -89,64 +101,76 @@ class PostController extends Controller
                 ->headline($title)
                 ->description($desc)
                 ->datePublished($published)
-                ->dateModified($published)
+                ->dateModified($modified)
                 ->email('santonamedia79@gmail.com')
-                ->url(URL::current())
+                ->url($url)
                 ->sameAS("http://www.santonamedia.com")
                 ->logo("https://santonamedia.com/static/logo.jpg");
         echo $newsArticles->toScript();
         
         $data = array(
+            'poliCart' => $poliCart,
+            'sportCart' => $sportCart,
             'category' => $category,
             'categoryPosts' => $categoryPosts,
             'catPostsSide' => $catPostsSide,
             'tags' => $tags,
             'categories' => $categories,
+            'videos' => $videos,
+            'videoSides' => $videoSides,
             'allPosts' => $allPosts,
             'allSides' => $allSides,
             'politicArticles' => $politicArticles,
             'poliSides' => $poliSides,
             'sportNews' => $sportNews,
             'sportSides' => $sportSides,
+            'techCart' => $techCart,
+            'techNews' => $techNews,
+            'techSides' => $techSides,
         );
 
         return view('user.posts.index', $data);
     }
 
-    public function getFullNews($post_slug)
+    public function getFullNews(string $post_slug)
     {
-        $post = Post::with('admin','user','comments','tags','category')->where('posts.slug', '=', $post_slug)->firstOrFail();
-        $previous = $post->where('id','<',$post->id)->orderBy('id','desc')->first();
-        $next = $post->where('id','>',$post->id)->orderBy('id')->first();
-        $archives = $post->where('category_id','=',$post->category->id)->latest()->limit(5)->get();
+        $post=Post::with('admin','tags','category','user')->published()->withCount('comments')->where('posts.slug','=',$post_slug)->firstOrFail();
+        $previous = $post->where('id','<',$post->id)->published()->orderBy('id','desc')->first();
+        $next = $post->where('id','>',$post->id)->published()->orderBy('id')->first();
+        $archives = $post->where('category_id','=',$post->category->id)->published()->latest()->take(5)->get();
         $category = $post->category()->with('posts')->firstOrFail();
-        $categoryPosts = $category->posts()->with('admin','category')->inRandomOrder()->get();
-        $allPosts = Post::with('category','admin')->latest()->get();
+        $categoryPosts=$category->posts()->with('admin','category','user')->published()->withCount('comments')->inRandomOrder()->take(10)->get();
+        $allPosts = Post::with('admin','category','user')->published()->withCount('comments')->latest()->get();
         $categories = Category::cursor();
         $tags = Tag::with('posts')->get();
 
         $title = $post->title;
         $desc = $post->description;
         $published = $post->created_at;
+        $modified = $post->updated_at;
+        $url = URL::current();
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
         SEOMeta::setKeywords($post->keywords);
         SEOMeta::addMeta('article:published_time', $post->created_at->toW3CString(),'property');
         SEOMeta::addMeta('article:section', strtolower($post->category->name),'property');
-        SEOMeta::setCanonical(URL::current());
+        SEOMeta::setCanonical($url);
 
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
-        OpenGraph::setUrl(URL::current());
+        OpenGraph::setUrl($url);
         OpenGraph::addProperty('type','Article');
         OpenGraph::addProperty('locale','en-us');
-        OpenGraph::addImage('https://santonamedia.com/storage/public/storage/'.$post->image,['height'=>'628','width' =>'1200']);
+        OpenGraph::addImage('https://santonamedia.com/storage/public/storage/'.$post->image,
+            ['secure_url' => 'https://santonamedia.com/storage/public/storage/'.$post->image,
+            'height'=>'628','width' =>'1200'
+        ]);
 
         TwitterCard::setTitle($title);
         TwitterCard::setSite('@santonamedia');
         TwitterCard::setDescription($desc);
-        TwitterCard::setUrl(URL::current());
+        TwitterCard::setUrl($url);
         TwitterCard::setImage('https://santonamedia.com/storage/public/storage/'.$post->image);
         TwitterCard::setType('summary_large_image');
 
@@ -160,9 +184,9 @@ class PostController extends Controller
                 ->description($desc)
                 ->image('https://santonamedia.com/storage/public/storage/'.$post->image)
                 ->datePublished($published)
-                ->dateModified($published)
+                ->dateModified($modified)
         		->email('santonamedia79@gmail.com')
-        		->url(URL::current())
+        		->url($url)
         		->sameAS("http://www.santonamedia.com")
         		->logo("https://santonamedia.com/static/logo.jpg");
         echo $newsArticle->toScript();
@@ -182,43 +206,45 @@ class PostController extends Controller
         return view('user.posts.read', $data);
     }
 
-    public function tags($slug)
+    public function tags(string $slug)
     {
-        $tag = Tag::whereSlug($slug)->first();
-        $tagPosts = $tag->posts()->with('admin','category')->latest()->get();
-        $tagPostsSide = $tag->posts()->latest()->limit(5)->get();
+        $tag = Tag::query()->whereSlug($slug)->first();
+        $tagPosts = $tag->posts()->with('admin','category','user')->published()->withCount('comments')->latest()->get();
+        $tagPostsSide = $tag->posts()->with('admin','category','user')->published()->withCount('comments')->latest()->take(5)->get();
         $categories = Category::cursor();
         $tags = Tag::with('posts')->get();
 
-        $allPosts = Post::with('category','admin')->inRandomOrder()->limit(2)->get();
-        $allpostSides = Post::latest()->limit(5)->get();
+        $allPosts = Post::with('category','admin','user')->published()->withCount('comments')->inRandomOrder()->take(2)->get();
+        $allpostSides = Post::with('admin','category','user')->published()->withCount('comments')->latest()->take(5)->get();
 
-        $politicsCart = Category::whereName('Politics')->first();
-        $politicsNews = $politicsCart->posts()->inRandomOrder()->limit(2)->get();
-        $politicSides = $politicsCart->posts()->latest()->limit(5)->get();
+        $politicsCart = Category::query()->whereName('Politics')->first();
+        $politicsNews=$politicsCart->posts()->with('admin','user','category')->published()->withCount('comments')->inRandomOrder()->take(2)->get();
+        $politicSides=$politicsCart->posts()->with('admin','user','category')->published()->withCount('comments')->latest()->take(5)->get();
 
-        $sportsCart = Category::whereName('Sports')->first();
-        $sportsNews = $sportsCart->posts()->inRandomOrder()->limit(2)->get();
-        $spSides = $sportsCart->posts()->latest()->limit(5)->get();
+        $sportsCart = Category::query()->whereName('Sports')->first();
+        $sportsNews = $sportsCart->posts()->with('admin','user','category')->published()->withCount('comments')->inRandomOrder()->take(2)->get();
+        $spSides = $sportsCart->posts()->with('admin','user','category')->published()->withCount('comments')->latest()->take(5)->get();
 
         $title = $tag->name;
         $desc = $tag->desc;
         $published = $tag->created_at;
+        $modified = $tag->updated_at;
+        $url = URL::current();
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
         SEOMeta::setKeywords($tag->keywords);
-        SEOMeta::setCanonical(URL::current());
+        SEOMeta::setCanonical($url);
 
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($desc);
-        OpenGraph::setUrl(URL::current());
+        OpenGraph::setUrl($url);
         OpenGraph::addProperty('type','Place');
 
         TwitterCard::setTitle($title);
         TwitterCard::setSite('@santonamedia');
         TwitterCard::setDescription($desc);
-        TwitterCard::setUrl(URL::current());
+        TwitterCard::setUrl($url);
         TwitterCard::setType('summary_large_image');
 
         JsonLd::setTitle($title);
@@ -226,7 +252,10 @@ class PostController extends Controller
         JsonLd::setType('Place');
 
         foreach($tag->posts as $post){
-        OpenGraph::addImage('https://santonamedia.com/storage/public/storage/'.$post->image,['height'=>'628','width' =>'1200']);
+        OpenGraph::addImage('https://santonamedia.com/storage/public/storage/'.$post->image,
+            ['secure_url' => 'https://santonamedia.com/storage/public/videos/'.$post->image,
+            'height'=>'628','width' =>'1200'
+        ]);
         JsonLd::addImage('https://santonamedia.com/storage/public/storage/'.$post->image);
         TwitterCard::setImage('https://santonamedia.com/storage/public/storage/'.$post->image);
         }
@@ -235,9 +264,9 @@ class PostController extends Controller
                 ->headline($title)
                 ->description($desc)
                 ->datePublished($published)
-                ->dateModified($published)
+                ->dateModified($modified)
                 ->email('santonamedia79@gmail.com')
-                ->url(URL::current())
+                ->url($url)
                 ->sameAS("http://www.santonamedia.com")
                 ->logo("https://santonamedia.com/static/logo.jpg");
 
@@ -251,8 +280,10 @@ class PostController extends Controller
             'categories' => $categories,
             'allPosts' => $allPosts,
             'allpostSides' => $allpostSides,
+            'politicsCart' => $politicsCart,
             'politicsNews' => $politicsNews,
             'politicSides' => $politicSides,
+            'sportsCart' => $sportsCart,
             'sportsNews' => $sportsNews,
             'spSides' => $spSides,
         );
@@ -260,48 +291,49 @@ class PostController extends Controller
         return view('user.tags.posts', $data);
     } 
 
-    public function authors($slug)
+    public function authors(string $slug)
     {
-        $admin = Admin::whereSlug($slug)->first();
-        $adminPosts = $admin->posts()->with('category','comments')->latest()->get();
-        $adminPostsSide = $admin->posts()->latest()->limit(5)->get();
+        $admin = Admin::query()->whereSlug($slug)->first();
+        $adminPosts = $admin->posts()->with('admin','user','category')->published()->withCount('comments')->latest()->get();
+        $adminPostsSide = $admin->posts()->with('admin','user','category')->published()->withCount('comments')->latest()->take(5)->get();
         $categories = Category::cursor();
         $tags = Tag::with('posts')->get();
 
-        $allPosts = Post::with('category','admin')->inRandomOrder()->limit(2)->get();
-        $allpostSides = Post::latest()->limit(5)->get();
+        $allPosts = Post::with('category','admin','user')->published()->withCount('comments')->inRandomOrder()->take(2)->get();
+        $allpostSides = Post::latest()->published()->take(5)->get();
 
-        $politicsCart = Category::whereName('Politics')->first();
-        $politicsNews = $politicsCart->posts()->inRandomOrder()->limit(2)->get();
-        $politicSides = $politicsCart->posts()->latest()->limit(5)->get();
+        $politicsCart = Category::query()->whereName('Politics')->first();
+        $politicsNews=$politicsCart->posts()->with('admin','user','category')->published()->withCount('comments')->inRandomOrder()->take(2)->get();
+        $politicSides=$politicsCart->posts()->with('admin','user','category')->published()->withCount('comments')->latest()->take(5)->get();
 
-        $sportsCart = Category::whereName('Sports')->first();
-        $sportsNews = $sportsCart->posts()->inRandomOrder()->limit(2)->get();
-        $spSides = $sportsCart->posts()->latest()->limit(5)->get();
+        $sportsCart = Category::query()->whereName('Sports')->first();
+        $sportsNews = $sportsCart->posts()->with('admin','user','category')->published()->withCount('comments')->inRandomOrder()->take(2)->get();
+        $spSides = $sportsCart->posts()->with('admin','user','category')->published()->withCount('comments')->latest()->take(5)->get();
 
         $name = $admin->name;
         $title = $admin->title;
         $email = $admin->email;
         $image = 'https://santonamedia.com/storage/public/storage/'.$admin->image;
         $created = $admin->created_at;
-        $modified = $admin->created_at;
+        $modified = $admin->updated_at;
         $phone = $admin->phone_no;
         $area = $admin->area;
+        $url = URL::current();
 
         SEOMeta::setTitle($name);
         SEOMeta::setDescription($title);
         SEOMeta::setKeywords($admin->keywords);
-        SEOMeta::setCanonical(URL::current());
+        SEOMeta::setCanonical($url);
 
         OpenGraph::setTitle($name);
         OpenGraph::setDescription($title);
-        OpenGraph::setUrl(URL::current());
+        OpenGraph::setUrl($url);
         OpenGraph::addProperty('type','Place');
 
         TwitterCard::setTitle($name);
         TwitterCard::setSite('@santonamedia');
         TwitterCard::setDescription($title);
-        TwitterCard::setUrl(URL::current());
+        TwitterCard::setUrl($url);
         TwitterCard::setType('summary_large_image');
 
         JsonLd::setTitle($name);
@@ -318,10 +350,10 @@ class PostController extends Controller
                 ->name($name)
                 ->image($image)
                 ->logo("https://santonamedia.com/static/logo.jpg")
-                ->url(URL::current())
+                ->url($url)
                 ->sameAS("http://www.santonamedia.com")
                 ->datePublished($created)
-                ->dateModified($created)
+                ->dateModified($modified)
                 ->contactPoint([Schema::ContactPoint()
                 ->email($email)
                 ->phone($phone)
@@ -341,6 +373,8 @@ class PostController extends Controller
             'politicSides' => $politicSides,
             'sportsNews' => $sportsNews,
             'spSides' => $spSides,
+            'politicsCart' => $politicsCart,
+            'sportsCart' => $sportsCart,
         );
 
         return view('user.admins.posts', $data);

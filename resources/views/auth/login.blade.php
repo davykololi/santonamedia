@@ -2,12 +2,12 @@
 
 @section('content')
 @include('partials.allnews')
-<div class="container" id="main">
-    <br/>
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header blue">{{ __('Login') }}</div>
+<section id="contentSection">
+<div class="row">
+    <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="left_content">
+            <div class="contact_area">
+                <div class="single_page_content">
                     @include('partials.messages')
                     @include('partials.errors')
                 <div class="card-body">
@@ -15,26 +15,7 @@
                         @csrf
                         <div class="form-group row">
                             <label for="name" class="col-md-4 control-label">Login With</label>
-                            <div class="col-md-6">
-                                <a href="{{url('/auth/redirect/facebook')}}" class="btn btn-social-icon btn-facebook">
-                                    <i class="fa fa-facebook"></i>
-                                </a>
-                                <a href="{{url('/auth/redirect/twitter')}}" class="btn btn-social-icon btn-twitter">
-                                    <i class="fa fa-twitter"></i>
-                                </a>
-                                <a href="{{url('/auth/redirect/linkedin')}}" class="btn btn-social-icon btn-linkedin">
-                                    <i class="fa fa-linkedin"></i>
-                                </a>
-                                <a href="{{url('/auth/redirect/google')}}" class="btn btn-social-icon btn-google-plus">
-                                    <i class="fa fa-google-plus"></i>
-                                </a>
-                                <a href="{{url('/auth/redirect/github')}}" class="btn btn-social-icon btn-github">
-                                    <i class="fa fa-github"></i>
-                                </a>
-                                <a href="{{url('/auth/redirect/bitbucket')}}" class="btn btn-social-icon btn-bitbucket">
-                                    <i class="fa fa-bitbucket"></i>
-                                </a>
-                            </div>
+                            @include('partials.social_login')
                         </div>  
                         <hr/>
                         <div class="form-group row">
@@ -92,9 +73,10 @@
                         </div>
                     </form>
                 </div>
+                </div>
             </div>
         </div>
     </div>
-    <br/>
 </div>
+</section>
 @endsection

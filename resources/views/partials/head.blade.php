@@ -25,6 +25,8 @@
     @include('feed::links')
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="{!! asset('main/css/bootstrap.min.css') !!}">
     <link rel="stylesheet" type="text/css" href="{!! asset('main/css/font-awesome.min.css') !!}">
@@ -44,5 +46,35 @@
     <!-- Styles -->
     <style>
     @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
+    </style>
+    <style>
+        @keyframes spin{
+    from{
+        transform: rotateY(0deg);
+        moz-transform:rotateY(0deg); //Firefox
+        ms-transform:rotateY(0deg); //Microsoft Browsers
+    }
+    to{
+        transform: rotateY(360deg);
+        moz-transform: rotateY(360deg); //Firefox
+        ms-transform: rotateY(360deg); //Microsoft Browsers
+    }
+}
+
+@-webkit-keyframes spin{
+    from{-webkit-transform: rotateY(0deg);}
+    to{-webkit-transform: rotateY(360deg);}
+}
+
+.imageSpin{
+    animation-name:spin;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 5s;
+    -webkit-animation-name:spin;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 5s;
+}
     </style>
 </head>

@@ -45,7 +45,7 @@
                             <td>
                                 <a href="{!! route('superadmin.tags.show', $tag->id) !!}" class="label label-success">Details</a>
                                 <a href="{!! route('superadmin.tags.edit', $tag->id) !!}" class="label label-warning">Edit</a>
-                                <a href="{!! route('superadmin.tags.delete', $tag->id) !!}" class="label label-danger" onclick="return confirm('Are you sure to delete?')">
+                                <a href="{!! route('superadmin.tags.delete', $tag->id) !!}" class="label label-danger" onclick="return confirm('Are you sure to delete {!! $tag->name !!}?')">
                                     Delete
                                 </a>
                             </td>

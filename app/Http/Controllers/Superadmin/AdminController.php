@@ -82,10 +82,9 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Admin $admin)
     {
         //
-        $admin = Admin::findOrFail($id);
         return view('superadmin.admins.show',['admin' => $admin]);
     }
 
@@ -95,10 +94,9 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Admin $admin)
     {
         //
-        $admin = Admin::findOrFail($id);
         return view('superadmin.admins.edit',['admin' => $admin]);
     }
 
@@ -109,11 +107,8 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Admin $admin)
     {
-        //
-        $admin = Admin::findOrFail($id);
-
         //Handle the file upload
         if($request->hasfile('image')){
         //Get filename with extention
@@ -133,6 +128,7 @@ class AdminController extends Controller
             Storage::delete('public/storage/'.$admin->image);
             $input = $request->all();
             $input['image'] = $fileNameToStore;
+            $input['is_banned']  = $request->has('bann');
             $admin->update($input);
 
             return redirect()->route('admins.index')->with('success','The admin updated successfully');
@@ -145,11 +141,8 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Admin $admin)
     {
-        //
-        $admin = Admin::findOrFail($id);
-
         if($admin){
             Storage::delete('public/storage/'.$admin->image);
             $admin->delete();

@@ -2,19 +2,21 @@
 
 namespace App\Http\ViewComposers;
 
-use App\Services\Trending;
+use Analytics;
+use Spatie\Analytics\Period;
 use Illuminate\View\View;
 
-class PopularityComposer{
-	private $trending;
+class PopularityComposer
+{
+	/**
+     * Bind data to the view.
+     *
+     * @param View $view
+     * @return void
+     */
+	public function compose(View $view){
+        $trendings = Analytics::fetchMostVisitedPages(Period::days(5));
 
-	public function __construct(Trending $trending)
-	{
-		$this->trending = $trending;
-	}
-
-	public function compose(View $view)
-	{
-		$view->with('popular',$this->trending->week());
-	}
+        $view->with(['trendings'=>$trendings]);
+    }
 }

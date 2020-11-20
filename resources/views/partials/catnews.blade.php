@@ -5,7 +5,12 @@
           <ul id="ticker01" class="news_sticker"> 
             @if(!empty($categoryPosts))
             @foreach($categoryPosts as $pas)
-            <li><a href="{!! route('users.posts.read',['post_slug' => $pas->slug]) !!}"><img width="25" src="/storage/public/storage/{!! $pas->image !!}" alt="{!! $pas->title !!}">{!! $pas->title !!}</a></li>
+            <li>
+              <a href="{!! $pas->path() !!}">
+                <img width="25" src="{!! $pas->imageUrl() !!}" alt="{!! $pas->title !!}">
+                {!! $pas->title !!}
+              </a>
+            </li>
             @endforeach
             @endif
           </ul>
