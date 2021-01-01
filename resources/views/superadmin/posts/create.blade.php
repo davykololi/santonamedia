@@ -93,7 +93,7 @@
                     <div class="form-group">
                         <div class="custom-control custom-checkbox col-sm-offset-2 col-sm-10">
                             <input type="checkbox" class="custom-control-input" name="publish" id="publish-post" checked>
-                            <label class="custom-control-label" for="publish-post">Do you want to publish this post?</label>
+                            <label class="custom-control-label" for="publish-post">Publish</label>
                         </div>
                     </div>
                     <div class="form-group">

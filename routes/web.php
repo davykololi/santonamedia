@@ -47,8 +47,9 @@ Route::prefix('admin')->group(function () {
     Route::get('/password/reset/{token}','Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
 });
 
-//Admin news posts
+//Admin posts and videos routes
 Route::group(['namespace' => 'Admin','prefix'=>'admin','middleware'=>'doNotCacheResponse'],function(){
+    //Admin posts routes
     Route::get('/posts','PostController@index')->name('admin.posts.index');
     Route::get('/posts/create','PostController@create')->name('admin.posts.create');
     Route::get('/posts/show/{post}','PostController@show')->name('admin.posts.show');
@@ -57,10 +58,8 @@ Route::group(['namespace' => 'Admin','prefix'=>'admin','middleware'=>'doNotCache
     Route::post('/posts/{post}','PostController@update')->name('admin.posts.update');
     Route::get('/posts/{post}','PostController@destroy')->name('admin.posts.delete');
     Route::post('/upload-image','CKEditorController@upload')->name('upload');
-    });
 
-//Admin news videos
-Route::group(['namespace' => 'Admin','prefix'=>'admin','middleware'=>'doNotCacheResponse'],function(){
+    //Admin videos routes
     Route::get('/videos','VideoController@index')->name('admin.videos.index');
     Route::get('/videos/create','VideoController@create')->name('admin.videos.create');
     Route::get('/videos/show/{video}','VideoController@show')->name('admin.videos.show');
@@ -164,4 +163,3 @@ Route::group(['namespace' => 'Admin','prefix'=>'admin'],function(){
 
 //RSS Feed route
 Route::feeds();
-

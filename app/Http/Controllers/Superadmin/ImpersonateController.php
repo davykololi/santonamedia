@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Superadmin;
 
 use Auth;
-use App\Admin;
+use App\Models\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 

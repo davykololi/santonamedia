@@ -94,13 +94,13 @@
                     <div class="form-group">
                         <label class="control-label col-sm-2" >Tags</label>
                         <div class="col-sm-10">
-                            {!! Form::select('tags[]',$tags,old('tags'),['class'=>'form-control','multiple'=>'multiple']) !!}
+                            {!! Form::select('tags[]',$tags,$postTags,['class'=>'form-control','multiple'=>'multiple']) !!}
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="custom-control custom-checkbox col-sm-offset-2 col-sm-10">
                             <input type="checkbox" class="custom-control-input" name="publish" id="publish-post" @if($post->is_published) checked @endif>
-                            <label class="custom-control-label" for="publish-post">Do you want to publish this post?</label>
+                            <label class="custom-control-label" for="publish-post">Publish</label>
                         </div>
                     </div>
                     <div class="form-group">

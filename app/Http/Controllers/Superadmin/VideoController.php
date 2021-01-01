@@ -8,7 +8,7 @@ use Auth;
 use App\Models\Tag;
 use App\Models\Category;
 use App\Models\Video;
-use App\Admin;
+use App\Models\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -17,7 +17,7 @@ use App\Http\Requests\VideoFormRequest as UpdateRequest;
 
 class VideoController extends Controller
 {
-	/**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -26,7 +26,7 @@ class VideoController extends Controller
     {
         $this->middleware('auth:superadmin');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -61,8 +61,9 @@ class VideoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRequest $request)
+    public function store(Request $request)
     {
+        //
         //Handle the file upload
         if($request->hasfile('video')){
         //Get filename with extention
@@ -99,7 +100,7 @@ class VideoController extends Controller
     public function show(Video $video)
     {
         //
-        return view('superadmin.videos.show',compact('video'));
+        return view('superadmin.videos.show',['video'=>$video]);
     }
 
     /**
@@ -112,10 +113,11 @@ class VideoController extends Controller
     {
         //
         $tags = Tag::get()->pluck('name','id');
+        $videoTags = $video->tags;
         $categories = Category::all();
         $admins = Admin::with('videos')->get();
 
-        return view('superadmin.videos.edit',compact('video','tags','categories','admins'));
+        return view('superadmin.videos.edit',compact('video','tags','videoTags','categories','admins'));
     }
 
     /**
@@ -125,8 +127,9 @@ class VideoController extends Controller
      * @param  \App\Models\Video  $video
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRequest $request, Video $video)
+    public function update(Request $request, Video $video)
     {
+        //
         //Handle the file upload
         if($request->hasfile('video')){
         //Get filename with extention
@@ -148,6 +151,7 @@ class VideoController extends Controller
         $input['video'] = $fileNameToStore;
         $input['admin_id'] = $request->admin;
         $input['category_id'] = $request->category;
+        $input['is_published']  = $request->has('publish');
 
         $video->update($input);
         $tags = $request->tags;
@@ -165,6 +169,7 @@ class VideoController extends Controller
      */
     public function destroy(Video $video)
     {
+        //
         if($video){
             Storage::delete('public/videos/'.$video->video);
             $video->delete();

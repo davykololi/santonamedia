@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\User;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
@@ -24,12 +26,12 @@ class Comment extends Model
     
     public function user()
     {
-        return $this->belongsTo('App\User','user_id','id')->withDefault();
+        return $this->belongsTo(User::class,'user_id','id')->withDefault();
     }
 
     public function category()
     {
-        return $this->belongsTo('App\Models\Category')->withDefault();
+        return $this->belongsTo(Category::class)->withDefault();
     }
 
     public function getCreatedDateAttribute()

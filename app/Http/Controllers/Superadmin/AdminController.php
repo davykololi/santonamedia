@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Superadmin;
 
 use Auth;
 use Image;
-use App\Admin;
+use App\Models\Admin;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;

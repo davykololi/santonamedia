@@ -20,7 +20,6 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.0",
         "laravelcollective/html": "^6.2.0",
-        "laravelium/feed": "^8.0",
         "pusher/pusher-php-server": "^4.1",
         "renatomarinho/laravel-page-speed": "^1.8",
         "spatie/laravel-analytics": "^3.10.1",
@@ -55,7 +54,7 @@
             "Database\\Seeders\\": "database/seeders"
         },
         "classmap": [
-            "database/seeds",
+            "database/seeders",
             "database/factories"
         ]
     },

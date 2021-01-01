@@ -29,7 +29,8 @@
           </div>
           @empty
           <p style="color: green;font-size: 20px">Sorry esteemed viewer, We are yet to post 
-            <span style="color: red;margin: 5px"> {!! $category->name !!} Articles</span>
+            <span style="color: red;margin: 5px"> {!! $category->name !!} Articles. </span>
+            Stay tuned.
           </p>
           @endforelse
           @endif

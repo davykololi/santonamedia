@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\User;
 
 use Str;
-use App\Admin;
-use App\User;
+use App\Models\Admin;
+use App\Models\User;
 use App\Models\Post;
 use App\Models\Video;
 use App\Models\Tag;

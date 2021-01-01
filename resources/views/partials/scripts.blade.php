@@ -63,6 +63,29 @@ CKEDITOR.replace( 'summary-ckeditor',{
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/dist/jquery/1.12.0/jquery.min.js"></script>
+<script>
+    function initMap(){
+        var myLatLng ={lat:1.286389, lng:36.817223};
+        var map = new google.maps.Map(document.getElementById('map'),{
+            center: myLatLng,
+            zoom:4
+        });
+
+        var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: 'Google Maps',
+            draggable: true
+        });
+
+        google.maps.addListener(marker,'dragend', function(marker){
+            var latLng = marker.latLng;
+            document.getElementById('lat-span').innerHTML = latLng.lat();
+            document.getElementById('lon-span').innerHTML = latLng.lng();
+        });
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initMap" async defer></script>
 
 
 

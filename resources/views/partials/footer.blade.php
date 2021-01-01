@@ -34,12 +34,14 @@
               <li><a href="mailto:santonamedia79@gmail.com"><i class="fa fa-envelope"></i>santonamedia79@gmail.com</a></li>
               <li>
               	<a href="{{url('/news-feed')}}">
-              		<img src="" width="10" height="10" alt="Subscribe to Latest Santona Media News">
+                  <span style="margin: 5px">News Feed</span>
+              		<img src="{{asset('static/newsrssfeed.jpg')}}" width="30" height="30" alt="Subscribe to Latest Santona Media News"> 
               	</a>
               </li>
               <li>
               	<a href="{{url('/videos-feed')}}">
-              		<img src="" width="10" height="10" alt="Subscribe to Latest Santona Media Videos">
+                  <span style="margin: 5px">Video Feed</span>
+              		<img src="{{asset('static/videorssfeed.jpg')}}" width="30" height="30" alt="Subscribe to Latest Santona Media Videos">
               	</a>
               </li>
             </ul>
@@ -49,7 +51,7 @@
     </div>
     <div class="footer_bottom">
       <p class="copyright">Copyright &copy; {{ date('Y')}} 
-        <span style="margin: 10px"><a href="https://santonamedia.com"> santonamedia.com </a></span> All Rights Reserved
+        <span style="margin: 10px"><a href="{{url('/')}}"> santonamedia.com </a></span> All Rights Reserved
       </p>
       <p class="developer">Developed By DMK</p>
     </div>

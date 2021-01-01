@@ -44,7 +44,8 @@
           </p>
           @empty
           <p style="color: blue;font-size: 20px">Sorry esteemed viewer, We are yet to post 
-            <span style="color: red;margin: 5px"> {!! $category->name !!} Videos</span>
+            <span style="color: red;margin: 5px"> {!! $category->name !!} Videos. </span>
+            Stay tuned.
           </p>
           @endforelse
           @endif

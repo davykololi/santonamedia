@@ -20,7 +20,7 @@
                 </a>
               </h2>
               <p>{!! $c->excerpt !!} ...
-                <a href="{!! $c->path() !!}" class="btn btn-blue">Read More</a>
+                <a href="{!! $c->path() !!}" class="btn btn-link">Read More</a>
               </p>
             </div>
           </div>

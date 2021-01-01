@@ -2,6 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\Admin;
+use App\Models\User;
+use App\Models\Tag;
+use App\Models\Category;
+use App\Models\Comment;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
 use Laravel\Scout\Searchable;
@@ -36,22 +41,22 @@ class Video extends Model implements Feedable
    
     public function admin()
     {
-    return $this->belongsTo('App\Admin')->withDefault();
+    return $this->belongsTo(Admin::class)->withDefault();
     }
 
     public function user()
     {
-    return $this->belongsTo('App\User')->withDefault();
+    return $this->belongsTo(User::class)->withDefault();
     }
 
     public function comments()
     {
-    return $this->morphMany('App\Models\Comment','commentable');
+    return $this->morphMany(Comment::class,'commentable');
     }
 
     public function category()
     {
-    return $this->belongsTo('App\Models\Category')->withDefault();
+    return $this->belongsTo(Category::class)->withDefault();
     }
 
     public function scopePopular($query) 
@@ -66,13 +71,13 @@ class Video extends Model implements Feedable
 
     public function tags()
     {
-        return $this->belongsToMany('App\Models\Tag','tag_video')->withTimestamps();
+        return $this->belongsToMany(Tag::class,'tag_video')->withTimestamps();
     }
 
     public function toFeedItem():FeedItem
     {
         return FeedItem::create([
-                'id'=>$this->id,
+                'id'=>env('APP_URL').'/videos/details/'.$this->slug,
                 'title'=>$this->title,
                 'summary'=>$this->description,
                 'updated'=>$this->updated_at,
@@ -83,7 +88,7 @@ class Video extends Model implements Feedable
 
     public static function getFeedItems()
     {
-        return Video::orderBy('created_at','desc')->limit(50)->get();
+        return Video::published()->orderBy('created_at','desc')->limit(50)->get();
     }
 
     public function getExcerptAttribute()

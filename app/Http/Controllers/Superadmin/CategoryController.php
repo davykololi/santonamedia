@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Superadmin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Category;
+use Illuminate\Http\Request;
 use App\Http\Requests\CategoryFormRequest as StoreRequest;
 use App\Http\Requests\CategoryFormRequest as UpdateRequest;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
@@ -65,7 +65,7 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
     public function show(Category $category)
@@ -77,7 +77,7 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
     public function edit(Category $category)
@@ -90,7 +90,7 @@ class CategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateRequest $request, Category $category)
@@ -99,7 +99,6 @@ class CategoryController extends Controller
         $input = $request->all();
         $input['name'] = $request->name;
         $input['description'] = $request->description;
-
         $category->update($input);
 
         return redirect()->route('superadmin.categories.index')->withSuccess('The category updated successfully');
@@ -108,7 +107,7 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
     public function destroy(Category $category)

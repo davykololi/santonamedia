@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Post;
+use App\Models\Video;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 
@@ -28,12 +30,12 @@ class Tag extends Model
 
     public function posts()
     {
-    	return $this->belongsToMany('App\Models\Post','post_tag')->withTimestamps();
+    	return $this->belongsToMany(Post::class,'post_tag')->withTimestamps();
     }
 
     public function videos()
     {
-    	return $this->belongsToMany('App\Models\Video','tag_video')->withTimestamps();
+    	return $this->belongsToMany(Video::class,'tag_video')->withTimestamps();
     }
 
     public function path()

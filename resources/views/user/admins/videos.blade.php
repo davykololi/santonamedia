@@ -7,9 +7,10 @@
     <div class="row">
       <div class="col-lg-8 col-md-8 col-sm-8">
         <div class="left_content">
+          <div class="articles_page">
           @if(!empty($adminVideos))
                @forelse($adminVideos as $kc)
-            <h2><a href="{!! $kc->path() !!}">{{$kc->title}}</a></h2>
+            <h2 style="text-transform: uppercase;"><a href="{!! $kc->path() !!}">{{$kc->title}}</a></h2>
             <div class="post_commentbox" style="margin-bottom: 15px"> 
               <a href="{!! $kc->path() !!}">
                 <i class="fa fa-user"></i>Wpfreeware
@@ -49,6 +50,7 @@
           </p>
           @endforelse
           @endif
+        </div>
         </div>
       </div>
       @include('partials.aside_adminvideos')

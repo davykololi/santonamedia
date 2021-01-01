@@ -77,4 +77,17 @@
     -webkit-animation-duration: 5s;
 }
     </style>
+<style>
+    .summary{padding: 4px;width: 100%; background-color: #eeeeee;border: none;box-shadow: 1px 1px 2px #bbbbbb}
+    .post-caption{display: block;text-align: center;font-size: 16px;color: gray;margin-bottom: 20px;margin-top: -10px}
+    .author-img{width: 5%;margin: 10px;border-radius: 50%}
+    .video-caption{color: gray;font-size: 16px;padding: 5px;margin-bottom: 15px}
+</style>
+<style type="text/css">
+    #map{
+        width: 100%;
+        height: 500px;
+        border:2px solid black;
+    }
+</style>
 </head>

@@ -25,7 +25,7 @@
                     @include('partials.admintbhead')
                     <!-- Table Body -->
                     <tbody>
-                    @foreach($admins as $admin)
+                    @forelse($admins as $admin)
                         <tr>
                             <td class="table-text">
                                 <div>{{$admin->name}}</div>
@@ -64,8 +64,14 @@
                                     </button>
                                 <form>
                             </td>
+                    @empty
+                            <td colspan="10">
+                                <div style="font-size: 16px;color: red;font-family: Times New Roman">
+                                    <h3>No admin(s) created yet.</h3>
+                                </div>
+                            </td>
                         </tr>
-                    @endforeach
+                    @endforelse
                     </tbody>
                 </table>
             </div>

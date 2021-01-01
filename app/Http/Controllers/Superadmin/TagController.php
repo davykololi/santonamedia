@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Superadmin;
 
-use App\Models\Tag;
 use App\Http\Controllers\Controller;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Http\Requests\TagFormRequest as StoreRequest;
 use App\Http\Requests\TagFormRequest as UpdateRequest;
@@ -19,7 +19,7 @@ class TagController extends Controller
     {
         $this->middleware('auth:superadmin');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -62,7 +62,7 @@ class TagController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Tag  $tag
      * @return \Illuminate\Http\Response
      */
     public function show(Tag $tag)
@@ -74,7 +74,7 @@ class TagController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Tag  $tag
      * @return \Illuminate\Http\Response
      */
     public function edit(Tag $tag)
@@ -87,7 +87,7 @@ class TagController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Tag  $tag
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateRequest $request, Tag $tag)
@@ -102,7 +102,7 @@ class TagController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Tag  $tag
      * @return \Illuminate\Http\Response
      */
     public function destroy(Tag $tag)

@@ -16,7 +16,7 @@
                 </div>
                 <div class="pull-right">
                     <br/>
-                    <a class="btn btn-success" href="{!! route('admin.posts.create') !!}"> Add Post</a>
+                    <a class="btn btn-success" href="{!! route('admin.posts.create') !!}">Add Post</a>
                 </div>
             </div>
         </div>

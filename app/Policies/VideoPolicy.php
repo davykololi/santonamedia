@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\User;
-use App\Admin;
+use App\Models\User;
+use App\Models\Admin;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use App\Models\Video;
 

@@ -23,7 +23,7 @@
                                 {{ __('Username Or Email') }}
                             </label>
                             <div class="col-md-6">
-                                <input id="login" type="text" class="form-control {{ $errors->has('username') || $errors->has('email') ? 'is_valid' : ''}}" name="login" value="{{ old('username') }}" autocorrect="off" required autofocus>
+                                <input id="login" type="text" class="form-control {{ $errors->has('username') || $errors->has('email') ? 'is_valid' : ''}}" name="login" value="{{ old('username') }}" autocorrect="off" placeholder="Username Or Email" required autofocus>
 
                                 @if($errors->has('username') || $errors->has('email'))
                                     <span class="invalid-feedback" role="alert">

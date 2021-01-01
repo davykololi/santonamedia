@@ -40,7 +40,7 @@ return [
             'description' => false, // set false to total remove
             'url'         => null, // Set null for using Url::current(), set false to total remove
             'type'        => false,
-            'site_name'   => 'santonamedia',
+            'site_name'   => config('app.name'),
             'images'      => [],
         ],
     ],

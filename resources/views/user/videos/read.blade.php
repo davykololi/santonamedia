@@ -30,7 +30,7 @@
               <a href="{!! $video->admin->videoPath() !!}">
                 <span style="margin: 5px;color: #696969"> 
                   <b>{!! $video->admin->name !!}</b>
-                  <img style="width: 5%;margin: 10px;border-radius: 50%" src="/storage/public/storage/{!! $video->admin->image !!}" alt="{!! $video->admin->name !!}">
+                  <img class="author-img" src="/storage/public/storage/{!! $video->admin->image !!}" alt="{!! $video->admin->name !!}">
                 </span>
               </a>  
             </div>
@@ -42,9 +42,9 @@
                   <source type="video/webm" src="{!! $video->videoUrl() !!}" alt="{!! $video->title !!}"> 
                   This browser doesn't support video tag.
                 </video>
-                <figcaption style="color: gray;font-size: 16px;padding: 5px;margin-bottom: 15px"> {!! $video->caption !!} </figcaption>
+                <figcaption class="video-caption"> {!! $video->caption !!} </figcaption>
               </figure>
-              <p style="text-align: justify-all;color:;background-color: lightgray;">
+              <p class="summary">
                 <b><u style="margin: 5px">Summary:</u></b>
                 <i>{!! $video->description !!}</i>
               </p>

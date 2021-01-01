@@ -15,7 +15,6 @@
             <ol class="breadcrumb">
               <li><a href="{!! url('/') !!}">Home</a></li>
               <li><a href="{!! $category->path() !!}">{{$category->name}}</a></li>
-              <li class="active">{{$post->title}}</li>
             </ol>
             <h1><a href="{!! $post->path() !!}">{!! $post->title !!}</a></h1>
             <div class="post_commentbox"> 
@@ -30,18 +29,18 @@
               <a href="{!! $post->admin->path() !!}">
                 <span style="margin: 5px;color: #696969"> 
                   <b>{!! $post->admin->name !!}</b>
-                  <img style="width: 5%;margin: 10px;border-radius: 50%" src="/storage/public/storage/{!! $post->admin->image !!}" alt="{!! $post->admin->name !!}">
+                  <img class="author-img" src="/storage/public/storage/{!! $post->admin->image !!}" alt="{!! $post->admin->name !!}">
                 </span>
               </a> 
             </div>
             <div class="single_page_content"> 
                 <img class="img-center" src="{!! $post->imageUrl() !!}" alt="{!! $post->title !!}">
-                <span style="display: block;text-align: center;font-size: 16px;color: gray;margin-bottom: 20px;margin-top: -10px">
+                <span class="post-caption">
                   {!! $post->caption !!}
                 </span>
-              <p style="text-align: justify-all;color:;background-color: lightgray;">
+              <p class="summary">
                 <b><u style="margin: 5px">Summary:</u></b>
-                <i>{!! $post->description !!}</i>
+                <i style="padding: 10px">{!! $post->description !!}</i>
               </p>
               <p>{!! $post->content !!}</p>
 

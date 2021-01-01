@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Superadmin;
 
 use Image;
 use File;
+use Auth;
 use App\Models\Tag;
 use App\Models\Post;
-use App\Admin;
+use App\Models\Admin;
 use App\Models\Category;
-use Auth;
 use App\Http\Requests\PostFormRequest as StoreRequest;
 use App\Http\Requests\PostFormRequest as UpdateRequest;
 use Illuminate\Support\Facades\Storage;
@@ -26,7 +26,7 @@ class PostController extends Controller
     {
         $this->middleware('auth:superadmin');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -63,7 +63,6 @@ class PostController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        //
         //Handle the file upload
         if($request->hasfile('image')){
         //Get filename with extention
@@ -112,10 +111,11 @@ class PostController extends Controller
     {
         //
         $tags = Tag::get()->pluck('name','id');
+        $postTags = $post->tags;
         $categories = Category::all();
         $admins = Admin::all();
 
-        return view('superadmin.posts.edit',['post'=>$post,'categories'=>$categories,'tags'=>$tags,'admins'=>$admins]);
+        return view('superadmin.posts.edit',compact('post','categories','tags','postTags','admins'));
     }
 
     /**
@@ -165,6 +165,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        //
         if($post){
             Storage::delete('public/storage/'.$post->image);
             $post->delete();

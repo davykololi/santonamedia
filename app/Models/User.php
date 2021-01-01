@@ -1,7 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
+use App\Models\Comment;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -39,6 +40,6 @@ class User extends Authenticatable
 
     public function comments()
     {
-        return $this->hasMany('App\Models\Comment','user_id','id');
+        return $this->hasMany(Comment::class,'user_id','id');
     }
 }

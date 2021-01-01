@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Admin;
+use App\Models\Admin;
 use App\Models\Post;
 use App\Models\Video;
 use App\Models\Tag;

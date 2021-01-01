@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Image;
 use File;
+use Auth;
 use App\Models\Tag;
 use App\Models\Post;
 use App\Models\Category;
-use Auth;
 use App\Http\Requests\PostFormRequest as StoreRequest;
 use App\Http\Requests\PostFormRequest as UpdateRequest;
 use Illuminate\Support\Facades\Storage;
@@ -90,7 +90,7 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
     public function show(Post $post)
@@ -102,27 +102,29 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
     public function edit(Post $post)
     {
         //
         $tags = Tag::get()->pluck('name','id');
+        $postTags = $post->tags;
         $categories = Category::all();
 
-        return view('admin.posts.edit',['post'=>$post,'categories'=>$categories,'tags'=>$tags]);
+        return view('admin.posts.edit',['post'=>$post,'categories'=>$categories,'tags'=>$tags,'postTags'=>$postTags]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateRequest $request, Post $post)
     {
+        //
         $this->authorize('update',$post);
         //Handle the file upload
         if($request->hasfile('image')){
@@ -157,7 +159,7 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
     public function destroy(Post $post)

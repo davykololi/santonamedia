@@ -1,6 +1,6 @@
 <?php
  
-namespace App;
+namespace App\Models;
 
 use App\Models\Post;
 use App\Models\Video;
@@ -54,12 +54,12 @@ class Admin extends Authenticatable
 
     public function posts()
     {
-    return $this->hasMany('App\Models\Post', 'admin_id', 'id');
+    return $this->hasMany(Post::class, 'admin_id', 'id');
     }
 
     public function videos()
     {
-    return $this->hasMany('App\Models\Video', 'admin_id', 'id');
+    return $this->hasMany(Video::class, 'admin_id', 'id');
     }
 
     public function ownsPost(Post $post)

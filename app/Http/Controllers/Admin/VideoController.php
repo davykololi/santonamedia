@@ -8,11 +8,11 @@ use Auth;
 use App\Models\Tag;
 use App\Models\Category;
 use App\Models\Video;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\VideoFormRequest as StoreRequest;
 use App\Http\Requests\VideoFormRequest as UpdateRequest;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class VideoController extends Controller
 {
@@ -90,7 +90,7 @@ class VideoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Video  $video
      * @return \Illuminate\Http\Response
      */
     public function show(Video $video)
@@ -102,26 +102,27 @@ class VideoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Video  $video
      * @return \Illuminate\Http\Response
      */
     public function edit(Video $video)
     {
         //
         $tags = Tag::get()->pluck('name','id');
+        $videoTags = $video->tags;
         $categories = Category::all();
 
-        return view('admin.videos.edit',compact('video','tags','categories'));
+        return view('admin.videos.edit',compact('video','tags','videoTags','categories'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Video  $video
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreRequest $request, Video $video)
+    public function update(UpdateRequest $request, Video $video)
     {
         $this->authorize('update',$video);
         //Handle the file upload
@@ -158,11 +159,12 @@ class VideoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Video  $video
      * @return \Illuminate\Http\Response
      */
     public function destroy(Video $video)
     {
+        //
         $this->authorize('delete',$video);
         if($video){
             Storage::delete('public/videos/'.$video->video);
