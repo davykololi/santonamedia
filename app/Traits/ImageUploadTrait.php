@@ -3,12 +3,13 @@
 namespace App\Traits;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\Storage;
 
 trait ImageUploadTrait{
-
-	public function verifyAndUpload(Request $request,$fieldname='image',$directory='public/storage')
+    /**
+    * @param Request $request
+    * @return $this|false|string
+    */
+	public function verifyAndUpload(Request $request,$fieldname='image',$directory='public/storage/')
 	{
                 if($request->hasFile($fieldname)){
                         if(!$request->file($fieldname)->isValid()){
@@ -16,6 +17,7 @@ trait ImageUploadTrait{
 
         	return redirect()->back()->withInput();
         }
+        	if($request->hasfile($fieldname)){
         	//Get filename with extention
                 $filenameWithExt = $request->file($fieldname)->getClientOriginalName();
                 //Get just filename
@@ -27,6 +29,7 @@ trait ImageUploadTrait{
                 $path = $request->file($fieldname)->storeAs($directory,$fileNameToStore);
         	
                 return $fileNameToStore;
+               }
         }
 
                 return null;

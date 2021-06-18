@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use Auth;
+use Artisan;
 use App\Models\Admin;
 use App\Models\Contact;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Brian2694\Toastr\Facades\Toastr;
 
 class GeneralController extends Controller
 {
@@ -38,6 +40,9 @@ class GeneralController extends Controller
     {
         $contact = Contact::findOrFail($id);
         $contact->delete();
+        Artisan::call('cache:clear');
+
+        Toastr::success('The contact deleted successfully :)','Success');
 
         return redirect()->back()->withSuccess('The contact deleted successfully');
     }

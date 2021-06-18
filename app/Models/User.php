@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Comment;
+use App\Models\Video;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -16,6 +17,7 @@ class User extends Authenticatable
      *
      * @var array
      */
+    protected $primaryKey = 'id';
     protected $fillable = [
         'name','username','email', 'password','provider','provider_id'
     ];
@@ -41,5 +43,10 @@ class User extends Authenticatable
     public function comments()
     {
         return $this->hasMany(Comment::class,'user_id','id');
+    }
+
+    public function videos()
+    {
+        return $this->hasMany(Video::class,'user_id','id');
     }
 }

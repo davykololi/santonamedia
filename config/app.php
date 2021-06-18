@@ -167,6 +167,10 @@ return [
         Spatie\Analytics\AnalyticsServiceProvider::class,
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
         RenatoMarinho\LaravelPageSpeed\ServiceProvider::class,
+        Dawson\Youtube\YoutubeServiceProvider::class,
+        Spatie\LaravelImageOptimizer\ImageOptimizerServiceProvider::class,
+        Brian2694\Toastr\ToastrServiceProvider::class,
+        Cog\Laravel\Ban\Providers\BanServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -181,7 +185,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,    
-
+        App\Providers\GeneralServiceProvider::class,
     ],
 
     /*
@@ -240,6 +244,9 @@ return [
         'OpenGraph' => Artesaos\SEOTools\Facades\OpenGraph::class,
         'Twitter'   => Artesaos\SEOTools\Facades\TwitterCard::class,
         'JsonLd'   => Artesaos\SEOTools\Facades\JsonLd::class,
+        'Youtube' => Dawson\Youtube\Facades\Youtube::class,
+        'ImageOptimizer' => Spatie\LaravelImageOptimizer\ImageOptimizerFacade::class,
+        'Toastr' => Brian2694\Toastr\Facades\Toastr::class,
     ],
 
 ];

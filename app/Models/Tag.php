@@ -4,15 +4,19 @@ namespace App\Models;
 
 use App\Models\Post;
 use App\Models\Video;
+use Spatie\Searchable\Searchable;
+use\Spatie\Searchable\SearchResult;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 
-class Tag extends Model
+class Tag extends Model implements Searchable
 {
     //
-    use Sluggable;
+    use Sluggable,Cachable;
 
     protected $table = 'tags';
+    protected $primaryKey = 'id';
     protected $fillable = ['name','desc','keywords'];
 
     public function sluggable()
@@ -26,6 +30,17 @@ class Tag extends Model
                 'onUpdate' => true,
             ]
         ];
+    }
+
+    public function getSearchResult(): SearchResult
+    {
+        $url = route('post.tags', $this->slug);
+
+        return new SearchResult(
+                $this,
+                $this->name,
+                $url
+            );
     }
 
     public function posts()
@@ -46,5 +61,15 @@ class Tag extends Model
     public function videoPath()
     {
         return route('video.tags', $this->slug);
+    }
+
+    public function setNameAttribute($value)
+    {
+        return $this->attributes['name'] = ucwords($value);
+    }
+
+    public function setDescAttribute($value)
+    {
+        return $this->attributes['desc'] = ucwords($value);
     }
 }

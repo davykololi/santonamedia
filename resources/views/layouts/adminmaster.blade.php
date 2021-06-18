@@ -8,7 +8,7 @@
             @yield('content')
         </main>
         @include('partials.footer')
-        @include('partials.scripts')
+        @include('partials.admin_scripts')
     </div>
 </body>
 </html>

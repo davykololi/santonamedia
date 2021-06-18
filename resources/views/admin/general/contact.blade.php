@@ -10,7 +10,7 @@
             <br/>
         </div>
         <div class="pull-right">
-            <a href="{!! route('contactus.contacts') !!}" class="label label-primary pull-right"> Back</a>
+            <a href="{!! route('admin.contacts') !!}" class="label label-primary pull-right"> Back</a>
         </div>
     </div>
 </div>

@@ -3,21 +3,24 @@
 namespace App\Http\Controllers\Superadmin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Services\CategoryService;
 use App\Http\Requests\CategoryFormRequest as StoreRequest;
 use App\Http\Requests\CategoryFormRequest as UpdateRequest;
+use Brian2694\Toastr\Facades\Toastr;
 
 class CategoryController extends Controller
 {
+    protected $categoryService;
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(CategoryService $categoryService)
     {
         $this->middleware('auth:superadmin');
+        $this->categoryService = $categoryService;
     }
 
     /**
@@ -28,7 +31,7 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        $categories = Category::all();
+        $categories = $this->categoryService->all();
 
         return view('superadmin.categories.index',['categories'=>$categories]);
     }
@@ -53,13 +56,10 @@ class CategoryController extends Controller
     public function store(StoreRequest $request)
     {
         //
-        $input = $request->all();
-        $input['name'] = $request->name;
-        $input['description'] = $request->description;
-
-        $category = Category::create($input);
+        $category = $this->categoryService->create($request);
+        Toastr::success('The category created successfully :)','Success');
         
-        return redirect()->route('superadmin.categories.index')->withSuccess('The category created successfully');
+        return redirect()->route('superadmin.categories.index')->withSuccess(ucwords($category->name." ".'Category created successfully'));
     }
 
     /**
@@ -68,9 +68,11 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($id)
     {
         //
+        $category = $this->categoryService->getId($id);
+
         return view('superadmin.categories.show',['category'=>$category]);
     }
 
@@ -80,9 +82,11 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
         //
+        $category = $this->categoryService->getId($id);
+
         return view('superadmin.categories.edit',['category'=>$category]);
     }
 
@@ -93,15 +97,14 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRequest $request, Category $category)
+    public function update(UpdateRequest $request, $id)
     {
         //
-        $input = $request->all();
-        $input['name'] = $request->name;
-        $input['description'] = $request->description;
-        $category->update($input);
+        $category = $this->categoryService->getId($id);
+        $this->categoryService->update($request,$id);
+        Toastr::success('The category updated successfully :)','Success');
 
-        return redirect()->route('superadmin.categories.index')->withSuccess('The category updated successfully');
+        return redirect()->route('superadmin.categories.index')->withSuccess(ucwords($category->name." ".'Category updated successfully'));
     }
 
     /**
@@ -110,11 +113,13 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
         //
-        $category->delete();
+        $category = $this->categoryService->getId($id);
+        $this->categoryService->delete($id);
+        Toastr::success('The category deleted successfully :)','Success');
 
-        return redirect()->route('superadmin.categories.index')->withSuccess('The category deleted successfully');
+        return redirect()->route('superadmin.categories.index')->withSuccess(ucwords($category->name." ".'Category deleted successfully'));
     }
 }

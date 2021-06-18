@@ -14,6 +14,7 @@
                     <a href="{!! $ar->path() !!}" class="catg_title">
                       {!! $ar->title !!}
                     </a> 
+                    <p><i>{!! $ar->created_date !!}</i></p>
                   </div>
                 </div>
                 @endforeach

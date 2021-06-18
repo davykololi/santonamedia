@@ -4,9 +4,9 @@ namespace App\Http\Controllers\User;
 
 use Carbon\Carbon;
 use App\Models\Contact;
-use App\Models\Tag;
-use App\Models\Post;
-use App\Models\Category;
+use App\Interfaces\PostInterface;
+use App\Interfaces\CategoryInterface;
+use App\Interfaces\TagInterface;
 use Spatie\SchemaOrg\Schema;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -20,15 +20,19 @@ use Illuminate\Support\Facades\URL;
 
 class PageController extends Controller
 {
-    //
+    protected $postRepository;
+    protected $categoryRepository;
+    protected $tagRepository;
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(PostInterface $postRepository,CategoryInterface $categoryRepository,TagInterface $tagRepository)
     {
-        
+        $this->postRepository = $postRepository;
+        $this->categoryRepository = $categoryRepository;
+        $this->tagRepository = $tagRepository;
     }
  
     /**
@@ -39,13 +43,13 @@ class PageController extends Controller
 
     public function contact()
     {
-        $categories = Category::with('posts')->get();
+        $categories = $this->categoryRepository->categoryWithPosts();
 
         foreach($categories as $category){
-        $categoryPosts = $category->posts()->with('admin','category')->published()->get();
-        $allPosts = Post::with('category','admin')->published()->latest()->get();
-        $allPostsSide = Post::latest()->published()->take(5)->get();
-        $tags = Tag::with('posts')->get();
+        $categoryPosts = $category->posts()->published()->eagerLoaded()->get();
+        $allPosts = $this->postRepository->allPublishedPosts();
+        $allPostsSide = $this->postRepository->latestPublishedFive();
+        $tags = $this->tagRepository->tagWithPosts();
 
         $title = 'Contact Us';
         $desc = 'Santona Media News Contact Page';
@@ -104,6 +108,7 @@ class PageController extends Controller
         // Mail Delivery logic goes here
         $emailJob = (new SendContactJob($contact))->delay(Carbon::now()->addMinutes(2));
         $this->dispatch($emailJob);
+        $this->sendSms();
 
         return redirect()->route('users.pages.contact')->withSuccess('Thank you for contacting us. We will get back to you soon');
         //  return redirect()->route('contact.create');
@@ -111,13 +116,13 @@ class PageController extends Controller
 
     public function about()
     {
-        $categories = Category::with('posts')->get();
+        $categories = $this->categoryRepository->categoryWithPosts();
 
         foreach($categories as $category){
-        $categoryPosts = $category->posts()->with('admin','category','user')->withCount('comments')->published()->get();
-        $allPosts = Post::with('category','admin','user')->withCount('comments')->published()->latest()->get();
-        $allPostsSide = Post::latest()->published()->take(5)->get();
-        $tags = Tag::with('posts')->get();
+        $categoryPosts = $category->posts()->published()->eagerLoaded()->get();
+        $allPosts = $this->postRepository->allPublishedPosts();
+        $allPostsSide = $this->postRepository->latestPublishedFive();
+        $tags = $this->tagRepository->tagWithPosts();
 
         $title = 'About Us';
         $desc = 'The media house for the latest breaking news in Kenya and around the world';
@@ -167,13 +172,13 @@ class PageController extends Controller
 
     public function privatePolicy()
     {
-        $categories = Category::with('posts')->get();
+        $categories = $this->categoryRepository->categoryWithPosts();
 
         foreach($categories as $category){
-        $categoryPosts = $category->posts()->with('admin','category','user')->withCount('comments')->published()->get();
-        $allPosts = Post::with('category','admin','user')->withCount('comments')->published()->latest()->get();
-        $allPostsSide = Post::latest()->published()->take(5)->get();
-        $tags = Tag::with('posts')->get();
+        $categoryPosts = $category->posts()->published()->eagerLoaded()->get();
+        $allPosts = $this->postRepository->allPublishedPosts();
+        $allPostsSide = $this->postRepository->latestPublishedFive();
+        $tags = $this->tagRepository->tagWithPosts();
 
         $title = 'Private Policy';
         $desc = 'Santona Media Private Policy Statement';
@@ -221,13 +226,13 @@ class PageController extends Controller
 
     public function portfolio()
     {
-        $categories = Category::with('posts')->get();
+        $categories = $this->categoryRepository->categoryWithPosts();
 
         foreach($categories as $category){
-        $categoryPosts = $category->posts()->with('admin','category','user')->withCount('comments')->published()->get();
-        $allPosts = Post::with('category','admin','user')->withCount('comments')->published()->latest()->get();
-        $allPostsSide = Post::latest()->published()->take(5)->get();
-        $tags = Tag::with('posts')->get();
+        $categoryPosts = $category->posts()->published()->eagerLoaded()->get();
+        $allPosts = $this->postRepository->allPublishedPosts();
+        $allPostsSide = $this->postRepository->latestPublishedFive();
+        $tags = $this->tagRepository->tagWithPosts();
 
         $title = 'Portfolio';
         $desc = 'Santona Media Portfolio Page';
@@ -270,6 +275,25 @@ class PageController extends Controller
         );
 
         return view('user.pages.portfolio',$data);
+        }
+    }
+
+    public function sendSms()
+    {
+        try{
+            $basic = new \Nexmo\Client\Credentials\Basic(getenv("NEXMO_KEY"),getenv("NEXMO_SECRET"));
+            $client = new \Nexmo\Client($basic);
+
+            $receiverNumber = "254724351952";
+            $message = "The client has send you a mail from 'https://santonamedia.com'";
+
+            $message = $client->message()->send([
+                        'to' => $receiverNumber,
+                        'from' =>"https://santonamedia.com" ,
+                        'text' => $message,
+                    ]);
+        } catch(Exception $e){
+            dd("Error".$e->getMessage());
         }
     }
 }

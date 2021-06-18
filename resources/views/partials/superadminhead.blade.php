@@ -30,9 +30,17 @@
     <link rel="stylesheet" type="text/css" href="{!! asset('main/css/jquery.fancybox.css') !!}">
     <link rel="stylesheet" type="text/css" href="{!! asset('main/css/theme.css') !!}">
     <link rel="stylesheet" type="text/css" href="{!! asset('main/css/style.css') !!}">
+
+    <!--Toastr css -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     
     <!-- Styles -->
     <style>
     @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
+    </style>
+    <style>
+        #ban_margin_left{
+            margin-left: 2em;
+        }
     </style>
 </head>

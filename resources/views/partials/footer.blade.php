@@ -19,7 +19,7 @@
             <ul class="tag_nav">
               @if(!empty($navs))
                 @foreach($navs as $category)
-              <li><a href="{!! $category->path() !!}">{{ $category->name }}</a></li>
+                  <li><a href="{!! $category->path() !!}">{{ $category->name }}</a></li>
                 @endforeach
               @endif
             </ul>
@@ -35,13 +35,13 @@
               <li>
               	<a href="{{url('/news-feed')}}">
                   <span style="margin: 5px">News Feed</span>
-              		<img src="{{asset('static/newsrssfeed.jpg')}}" width="30" height="30" alt="Subscribe to Latest Santona Media News"> 
+              		<img src="{{asset('static/newsrssfeed.jpg')}}" width="30" height="30" alt="The to Latest Santona Media News"> 
               	</a>
               </li>
               <li>
               	<a href="{{url('/videos-feed')}}">
                   <span style="margin: 5px">Video Feed</span>
-              		<img src="{{asset('static/videorssfeed.jpg')}}" width="30" height="30" alt="Subscribe to Latest Santona Media Videos">
+              		<img src="{{asset('static/videorssfeed.jpg')}}" width="30" height="30" alt="The Latest Santona Media Videos">
               	</a>
               </li>
             </ul>
@@ -53,6 +53,6 @@
       <p class="copyright">Copyright &copy; {{ date('Y')}} 
         <span style="margin: 10px"><a href="{{url('/')}}"> santonamedia.com </a></span> All Rights Reserved
       </p>
-      <p class="developer">Developed By DMK</p>
+      <p class="developer">Developed By DMK. <i>Tel:254 0724351952</i></p>
     </div>
   </footer>

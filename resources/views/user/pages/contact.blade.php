@@ -1,5 +1,4 @@
 @extends('layouts.app')
-@section('title', '| Contact')
 
 @section('content')
 @include('partials.allnews')
@@ -11,26 +10,26 @@
 		@include('partials.errors')
           <div class="contact_area">
             <h2>Contact Us</h2>
-            <p>We are glad that you are contacting us. Fill in the form below and submit to us.</p>
+            <p><b>We are glad that you are contacting us. Fill in the form below and submit to us.</b></p>
             {!! Form::open(['route'=>'contactus.store']) !!}
 				<div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
 					{!! Form::label('Name:') !!}
-					{!! Form::text('name', old('name'), ['class'=>'form-control', 'placeholder'=>'Enter Name']) !!}
+					{!! Form::text('name', old('name'), ['class'=>'form-control', 'placeholder'=>'Name']) !!}
 					<span class="text-danger">{{ $errors->first('name') }}</span>
 				</div>
 				<div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
 					{!! Form::label('Email:') !!}
-					{!! Form::text('email', old('email'), ['class'=>'form-control', 'placeholder'=>'Enter Email Address']) !!}
+					{!! Form::text('email', old('email'), ['class'=>'form-control', 'placeholder'=>'Email Address']) !!}
 					<span class="text-danger">{{ $errors->first('email') }}</span>
 				</div>
 				<div class="form-group {{ $errors->has('subject') ? 'has-error' : '' }}">
 					{!! Form::label('Subject:') !!}
-					{!! Form::text('subject', old('subject'), ['class'=>'form-control', 'placeholder'=>'Enter Subject']) !!}
+					{!! Form::text('subject', old('subject'), ['class'=>'form-control', 'placeholder'=>'Subject']) !!}
 					<span class="text-danger">{{ $errors->first('subject') }}</span>
 				</div>
 				<div class="form-group {{ $errors->has('message') ? 'has-error' : '' }}">
 					{!! Form::label('Message:') !!}
-					{!! Form::textarea('message', old('message'), ['class'=>'form-control', 'placeholder'=>'Enter Message']) !!}
+					{!! Form::textarea('message', old('message'), ['class'=>'form-control', 'placeholder'=>'Message']) !!}
 					<span class="text-danger">{{ $errors->first('message') }}</span>
 				</div>
 				<div class="form-group">

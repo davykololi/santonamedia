@@ -82,6 +82,7 @@
                         </div>
                     </li>
                 @endguest
+            <li class="nav-item">@include('user.search')</li>
         </ul>
       </div>
     </nav>

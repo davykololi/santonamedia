@@ -18,7 +18,7 @@ return [
              */
             'url' => '/news-feed',
 
-            'title' => 'Subscribe to Latest Santona Media News',
+            'title' => 'The Latest Santona Media News',
             'description' => 'The latest news in sports, entertainment, politics, technology, lifestyle, health and business.',
             'language' => 'en-US',
 
@@ -49,7 +49,7 @@ return [
              */
             'url' => '/videos-feed',
 
-            'title' => 'Subscribe to Latest Santona Media Videos',
+            'title' => 'The Latest Santona Media Videos',
             'description' => 'The best videos of the latest news in Kenya and around the  world',
             'language' => 'en-US',
 

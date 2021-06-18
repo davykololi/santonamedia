@@ -1,5 +1,4 @@
 @extends('layouts.app')
-@section('title', '| Private Policy')
 
 @section('content')
 @include('partials.allnews')

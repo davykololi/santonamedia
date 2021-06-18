@@ -189,40 +189,6 @@ hr.style-four{
 	font-size: 1.3rem;
 	line-height: 1.5;
 }
-
-/* ---- navigation ---*/
-.navbar{
-	background-color: #000080;
-}
-.navbar .nav-link, .navbar-brand{
-	color: #fff;
-	cursor: pointer;
-}
-.navbar .nav-link{
-	margin-right: 1em !important;
-	color: white;
-	font-size: 13px;
-	font-family: Times New Roman;
-}
-.navbar .nav-link:hover{
-	color: #f97300;
-}
-
-.navbar-collapse{
-	justify-content: flex-end;
-}
-.navbar-toggler{
-	background-color: #fff !important;
-}
-.navbar .dropdown-item{
-	text-transform: uppercase;
-	font-size: 14px;
-	font-family: Times New Roman;
-}
-.navbar .dropdown-menu a:hover{
-	background-color: white;
-	color: black;
-}
 .features{
 	margin-top: 50px;
 	padding: 0em;

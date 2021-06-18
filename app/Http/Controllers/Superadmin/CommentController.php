@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Superadmin;
 use App\Models\Comment;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Brian2694\Toastr\Facades\Toastr;
 
 class CommentController extends Controller
 {
@@ -36,6 +37,8 @@ class CommentController extends Controller
 	{
 		$comment->delete();
 
-		return redirect()->route('superadmin.comments.index')->withSuccess('the comment deleted successfully');
+        Toastr::success('The comment deleted successfully :)','Success');
+
+		return redirect()->route('superadmin.comments.index')->withSuccess('The comment deleted successfully');
 	}
 }

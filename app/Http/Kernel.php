@@ -71,6 +71,8 @@ class Kernel extends HttpKernel
         'prevent-back-history' => \App\Http\Middleware\PreventBackHistory::class,
         'HtmlMinifier' => \App\Http\Middleware\HtmlMinifier::class,
         'doNotCacheResponse' => \Spatie\ResponseCache\Middlewares\doNotCacheResponse::class,
+        'optimizeImages' => \Spatie\LaravelImageOptimizer\Middlewares\OptimizeImages::class,
+        'admin_ban' => \App\Http\Middleware\ForbidBannedAdminCustom::class,
     ];
 
     /**

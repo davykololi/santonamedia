@@ -4,17 +4,22 @@ namespace App\Models;
 
 use App\Models\Post;
 use App\Models\Video;
+use Cog\Contracts\Ban\Bannable as BannableContract;
+use Cog\Laravel\Ban\Traits\Bannable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\AdminResetPasswordNotification;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Support\Facades\URL;
+use Spatie\Searchable\Searchable;
+use\Spatie\Searchable\SearchResult;
  
-class Admin extends Authenticatable
+class Admin extends Authenticatable implements Searchable,BannableContract
 {
-    use Notifiable,Sluggable;
+    use Notifiable,Sluggable,Bannable;
  
     protected $guard = 'admin';
+    protected $primaryKey = 'id';
  
     /**
      * The attributes that are mass assignable.
@@ -22,7 +27,7 @@ class Admin extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','title','phone_no','area','image','keywords','slug',
+        'name', 'email', 'password','title','phone_no','area','image','keywords','slug','banned_at',
     ];
  
     /**
@@ -45,6 +50,17 @@ class Admin extends Authenticatable
                 'onUpdate' => true,
             ]
         ];
+    }
+
+    public function getSearchResult(): SearchResult
+    {
+        $url = route('author.posts', $this->slug);
+
+        return new SearchResult(
+                $this,
+                $this->name,
+                $url,
+            );
     }
  
     public function sendPasswordResetNotification($token)

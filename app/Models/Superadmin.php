@@ -12,6 +12,7 @@ class Superadmin extends Authenticatable
     use Notifiable;
 
     protected $guard = 'superadmin';
+    protected $primaryKey = 'id';
     
     /**
      * The attributes that are mass assignable.

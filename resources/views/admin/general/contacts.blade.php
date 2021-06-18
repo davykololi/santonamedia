@@ -31,14 +31,17 @@
                                 <div>{!! $contact->email !!}</div>
                             </td>
                             <td class="table-text">
+                                <div>{!! $contact->subject !!}</div>
+                            </td>
+                            <td class="table-text">
                                 <div>{!! Str::limit($contact->message,$limit=30,$end= '...') !!}</div>
                             </td>
                             <td class="table-text">
                                 <div>{!! $contact->created_at !!}</div>
                             </td>
                             <td>
-                                <a href="{!! route('contact.show', $contact->id) !!}" class="label label-success">Details</a>
-                                <a href="{!! route('contact.destroy', $contact->id) !!}" class="label label-danger" onclick="return confirm('Are you sure to delete?')">Delete</a>
+                                <a href="{!! route('admin.contact.show', $contact->id) !!}" class="label label-success">Details</a>
+                                <a href="{!! route('admin.contact.destroy', $contact->id) !!}" class="label label-danger" onclick="return confirm('Are you sure to delete?')">Delete</a>
                             </td>
                         </tr>
                     @endforeach

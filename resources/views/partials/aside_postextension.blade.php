@@ -156,6 +156,7 @@
                 @endforeach
               @endif
             </ul>
+            @include('user.dataduration.seven_days_posts')
           </div>
         </aside>
 </div>

@@ -1,5 +1,5 @@
 <!--admin navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="{{ url('santonamedia.com') }}">
             <span style="font-family: FELIX TITLING;font-size: 30px;" class="white">
                 SANT<img width ="30px" height="30px" src= "{{asset('static/globe.png')}}" alt="" loading="auto">NA MEDIA
@@ -13,13 +13,13 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{route('posts.index')}}">POSTS</a>
+                    <a class="nav-link" href="{{route('superadmin.posts.index')}}">POSTS</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{route('videos.index')}}">VIDEOS</a>
+                    <a class="nav-link" href="{{route('superadmin.videos.index')}}">VIDEOS</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{route('admins.index')}}">ADMINS</a>
+                    <a class="nav-link" href="{{route('superadmin.admins.index')}}">ADMINS</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="{{route('superadmin.categories.index')}}">CATEGORIES</a>
@@ -50,6 +50,7 @@
                         <span>{{ Auth::user()->name }}</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{route('superadmin.change-password.form')}}">Change Password</a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">

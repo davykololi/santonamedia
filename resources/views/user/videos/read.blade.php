@@ -1,9 +1,4 @@
 @extends('layouts.app')
-
-@section('title')
-@parent
-{{$video->title}}
-@stop
  
 @section('content')
 @include('partials.videosection')

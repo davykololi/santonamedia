@@ -1,5 +1,4 @@
 @extends('layouts.app')
-@section('title', '| Portifolio')
 
 @section('content')
 @include('partials.allnews')

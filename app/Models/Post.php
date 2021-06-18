@@ -9,17 +9,22 @@ use App\Models\Category;
 use App\Models\Comment;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
-use Laravel\Scout\Searchable;
+use Spatie\Searchable\Searchable;
+use\Spatie\Searchable\SearchResult;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 
-class Post extends Model implements Feedable
+class Post extends Model implements Feedable,Searchable
 {
     //
-    use Sluggable,Searchable;
+    use Sluggable,Cachable;
+    const EXCERPT_LENGTH = 100;
     protected $table = 'posts';
+    protected $primaryKey = 'id';
     protected $fillable = ['title','image','caption','content','description','keywords','is_published','admin_id','category_id','slug'];
-    protected $appends = ['createdDate','excerpt','image_url'];
+    protected $appends = ['createdDate','image_url'];
 
     public function sluggable()
     {
@@ -34,9 +39,15 @@ class Post extends Model implements Feedable
         ];
     }
 
-    public function searchableAs()
+    public function getSearchResult(): SearchResult
     {
-        return 'posts_index';
+        $url = route('users.posts.read', $this->slug);
+
+        return new SearchResult(
+                $this,
+                $this->title,
+                $url
+            );
     }
    
     public function admin()
@@ -77,7 +88,7 @@ class Post extends Model implements Feedable
     public function toFeedItem():FeedItem
     {
         return FeedItem::create([
-                'id'=>env('APP_URL').'/articles/details/'.$this->slug,
+                'id'=>env('APP_URL').'/articles/'.$this->slug,
                 'title'=>$this->title,
                 'summary'=>$this->description,
                 'updated'=>$this->updated_at,
@@ -91,9 +102,9 @@ class Post extends Model implements Feedable
         return Post::published()->orderBy('created_at','desc')->limit(50)->get();
     }
 
-    public function getExcerptAttribute()
+    public function excerpt()
     {
-        return substr(strip_tags($this->content),0,100);
+        return Str::limit(strip_tags($this->content),Post::EXCERPT_LENGTH);
     }
 
     public function scopePublished($query)
@@ -111,8 +122,28 @@ class Post extends Model implements Feedable
         return route('users.posts.read', $this->slug);
     }
 
+    public function scopeEagerLoaded($query)
+    {
+    	return $query->with('admin','category','tags','comments')->withCount('comments');
+    }
+
     public function imageUrl()
     {
         return url('/storage/public/storage/'.$this->image);
+    }
+
+    public function setTitleAttribute($value)
+    {
+        return $this->attributes['title'] = ucwords($value);
+    }
+
+    public function setDescriptionAttribute($value)
+    {
+        return $this->attributes['description'] = ucwords($value);
+    }
+
+    public function setCaptionAttribute($value)
+    {
+        return $this->attributes['caption'] = ucwords($value);
     }
 }

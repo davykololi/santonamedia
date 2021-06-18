@@ -16,7 +16,7 @@
                 </div>
                 <div class="pull-right">
                     <br/>
-                    <a class="btn btn-success" href="{{route('videos.create')}}"> Add Video</a>
+                    <a class="btn btn-success" href="{{route('superadmin.videos.create')}}"> Add Video</a>
                 </div>
             </div>
         </div>
@@ -48,17 +48,17 @@
                                 <div>{!! Illuminate\Support\Str::words($video->description,10,'...') !!}</div>
                             </td>
                             <td class="table-text">
-                                <div>{!! Illuminate\Support\Str::words($video->content,10,'...') !!}</div>
+                                <div>{!! $video->excerpt() !!}</div>
                             </td>
                             <td class="table-text">
                                 <div>{!! $video->created_at !!}</div>
                             </td>
                             <td>
-                                <form action="{!! route('videos.destroy', $video->id) !!}" method="POST">
+                                <form action="{!! route('superadmin.videos.destroy', $video->id) !!}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <a href="{!! route('videos.show', $video->id) !!}" class="label label-success">Details</a>
-                                    <a href="{!! route('videos.edit', $video->id) !!}" class="label label-warning">Edit</a>
+                                    <a href="{!! route('superadmin.videos.show', $video->id) !!}" class="label label-success">Details</a>
+                                    <a href="{!! route('superadmin.videos.edit', $video->id) !!}" class="label label-warning">Edit</a>
                                     <button type="submit" class="label label-danger" onclick="return confirm('Are you sure to delete  {!! $video->title !!}?')">
                                         Delete
                                     </button>

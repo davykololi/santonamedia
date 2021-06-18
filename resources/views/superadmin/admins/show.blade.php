@@ -10,10 +10,12 @@
             <br/>
         </div>
         <div class="pull-right">
-            <a href="{{ route('admins.index') }}" class="label label-primary pull-right"> Back</a>
+            <a href="{{ route('superadmin.admins.index') }}" class="label label-primary pull-right"> Back</a>
         </div>
     </div>
-</div>
+    </div>
+    @include('partials.messages')
+    @include('partials.errors')
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
@@ -46,8 +48,34 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
+            <strong>Articles:</strong>
+           <label class="label label-info">{{ $admin->posts->count() }}</label>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
             <strong>Keywords:</strong>
             {{ $admin->keywords }}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Banned:</strong>
+            @if($admin->isBanned())
+                <label class="label label-danger" id="ban_margin_left">Yes</label>
+            @else
+                <label class="label label-success" id="ban_margin_left">No</label>
+            @endif
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Action:</strong>
+            @if($admin->isBanned())
+                <a href="{{route('superadmin.admin.revoke',[$admin->id])}}" class="btn btn-success btn-sm" id="ban_margin_left">Revoke</a>
+            @else
+                <a href="{{route('superadmin.admin.bann',$admin->id)}}" class="label label-success label-sm" id="ban_margin_left">Bann</a>
+            @endif
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">

@@ -18,7 +18,7 @@ class CommentController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        
     }
     /**
      * Store a newly created resource in storage.
@@ -30,13 +30,17 @@ class CommentController extends Controller
     {
         $this->validate(request(),[
                 'content'=>'required',
+                'name'=>'required',
+                'email'=>'required',
                 ]);
     
         $comment = new Comment();
         $comment->content = $request->content;
+        $comment->name = $request->name;
+        $comment->email = $request->email;
         $comment->commentable_id = $request->commentable_id;
         $comment->commentable_type = $request->commentable_type;
-        $comment->user_id = Auth::id();
+        $comment->user_id = Auth::guest();
         $comment->save();
 
         return back();

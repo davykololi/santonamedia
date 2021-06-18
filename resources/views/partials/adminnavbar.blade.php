@@ -1,5 +1,6 @@
 <!--admin navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
         <a class="navbar-brand" href="{{ url('santonamedia.com') }}">
             <span style="font-family: FELIX TITLING;font-size: 30px;" class="white">
                 SANT<img width ="30px" height="30px" src= "{{asset('static/globe.png')}}" alt="" loading="auto">NA MEDIA
@@ -16,18 +17,18 @@
                     <a class="nav-link" href="{{route('admin.posts.index')}}">POSTS</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{route('contactus.contacts')}}">CONTACTS</a>
+                    <a class="nav-link" href="{{route('admin.contacts')}}">CONTACTS</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="{{route('admin.videos.index')}}">VIDEOS</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{route('KDTool')}}">TOOL</a>
+                    <a class="nav-link" href="{{route('admin.KDTool')}}">TOOL</a>
                 </li>
             </ul>
 
             <!-- Right Side Of Navbar -->
-            <ul class="navbar">
+            <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @guest
                 <li class="nav-item">
@@ -40,19 +41,16 @@
                 @endif
                 @else
                 <li class="nav-item dropdown">
-                    @if(session('impersonated_by'))
-                        <a href="{{ route('impersonate.leave') }}"> Back to my account</a>
-                    @endif
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         <span>{{ Auth::user()->name }}</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{route('admin.change-password.form')}}">Change Password</a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                         </a>
-
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
@@ -61,4 +59,5 @@
                 @endguest
             </ul>
         </div>
-    </nav>
+    </div>
+</nav>

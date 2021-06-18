@@ -15,9 +15,7 @@
     <link rel="icon" href="{{asset('images/favicon.png')}}" sizes="16x16" type="image/png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    
     <!-- Bootstrap CSS -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -31,9 +29,16 @@
     <link rel="stylesheet" type="text/css" href="{!! asset('main/css/jquery.fancybox.css') !!}">
     <link rel="stylesheet" type="text/css" href="{!! asset('main/css/theme.css') !!}">
     <link rel="stylesheet" type="text/css" href="{!! asset('main/css/style.css') !!}">
+    <!--Toastr css -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     
     <!-- Styles -->
     <style>
     @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
+    </style>
+    <style>
+        #ban_margin_left{
+            margin-left: 2em;
+        }
     </style>
 </head>

@@ -14,7 +14,7 @@
                     <h2>ADMINS LIST</h2>
                 </div>
                 <div class="pull-right">
-                    <a class="btn btn-success" href="{{route('admins.create')}}"> Add Admin</a>
+                    <a class="btn btn-success" href="{{route('superadmin.admins.create')}}"> Add Admin</a>
                 </div>
             </div>
         </div>
@@ -54,12 +54,12 @@
                                 <div>{{$admin->created_at}}</div>
                             </td>
                             <td>
-                                <form action="{!! route('admins.destroy',$admin->id) !!}" method="POST">
+                                <form action="{!! route('superadmin.admins.destroy',$admin->id) !!}" method="POST">
                                     {!! csrf_field() !!}
                                     @method('DELETE')
-                                    <a href="{!! route('admins.show',$admin->id) !!}" class="label label-success">Details</a>
-                                    <a href="{!! route('admins.edit',$admin->id) !!}" class="label label-warning">Edit</a>
-                                    <button type="submit" class="label label-warning" onclick="return confirm('Are you sure to delete {{$admin->name}}?')">
+                                    <a href="{!! route('superadmin.admins.show',$admin->id) !!}" class="label label-success">Details</a>
+                                    <a href="{!! route('superadmin.admins.edit',$admin->id) !!}" class="label label-warning">Edit</a>
+                                    <button type="submit" class="label label-danger" onclick="return confirm('Are you sure to delete {{$admin->name}}?')">
                                         Delete
                                     </button>
                                 <form>

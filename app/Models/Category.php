@@ -5,15 +5,19 @@ namespace App\Models;
 use App\Models\Post;
 use App\Models\Video;
 use App\Models\Comment;
+use Spatie\Searchable\Searchable;
+use\Spatie\Searchable\SearchResult;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 
-class Category extends Model
+class Category extends Model implements Searchable
 {
     //
     protected $table = 'categories';
+    protected $primaryKey = 'id';
 	protected $fillable = ['name','slug','description','keywords'];
-    use Sluggable;
+    use Sluggable,Cachable;
 
 	public function sluggable()
     {
@@ -26,6 +30,17 @@ class Category extends Model
                 'onUpdate' => true,
             ]
         ];
+    }
+
+    public function getSearchResult(): SearchResult
+    {
+        $url = route('category.articles', $this->slug);
+
+        return new SearchResult(
+                $this,
+                $this->name,
+                $url
+            );
     }
 
 	public function posts()
@@ -51,5 +66,15 @@ class Category extends Model
     public function videoPath()
     {
         return route('category.videos', $this->slug);
+    }
+
+    public function setNameAttribute($value)
+    {
+        return $this->attributes['name'] = ucwords($value);
+    }
+
+    public function setDescriptionAttribute($value)
+    {
+        return $this->attributes['description'] = ucwords($value);
     }
 }

@@ -8,11 +8,9 @@
 <script src="{!! asset('main/js/jquery.fancybox.pack.js') !!}"></script> 
 <script src="{!! asset('main/js/custom.js') !!}"></script>
 <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
-<script src="{{asset('vendor/unisharp/laravel-ckeditor/ckeditor.js')}}"></script>
-<script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
 <script>
 CKEDITOR.replace( 'summary-ckeditor',{
-    filebrowserUploadUrl: "{{route('upload',['_token'=>csrf_token()])}}",
+    filebrowserUploadUrl: "{{route('admin.upload',['_token'=>csrf_token()])}}",
     filebrowserUploadMethod: 'form'
 });
 </script>
@@ -86,6 +84,10 @@ CKEDITOR.replace( 'summary-ckeditor',{
     }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initMap" async defer></script>
+@section('scripts')
+    @yield('scripts')
+@endsection
+
 
 
 

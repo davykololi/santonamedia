@@ -1,164 +1,248 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
-        <loc>http://localhost/about-us</loc>
-        <lastmod>2020-12-25T18:41:33+03:00</lastmod>
+        <loc>http://localhost:8888/about-us</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost/article-author/jack-kamau</loc>
-        <lastmod>2020-12-25T18:41:33+03:00</lastmod>
+        <loc>http://localhost:8888/article-author/james-wafula</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost/article-author/kololi-david</loc>
-        <lastmod>2020-12-25T18:41:33+03:00</lastmod>
+        <loc>http://localhost:8888/article-author/jane-ayiro-anyango</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost/articles/africa</loc>
-        <lastmod>2020-12-25T18:41:33+03:00</lastmod>
+        <loc>http://localhost:8888/articles/arsenal-vs-manchester-united</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost/articles/details/corona-virus-is-here-to-stay-who</loc>
-        <lastmod>2020-12-25T18:41:33+03:00</lastmod>
+        <loc>http://localhost:8888/articles/gideon-moi-for-president-in-2022</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost/articles/details/gideon-moi-for-president-in-2022</loc>
-        <lastmod>2020-12-25T18:41:33+03:00</lastmod>
+        <loc>http://localhost:8888/articles/kenya-invents-an-aeroplane</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost/articles/details/raila-odinga-for-president-in-2022</loc>
-        <lastmod>2020-12-25T18:41:33+03:00</lastmod>
+        <loc>http://localhost:8888/articles/kenya-joins-the-united-nations-security-council</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost/articles/east-africa</loc>
-        <lastmod>2020-12-25T18:41:33+03:00</lastmod>
+        <loc>http://localhost:8888/articles/kololi-david-for-president-in-2022</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost/articles/kenya</loc>
-        <lastmod>2020-12-25T18:41:33+03:00</lastmod>
+        <loc>http://localhost:8888/articles/liverpool-vs-chelsea</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost/contact-us</loc>
-        <lastmod>2020-12-25T18:41:33+03:00</lastmod>
+        <loc>http://localhost:8888/articles/musalia-mudavadi-conquors-western-kenya</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost/newsletter</loc>
-        <lastmod>2020-12-25T18:41:33+03:00</lastmod>
+        <loc>http://localhost:8888/articles/president-uhuru-kenyatta-to-visit-western-kenya</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost/politics/articles</loc>
-        <lastmod>2020-12-25T18:41:33+03:00</lastmod>
+        <loc>http://localhost:8888/articles/raila-odinga-for-president-in-2022</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost/politics/videos</loc>
-        <lastmod>2020-12-25T18:41:33+03:00</lastmod>
+        <loc>http://localhost:8888/business/articles</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost/portfolio</loc>
-        <lastmod>2020-12-25T18:41:33+03:00</lastmod>
+        <loc>http://localhost:8888/business/videos</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost/private-policy</loc>
-        <lastmod>2020-12-25T18:41:33+03:00</lastmod>
+        <loc>http://localhost:8888/contact-us</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost/santona-magazine/articles</loc>
-        <lastmod>2020-12-25T18:41:33+03:00</lastmod>
+        <loc>http://localhost:8888/entertainment/articles</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost/santona-magazine/videos</loc>
-        <lastmod>2020-12-25T18:41:33+03:00</lastmod>
+        <loc>http://localhost:8888/entertainment/videos</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost/sports/articles</loc>
-        <lastmod>2020-12-25T18:41:33+03:00</lastmod>
+        <loc>http://localhost:8888/health-and-fitness/articles</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost/sports/videos</loc>
-        <lastmod>2020-12-25T18:41:33+03:00</lastmod>
+        <loc>http://localhost:8888/health-and-fitness/videos</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost/technology/articles</loc>
-        <lastmod>2020-12-25T18:41:33+03:00</lastmod>
+        <loc>http://localhost:8888/news/africa</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost/technology/videos</loc>
-        <lastmod>2020-12-25T18:41:33+03:00</lastmod>
+        <loc>http://localhost:8888/news/east-africa</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost/video-author/jack-kamau</loc>
-        <lastmod>2020-12-25T18:41:33+03:00</lastmod>
+        <loc>http://localhost:8888/news/europe</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost/video-author/kololi-david</loc>
-        <lastmod>2020-12-25T18:41:33+03:00</lastmod>
+        <loc>http://localhost:8888/news/kenya</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost/videos/africa</loc>
-        <lastmod>2020-12-25T18:41:33+03:00</lastmod>
+        <loc>http://localhost:8888/newsletter</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost/videos/details/hawa-madem-wasimame-ama-wainame</loc>
-        <lastmod>2020-12-25T18:41:33+03:00</lastmod>
+        <loc>http://localhost:8888/politics/articles</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost/videos/east-africa</loc>
-        <lastmod>2020-12-25T18:41:33+03:00</lastmod>
+        <loc>http://localhost:8888/politics/videos</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost/videos/kenya</loc>
-        <lastmod>2020-12-25T18:41:33+03:00</lastmod>
+        <loc>http://localhost:8888/portfolio</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/private-policy</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/santona-magazine/articles</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/santona-magazine/videos</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/sports/articles</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/sports/videos</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/technology/articles</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/technology/videos</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/video-author/james-wafula</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/video-author/jane-ayiro-anyango</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/videos/hawa-madem-wasimame-ama-wainame</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/vids/africa</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/vids/east-africa</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/vids/europe</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/vids/kenya</loc>
+        <lastmod>2021-06-10T12:51:03+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>

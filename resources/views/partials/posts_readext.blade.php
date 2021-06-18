@@ -12,7 +12,8 @@
                   <div class="media-body"> 
                     <a href="{!! $jc->path() !!}" class="catg_title"> 
                       {!! $jc->title !!}
-                    </a> 
+                    </a>
+                    <p><i>{!! $jc->created_date !!}</i></p> 
                   </div>
                 </div>
               </li>

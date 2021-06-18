@@ -16,7 +16,7 @@
                 </div>
                 <div class="pull-right">
                     <br/>
-                    <a class="btn btn-success" href="{{route('admin.videos.create')}}"> Add Video</a>
+                    <a class="btn btn-success" href="{{route('admin.videos.create')}}">Add Video</a>
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@
                                 <div>{!! Illuminate\Support\Str::words($video->description,10,'...') !!}</div>
                             </td>
                             <td class="table-text">
-                                <div>{!! Illuminate\Support\Str::words($video->content,10,'...') !!}</div>
+                                <div>{!! $video->excerpt() !!}</div>
                             </td>
                             <td class="table-text">
                                 <div>{!! $video->created_at !!}</div>
@@ -70,6 +70,8 @@
                     @endforelse
                     </tbody>
                 </table>
+                {{-- Pagination --}}
+                <div class="d-flex justify-content-center">{!! $videos->links() !!}</div>
             </div>
         </div>
     @endif

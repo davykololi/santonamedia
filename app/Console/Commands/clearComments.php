@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use App\Models\Comment;
 use Illuminate\Console\Command;
 
-class clearComments extends Command
+class ClearComments extends Command
 {
     /**
      * The name and signature of the console command.

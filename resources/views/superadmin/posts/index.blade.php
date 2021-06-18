@@ -16,7 +16,7 @@
                 </div>
                 <div class="pull-right">
                     <br/>
-                    <a class="btn btn-success" href="{!! route('posts.create') !!}"> Add Post</a>
+                    <a class="btn btn-success" href="{!! route('superadmin.posts.create') !!}"> Add Post</a>
                 </div>
             </div>
         </div>
@@ -29,48 +29,16 @@
                     <tbody>
                     @forelse($posts as $post)
                         <tr>
-                            <td class="table-text">
-                                <div>{!! $post->category->name !!}</div>
-                            </td>
-                            <td class="table-text">
-                                <div>{!! $post->title !!}</div>
-                            </td>
-                            <td class="table-text">
-                            <img style = "width:15%" src="{!! $post->imageUrl() !!}" alt="{!! $post->title !!}">
-                            </td>
-                            <td class="table-text">
-                                <div>{!! $post->caption !!}</div>
-                            </td>
-                            <td class="table-text">
-                                <div>{!! Illuminate\Support\Str::words($post->description,5,'...') !!}</div>
-                            </td>
-                            <td class="table-text">
-                                <div>{!! Illuminate\Support\Str::words($post->content,5,'...') !!}</div>
-                            </td>
-                            <td class="table-text">
-                                <div>{!! $post->created_at !!}</div>
-                            </td>
-                            <td>
-                            	<form action="{!! route('posts.destroy', $post->id) !!}" method="POST">
-                            		@csrf
-                            		@method('DELETE')
-                                	<a href="{!! route('posts.show', $post->id) !!}" class="label label-success">Details</a>
-                                	<a href="{!! route('posts.edit', $post->id) !!}" class="label label-warning">Edit</a>
-                                	<button type="submit" class="label label-danger" onclick="return confirm('Are you sure to delete {!! $post->title !!}?')">
-                                     Delete
-                                	</button>
-                                </form>
-                            </td>
+                            @include('ext._posts_table_data')
+                            @include('ext._posts_table_superadminroutes')
                     @empty
-                            <td colspan="10">
-                                <div style="font-size: 16px;color: red;font-family: Times New Roman">
-                                    <h3>You have not posted any article(s) yet.</h3>
-                                </div>
-                            </td>
+                            @include('ext._posts_table_emptyinfo')
                         </tr>
                     @endforelse
                     </tbody>
                 </table>
+                {{-- Pagination --}}
+                <div class="d-flex justify-content-center">{!! $posts->links() !!}</div>
             </div>
         </div>
     @endif

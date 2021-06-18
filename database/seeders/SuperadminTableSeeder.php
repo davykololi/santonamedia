@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use DB; 
-use App\Superadmin; 
+use App\Models\Superadmin; 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 

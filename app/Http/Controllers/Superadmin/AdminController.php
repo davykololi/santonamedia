@@ -2,24 +2,25 @@
 
 namespace App\Http\Controllers\Superadmin;
 
-use Auth;
 use Image;
-use App\Models\Admin;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Brian2694\Toastr\Facades\Toastr;
+use App\Services\AdminService;
 
 class AdminController extends Controller
 {
+    protected $adminService;
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(AdminService $adminService)
     {
         $this->middleware('auth:superadmin');
+        $this->adminService = $adminService;
     }
     /**
      * Display a listing of the resource.
@@ -29,7 +30,8 @@ class AdminController extends Controller
     public function index()
     {
         //
-        $admins = Admin::get();
+        $admins = $this->adminService->all();
+
         return view('superadmin.admins.index',['admins' => $admins]);
     }
 
@@ -52,28 +54,10 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //Handle the file upload
-        if($request->hasfile('image')){
-        //Get filename with extention
-        $filenameWithExt = $request->file('image')->getClientOriginalName();
-        //Get just filename
-        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-        $extension = $request->file('image')->getClientOriginalExtension();
-        //File to store
-        $fileNameToStore = $filename.'_'.time().'.'.$extension;
-        //Upload Image
-        $path = $request->file('image')->storeAs('public/storage',$fileNameToStore);
-        } else{
-        $fileNameToStore = 'noimage.jpg';
-        }
+        $admin = $this->adminService->create($request);
+        Toastr::success('The admin created successfully :)','Success');
 
-        $input = $request->all();
-        $input['image'] = $fileNameToStore;
-        $input['password'] = Hash::make($request->password);
-        $input['superadmin_id'] = Auth::user()->id;
-        $admin = Admin::create($input);
-
-        return redirect()->route('admins.index')->with('success','The admin created successfully');
+        return redirect()->route('superadmin.admins.index')->withSuccess(ucwords($admin->name." ".'created successfully'));
     }
 
     /**
@@ -82,9 +66,11 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Admin $admin)
+    public function show($id)
     {
         //
+        $admin = $this->adminService->getId($id);
+
         return view('superadmin.admins.show',['admin' => $admin]);
     }
 
@@ -94,9 +80,11 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Admin $admin)
+    public function edit($id)
     {
         //
+        $admin = $this->adminService->getId($id);
+
         return view('superadmin.admins.edit',['admin' => $admin]);
     }
 
@@ -107,31 +95,15 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Admin $admin)
+    public function update(Request $request,$id)
     {
-        //Handle the file upload
-        if($request->hasfile('image')){
-        //Get filename with extention
-        $filenameWithExt = $request->file('image')->getClientOriginalName();
-        //Get just filename
-        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-        $extension = $request->file('image')->getClientOriginalExtension();
-        //File to store
-        $fileNameToStore = $filename.'_'.time().'.'.$extension;
-        //Upload Image
-        $path = $request->file('image')->storeAs('public/storage',$fileNameToStore);
-        } else{
-        $fileNameToStore = 'noimage.jpg';
-        }
-
+        $admin = $this->adminService->getId($id);
         if($admin){
             Storage::delete('public/storage/'.$admin->image);
-            $input = $request->all();
-            $input['image'] = $fileNameToStore;
-            $input['is_banned']  = $request->has('bann');
-            $admin->update($input);
+            $this->adminService->update($request,$id);
+            Toastr::success('The admin updated successfully :)','Success');
 
-            return redirect()->route('admins.index')->with('success','The admin updated successfully');
+            return redirect()->route('superadmin.admins.index')->withSuccess(ucwords($admin->name." ".'updated successfully'));
         }
     }
 
@@ -141,13 +113,15 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Admin $admin)
+    public function destroy($id)
     {
+        $admin = $this->adminService->getId($id);
         if($admin){
             Storage::delete('public/storage/'.$admin->image);
-            $admin->delete();
+            $this->adminService->delete($id);
+            Toastr::success('The admin deleted successfully :)','Success');
 
-            return redirect()->route('admins.index')->with('success','The admin deleted successfully');
+            return redirect()->route('superadmin.admins.index')->withSuccess(ucwords($admin->name." ".'deleted successfully'));
         }
     }
 }

@@ -8,10 +8,10 @@
         @include('partials.errors')
         <div class="panel panel-default">
             <div class="panel-heading">
-                Edit User<a href="{{ route('admins.index') }}" class="label label-primary pull-right">Back</a>
+                Edit User<a href="{{ route('superadmin.admins.index') }}" class="label label-primary pull-right">Back</a>
             </div>
             <div class="panel-body">
-                <form action="{{ route('admins.update', $admin->id) }}" method="post" class="form-horizontal" enctype="multipart/form-data">
+                <form action="{{ route('superadmin.admins.update', $admin->id) }}" method="post" class="form-horizontal" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <input type="hidden" name="_method" value="PUT">
                     <div class="form-group">

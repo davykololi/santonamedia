@@ -10,7 +10,8 @@ class Comment extends Model
 {
     //
     protected $table = 'comments';
-    protected $fillable = ['content','user_id'];
+    protected $primaryKey = 'id';
+    protected $fillable = ['content','name','email','user_id'];
     protected $appends = ['createdDate'];
     protected $touches = ['commentable'];
 

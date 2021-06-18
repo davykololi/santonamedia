@@ -1,9 +1,4 @@
 @extends('layouts.app')
-
-@section('title')
-@parent
-{{$post->title}}
-@stop
  
 @section('content')
 @include('partials.allnews')
@@ -25,7 +20,7 @@
               <a href="{!! $category->path() !!}"><i class="fa fa-tags"></i>
                 {!! $post->category->name !!}
               </a> 
-              <span>Article By:</span>
+              <span>Article by:</span>
               <a href="{!! $post->admin->path() !!}">
                 <span style="margin: 5px;color: #696969"> 
                   <b>{!! $post->admin->name !!}</b>
@@ -57,7 +52,12 @@
                     <a class="media-left" href="{!! $xv->path() !!}"> 
                       <img src="{!! $xv->imageUrl() !!}" loading="lazy" alt="{!! $xv->title !!}"> 
                     </a>
-                    <div class="media-body"> <a class="catg_title" href="{!! $xv->path() !!}">{!! $xv->title !!}</a> </div>
+                    <div class="media-body"> 
+                      <a class="catg_title" href="{!! $xv->path() !!}">
+                        {!! $xv->title !!}
+                      </a> 
+                      <p><i>{!! $xv->created_date !!}</i></p>
+                    </div>
                   </div>
                 </li>
                 @endforeach
@@ -72,11 +72,11 @@
       <nav class="nav-slit"> <a class="prev" href="#"> <span class="icon-wrap"><i class="fa fa-angle-left"></i></span>
         <div>
           <h3>City Lights</h3>
-          <img src="{{asset('/static/globe.png')}}" alt="Logo"/> </div>
+          <img src="{{asset('/static/globe.png')}}" loading="lazy" alt="Logo"/> </div>
         </a> <a class="next" href=""> <span class="icon-wrap"><i class="fa fa-angle-right"></i></span>
         <div>
           <h3>Web Developer 0724351952</h3>
-          <img src="{{asset('/static/David Kololi.JPG')}}" alt="Web Developer"/> </div>
+          <img src="{{asset('/static/David Kololi.JPG')}}" loading="lazy" alt="Web Developer"/> </div>
         </a> </nav>
       @include('partials.posts_readext')
       @include('partials.aside_postextension')

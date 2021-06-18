@@ -4,26 +4,32 @@ namespace App\Http\Controllers\Admin;
 
 use Image;
 use File;
-use Auth;
-use App\Models\Tag;
-use App\Models\Post;
-use App\Models\Category;
-use App\Http\Requests\PostFormRequest as StoreRequest;
-use App\Http\Requests\PostFormRequest as UpdateRequest;
+use App\Services\TagService;
+use App\Services\PostService;
+use App\Services\CategoryService;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Brian2694\Toastr\Facades\Toastr;
+use App\Http\Requests\PostFormRequest as StoreRequest;
+use App\Http\Requests\PostFormRequest as UpdateRequest;
 
 class PostController extends Controller
 {
+    protected $postService;
+    protected $categoryService;
+    protected $tagService;
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(PostService $postService,CategoryService $categoryService,TagService $tagService)
     {
         $this->middleware('auth:admin');
+        $this->postService = $postService;
+        $this->categoryService = $categoryService;
+        $this->tagService = $tagService;
     }
 
     /**
@@ -34,7 +40,7 @@ class PostController extends Controller
     public function index()
     {
         //
-        $posts = auth()->user()->posts()->latest()->get();
+        $posts = $this->postService->authPosts();
 
         return view('admin.posts.index',['posts'=>$posts]);
     }
@@ -47,8 +53,8 @@ class PostController extends Controller
     public function create()
     {
         //
-        $tags = Tag::get()->pluck('name','id');
-        $categories = Category::all();
+        $tags = $this->tagService->all()->pluck('name','id');
+        $categories = $this->categoryService->all();
 
         return view('admin.posts.create',['categories'=>$categories,'tags'=>$tags]);
     }
@@ -60,31 +66,13 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StoreRequest $request)
-    {
-        //Handle the file upload
-        if($request->hasfile('image')){
-        //Get filename with extention
-        $filenameWithExt = $request->file('image')->getClientOriginalName();
-        //Get just filename
-        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-        $extension = $request->file('image')->getClientOriginalExtension();
-        //File to store
-        $fileNameToStore = $filename.'_'.time().'.'.$extension;
-        //Upload Image
-        $path = $request->file('image')->storeAs('public/storage',$fileNameToStore);
-        } else{
-        $fileNameToStore = 'noimage.jpg';
-        }
-
-        $input = $request->all();
-        $input['image'] = $fileNameToStore;
-        $input['admin_id'] = Auth::id();
-        $input['category_id'] = $request->category;
-        $post= Post::create($input);
+    { 
+        $post = $this->postService->create($request);
         $tags = $request->tags;
         $post->tags()->sync($tags);
+        Toastr::success('The post created successfully :)','Success');
 
-        return redirect()->route('admin.posts.index')->withSuccess('The post created successfully');
+        return redirect()->route('admin.posts.index')->withSuccess(ucwords($post->title." ".'Post created successfully'));
     }
 
     /**
@@ -93,10 +81,12 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
         //
-        return view('admin.posts.show',['post'=>$post]);
+        $post = $this->postService->getId($id);
+
+        return view('admin.posts.show',['post'=> $post]);
     }
 
     /**
@@ -105,14 +95,15 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit($id)
     {
         //
-        $tags = Tag::get()->pluck('name','id');
+        $post = $this->postService->getId($id);
+        $tags = $this->tagService->all()->pluck('name','id');
         $postTags = $post->tags;
-        $categories = Category::all();
+        $categories = $this->categoryService->all();
 
-        return view('admin.posts.edit',['post'=>$post,'categories'=>$categories,'tags'=>$tags,'postTags'=>$postTags]);
+        return view('admin.posts.edit',compact('post','tags','postTags','categories'));
     }
 
     /**
@@ -122,37 +113,19 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRequest $request, Post $post)
+    public function update(UpdateRequest $request,$id)
     {
         //
+        $post = $this->postService->getId($id);
         $this->authorize('update',$post);
-        //Handle the file upload
-        if($request->hasfile('image')){
-        //Get filename with extention
-        $filenameWithExt = $request->file('image')->getClientOriginalName();
-        //Get just filename
-        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-        $extension = $request->file('image')->getClientOriginalExtension();
-        //File to store
-        $fileNameToStore = $filename.'_'.time().'.'.$extension;
-        //Upload Image
-        $path = $request->file('image')->storeAs('public/storage',$fileNameToStore);
-        } else{
-        $fileNameToStore = 'noimage.jpg';
-        }
-
         if($post){
             Storage::delete('public/storage/'.$post->image);
-            $input = $request->all();
-            $input['image'] = $fileNameToStore;
-            $input['admin_id'] = Auth::id();
-            $input['category_id'] = $request->category;
-            $input['is_published']  = $request->has('publish');
-            $post->update($input);
+            $this->postService->update($request,$id);
             $tags = $request->tags;
             $post->tags()->sync($tags);
+            Toastr::success('The post updated successfully :)','Success');
 
-        return redirect()->route('admin.posts.index')->withSuccess('The post updated successfully');
+            return redirect()->route('admin.posts.index')->withSuccess(ucwords($post->title." ".'Post updated successfully'));
         }
     }
 
@@ -162,16 +135,17 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
-        //
+    	$post = $this->postService->getId($id);
         $this->authorize('delete',$post);
         if($post){
             Storage::delete('public/storage/'.$post->image);
-            $post->delete();
+            $this->postService->delete($id);
             $post->tags()->detach();
+            Toastr::success('The post deleted successfully :)','Success');
             
-        return redirect()->route('admin.posts.index')->withSuccess('The post deleted successfully');
+            return redirect()->route('admin.posts.index')->withSuccess(ucwords($post->title." ".'Post deleted successfully'));
         }
     }
 }

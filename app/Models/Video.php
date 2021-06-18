@@ -9,17 +9,22 @@ use App\Models\Category;
 use App\Models\Comment;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
-use Laravel\Scout\Searchable;
+use Illuminate\Support\Str;
+use Spatie\Searchable\Searchable;
+use\Spatie\Searchable\SearchResult;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 
-class Video extends Model implements Feedable
+class Video extends Model implements Feedable,Searchable
 {
     //
-    use Sluggable,Searchable;
+    use Sluggable,Cachable;
+    const EXCERPT_LENGTH = 150;
     protected $table = 'videos';
+    protected $primaryKey = 'id';
     protected $fillable = ['title','video','caption','content','description','keywords','is_published','admin_id','category_id'];
-    protected $appends = ['createdDate','excerpt'];
+    protected $appends = ['createdDate'];
 
     public function sluggable()
     {
@@ -34,9 +39,15 @@ class Video extends Model implements Feedable
         ];
     }
 
-    public function searchableAs()
+    public function getSearchResult(): SearchResult
     {
-        return 'videos_index';
+        $url = route('users.videos.read', $this->slug);
+
+        return new SearchResult(
+                $this,
+                $this->title,
+                $url
+            );
     }
    
     public function admin()
@@ -77,7 +88,7 @@ class Video extends Model implements Feedable
     public function toFeedItem():FeedItem
     {
         return FeedItem::create([
-                'id'=>env('APP_URL').'/videos/details/'.$this->slug,
+                'id'=>env('APP_URL').'/videos/'.$this->slug,
                 'title'=>$this->title,
                 'summary'=>$this->description,
                 'updated'=>$this->updated_at,
@@ -91,9 +102,9 @@ class Video extends Model implements Feedable
         return Video::published()->orderBy('created_at','desc')->limit(50)->get();
     }
 
-    public function getExcerptAttribute()
+    public function excerpt()
     {
-        return substr(strip_tags($this->content),0,100);
+        return Str::limit(strip_tags($this->content),Video::EXCERPT_LENGTH);
     }
 
     public function scopePublished($query)
@@ -109,6 +120,11 @@ class Video extends Model implements Feedable
     public function path()
     {
         return route('users.videos.read', $this->slug);
+    }
+
+    public function scopeEagerLoaded($query)
+    {
+        return $query->with('admin','category','tags','comments')->withCount('comments');
     }
 
     public function videoUrl()

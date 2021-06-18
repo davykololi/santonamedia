@@ -6,7 +6,7 @@
     <meta name="author" content="David Misiko Kololi">
     <meta name="developer" content="David Misiko Kololi">
     <meta name="developer:email" content="kololimdavid@gmail.com">
-    <meta name="designer" content="David Misiko Kololi">
+    <meta name="designer" content="Themeforest Template">
     <meta name="designer:email" content="kololimdavid@gmail.com">
     <!--Webmaster Tool meta tag -->
     <meta name="google-site-verification" content="SQuydwiRzjBXoM3Dp6IU1ICGk-Z2KwDsr0kkkH4ScTM" />
@@ -89,5 +89,9 @@
         height: 500px;
         border:2px solid black;
     }
+</style>
+<!--Search css -->
+<style>
+    .search_results{margin: 5px; color: violet}
 </style>
 </head>

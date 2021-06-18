@@ -3,21 +3,24 @@
 namespace App\Http\Controllers\Superadmin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Tag;
 use Illuminate\Http\Request;
+use App\Services\TagService;
 use App\Http\Requests\TagFormRequest as StoreRequest;
 use App\Http\Requests\TagFormRequest as UpdateRequest;
+use Brian2694\Toastr\Facades\Toastr;
 
 class TagController extends Controller
 {
+    protected $tagService;
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(TagService $tagService)
     {
         $this->middleware('auth:superadmin');
+        $this->tagService = $tagService;
     }
 
     /**
@@ -28,7 +31,7 @@ class TagController extends Controller
     public function index()
     {
         //
-        $tags = Tag::all();
+        $tags = $this->tagService->all();
 
         return view('superadmin.tags.index',compact('tags'));
     }
@@ -53,10 +56,10 @@ class TagController extends Controller
     public function store(StoreRequest $request)
     {
         //
-        $input = $request->all();
-        $tag = Tag::create($input);
+        $tag =$this->tagService->create($request);
+        Toastr::success('The tag created successfully :)','Success');
 
-        return redirect()->route('superadmin.tags.index')->withSuccess('The tag created successfully');
+        return redirect()->route('superadmin.tags.index')->withSuccess(ucwords($tag->name." ".'Tag created successfully'));
     }
 
     /**
@@ -65,9 +68,11 @@ class TagController extends Controller
      * @param  \App\Models\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function show(Tag $tag)
+    public function show($id)
     {
         //
+        $tag = $this->tagService->getId($id);
+
         return view('superadmin.tags.show',compact('tag'));
     }
 
@@ -77,9 +82,11 @@ class TagController extends Controller
      * @param  \App\Models\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tag $tag)
+    public function edit($id)
     {
         //
+        $tag = $this->tagService->getId($id);
+
         return view('superadmin.tags.edit',compact('tag'));
     }
 
@@ -90,13 +97,14 @@ class TagController extends Controller
      * @param  \App\Models\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRequest $request, Tag $tag)
+    public function update(UpdateRequest $request,$id)
     {
         //
-        $input = $request->all();
-        $tag->update($input);
+        $tag = $this->tagService->getId($id);
+        $this->tagService->update($request,$id);
+        Toastr::success('The tag updated successfully :)','Success');
 
-        return redirect()->route('superadmin.tags.index')->withSuccess('The tag updated successfully');
+        return redirect()->route('superadmin.tags.index')->withSuccess(ucwords($tag->name." ".'Tag updated successfully'));
     }
 
     /**
@@ -105,15 +113,16 @@ class TagController extends Controller
      * @param  \App\Models\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tag $tag)
+    public function destroy($id)
     {
         //
+        $tag = $this->tagService->getId($id);
         if(!$tag->posts->isEmpty()){
             return redirect()->route('superadmin.tags.index')->withErrors(__('This Tag has articles attached and can\'t be deleted.'));
         }
+        $this->tagService->delete($id);
+        Toastr::success('The tag deleted successfully :)','Success');
 
-        $tag->delete();
-
-        return redirect()->route('superadmin.tags.index')->withSuccess('The tag deleted successfully');
+        return redirect()->route('superadmin.tags.index')->withSuccess($tag->name." ".'Tag deleted successfully');
     }
 }

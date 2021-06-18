@@ -14,7 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         //
-        Commands\clearComments::class,
+        Commands\ClearComments::class,
         Commands\GenerateSitemap::class,
     ];
 
@@ -30,6 +30,12 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
         $schedule->command('clear:comments')->monthly();
         $schedule->command('sitemap:generate')->daily();
+        $schedule->command('backup:clean')->daily()->at('01:00');
+        $schedule->command('backup:run')->daily()->at('02:00')->onFailure(function(){
+            
+        })->onSuccess(function(){
+
+        });
     }
 
     /**
