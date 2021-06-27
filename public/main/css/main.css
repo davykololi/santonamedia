@@ -1,0 +1,278 @@
+/* =Reset ------------------------------------------------------------- */
+
+* {
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	margin-top:0;
+}
+html, body {
+    background-color:#f5f5f5;
+    color: #636b6f;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+}
+ul{padding:0; margin:0; list-style:none}
+a{text-decoration:none; color:#2f2f2f}
+a:hover{color:#646464; text-decoration:none}
+a:focus{outline:none; text-decoration:none}
+h1, h2, h3, h4, h5, h6{font-family:'Oswald',sans-serif}
+h2{line-height:23px;}
+img{border:none;}
+img:hover{opacity:0.75;}
+video{max-width: 100%;max-height: 100%;}
+
+.font{
+	font-family: Arial Black;
+	color: blue;
+}
+#general{
+	color: white;
+}
+.center{
+	text-align: center;
+}
+#hp{
+	float: left;
+	margin: 0 15px 0 0;
+}
+#white{
+	font-size: 120%;
+	color: white;
+}
+#main{
+	margin-top: 0;
+	background-color: #F5F5DC;
+	width: auto;
+	height: 100%;
+	max-width: 100%;
+	min-height: 100%;
+	margin-bottom: 0px;
+}
+.blog-post h6{
+	text-align: center;
+	font-family: Times New Roman;
+	font-size: 12px;
+}
+#prenext{
+	background-color: blue;
+	color: white;
+	text-align: center;
+	background-size: 100px 80px;
+	border: solid white;
+	font-size: 10px;
+}
+#errors{
+	padding: 10px 20px;
+	text-shadow: 0 2px 0 #999,0 3px 0 #888,0 4px 0 #777;
+	text-align: center;
+	font-style: Segoe Print;
+	font-size: 28px;
+}
+.title{
+	font-family: Arial Narrow;
+	color: black;
+}
+.blue{
+	color: blue;
+}
+.titles{
+	font-family: Times New Roman;
+	color: blue;
+	text-align: center;
+}
+.login{
+	text-align: center;
+	font-size: 20px;
+}
+.white{
+	color: white;
+}
+.purple{
+	color: purple;
+}
+.red{
+	color: red;
+}
+.black{
+	color: black;
+}
+.drop{
+	margin-top: 12px;
+	margin-left: 5px;
+	font-size: 12px;
+}
+hr.style-four{
+	border: 0;
+	width: 100%;
+	background-color: blue;
+	height: 5px;
+}
+#lightblue{
+	background-color: lightblue;
+	border-radius: 25px;
+}
+.dad{
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	border-radius: 100%;
+	background: turquoise;
+	animation: spin 5s infinite;
+	transform-origin: center center;
+}
+.frame{padding: 5px;
+	border: double;
+}
+.headings h2{
+	font-family: Times New Roman;
+	box-shadow: 10px 10px 8px #888888;
+	text-align: center;
+	background-color: blue;
+	color: white;
+	border-radius: 25px;
+	font-size: 20px;
+	text-transform: uppercase;
+}
+.headings{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.page-main .headings h1{
+	font-family: Times New Roman;
+	box-shadow: 10px 10px 8px #888888;
+	text-align: center;
+	background-color: blue;
+	color: white;
+	border-radius: 25px;
+	font-size: 20px;
+	text-transform: uppercase;
+}
+.page-extention .headings h2{
+	font-family: Times New Roman;
+	box-shadow: 10px 10px 8px #888888;
+	text-align: center;
+	background-color: blue;
+	color: white;
+	border-radius: 25px;
+	font-size: 20px;
+	text-transform: uppercase;
+}
+.header{
+	background-image: url('/static/santonamedia.png');
+	background-size: cover;
+	background-position: center;
+	position: relative;
+}
+.overlay{
+	position: absolute;
+	min-height: 100%;
+	min-width: 100%;
+	left: 0;
+	top: 0;
+	background-color: rgba(0,0,0,0.6);
+}
+.description{
+	left: 50%;
+	position: absolute;
+	top: 45%;
+	transform: translate(-50%,-55%);
+	text-align: center;
+}
+.description h1{
+	color: #6ab446;
+}
+.description p{
+	color: #fff;
+	font-size: 1.3rem;
+	line-height: 1.5;
+}
+.features{
+	margin-top: 50px;
+	padding: 0em;
+	position: relative;
+}
+.page-main h1{
+	color: #333;
+	font-size: 2.0rem;
+	font-weight: 700;
+	margin-bottom: 0px;
+	text-transform: uppercase;
+	font-family: Arial Black;
+}
+.page-extention h2{
+	color: #333;
+	font-size: 2.0rem;
+	font-weight: 700;
+	margin-bottom: 0px;
+	text-transform: uppercase;
+	font-family: Arial Black;
+}
+.left-ten{
+	margin-left: 10px;
+}
+.left-ten p{
+	font-family: Arial Narrow;
+	font-size: 16px;
+	line-height: 1.5;
+	text-align: justify;
+	text-justify:inter-word;
+}
+.left-ten .created-time{
+	font-family: Calibri Light;
+	font-size: 13px;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+.left-ten .created-time a{
+	color: black;
+}
+.left-ten .created-time span{
+	color: purple;
+}
+h1 .post-link{
+	color: black;
+	text-decoration: none;
+}
+h1 .post-link:hover{
+	color: green;
+}
+h2 .post-link{
+	color: black;
+	text-decoration: none;
+}
+h2 .post-link:hover{
+	color: purple;
+}
+.main-content{
+	background-color: lavender;
+	box-shadow:#000000 4px 4px 8px, #4d4d4d -4px -4px 8px;
+}
+.main-content img{ 
+	width:50%;
+	box-shadow: 0 0 2px 1px rgba(0,140,186,0.5);
+	display: block;
+	padding: 10px 20px;
+}
+.features .blog-post p{
+	font-family: Helvetica Neue;
+	font-size: 20px;
+	text-align: justify;
+}
+.main-content .share-title{
+	font-size: 12px;
+	color: purple;
+	text-align: center;
+}
+.share{
+	text-align: center;
+}
+
+.textupper{
+	text-transform: uppercase;
+}
+
+
+

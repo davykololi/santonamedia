@@ -1,0 +1,7 @@
+Sitemap:http://santonamedia.com/sitemap.xml
+User-agent: *
+
+Disallow: /admin/
+Disallow: /auth/redirect/
+Disallow: /callback/
+Noindex: /admin/
