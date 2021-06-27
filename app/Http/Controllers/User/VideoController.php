@@ -85,7 +85,7 @@ class VideoController extends Controller
         OpenGraph::addProperty('type','Articles');
 
         TwitterCard::setTitle($title);
-        TwitterCard::setSite('@santonamedia');
+        TwitterCard::setSite('@newsstadia');
         TwitterCard::setDescription($desc);
         TwitterCard::setUrl($url);
 
@@ -94,12 +94,12 @@ class VideoController extends Controller
         JsonLd::setType('Articles');
 
         foreach($category->videos as $video){
-        OpenGraph::addVideo('https://santonamedia.com/storage/public/videos/'.$video->video,
-            ['secure_url' => 'https://santonamedia.com/storage/public/videos/'.$video->video,
+        OpenGraph::addVideo('https://newsstadia.com/storage/public/videos/'.$video->video,
+            ['secure_url' => 'https://newsstadia.com/storage/public/videos/'.$video->video,
             'type' => 'application/x-shockwave-flash','width' => 400,'height' => 300
             ]);
-        OpenGraph::addImage('https://santonamedia.com/storage/public/videos/'.$video->video,
-            ['secure_url' => 'https://santonamedia.com/storage/public/videos/'.$video->video,
+        OpenGraph::addImage('https://newsstadia.com/storage/public/videos/'.$video->video,
+            ['secure_url' => 'https://newsstadia.com/storage/public/videos/'.$video->video,
             'height'=>'628','width' =>'1200'
         ]);
         }
@@ -109,10 +109,10 @@ class VideoController extends Controller
                 ->description($desc)
                 ->datePublished($published)
                 ->dateModified($modified)
-                ->email('santonamedia79@gmail.com')
+                ->email('newsstadia@gmail.com')
                 ->url($url)
-                ->sameAS("http://www.santonamedia.com")
-                ->logo("https://santonamedia.com/static/logo.jpg");
+                ->sameAS("http://www.newsstadia.com")
+                ->logo("https://newsstadia.com/static/logo.jpg");
         echo $videoArticles->toScript();
         
         $data = array(
@@ -169,17 +169,17 @@ class VideoController extends Controller
         OpenGraph::setUrl($url);
         OpenGraph::addProperty('type','Article');
         OpenGraph::addProperty('locale','en-us');
-        OpenGraph::addVideo('https://santonamedia.com/storage/public/videos/'.$video->video,
-                            ['secure_url' => 'https://santonamedia.com/storage/public/videos/'.$video->video,
+        OpenGraph::addVideo('https://newsstadia.com/storage/public/videos/'.$video->video,
+                            ['secure_url' => 'https://newsstadia.com/storage/public/videos/'.$video->video,
                             'type' => 'application/x-shockwave-flash','width' => 400,'height' => 300
                             ]);
-        OpenGraph::addImage('https://santonamedia.com/storage/public/videos/'.$video->video,
-            ['secure_url' => 'https://santonamedia.com/storage/public/videos/'.$video->video,
+        OpenGraph::addImage('https://newsstadia.com/storage/public/videos/'.$video->video,
+            ['secure_url' => 'https://newsstadia.com/storage/public/videos/'.$video->video,
             'height'=>'628','width' =>'1200'
         ]);
 
         TwitterCard::setTitle($title);
-        TwitterCard::setSite('@santonamedia');
+        TwitterCard::setSite('@newsstadia');
         TwitterCard::setDescription($desc);
         TwitterCard::setUrl($url);
 
@@ -192,10 +192,10 @@ class VideoController extends Controller
                 ->description($desc)
                 ->datePublished($published)
                 ->dateModified($modified)
-                ->email('santonamedia79@gmail.com')
+                ->email('newsstadia@gmail.com')
                 ->url($url)
-                ->sameAS("http://www.santonamedia.com")
-                ->logo("https://santonamedia.com/static/logo.jpg");
+                ->sameAS("http://www.newsstadia.com")
+                ->logo("https://newsstadia.com/static/logo.jpg");
         echo $videoArticle->toScript();
 
         $data = array(
@@ -255,7 +255,7 @@ class VideoController extends Controller
         OpenGraph::addProperty('type','Place');
 
         TwitterCard::setTitle($title);
-        TwitterCard::setSite('@santonamedia');
+        TwitterCard::setSite('@newsstadia');
         TwitterCard::setDescription($desc);
         TwitterCard::setUrl($url);
 
@@ -264,12 +264,12 @@ class VideoController extends Controller
         JsonLd::setType('Place');
 
         foreach($tagVideos as $video){
-        OpenGraph::addVideo('https://santonamedia.com/storage/public/videos/'.$video->video,
-            ['secure_url' => 'https://santonamedia.com/storage/public/videos/'.$video->video,
+        OpenGraph::addVideo('https://newsstadia.com/storage/public/videos/'.$video->video,
+            ['secure_url' => 'https://newsstadia.com/storage/public/videos/'.$video->video,
             'type' => 'application/x-shockwave-flash','width' => 400,'height' => 300
             ]);
-        OpenGraph::addImage('https://santonamedia.com/storage/public/videos/'.$video->video,
-            ['secure_url' => 'https://santonamedia.com/storage/public/videos/'.$video->video,
+        OpenGraph::addImage('https://newsstadia.com/storage/public/videos/'.$video->video,
+            ['secure_url' => 'https://newsstadia.com/storage/public/videos/'.$video->video,
             'height'=>'628','width' =>'1200'
         ]);
         }
@@ -279,10 +279,10 @@ class VideoController extends Controller
                 ->description($desc)
                 ->datePublished($published)
                 ->dateModified($modified)
-                ->email('santonamedia79@gmail.com')
+                ->email('newsstadia@gmail.com')
                 ->url($url)
-                ->sameAS("http://www.santonamedia.com")
-                ->logo("https://santonamedia.com/static/logo.jpg");
+                ->sameAS("http://www.newsstadia.com")
+                ->logo("https://newsstadia.com/static/logo.jpg");
         echo $tagVids->toScript();
         
         $data = array(
@@ -343,7 +343,7 @@ class VideoController extends Controller
         $name = $admin->name;
         $title = $admin->title;
         $email = $admin->email;
-        $image = 'https://santonamedia.com/storage/public/storage/'.$admin->image;
+        $image = 'https://newsstadia.com/storage/public/storage/'.$admin->image;
         $created = $admin->created_at;
         $modified = $admin->updated_at;
         $phone = $admin->phone_no;
@@ -362,7 +362,7 @@ class VideoController extends Controller
         OpenGraph::addProperty('type','Person');
 
         TwitterCard::setTitle($name);
-        TwitterCard::setSite('@santonamedia');
+        TwitterCard::setSite('@newsstadia');
         TwitterCard::setDescription($title);
         TwitterCard::setUrl($url);
 
@@ -371,12 +371,12 @@ class VideoController extends Controller
         JsonLd::setType('Person');
 
         foreach($adminVideos as $video){
-        OpenGraph::addVideo('https://santonamedia.com/storage/public/videos/'.$video->video,
-            ['secure_url' => 'https://santonamedia.com/storage/public/videos/'.$video->video,
+        OpenGraph::addVideo('https://newsstadia.com/storage/public/videos/'.$video->video,
+            ['secure_url' => 'https://newsstadia.com/storage/public/videos/'.$video->video,
             'type' => 'application/x-shockwave-flash','width' => 400,'height' => 300
             ]);
-        OpenGraph::addImage('https://santonamedia.com/storage/public/videos/'.$video->video,
-            ['secure_url' => 'https://santonamedia.com/storage/public/videos/'.$video->video,
+        OpenGraph::addImage('https://newsstadia.com/storage/public/videos/'.$video->video,
+            ['secure_url' => 'https://newsstadia.com/storage/public/videos/'.$video->video,
             'height'=>'628','width' =>'1200'
         ]);
         }
@@ -384,9 +384,9 @@ class VideoController extends Controller
         $adminVids = Schema::Person()
                 ->name($name)
                 ->image($image)
-                ->logo("https://santonamedia.com/static/logo.jpg")
+                ->logo("https://newsstadia.com/static/logo.jpg")
                 ->url($url)
-                ->sameAS("http://www.santonamedia.com")
+                ->sameAS("http://www.newsstadia.com")
                 ->datePublished($created)
                 ->dateModified($modified)
                 ->contactPoint([Schema::ContactPoint()

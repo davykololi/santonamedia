@@ -63,11 +63,11 @@ class WelcomeController extends Controller
         $videos = $this->videoRepository->randomnPublishedTwo();
         $videoSides = $this->videoRepository->latestPublishedFive();
 
-        $title = ucwords('Home');
-        $name = ucwords('Santona Media Limited');
-        $headline = ucwords('Breaking News, Kenya, Africa, Politics, Business, Sports, Entertainment, Videos | HOME');
-        $desc = ucwords('The number one media house in Kenya offering exclusive latest breaking news in Kenya and around the globe');
-        $keywords = ucwords('Santona Media, Latest news, Breaking news, news online, Kenya news, world news, Santona Media, news video, weather, business, money, politics, technology, entertainment, education, travel, health, special reports, autos');
+        $title = 'Home';
+        $name = 'News Stadia Limited';
+        $headline = 'Breaking News, Kenya, Africa, Politics, Business, Sports, Entertainment, Videos | HOME';
+        $desc = 'The Number One Media House Offering Exclusive Latest Breaking News In Kenya And Around The World';
+        $keywords = 'News Stadia, Exclusive Breaking News, Online World News, Kenya Breaking News,Exclusive World News, News Video Clips, Business And Trade News, Kenya And World Political News, World Tecnological News, Exclusive Entertainment News In Kenya, Education, Trade And Travel, Health And Nutrition';
         $url = URL::current();
 
         SEOMeta::setTitle($title);
@@ -81,7 +81,7 @@ class WelcomeController extends Controller
         OpenGraph::addProperty('type','articles');
 
         TwitterCard::setTitle($title);
-        TwitterCard::setSite('@santonamedia');
+        TwitterCard::setSite('@newsstadia');
         TwitterCard::setDescription($desc);
         TwitterCard::setUrl($url);
 
@@ -90,17 +90,17 @@ class WelcomeController extends Controller
         JsonLd::setType('WebSite');
 
         foreach ($allPosts as $post) {
-            OpenGraph::addImage('https://santonamedia.com/storage/public/storage/'.$post->image,['height'=>'628','width' =>'1200']);
+            OpenGraph::addImage('https://newsstadia.com/storage/public/storage/'.$post->image,['height'=>'628','width' =>'1200']);
         }
 
         $webSite = Schema::WebSite()
                 ->name($name)
                 ->headline($headline)
                 ->description($desc)
-                ->email('santonamedia79@gmail.com')
+                ->email('newsstadia@gmail.com')
                 ->url($url)
-                ->sameAS("http://www.santonamedia.com")
-                ->logo("https://santonamedia.com/static/logo.jpg");
+                ->sameAS("http://www.newsstadia.com")
+                ->logo("https://newsstadia.com/static/logo.jpg");
                 
         echo $webSite->toScript();
 

@@ -13,7 +13,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta property="fb:app_id" content="{{ config('services.facebook.client_id') }}">
-    <meta name="twitter:creator" content="@santonamedia">
+    <meta name="twitter:creator" content="@newsstadia">
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <!-- Meta Tags -->

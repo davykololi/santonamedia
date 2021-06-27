@@ -1,6 +1,5 @@
 	<form method="get" action="{{route('search.result')}}" class="form-inline mr-auto">
 		<input type="text" name="query" value="{{isset($searchterm) ? $searchterm : ''}}" class="form-control col-sm-8" placeholder="Search" aria-lable="Search">
-		<button class="btn aqua-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Search</button>
 	</form>
 	@if(isset($searchResults))
 		@if($searchResults->isEmpty())

@@ -32,7 +32,7 @@ class ContactMail extends Mailable implements ShouldQueue
     public function build()
     {
         return $this->markdown('emails.contactmail')
-                    ->subject('Santona Media Reader Mail')
+                    ->subject('News Stadia Reader Mail')
                     ->with([
                             'name'=>$this->exactContact->name,
                             'email'=>$this->exactContact->email,

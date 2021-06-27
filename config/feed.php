@@ -18,8 +18,8 @@ return [
              */
             'url' => '/news-feed',
 
-            'title' => 'The Latest Santona Media News',
-            'description' => 'The latest news in sports, entertainment, politics, technology, lifestyle, health and business.',
+            'title' => 'The Latest News At News Stadia',
+            'description' => 'The Media House That Brings You The Latest News In Sports, Entertainment, Politics, Technology, Lifestyle, Health and Business.',
             'language' => 'en-US',
 
             /*
@@ -49,8 +49,8 @@ return [
              */
             'url' => '/videos-feed',
 
-            'title' => 'The Latest Santona Media Videos',
-            'description' => 'The best videos of the latest news in Kenya and around the  world',
+            'title' => 'The Latest Videos At News Stadia',
+            'description' => 'The Media House That brings You The Latest Outstanding Video Clips About The News In Kenya And Around The  World',
             'language' => 'en-US',
 
             /*

@@ -31,17 +31,17 @@
             <ul class="tag_nav">
               <li><a href="#"><i class="fa fa-map-marker"></i>Nairobi,Kenya</a></li>
               <li><a href="tel:+254-0724351952"><i class="fa fa-phone"></i>+254 0724351952</a></li>
-              <li><a href="mailto:santonamedia79@gmail.com"><i class="fa fa-envelope"></i>santonamedia79@gmail.com</a></li>
+              <li><a href="mailto:newsstadia@gmail.com"><i class="fa fa-envelope"></i>newsstadia@gmail.com</a></li>
               <li>
               	<a href="{{url('/news-feed')}}">
                   <span style="margin: 5px">News Feed</span>
-              		<img src="{{asset('static/newsrssfeed.jpg')}}" width="30" height="30" alt="The to Latest Santona Media News"> 
+              		<img src="{{asset('static/newsrssfeed.jpg')}}" width="30" height="30" alt="The Latest News At News Stadia"> 
               	</a>
               </li>
               <li>
               	<a href="{{url('/videos-feed')}}">
                   <span style="margin: 5px">Video Feed</span>
-              		<img src="{{asset('static/videorssfeed.jpg')}}" width="30" height="30" alt="The Latest Santona Media Videos">
+              		<img src="{{asset('static/videorssfeed.jpg')}}" width="30" height="30" alt="The Latest Videos At News Stadia">
               	</a>
               </li>
             </ul>
@@ -51,7 +51,7 @@
     </div>
     <div class="footer_bottom">
       <p class="copyright">Copyright &copy; {{ date('Y')}} 
-        <span style="margin: 10px"><a href="{{url('/')}}"> santonamedia.com </a></span> All Rights Reserved
+        <span style="margin: 10px"><a href="{{url('/')}}"> newsstadia.com </a></span> All Rights Reserved
       </p>
       <p class="developer">Developed By DMK. <i>Tel:254 0724351952</i></p>
     </div>

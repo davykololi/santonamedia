@@ -52,7 +52,7 @@ class PageController extends Controller
         $tags = $this->tagRepository->tagWithPosts();
 
         $title = 'Contact Us';
-        $desc = 'Santona Media News Contact Page';
+        $desc = 'News Stadia Contact Page';
         $url = URL::current();
 
         SEOMeta::setTitle($title);
@@ -66,7 +66,7 @@ class PageController extends Controller
         OpenGraph::addProperty('type','ContactPage');
 
         TwitterCard::setTitle($title);
-        TwitterCard::setSite('@santonamedia');
+        TwitterCard::setSite('@newsstadia');
         TwitterCard::setDescription($desc);
         TwitterCard::setUrl($url);
 
@@ -78,11 +78,11 @@ class PageController extends Controller
                 ->name($title)
                 ->description($desc)
                 ->url($url)
-                ->logo("https://santonamedia.com/static/logo.jpg")
-                ->sameAS("http://www.santonamedia.com")
+                ->logo("https://newsstadia.com/static/logo.jpg")
+                ->sameAS("http://www.newsstadia.com")
                 ->contactPoint([Schema::ContactPoint()
                 ->telephone('254 0724351952')
-                ->email('santonamedia79@gmail.com')]);
+                ->email('newsstadia@gmail.com')]);
         echo $contact->toScript();
 
         $data = array(
@@ -125,8 +125,8 @@ class PageController extends Controller
         $tags = $this->tagRepository->tagWithPosts();
 
         $title = 'About Us';
-        $desc = 'The media house for the latest breaking news in Kenya and around the world';
-        $image = 'https://santonamedia.com/static/david.jpg';
+        $desc = 'News Stadia About Us Page';
+        $image = 'https://newsstadia.com/static/david.jpg';
         $url = URL::current();
 
         SEOMeta::setTitle($title);
@@ -140,7 +140,7 @@ class PageController extends Controller
         OpenGraph::addProperty('type','Organization');
 
         TwitterCard::setTitle($title);
-        TwitterCard::setSite('@santonamedia');
+        TwitterCard::setSite('@newsstadia');
         TwitterCard::setDescription($desc);
         TwitterCard::setUrl($url);
 
@@ -152,10 +152,10 @@ class PageController extends Controller
         $aboutUs = Schema::Organization()
                 ->name($title)
                 ->description($desc)
-                ->email('santonamedia79@gmail.com')
+                ->email('newsstadia@gmail.com')
                 ->url($url)
-                ->sameAS("http://www.santonamedia.com")
-                ->logo("https://santonamedia.com/static/logo.jpg");
+                ->sameAS("http://www.newsstadia.com")
+                ->logo("https://newsstadia.com/static/logo.jpg");
         echo $aboutUs->toScript();
 
         $data = array(
@@ -181,7 +181,7 @@ class PageController extends Controller
         $tags = $this->tagRepository->tagWithPosts();
 
         $title = 'Private Policy';
-        $desc = 'Santona Media Private Policy Statement';
+        $desc = 'News Stadia Private Policy Statement';
         $url = URL::current();
 
         SEOMeta::setTitle($title);
@@ -195,7 +195,7 @@ class PageController extends Controller
         OpenGraph::addProperty('type','PrivatePolicy');
 
         TwitterCard::setTitle($title);
-        TwitterCard::setSite('@santonamedia');
+        TwitterCard::setSite('@newsstadia');
         TwitterCard::setDescription($desc);
         TwitterCard::setUrl($url);
 
@@ -206,10 +206,10 @@ class PageController extends Controller
         $privatePolicy = Schema::WebPage()
                 ->name($title)
                 ->description($desc)
-                ->email('santonamedia79@gmail.com')
+                ->email('newsstadia@gmail.com')
                 ->url($url)
-                ->sameAS("http://www.santonamedia.com")
-                ->logo("https://santonamedia.com/static/logo.jpg");
+                ->sameAS("http://www.newsstadia.com")
+                ->logo("https://newsstadia.com/static/logo.jpg");
         echo $privatePolicy->toScript();
 
         $data = array(
@@ -235,12 +235,12 @@ class PageController extends Controller
         $tags = $this->tagRepository->tagWithPosts();
 
         $title = 'Portfolio';
-        $desc = 'Santona Media Portfolio Page';
+        $desc = 'News Stadia Portfolio Page';
         $url = URL::current();
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
-        SEOMeta::setKeywords('our portfolio');
+        SEOMeta::setKeywords('news stadia portfolio page');
         SEOMeta::setCanonical($url);
 
         OpenGraph::setTitle($title);
@@ -249,7 +249,7 @@ class PageController extends Controller
         OpenGraph::addProperty('type','Portfolio');
 
         TwitterCard::setTitle($title);
-        TwitterCard::setSite('@santonamedia');
+        TwitterCard::setSite('@newsstadia');
         TwitterCard::setDescription($desc);
         TwitterCard::setUrl($url);
 
@@ -260,10 +260,10 @@ class PageController extends Controller
         $portfolio = Schema::WebPage()
                 ->name($title)
                 ->description($desc)
-                ->email('santonamedia79@gmail.com')
+                ->email('newsstadia@gmail.com')
                 ->url($url)
-                ->sameAS("http://www.santonamedia.com")
-                ->logo("https://santonamedia.com/static/logo.jpg");
+                ->sameAS("http://www.newsstadia.com")
+                ->logo("https://newsstadia.com/static/logo.jpg");
         echo $portfolio->toScript();
 
         $data = array(
@@ -285,11 +285,11 @@ class PageController extends Controller
             $client = new \Nexmo\Client($basic);
 
             $receiverNumber = "254724351952";
-            $message = "The client has send you a mail from 'https://santonamedia.com'";
+            $message = "The client has send you a mail from 'https://newsstadia.com'";
 
             $message = $client->message()->send([
                         'to' => $receiverNumber,
-                        'from' =>"https://santonamedia.com" ,
+                        'from' =>"https://newsstadia.com" ,
                         'text' => $message,
                     ]);
         } catch(Exception $e){
