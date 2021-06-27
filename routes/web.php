@@ -94,7 +94,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(['doNotCa
     Route::post('/change-password','AdminChangePasswordController@store')->name('change-password.save');
 });
 
-//Superadmin routes
+//SUPERADMIN ROUTES
 Route::namespace('Superadmin')->prefix('superadmin')->name('superadmin.')->middleware('doNotCacheResponse')->group(function(){
     //Superadmin category routes
     Route::get('/categories/','CategoryController@index')->name('categories.index');
@@ -127,8 +127,9 @@ Route::namespace('Superadmin')->prefix('superadmin')->name('superadmin.')->middl
     Route::resource('admins','AdminController')->middleware('optimizeImages');
     Route::resource('posts','PostController')->middleware('optimizeImages');
     Route::resource('videos','VideoController');
-});
+});// END OF SUPERADMIN ROUTES
 
+//FRONTEND USER ROUTES
 //Minified Routes
 Route::group(['middleware'=>'HtmlMinifier'],function(){
     //Static pages routes
@@ -148,13 +149,10 @@ Route::group(['namespace'=>'User'],function(){
     Route::get('/vids/{slug}', 'VideoController@tags')->name('video.tags');
     Route::get('/video-author/{slug}', 'VideoController@authors')->name('author.videos');
     Route::post('/comments','CommentController@store')->name('comments.store');
-
     //Timeframe data retrival 
     Route::get('/seven-days-posts','TimeframeDataController@sevendaysData')->middleware('doNotCacheResponse');
-
     // Send SMS
     Route::get('/sms','PageController@sendSms')->name('send.sms');
-
     //Most popular post route
     Route::get('/popular/{slug}', 'PopularPostController@popular')->name('popular');
     Route::get('/seven-days','GeneralController@getData')->name('seven.days');
