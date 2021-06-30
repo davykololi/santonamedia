@@ -14,7 +14,8 @@
                       <video width="300" height="169" controls> 
                         <source type="video/mp4" src="{!! $ent->videoUrl() !!}" alt="{ !!$ent->title !!}">
                         <source type="video/ogg" src="{!! $ent->videoUrl() !!}" alt="{!! $ent->title !!}">   
-                        <source type="video/webm" src="{!!$ent->videoUrl() !!}" alt="{!!$ent->title!!}"> 
+                        <source type="video/webm" src="{!!$ent->videoUrl() !!}" alt="{!!$ent->title!!}">
+                        <embed src="{!! $ent->videoUrl() !!}" type="application/x-shockwave-flash" width="300" height="169" allowscriptaccess="always" allowfullscreen="true"> 
                         This browser doesn't support video tag.
                       </video>
                     <figcaption> 
@@ -24,7 +25,7 @@
                   </figure>
                 </li>
                   @empty
-                      <img src="{!! asset('static/surprised.jpg') !!}" width="100" height="100" alt="No {!! $entCart->name !!} Videos">
+                    <img src="{!! asset('static/surprised.jpg') !!}" width="100" height="100" alt="No {!! $entCart->name !!} Videos">
                     <p style="color: black;font-size: 20px">
                       Sorry Esteemed viewer. We are yet to publish <span style="color: red;margin: 1em;"> {!! $entCart->name !!} Videos. </span> Keep in touch. Thank you.
                     </p>
@@ -43,6 +44,7 @@
                       <source type="video/mp4" src="{!! $entSide->videoUrl() !!}" alt="{!! $entSide->title !!}">
                       <source type="video/ogg" src="{!! $entSide->videoUrl() !!}" alt="{!! $entSide->title !!}">  
                       <source type="video/webm" src="{!! $entSide->videoUrl() !!}" alt="{!! $entSide->title !!}"> 
+                      <embed src="{!! $entSide->videoUrl() !!}" type="application/x-shockwave-flash" width="150" height="84.5" allowscriptaccess="always" allowfullscreen="true">
                       This browser doesn't support video tag.
                       </video>
                     </figure>
@@ -71,7 +73,8 @@
                       <video width="300" height="169" controls> 
                         <source type="video/mp4" src="{!! $sportArticle->videoUrl() !!}" alt="{ !! $sportArticle->title !!}">
                         <source type="video/ogg" src="{!! $sportArticle->videoUrl() !!}" alt="{!! $sportArticle->title !!}">   
-                        <source type="video/webm" src="{!! $sportArticle->videoUrl() !!}" alt="{!! $sportArticle->title!!}"> 
+                        <source type="video/webm" src="{!! $sportArticle->videoUrl() !!}" alt="{!! $sportArticle->title!!}">
+                        <embed src="{!! $sportArticle->videoUrl() !!}" type="application/x-shockwave-flash" width="300" height="169" allowscriptaccess="always" allowfullscreen="true"> 
                         This browser doesn't support video tag.
                       </video>
                     <figcaption> 
@@ -101,7 +104,8 @@
                       <video width="150" height="84.5" controls> 
                       <source type="video/mp4" src="{!! $sportSide->videoUrl() !!}" alt="{!! $sportSide->title !!}">
                       <source type="video/ogg" src="{!! $sportSide->videoUrl() !!}" alt="{!! $entSide->title !!}">  
-                      <source type="video/webm" src="{!! $sportSide->videoUrl() !!}" alt="{!! $sportSide->title !!}"> 
+                      <source type="video/webm" src="{!! $sportSide->videoUrl() !!}" alt="{!! $sportSide->title !!}">
+                      <embed src="{!! $sportSide->videoUrl() !!}" type="application/x-shockwave-flash" width="150" height="84.5" allowscriptaccess="always" allowfullscreen="true"> 
                       This browser doesn't support video tag.
                       </video>
                     </figure>
@@ -130,7 +134,8 @@
                       <video width="300" height="169" controls> 
                         <source type="video/mp4" src="{!! $poli->videoUrl() !!}" alt="{ !! $poli->title !!}">
                         <source type="video/ogg" src="{!! $poli->videoUrl() !!}" alt="{!! $poli->title !!}">   
-                        <source type="video/webm" src="{!! $poli->videoUrl() !!}" alt="{!! $poli->title!!}"> 
+                        <source type="video/webm" src="{!! $poli->videoUrl() !!}" alt="{!! $poli->title!!}">
+                        <embed src="{!! $poli->videoUrl() !!}" type="application/x-shockwave-flash" width="300" height="169" allowscriptaccess="always" allowfullscreen="true"> 
                         This browser doesn't support video tag.
                       </video>
                     <figcaption> 
@@ -158,7 +163,8 @@
                       <video width="150" height="84.5" controls> 
                       <source type="video/mp4" src="{!! $poliSide->videoUrl() !!}" alt="{!! $poliSide->title !!}">
                       <source type="video/ogg" src="{!! $poliSide->videoUrl() !!}" alt="{!! $poliSide->title !!}">  
-                      <source type="video/webm" src="{!! $poliSide->videoUrl() !!}" alt="{!! $poliSide->title !!}"> 
+                      <source type="video/webm" src="{!! $poliSide->videoUrl() !!}" alt="{!! $poliSide->title !!}">
+                      <embed src="{!! $poliSide->videoUrl() !!}" type="application/x-shockwave-flash" width="150" height="84.5" allowscriptaccess="always" allowfullscreen="true"> 
                       This browser doesn't support video tag.
                       </video>
                     </figure>
@@ -187,7 +193,8 @@
                       <video width="300" height="169" controls> 
                         <source type="video/mp4" src="{!! $tecArticle->videoUrl() !!}" alt="{ !! $tecArticle->title !!}">
                         <source type="video/ogg" src="{!! $tecArticle->videoUrl() !!}" alt="{!! $tecArticle->title !!}">   
-                        <source type="video/webm" src="{!! $tecArticle->videoUrl() !!}" alt="{!! $tecArticle->title!!}"> 
+                        <source type="video/webm" src="{!! $tecArticle->videoUrl() !!}" alt="{!! $tecArticle->title!!}">
+                        <embed src="{!! $tecArticle->videoUrl() !!}" type="application/x-shockwave-flash" width="300" height="169" allowscriptaccess="always" allowfullscreen="true"> 
                         This browser doesn't support video tag.
                       </video>
                     <figcaption> 
@@ -217,7 +224,8 @@
                       <video width="150" height="84.5" controls> 
                       <source type="video/mp4" src="{!! $tecSide->videoUrl() !!}" alt="{!! $tecSide->title !!}">
                       <source type="video/ogg" src="{!! $tecSide->videoUrl() !!}" alt="{!! $tecSide->title !!}">  
-                      <source type="video/webm" src="{!! $tecSide->videoUrl() !!}" alt="{!! $tecSide->title !!}"> 
+                      <source type="video/webm" src="{!! $tecSide->videoUrl() !!}" alt="{!! $tecSide->title !!}">
+                      <embed src="{!! $tecSide->videoUrl() !!}" type="application/x-shockwave-flash" width="150" height="84.5" allowscriptaccess="always" allowfullscreen="true"> 
                       This browser doesn't support video tag.
                       </video>
                     </figure>
@@ -246,7 +254,8 @@
                       <video width="512" height="288" controls> 
                         <source type="video/mp4" src="{!! $video->videoUrl() !!}" alt="{!! $video->title !!}">
                         <source type="video/ogg" src="{!! $video->videoUrl() !!}" alt="{!! $video->title !!}">   
-                        <source type="video/webm" src="{!! $video->videoUrl() !!}" alt="{!!$video->title !!}"> 
+                        <source type="video/webm" src="{!! $video->videoUrl() !!}" alt="{!!$video->title !!}">
+                        <embed src="{!! $video->videoUrl() !!}" type="application/x-shockwave-flash" width="512" height="288" allowscriptaccess="always" allowfullscreen="true"> 
                         This browser doesn't support video tag.
                       </video>
                     <figcaption> 
@@ -274,7 +283,8 @@
                     <video width="150" height="84.5" controls> 
                       <source type="video/mp4" src="{!! $allVidSide->videoUrl() !!}" alt="{!! $allVidSide->title !!}">
                       <source type="video/ogg" src="{!! $allVidSide->videoUrl() !!}" alt="{!! $allVidSide->title !!}">     
-                      <source type="video/webm" src="{!! $allVidSide->videoUrl() !!}" alt="{!! $allVidSide->title !!}"> 
+                      <source type="video/webm" src="{!! $allVidSide->videoUrl() !!}" alt="{!! $allVidSide->title !!}">
+                      <embed src="{!! $allVidSide->videoUrl() !!}" type="application/x-shockwave-flash" width="150" height="84.5" allowscriptaccess="always" allowfullscreen="true"> 
                       This browser doesn't support video tag.
                     </video>
                   </figure>

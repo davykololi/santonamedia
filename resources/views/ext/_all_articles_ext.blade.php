@@ -222,6 +222,7 @@
                         <source type="video/mp4" src="{!! $vx->videoUrl() !!}" alt="{!! $vx->title !!}">
                         <source type="video/ogg" src="{!! $vx->videoUrl() !!}" alt="{!! $vx->title !!}"> 
                         <source type="video/webm" src="{!! $vx->videoUrl() !!}" alt="{!! $vx->title !!}">
+                        <embed src="{!! $vx->videoUrl() !!}" type="application/x-shockwave-flash" width="256" height="144" allowscriptaccess="always" allowfullscreen="true">
                         This browser doesn't support video tag.
                       </video>
                       <figcaption>
@@ -253,6 +254,7 @@
                       <source type="video/mp4" src = "{!! $sac->videoUrl() !!}" alt="{!! $sac->title !!}">
                       <source type="video/ogg" src="{!! $sac->videoUrl() !!}" alt="{!! $sac->title !!}"> 
                       <source type="video/webm" src="{!! $sac->videoUrl() !!}" alt="{!! $sac->title !!}">
+                      <embed src="{!! $sac->videoUrl() !!}" type="application/x-shockwave-flash" width="150" height="84.5" allowscriptaccess="always" allowfullscreen="true">
                       This browser doesn't support video tag.
                     </video>
                     <div class="media-body"> 

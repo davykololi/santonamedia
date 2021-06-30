@@ -57,7 +57,7 @@ class AdminController extends Controller
         $admin = $this->adminService->create($request);
         Toastr::success('The admin created successfully :)','Success');
 
-        return redirect()->route('superadmin.admins.index')->withSuccess(ucwords($admin->name." ".'created successfully'));
+        return redirect()->route('superadmin.admins.index')->withSuccess(ucwords($admin->name." ".'info created successfully'));
     }
 
     /**
@@ -103,7 +103,7 @@ class AdminController extends Controller
             $this->adminService->update($request,$id);
             Toastr::success('The admin updated successfully :)','Success');
 
-            return redirect()->route('superadmin.admins.index')->withSuccess(ucwords($admin->name." ".'updated successfully'));
+            return redirect()->route('superadmin.admins.index')->withSuccess(ucwords($admin->name." ".'info updated successfully'));
         }
     }
 
@@ -121,7 +121,7 @@ class AdminController extends Controller
             $this->adminService->delete($id);
             Toastr::success('The admin deleted successfully :)','Success');
 
-            return redirect()->route('superadmin.admins.index')->withSuccess(ucwords($admin->name." ".'deleted successfully'));
+            return redirect()->route('superadmin.admins.index')->withSuccess(ucwords($admin->name." ".'info deleted successfully'));
         }
     }
 }

@@ -26,7 +26,8 @@
         		<video width="512" height="288" controls> 
             	<source type="video/mp4" src="{!! $vid->videoUrl() !!}" alt="{!! $vid->title !!}">
             	<source type="video/ogg" src="{!! $vid->videoUrl() !!}" alt="{!! $vid->title !!}">     
-            	<source type="video/webm" src="{!! $vid->videoUrl() !!}" alt="{!! $vid->title !!}"> 
+            	<source type="video/webm" src="{!! $vid->videoUrl() !!}" alt="{!! $vid->title !!}">
+              <embed src="{!! $vid->videoUrl() !!}" type="application/x-shockwave-flash" width="512" height="288" allowscriptaccess="always" allowfullscreen="true"> 
               This browser doesn't support video tag.
         		</video>
             <figcaption class="figcaption"> {!! $vid->caption !!} </figcaption>
@@ -64,6 +65,7 @@
                     <source type="video/mp4" src="{!! $ars->videoUrl() !!}" alt="{!! $ars->title !!}">
                     <source type="video/ogg" src="{!! $ars->videoUrl() !!}" alt="{!! $ars->title !!}">
                     <source type="video/webm" src="{!! $ars->videoUrl() !!}" alt="{!! $ars->title !!}">
+                    <embed src="{!! $ars->videoUrl() !!}" type="application/x-shockwave-flash" width="150" height="84.5" allowscriptaccess="always" allowfullscreen="true">
                 		  This browser doesn't support video tag.
                   </video>
                   <br/>
