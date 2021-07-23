@@ -19,20 +19,13 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 Auth::routes();
 
 Route::get('/user/logout','Auth\LoginController@userLogout')->name('user.logout');
+
+//SUPERADMIN ROUTES
 //Superadmin dashboard route
 Route::prefix('superadmin')->name('superadmin.')->middleware(['doNotCacheResponse'])->group(function(){
    Route::get('/', 'SuperadminController@index')->name('dashboard'); 
 });
-//Superadmin routes
-Route::prefix('superadmin')->name('superadmin.')->namespace('Superadmin')->middleware(['doNotCacheResponse'])->group(function(){
-    // Admin bann routes
-    Route::get('/admin-bann/{admin}','AdminBannController@ban')->name('admin.bann');
-    Route::get('/admin-revoke-bann/{admin}','AdminBannController@revoke')->name('admin.revoke');
-    //Admin Change Password Routes
-    Route::get('/change-password','SuperadminChangePasswordController@index')->name('change-password.form');
-    Route::post('/change-password','SuperadminChangePasswordController@store')->name('change-password.save');
-});
-//superadmin route for our multi-auth system
+//superadmin namespace Auth routes
 Route::namespace('Auth')->prefix('superadmin')->name('superadmin.')->middleware(['doNotCacheResponse'])->group(function () {
     Route::get('/login', 'SuperadminLoginController@showLoginForm')->name('login');
     Route::post('/login', 'SuperadminLoginController@login')->name('login.submit');
@@ -45,57 +38,15 @@ Route::namespace('Auth')->prefix('superadmin')->name('superadmin.')->middleware(
     Route::get('/password/reset/{token}','SuperadminResetPasswordController@showResetForm')->name('password.reset');
 });
 
-//Admin dashboard route
-Route::prefix('admin')->name('admin.')->middleware('admin_ban')->group(function(){
-    Route::get('/dashboard', 'AdminController@index')->name('dashboard');
-});
-//admin route for our multi-auth system
-Route::namespace('Auth')->prefix('admin')->name('admin.')->group(function(){
-    Route::get('/login', 'AdminLoginController@showLoginForm')->name('login');
-    Route::post('/login', 'AdminLoginController@login')->name('login.submit');
-    Route::get('/logout','AdminLoginController@logout')->name('logout');
- 
-    //admin password reset routes
-    Route::post('/password/email','AdminForgotPasswordController@sendResetLinkEmail')->name('password.email');
-    Route::get('/password/reset','AdminForgotPasswordController@showLinkRequestForm')->name('password.request');
-    Route::post('/password/reset','AdminResetPasswordController@reset');
-    Route::get('/password/reset/{token}','AdminResetPasswordController@showResetForm')->name('password.reset');
-});
-
-//Admin posts and videos routes
-Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(['doNotCacheResponse','admin_ban'])->group(function(){
-    //Admin posts routes
-    Route::get('/posts','PostController@index')->name('posts.index');
-    Route::get('/posts/create','PostController@create')->name('posts.create');
-    Route::get('/posts/show/{id}','PostController@show')->name('posts.show');
-    Route::post('/posts','PostController@store')->name('posts.store')->middleware('optimizeImages');
-    Route::get('/posts/{id}/edit','PostController@edit')->name('posts.edit');
-    Route::post('/posts/{id}','PostController@update')->name('posts.update')->middleware('optimizeImages');
-    Route::get('/posts/{id}','PostController@destroy')->name('posts.delete');
-    Route::post('/upload-image','CKEditorController@upload')->name('upload');
-
-    //Admin videos routes
-    Route::get('/videos','VideoController@index')->name('videos.index');
-    Route::get('/videos/create','VideoController@create')->name('videos.create');
-    Route::get('/videos/show/{id}','VideoController@show')->name('videos.show');
-    Route::post('/videos','VideoController@store')->name('videos.store');
-    Route::get('/videos/{id}/edit','VideoController@edit')->name('videos.edit');
-    Route::post('/videos/{id}','VideoController@update')->name('videos.update');
-    Route::get('/videos/{id}','VideoController@destroy')->name('videos.delete');
-    Route::get('/tool','ToolController@index')->name('KDTool');
-    Route::post('/tool/calculate-and-get-density', 'ToolController@CalculateAndGetDensity');
-
-    //Admin view contacts messages
-    Route::get('/contacts/','GeneralController@getContacts')->name('contacts');
-    Route::get('/contacts/{contact}/show','GeneralController@getContact')->name('contact.show');
-    Route::get('/contacts/{id}','GeneralController@destroy')->name('contact.destroy');
+//Superadmin namespace Superadmin routes
+Route::prefix('superadmin')->name('superadmin.')->namespace('Superadmin')->middleware(['doNotCacheResponse'])->group(function(){
+    // Admin bann routes
+    Route::get('/admin-bann/{admin}','AdminBannController@ban')->name('admin.bann');
+    Route::get('/admin-revoke-bann/{admin}','AdminBannController@revoke')->name('admin.revoke');
     //Admin Change Password Routes
-    Route::get('/change-password','AdminChangePasswordController@index')->name('change-password.form');
-    Route::post('/change-password','AdminChangePasswordController@store')->name('change-password.save');
-});
+    Route::get('/change-password','SuperadminChangePasswordController@index')->name('change-password.form');
+    Route::post('/change-password','SuperadminChangePasswordController@store')->name('change-password.save');
 
-//SUPERADMIN ROUTES
-Route::namespace('Superadmin')->prefix('superadmin')->name('superadmin.')->middleware('doNotCacheResponse')->group(function(){
     //Superadmin category routes
     Route::get('/categories/','CategoryController@index')->name('categories.index');
     Route::get('/categories/create','CategoryController@create')->name('categories.create');
@@ -123,11 +74,64 @@ Route::namespace('Superadmin')->prefix('superadmin')->name('superadmin.')->middl
     Route::get('/show/comments','CommentController@show')->name('comments.show');
     Route::get('/comments/{comment}','CommentController@delete')->name('comments.delete');
 
-    //Superadmin posts and videos routes
-    Route::resource('admins','AdminController')->middleware('optimizeImages');
-    Route::resource('posts','PostController')->middleware('optimizeImages');
+    //Optimized Superadmin Posts And Admins Routes
+    Route::group(['middleware'=>'optimizeImages'],function(){
+        Route::resource('admins','AdminController');
+        Route::resource('posts','PostController');
+    });
+    //Superadmin Videos Routes
     Route::resource('videos','VideoController');
 });// END OF SUPERADMIN ROUTES
+
+//START OF ADMIN ROUTES
+//Admin dashboard route
+Route::prefix('admin')->name('admin.')->middleware('admin_ban')->group(function(){
+    Route::get('/dashboard', 'AdminController@index')->name('dashboard');
+});
+//admin route for our multi-auth system
+Route::namespace('Auth')->prefix('admin')->name('admin.')->group(function(){
+    Route::get('/login', 'AdminLoginController@showLoginForm')->name('login');
+    Route::post('/login', 'AdminLoginController@login')->name('login.submit');
+    Route::get('/logout','AdminLoginController@logout')->name('logout');
+ 
+    //admin password reset routes
+    Route::post('/password/email','AdminForgotPasswordController@sendResetLinkEmail')->name('password.email');
+    Route::get('/password/reset','AdminForgotPasswordController@showLinkRequestForm')->name('password.request');
+    Route::post('/password/reset','AdminResetPasswordController@reset');
+    Route::get('/password/reset/{token}','AdminResetPasswordController@showResetForm')->name('password.reset');
+});
+
+//Admin posts and videos routes
+Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(['doNotCacheResponse','admin_ban','optimizeImages'])->group(function(){
+    //Admin posts routes
+    Route::get('/posts','PostController@index')->name('posts.index');
+    Route::get('/posts/create','PostController@create')->name('posts.create');
+    Route::get('/posts/show/{id}','PostController@show')->name('posts.show');
+    Route::post('/posts','PostController@store')->name('posts.store');
+    Route::get('/posts/{id}/edit','PostController@edit')->name('posts.edit');
+    Route::post('/posts/{id}','PostController@update')->name('posts.update');
+    Route::get('/posts/{id}','PostController@destroy')->name('posts.delete');
+    Route::post('/upload-image','CKEditorController@upload')->name('upload');
+
+    //Admin videos routes
+    Route::get('/videos','VideoController@index')->name('videos.index');
+    Route::get('/videos/create','VideoController@create')->name('videos.create');
+    Route::get('/videos/show/{id}','VideoController@show')->name('videos.show');
+    Route::post('/videos','VideoController@store')->name('videos.store');
+    Route::get('/videos/{id}/edit','VideoController@edit')->name('videos.edit');
+    Route::post('/videos/{id}','VideoController@update')->name('videos.update');
+    Route::get('/videos/{id}','VideoController@destroy')->name('videos.delete');
+    Route::get('/tool','ToolController@index')->name('KDTool');
+    Route::post('/tool/calculate-and-get-density', 'ToolController@CalculateAndGetDensity');
+
+    //Admin view contacts messages
+    Route::get('/contacts/','GeneralController@getContacts')->name('contacts');
+    Route::get('/contacts/{contact}/show','GeneralController@getContact')->name('contact.show');
+    Route::get('/contacts/{id}','GeneralController@destroy')->name('contact.destroy');
+    //Admin Change Password Routes
+    Route::get('/change-password','AdminChangePasswordController@index')->name('change-password.form');
+    Route::post('/change-password','AdminChangePasswordController@store')->name('change-password.save');
+}); //END OF ADMIN ROUTES
 
 //FRONTEND USER ROUTES
 //Minified Routes

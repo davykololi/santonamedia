@@ -49,7 +49,7 @@ class VideoService
 
 	public function adminData(UpdateRequest $request)
 	{
-		$data = $request->all();
+		$data = $request->validated();
         $data['video'] = $this->verifyAndUpload($request,'video','public/videos/');
         $data['admin_id'] = Auth::id();
         $data['category_id'] = $request->category;
@@ -88,7 +88,7 @@ class VideoService
 
 	public function superadminData(UpdateRequest $request)
 	{
-		$data = $request->all();
+		$data = $request->validated();
         $data['video'] = $this->verifyAndUpload($request,'video','public/videos/');
         $data['admin_id'] = $request->admin;
         $data['category_id'] = $request->category;

@@ -66,4 +66,10 @@ return [
     'redirect' => env ( 'LINKEDIN_REDIRECT' ) 
     ],
 
+    'nexmo' => [ 
+    'key' => env ( 'NEXMO_KEY' ),
+    'secret' => env ( 'NEXMO_SECRET' ),
+    'sm_from' => env ( 'NEXMO_NUMBER' ) 
+    ],
+
 ];

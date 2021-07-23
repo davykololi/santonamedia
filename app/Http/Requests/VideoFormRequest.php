@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\MaxWordsRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class VideoFormRequest extends FormRequest
@@ -25,8 +26,8 @@ class VideoFormRequest extends FormRequest
     {
         return [
             //
-            'title' => 'required',
-            'description' => 'required',
+            'title' => 'required',new MaxWordsRule(100),
+            'description' => 'required',new MaxWordsRule(),
             'content' => 'required',
             'caption' => 'required',
             'keywords' => 'required',

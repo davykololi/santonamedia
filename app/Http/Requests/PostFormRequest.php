@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\MaxWordsRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class PostFormRequest extends FormRequest
@@ -25,8 +26,8 @@ class PostFormRequest extends FormRequest
     {
         return [
             //
-            'title' => 'required|string|max:100',
-            'description' => 'required',
+            'title' => 'required|string|max:100',new MaxWordsRule(100),
+            'description' => 'required',new MaxWordsRule(),
             'content' => 'required|string',
             'caption' => 'required',
             'keywords' => 'required',

@@ -25,7 +25,7 @@ class VideoRepository implements VideoInterface
 
     public function authVideos()
     {
-    	return auth()->user()->videos()->with('admin','category','tags')->paginate(5);
+    	return auth()->user()->videos()->with('admin','category','tags')->latest()->paginate(5);
     }
 
     public function withEagerload()

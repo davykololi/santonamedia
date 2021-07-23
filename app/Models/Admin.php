@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Post;
 use App\Models\Video;
+use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 use Cog\Contracts\Ban\Bannable as BannableContract;
 use Cog\Laravel\Ban\Traits\Bannable;
 use Illuminate\Notifications\Notifiable;
@@ -16,7 +17,7 @@ use\Spatie\Searchable\SearchResult;
  
 class Admin extends Authenticatable implements Searchable,BannableContract
 {
-    use Notifiable,Sluggable,Bannable;
+    use Notifiable,Sluggable,Bannable,Cachable;
  
     protected $guard = 'admin';
     protected $primaryKey = 'id';

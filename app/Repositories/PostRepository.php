@@ -7,8 +7,8 @@ use App\Models\Post;
 
 class PostRepository implements PostInterface
 {
-	protected $post;
-	/**
+    protected $post;
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -25,28 +25,28 @@ class PostRepository implements PostInterface
 
     public function authPosts()
     {
-    	return auth()->user()->posts()->with('category','admin','tags')->latest()->paginate(5);
+        return auth()->user()->posts()->with('category','admin','tags')->latest()->paginate(5);
     }
 
     public function create(array $data)
     {
-    	return $this->post->create($data);
+        return $this->post->create($data);
     }
 
     public function getId($id)
     {
-    	return $this->post->findOrFail($id);
+        return $this->post->findOrFail($id);
     }
 
     public function update(array $data,$id)
     {
         $record = $this->getId($id);
-    	return $record->update($data);
+        return $record->update($data);
     }
 
     public function delete($id)
     {
-    	return $this->post->destroy($id);
+        return $this->post->destroy($id);
     }
 
     public function randonmPublishedTwo()

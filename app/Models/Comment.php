@@ -5,9 +5,11 @@ namespace App\Models;
 use App\Models\User;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
+use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 
 class Comment extends Model
 {
+    use Cachable;
     //
     protected $table = 'comments';
     protected $primaryKey = 'id';

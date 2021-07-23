@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use Carbon\Carbon;
+use Notification;
 use App\Models\Contact;
 use App\Interfaces\PostInterface;
 use App\Interfaces\CategoryInterface;
@@ -11,6 +12,7 @@ use Spatie\SchemaOrg\Schema;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Jobs\SendContactJob;
+use App\Notifications\ContactMessage;
 use App\Http\Requests\ContactFormRequest;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\OpenGraph;
@@ -108,7 +110,9 @@ class PageController extends Controller
         // Mail Delivery logic goes here
         $emailJob = (new SendContactJob($contact))->delay(Carbon::now()->addMinutes(2));
         $this->dispatch($emailJob);
-        $this->sendSms();
+        $number = getenv('NEXMO_NUMBER');
+
+        Notification::send($number (new ContactMessage($contact)));
 
         return redirect()->route('users.pages.contact')->withSuccess('Thank you for contacting us. We will get back to you soon');
         //  return redirect()->route('contact.create');
