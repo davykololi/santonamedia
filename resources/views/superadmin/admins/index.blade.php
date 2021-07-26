@@ -22,7 +22,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <table class="table table-striped task-table">
                     <!-- Table Headings -->
-                    @include('partials.admintbhead')
+                    @include('partials.tbhead')
                     <!-- Table Body -->
                     <tbody>
                     @forelse($admins as $admin)

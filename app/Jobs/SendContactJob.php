@@ -36,7 +36,7 @@ class SendContactJob implements ShouldQueue
     {
         //
         $exactContact = $this->contact;
-        $address = 'santonamedia79@gmail.com';
+        $address = 'newsstadia@gmail.com';
         Mail::to($address)->send(new ContactMail($exactContact));
     }
 }

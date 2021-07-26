@@ -24,7 +24,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <table class="table table-bordered mt-5">
                     <!-- Table Headings -->
-                    @include('partials.tbhead')
+                    @include('partials.super_n_admin_tbhead')
                     <!-- Table Body -->
                     <tbody>
                     @forelse($posts as $post)

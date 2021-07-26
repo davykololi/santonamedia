@@ -16,7 +16,7 @@
                 </div>
                 <div class="pull-right">
                     <br/>
-                    <a class="btn btn-success" href="{!! route('superadmin.posts.create') !!}"> Add Post</a>
+                    <a class="btn btn-success" href="{!! route('superadmin.posts.create') !!}">Add Post</a>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <table class="table table-striped task-table">
                     <!-- Table Headings -->
-                    @include('partials.superadmin_posttbhead')
+                    @include('partials.super_n_admin_tbhead')
                     <!-- Table Body -->
                     <tbody>
                     @forelse($posts as $post)

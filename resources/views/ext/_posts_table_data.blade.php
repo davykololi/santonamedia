@@ -17,5 +17,5 @@
                                 <div>{!! $post->excerpt() !!}</div>
                             </td>
                             <td class="table-text">
-                                <div>{!! $post->created_at !!}</div>
+                                <div>{!! $post->is_published ? "Published" : "Pending" !!}</div>
                             </td>

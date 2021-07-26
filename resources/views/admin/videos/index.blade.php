@@ -29,43 +29,10 @@
                     <tbody>
                     @forelse($videos as $video)
                         <tr>
-                            <td class="table-text">
-                                <div>{!! $video->category->name !!}</div>
-                            </td>
-                            <td class="table-text">
-                                <div>{!! $video->title !!}</div>
-                            </td>
-                            <td class="table-text">
-                            <video width="40" height="30" controls> 
-                                <source type="video/mp4" src="{!! $video->videoUrl() !!}" alt="{!! $video->title !!}"/>
-                                	This browser doesn't support video tag.
-                            </video>
-                            </td>
-                            <td class="table-text">
-                                <div>{!! $video->caption !!}</div>
-                            </td>
-                            <td class="table-text">
-                                <div>{!! Illuminate\Support\Str::words($video->description,10,'...') !!}</div>
-                            </td>
-                            <td class="table-text">
-                                <div>{!! $video->excerpt() !!}</div>
-                            </td>
-                            <td class="table-text">
-                                <div>{!! $video->created_at !!}</div>
-                            </td>
-                            <td>
-                                <a href="{!! route('admin.videos.show', $video->id) !!}" class="label label-success">Details</a>
-                                <a href="{!! route('admin.videos.edit', $video->id) !!}" class="label label-warning">Edit</a>
-                                <a href="{!! route('admin.videos.delete', $video->id) !!}" class="label label-danger" onclick="return confirm('Are you sure to delete {!! $video->title !!}?')">
-                                    Delete
-                                </a>
-                            </td>
+                            @include('ext._videos_table_data')
+                            @include('ext._videos_table_adminroutes')
                     @empty
-                            <td colspan="10">
-                                <div style="font-size: 16px;color: red;font-family: Times New Roman">
-                                    <h3>You have not posted any video(s) yet.</h3>
-                                </div>
-                            </td>
+                            @include('ext._videos_table_emptyinfo')
                         </tr>
                     @endforelse
                     </tbody>

@@ -137,7 +137,7 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-    	$post = $this->postService->getId($id);
+        $post = $this->postService->getId($id);
         $this->authorize('delete',$post);
         if($post){
             Storage::delete('public/storage/'.$post->image);

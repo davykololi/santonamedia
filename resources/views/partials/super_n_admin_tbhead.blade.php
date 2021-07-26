@@ -5,6 +5,6 @@
     <th width="15%" scope="col">NAME</th>
     <th width="10%" scope="col">DESCRIPTION</th>
     <th width="15%" scope="col">CONTENT</th>
-    <th width="15%" scope="col">CREATED AT</th>
+    <th width="15%" scope="col">STATUS</th>
     <th width="10%" scope="col">ACTION</th>
 </thead>
