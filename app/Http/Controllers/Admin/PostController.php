@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Image;
 use File;
+use App\Events\PostCreated;
 use App\Services\TagService;
 use App\Services\PostService;
 use App\Services\CategoryService;
@@ -11,8 +12,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
-use App\Http\Requests\PostFormRequest as StoreRequest;
-use App\Http\Requests\PostFormRequest as UpdateRequest;
+use Illuminate\Support\Facades\DB;
+use App\Http\Requests\PostFormRequest as AdminRequest;
 
 class PostController extends Controller
 {
@@ -65,14 +66,27 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRequest $request)
+    public function store(AdminRequest $request)
     { 
-        $post = $this->postService->create($request);
-        $tags = $request->tags;
-        $post->tags()->sync($tags);
-        Toastr::success('The post created successfully :)','Success');
+        try{
+            DB::beginTransaction();
+            $post = $this->postService->create($request);
+            if(!$post){
+                DB::rollBack();
+                return back()->with('error','Something went wrong while saving. Please try again');
+            }
 
-        return redirect()->route('admin.posts.index')->withSuccess(ucwords($post->title." ".'Post created successfully'));
+            DB::commit();
+            $tags = $request->tags;
+            $post->tags()->sync($tags);
+            Toastr::success('The post created successfully :)','Success');
+            event(new PostCreated($post));
+
+            return redirect()->route('admin.posts.index')->withSuccess(ucwords($post->title." ".'Post created successfully'));
+        } catch(\Throwable $th){
+            DB::rollBack();
+            throw $th;
+        }
     }
 
     /**
@@ -85,6 +99,9 @@ class PostController extends Controller
     {
         //
         $post = $this->postService->getId($id);
+        if(!$post){
+            return back()->with('error','Article Not Found');
+        }
 
         return view('admin.posts.show',['post'=> $post]);
     }
@@ -99,6 +116,10 @@ class PostController extends Controller
     {
         //
         $post = $this->postService->getId($id);
+        if(!$post){
+            return back()->with('error','Article Not Found');
+        }
+
         $tags = $this->tagService->all()->pluck('name','id');
         $postTags = $post->tags;
         $categories = $this->categoryService->all();
@@ -113,12 +134,18 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRequest $request,$id)
+    public function update(AdminRequest $request,$id)
     {
-        //
-        $post = $this->postService->getId($id);
-        $this->authorize('update',$post);
-        if($post){
+        try{
+            DB::beginTransaction();
+
+            $post = $this->postService->getId($id);
+            if(!$post){
+                DB::rollBack();
+
+                return back()->with('error','Something went wrong while updating data. Please try again');
+            }
+            DB::commit();
             Storage::delete('public/storage/'.$post->image);
             $this->postService->update($request,$id);
             $tags = $request->tags;
@@ -126,7 +153,10 @@ class PostController extends Controller
             Toastr::success('The post updated successfully :)','Success');
 
             return redirect()->route('admin.posts.index')->withSuccess(ucwords($post->title." ".'Post updated successfully'));
-        }
+        } catch (\Throwable $th){
+            DB::rollBack();
+            throw $th;
+        } 
     }
 
     /**
@@ -137,15 +167,26 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $post = $this->postService->getId($id);
-        $this->authorize('delete',$post);
-        if($post){
+        try{
+            DB::beginTransaction();
+
+            $post = $this->postService->getId($id);
+            if(!$post){
+                DB::rollBack();
+                return back()->with('error','An error occured while deleting the article. Please try again later!');
+            }
+            
+            DB::commit();
             Storage::delete('public/storage/'.$post->image);
             $this->postService->delete($id);
             $post->tags()->detach();
             Toastr::success('The post deleted successfully :)','Success');
             
             return redirect()->route('admin.posts.index')->withSuccess(ucwords($post->title." ".'Post deleted successfully'));
+
+        } catch(\Throwable $th){
+            DB::rollBack();
+            throw $th;
         }
     }
 }

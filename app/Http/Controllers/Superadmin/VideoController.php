@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Superadmin;
 use Image;
 use File;
 use Youtube;
+use App\Events\VideoCreated;
 use App\Models\Video;
 use App\Services\TagService;
 use App\Services\VideoService;
@@ -13,9 +14,8 @@ use App\Services\AdminService;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\VideoFormRequest as StoreRequest;
-use App\Http\Requests\VideoFormRequest as UpdateRequest;
 use Brian2694\Toastr\Facades\Toastr;
+use App\Http\Requests\SuperAdVideoFormRequest as SuperRequest;
 
 class VideoController extends Controller
 {
@@ -105,13 +105,14 @@ class VideoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRequest $request)
+    public function store(SuperRequest $request)
     {
         $video = $this->videoService->superadminCreate($request);
         $tags = $request->tags;
         $video->tags()->sync($tags);
         $this->youtubeVideoUpload($video);
         Toastr::success('The video created successfully :)','Success');
+        event(new VideoCreated($video));
 
         return redirect()->route('superadmin.videos.index')->withSuccess(ucwords($video->title." ".'created successfully'));
     }
@@ -155,7 +156,7 @@ class VideoController extends Controller
      * @param  \App\Models\Video  $video
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRequest $request,$id)
+    public function update(SuperRequest $request,$id)
     {
         $video = $this->videoService->getId($id);
         if($video){

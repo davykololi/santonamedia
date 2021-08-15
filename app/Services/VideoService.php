@@ -5,8 +5,8 @@ namespace App\Services;
 use Auth;
 use App\Repositories\VideoRepository;
 use App\Traits\VideoUploadTrait;
-use App\Http\Requests\VideoFormRequest as StoreRequest;
-use App\Http\Requests\VideoFormRequest as UpdateRequest;
+use App\Http\Requests\VideoFormRequest as AdminRequest;
+use App\Http\Requests\SuperAdVideoFormRequest as SuperRequest;
 
 class VideoService
 {
@@ -28,14 +28,14 @@ class VideoService
 		return $this->videoRepository->authVideos();
 	}
 
-	public function create(StoreRequest $request)
+	public function create(AdminRequest $request)
 	{
 		$data = $this->createAdminData($request);
 
 		return $this->videoRepository->create($data);
 	}
 
-	public function superadminCreate(StoreRequest $request)
+	public function superadminCreate(SuperRequest $request)
 	{
 		$data = $this->createSuperadminData($request);
 
@@ -47,7 +47,7 @@ class VideoService
 		return $this->videoRepository->getId($id);
 	}
 
-	public function adminData(UpdateRequest $request)
+	public function adminData(AdminRequest $request)
 	{
 		$data = $request->validated();
         $data['video'] = $this->verifyAndUpload($request,'video','public/videos/');
@@ -58,35 +58,35 @@ class VideoService
         return $data;
 	}
 
-	public function createAdminData(StoreRequest $request)
+	public function createAdminData(AdminRequest $request)
 	{
 		$result = $this->adminData($request);
 
 		return $result;
 	}
 
-	public function updateAdminData(UpdateRequest $request,$id)
+	public function updateAdminData(AdminRequest $request,$id)
 	{
 		$result = $this->adminData($request);
 
 		return $result;
 	}
 
-	public function createSuperadminData(StoreRequest $request)
+	public function createSuperadminData(SuperRequest $request)
 	{
 		$result = $this->superadminData($request);
 
 		return $result;
 	}
 
-	public function updateSuperadminData(UpdateRequest $request,$id)
+	public function updateSuperadminData(SuperRequest $request,$id)
 	{
 		$result = $this->superadminData($request);
 
 		return $result;
 	}
 
-	public function superadminData(UpdateRequest $request)
+	public function superadminData(SuperRequest $request)
 	{
 		$data = $request->validated();
         $data['video'] = $this->verifyAndUpload($request,'video','public/videos/');
@@ -97,14 +97,14 @@ class VideoService
         return $data;
 	}
 
-	public function update(UpdateRequest $request,$id)
+	public function update(AdminRequest $request,$id)
 	{
 		$data = $this->updateAdminData($request,$id);
 
 		return $this->videoRepository->update($data,$id);
 	}
 
-	public function superadminUpdate(UpdateRequest $request,$id)
+	public function superadminUpdate(SuperRequest $request,$id)
 	{
 		$data = $this->updateSuperadminData($request,$id);
 

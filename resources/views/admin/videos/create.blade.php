@@ -5,7 +5,6 @@
 <main role="main" class="container" id="main">
 <div class="row" id="lightblue">
     <div class="col-lg-12">
-        @include('partials.errors')
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="titles">NEW VIDEO</h3> 

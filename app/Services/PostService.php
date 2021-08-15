@@ -2,11 +2,10 @@
 
 namespace App\Services;
 
-use Auth;
 use App\Repositories\PostRepository;
 use App\Traits\ImageUploadTrait;
-use App\Http\Requests\PostFormRequest as StoreRequest;
-use App\Http\Requests\PostFormRequest as UpdateRequest;
+use App\Http\Requests\PostFormRequest as AdminRequest;
+use App\Http\Requests\SuperAdPostFormRequest as SuperAdRequest;
 
 class PostService
 {
@@ -28,14 +27,14 @@ class PostService
 		return $this->postRepository->authPosts();
 	}
 
-	public function create(StoreRequest $request)
+	public function create(AdminRequest $request)
 	{
 		$data = $this->createAdminData($request);
 
 		return $this->postRepository->create($data);
 	}
 
-	public function superadminCreate(StoreRequest $request)
+	public function superadminCreate(SuperAdRequest $request)
 	{
 		$data = $this->createSuperadminData($request);
 
@@ -47,46 +46,46 @@ class PostService
 		return $this->postRepository->getId($id);
 	}
 
-	public function adminData(UpdateRequest $request)
+	public function adminData(AdminRequest $request)
 	{
 		$data = $request->validated();
         $data['image'] = $this->verifyAndUpload($request,'image','public/storage/');
-        $data['admin_id'] = Auth::id();
+        $data['admin_id'] = auth()->user()->id;
         $data['category_id'] = $request->category;
         $data['is_published']  = $request->has('publish');
 
         return $data;
 	}
 
-	public function createAdminData(StoreRequest $request)
+	public function createAdminData(AdminRequest $request)
 	{
 		$result = $this->adminData($request);
 
 		return $result;
 	}
 
-	public function updateAdminData(UpdateRequest $request,$id)
+	public function updateAdminData(AdminRequest $request,$id)
 	{
 		$result = $this->adminData($request);
 
 		return $result;
 	}
 
-	public function createSuperadminData(StoreRequest $request)
+	public function createSuperadminData(SuperAdRequest $request)
 	{
 		$result = $this->superadminData($request);
 
 		return $result;
 	}
 
-	public function updateSuperadminData(UpdateRequest $request,$id)
+	public function updateSuperadminData(SuperAdRequest $request,$id)
 	{
 		$result = $this->superadminData($request);
 
 		return $result;
 	}
 
-	public function superadminData(UpdateRequest $request)
+	public function superadminData(SuperAdRequest $request)
 	{
 		$data = $request->validated();
         $data['image'] = $this->verifyAndUpload($request,'image','public/storage/');
@@ -97,14 +96,14 @@ class PostService
         return $data;
 	}
 
-	public function update(UpdateRequest $request,$id)
+	public function update(AdminRequest $request,$id)
 	{
 		$data = $this->updateAdminData($request,$id);
 
 		return $this->postRepository->update($data,$id);
 	}
 
-	public function superadminUpdate(UpdateRequest $request,$id)
+	public function superadminUpdate(SuperAdRequest $request,$id)
 	{
 		$data = $this->updateSuperadminData($request,$id);
 

@@ -20,12 +20,12 @@ class PostRepository implements PostInterface
 
     public function all()
     {
-        return $this->post->latest()->paginate(5);
+        return $this->post->eagerLoaded()->latest()->paginate(5);
     }
 
     public function authPosts()
     {
-        return auth()->user()->posts()->with('category','admin','tags')->latest()->paginate(5);
+        return auth()->user()->posts()->eagerLoaded()->latest()->paginate(5);
     }
 
     public function create(array $data)
@@ -51,7 +51,7 @@ class PostRepository implements PostInterface
 
     public function randonmPublishedTwo()
     {
-        return $this->post->with('category','admin','user','tags')->published()->withCount('comments')->inRandomOrder()->take(2)->get();
+        return $this->post->eagerLoaded()->published()->inRandomOrder()->take(2)->get();
     }
 
     public function latestPublishedFive()
@@ -61,11 +61,11 @@ class PostRepository implements PostInterface
 
     public function postSlug(string $slug)
     {
-        return $this->post->with('admin','tags','category')->published()->withCount('comments')->whereSlug($slug)->firstOrFail();
+        return $this->post->eagerLoaded()->published()->whereSlug($slug)->firstOrFail();
     }
 
     public function allPublishedPosts()
     {
-        return $this->post->with('admin','category','user','tags')->published()->withCount('comments')->latest()->get();
+        return $this->post->eagerLoaded()->published()->latest()->get();
     }
 }

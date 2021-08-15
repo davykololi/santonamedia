@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\User;
 
 use Str;
-use App\Interfaces\PostInterface;
-use App\Interfaces\VideoInterface;
-use App\Interfaces\CategoryInterface;
-use App\Interfaces\TagInterface;
-use App\Interfaces\AdminInterface;
+use App\Interfaces\PostInterface as PostInt;
+use App\Interfaces\VideoInterface as VideoInt;
+use App\Interfaces\CategoryInterface as CatInt;
+use App\Interfaces\TagInterface as TagInt;
+use App\Interfaces\AdminInterface as AdminInt;
 use Spatie\SchemaOrg\Schema;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -30,7 +30,7 @@ class PostController extends Controller
      *
      * @return void
      */
-    public function __construct(PostInterface $postRepository,CategoryInterface $categoryRepository,TagInterface $tagRepository,VideoInterface $videoRepository,AdminInterface $adminRepository)
+    public function __construct(PostInt $postRepository,CatInt $categoryRepository,TagInt $tagRepository,VideoInt $videoRepository,AdminInt $adminRepository)
     {
         $this->postRepository = $postRepository;
         $this->videoRepository = $videoRepository;
@@ -194,15 +194,15 @@ class PostController extends Controller
         JsonLd::addImage('https://newsstadia.com/storage/public/storage/'.$post->image);
 
         $newsArticle = Schema::NewsArticle()
-        		->headline($title)
+                ->headline($title)
                 ->description($desc)
                 ->image('https://newsstadia.com/storage/public/storage/'.$post->image)
                 ->datePublished($published)
                 ->dateModified($modified)
-        		->email('newsstadia@gmail.com')
-        		->url($url)
-        		->sameAS("http://www.newsstadia.com")
-        		->logo("https://newsstadia.com/static/logo.jpg");
+                ->email('newsstadia@gmail.com')
+                ->url($url)
+                ->sameAS("http://www.newsstadia.com")
+                ->logo("https://newsstadia.com/static/logo.jpg");
         echo $newsArticle->toScript();
 
         $data = array(

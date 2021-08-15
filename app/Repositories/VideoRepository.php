@@ -20,17 +20,17 @@ class VideoRepository implements VideoInterface
 
     public function all()
     {
-        return $this->video->latest()->paginate(5);
+        return $this->video->eagerLoaded()->latest()->paginate(5);
     }
 
     public function authVideos()
     {
-    	return auth()->user()->videos()->with('admin','category','tags')->latest()->paginate(5);
+    	return auth()->user()->videos()->eagerLoaded()->latest()->paginate(5);
     }
 
     public function withEagerload()
     {
-        return $this->video->with('admin','category','comments','tags')->get();
+        return $this->video->eagerLoaded()->get();
     }
 
     public function create(array $data)
@@ -56,16 +56,16 @@ class VideoRepository implements VideoInterface
 
     public function randomnPublishedTwo()
     {
-        return $this->video->query()->with('category','admin','comments','tags')->published()->inRandomOrder()->limit(2)->get();
+        return $this->video->query()->eagerLoaded()->published()->inRandomOrder()->limit(2)->get();
     }
 
     public function latestPublishedFive()
     {
-        return $this->video->query()->with('admin','category','comments','tags')->published()->latest()->limit(5)->get();
+        return $this->video->query()->eagerLoaded()->published()->latest()->limit(5)->get();
     }
 
     public function videoSlug(string $slug)
     {
-        return $this->video->with('admin','tags','category')->published()->withCount('comments')->whereSlug($slug)->firstOrFail();
+        return $this->video->eagerLoaded()->published()->whereSlug($slug)->firstOrFail();
     }
 }

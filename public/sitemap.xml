@@ -2,253 +2,271 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
         <loc>http://localhost:8888/about-us</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
+        <lastmod>2021-08-11T16:44:57+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/arsenal-vs-manchester-united</loc>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://localhost:8888/article-author/james-wafula</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://localhost:8888/article-author/jane-ayiro-anyango</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://localhost:8888/articles/arsenal-vs-manchester-united</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://localhost:8888/articles/gideon-moi-for-president-in-2022</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://localhost:8888/articles/jubilee-party-breakup-eminent</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://localhost:8888/articles/kenya-invents-an-aeroplane</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://localhost:8888/articles/kenya-joins-the-united-nations-security-council</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://localhost:8888/articles/kololi-david-for-president-in-2022</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://localhost:8888/articles/liverpool-vs-chelsea</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://localhost:8888/articles/president-uhuru-kenyatta-to-visit-western-kenya</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://localhost:8888/articles/raila-odinga-for-president-in-2022</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://localhost:8888/business/articles</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://localhost:8888/business/videos</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://localhost:8888/contact-us</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
+        <lastmod>2021-08-11T16:44:57+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://localhost:8888/entertainment/articles</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://localhost:8888/entertainment/videos</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/gideon-moi-for-president-in-2022</loc>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://localhost:8888/health-and-fitness/articles</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://localhost:8888/health-and-fitness/videos</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost:8888/news/africa</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
+        <loc>http://localhost:8888/jubilee-party-breakup-eminent</loc>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost:8888/news/east-africa</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
+        <loc>http://localhost:8888/kenya-invents-an-aeroplane</loc>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost:8888/news/europe</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
+        <loc>http://localhost:8888/kenya-joins-the-united-nations-security-council</loc>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost:8888/news/kenya</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
+        <loc>http://localhost:8888/kololi-david-for-president-in-2022</loc>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/liverpool-vs-chelsea</loc>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/martha-karua-for-president-2022</loc>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://localhost:8888/newsletter</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
+        <lastmod>2021-08-11T16:44:57+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://localhost:8888/politics/articles</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://localhost:8888/politics/videos</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://localhost:8888/portfolio</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
+        <lastmod>2021-08-11T16:44:57+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/president-uhuru-kenyatta-to-visit-western-kenya</loc>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://localhost:8888/private-policy</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
+        <lastmod>2021-08-11T16:44:57+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/raila-odinga-for-president-in-2022</loc>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://localhost:8888/santona-magazine/articles</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://localhost:8888/santona-magazine/videos</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://localhost:8888/sports/articles</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://localhost:8888/sports/videos</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/tag-article/africa</loc>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/tag-article/asia</loc>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/tag-article/east-africa</loc>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/tag-article/europe</loc>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/tag-article/kenya</loc>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/tag-video/africa</loc>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/tag-video/asia</loc>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/tag-video/east-africa</loc>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/tag-video/europe</loc>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/tag-video/kenya</loc>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://localhost:8888/technology/articles</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://localhost:8888/technology/videos</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://localhost:8888/video-author/james-wafula</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://localhost:8888/video-author/jane-ayiro-anyango</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost:8888/videos/hawa-madem-wasimame-ama-wainame</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
+        <loc>http://localhost:8888/video/hawa-madem-wasimame-ama-wainame</loc>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost:8888/videos/the-kenyan-youth-talent</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://localhost:8888/vids/africa</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://localhost:8888/vids/east-africa</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://localhost:8888/vids/europe</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://localhost:8888/vids/kenya</loc>
-        <lastmod>2021-07-15T11:34:08+03:00</lastmod>
+        <loc>http://localhost:8888/video/the-kenyan-youth-talent</loc>
+        <lastmod>2021-08-11T16:44:58+03:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>

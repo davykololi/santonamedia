@@ -124,7 +124,7 @@ class Post extends Model implements Feedable,Searchable
 
     public function scopeEagerLoaded($query)
     {
-    	return $query->with('admin','category','tags','comments')->withCount('comments');
+        return $query->with('admin','category','tags','comments')->withCount('comments');
     }
 
     public function imageUrl()

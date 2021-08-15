@@ -5,16 +5,16 @@ namespace App\Http\Controllers\Admin;
 use Image;
 use File;
 use Youtube;
+use App\Events\VideoCreated;
 use App\Models\Video;
 use App\Services\TagService;
 use App\Services\VideoService;
 use App\Services\CategoryService;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\VideoFormRequest as StoreRequest;
-use App\Http\Requests\VideoFormRequest as UpdateRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
+use App\Http\Requests\VideoFormRequest as AdminRequest;
 
 class VideoController extends Controller
 {
@@ -95,13 +95,14 @@ class VideoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRequest $request)
+    public function store(AdminRequest $request)
     {
         $video = $this->videoService->create($request);
         $tags = $request->tags;
         $video->tags()->sync($tags);
         $this->youtubeVideoUpload($video);
         Toastr::success('The video created successfully :)','Success');
+        event(new VideoCreated($video));
 
         return redirect()->route('admin.videos.index')->withSuccess(ucwords($video->title." ".'created successfully'));
     }
@@ -144,7 +145,7 @@ class VideoController extends Controller
      * @param  \App\Models\Video  $video
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRequest $request,$id)
+    public function update(AdminRequest $request,$id)
     {
         $video = $this->videoService->getId($id);
         $this->authorize('update',$video);

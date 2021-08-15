@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App;
 use App\Interfaces\TagInterface;
 use App\Interfaces\PostInterface;
 use App\Interfaces\CategoryInterface;
@@ -25,11 +24,11 @@ class GeneralServiceProvider extends ServiceProvider
     public function register()
     {
         //
-        App::bind(PostInterface::class,PostRepository::class);
-        App::bind(CategoryInterface::class,CategoryRepository::class);
-        App::bind(TagInterface::class,TagRepository::class);
-        App::bind(AdminInterface::class,AdminRepository::class);
-        App::bind(VideoInterface::class,VideoRepository::class);
+        $this->app->bind(PostInterface::class,PostRepository::class);
+        $this->app->bind(CategoryInterface::class,CategoryRepository::class);
+        $this->app->bind(TagInterface::class,TagRepository::class);
+        $this->app->bind(AdminInterface::class,AdminRepository::class);
+        $this->app->bind(VideoInterface::class,VideoRepository::class);
     }
 
     /**

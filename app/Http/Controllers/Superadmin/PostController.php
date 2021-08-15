@@ -4,34 +4,36 @@ namespace App\Http\Controllers\Superadmin;
 
 use Image;
 use File;
-use App\Models\Admin;
+use App\Events\PostCreated;
+use App\Services\AdminService;
 use App\Services\TagService;
 use App\Services\PostService;
 use App\Services\CategoryService;
-use App\Http\Requests\PostFormRequest as StoreRequest;
-use App\Http\Requests\PostFormRequest as UpdateRequest;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
+use App\Http\Requests\SuperAdPostFormRequest as SuperAdRequest;
 
 class PostController extends Controller
 {
     protected $postService;
     protected $categoryService;
     protected $tagService;
+    protected $adminService;
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct(PostService $postService,CategoryService $categoryService,TagService $tagService)
+    public function __construct(PostService $postService,CategoryService $categoryService,TagService $tagService,AdminService $adminService)
     {
         $this->middleware('auth:superadmin');
         $this->postService = $postService;
         $this->categoryService = $categoryService;
         $this->tagService = $tagService;
+        $this->adminService = $adminService;
     }
 
     /**
@@ -57,7 +59,7 @@ class PostController extends Controller
         //
         $tags = $this->tagService->all()->pluck('name','id');
         $categories = $this->categoryService->all();
-        $admins = Admin::all();
+        $admins = $this->adminService->all();
 
         return view('superadmin.posts.create',compact('tags','categories','admins'));
     }
@@ -68,12 +70,13 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRequest $request)
+    public function store(SuperAdRequest $request)
     {
         $post = $this->postService->superadminCreate($request);
         $tags = $request->tags;
         $post->tags()->sync($tags);
         Toastr::success('The post created successfully :)','Success');
+        event(new PostCreated($post));
 
         return redirect()->route('superadmin.posts.index')->withSuccess(ucwords($post->title." ".'Post created successfully'));
     }
@@ -105,7 +108,7 @@ class PostController extends Controller
         $tags = $this->tagService->all()->pluck('name','id');
         $categories = $this->categoryService->all();
         $postTags = $post->tags;
-        $admins = Admin::all();
+        $admins = $this->adminService->all();
 
         return view('superadmin.posts.edit',compact('post','categories','tags','postTags','admins'));
     }
@@ -117,7 +120,7 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRequest $request,$id)
+    public function update(SuperAdRequest $request,$id)
     {
        $post = $this->postService->getId($id); 
         if($post){

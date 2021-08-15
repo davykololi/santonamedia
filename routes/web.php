@@ -41,8 +41,8 @@ Route::namespace('Auth')->prefix('superadmin')->name('superadmin.')->middleware(
 //Superadmin namespace Superadmin routes
 Route::prefix('superadmin')->name('superadmin.')->namespace('Superadmin')->middleware(['doNotCacheResponse'])->group(function(){
     // Admin bann routes
-    Route::get('/admin-bann/{admin}','AdminBannController@ban')->name('admin.bann');
-    Route::get('/admin-revoke-bann/{admin}','AdminBannController@revoke')->name('admin.revoke');
+    Route::get('/admin-bann/{id}','AdminBannController@ban')->name('admin.bann');
+    Route::get('/admin-revoke-bann/{id}','AdminBannController@revoke')->name('admin.revoke');
     //Admin Change Password Routes
     Route::get('/change-password','SuperadminChangePasswordController@index')->name('change-password.form');
     Route::post('/change-password','SuperadminChangePasswordController@store')->name('change-password.save');
@@ -145,12 +145,12 @@ Route::group(['namespace'=>'User'],function(){
     Route::get('/portfolio','PageController@portfolio')->name('pages.portfolio');
     //Front end Users posts routes
     Route::get('/{slug}/articles', 'PostController@getIndex')->name('category.articles');
-    Route::get('/articles/{slug}', 'PostController@getFullNews')->name('users.posts.read');
-    Route::get('/news/{slug}', 'PostController@tags')->name('post.tags');
+    Route::get('/{slug}', 'PostController@getFullNews')->name('users.posts.read');
+    Route::get('/tag-article/{slug}', 'PostController@tags')->name('post.tags');
     Route::get('/article-author/{slug}', 'PostController@authors')->name('author.posts');
     Route::get('/{slug}/videos', 'VideoController@getIndex')->name('category.videos');
-    Route::get('/videos/{slug}', 'VideoController@getFullVideos')->name('users.videos.read');
-    Route::get('/vids/{slug}', 'VideoController@tags')->name('video.tags');
+    Route::get('/video/{slug}', 'VideoController@getFullVideos')->name('users.videos.read');
+    Route::get('/tag-video/{slug}', 'VideoController@tags')->name('video.tags');
     Route::get('/video-author/{slug}', 'VideoController@authors')->name('author.videos');
     Route::post('/comments','CommentController@store')->name('comments.store');
     //Timeframe data retrival 

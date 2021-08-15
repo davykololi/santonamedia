@@ -10,7 +10,7 @@
 
                             @if($errors->has('admin'))
                                 <span class="help-block">
-                                    <strong>{!! $errors->first('admin') !!}</strong>
+                                    <span class="text-danger">{!! $errors->first('admin') !!}</span>
                                 </span>
                             @endif
                         </div>

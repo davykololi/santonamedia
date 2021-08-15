@@ -62,21 +62,21 @@ class GenerateSitemap extends Command
 
         $posts = Post::published()->get();
         foreach($posts as $post){
-        	$sitemap->add(Url::create('/articles/'.$post->slug));
+        	$sitemap->add(Url::create('/'.$post->slug));
         }
 
         $videos = Video::published()->get();
         foreach($videos as $video){
-        	$sitemap->add(Url::create('/videos/'.$video->slug));
+        	$sitemap->add(Url::create('/video/'.$video->slug));
         }
 
         $tags = Tag::get();
         foreach($tags as $tag){
-        	$sitemap->add(Url::create('/vids/'.$tag->slug));
+        	$sitemap->add(Url::create('/tag-video/'.$tag->slug));
         }
 
         foreach($tags as $tag){
-        	$sitemap->add(Url::create('/news/'.$tag->slug));
+        	$sitemap->add(Url::create('/tag-article/'.$tag->slug));
         }
 
         $admins = Admin::get();

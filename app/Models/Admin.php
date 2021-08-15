@@ -21,7 +21,6 @@ class Admin extends Authenticatable implements Searchable,BannableContract
  
     protected $guard = 'admin';
     protected $primaryKey = 'id';
- 
     /**
      * The attributes that are mass assignable.
      *

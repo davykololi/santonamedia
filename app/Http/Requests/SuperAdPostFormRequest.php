@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Rules\MaxWordsRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostFormRequest extends FormRequest
+class SuperAdPostFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -36,6 +36,7 @@ class PostFormRequest extends FormRequest
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp,svg,bmp|max:2048',
                 'category'   => 'required|exists:categories,id',
                 'tags'   => 'required|exists:tags,id',
+                'admin'   => 'required|exists:admins,id',
             ];
         } else {
             return [
@@ -47,6 +48,7 @@ class PostFormRequest extends FormRequest
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp,svg,bmp|max:2048',
                 'category'   => 'required|exists:categories,id',
                 'tags'   => 'required|exists:tags,id',
+                'admin'   => 'required|exists:admins,id',
             ];
         }        
     }
@@ -59,10 +61,11 @@ class PostFormRequest extends FormRequest
                 'title.required' => 'The title of the article is required',
                 'description.required' => 'The description of the article is required',
                 'content.required' => 'The content of the article is required',
-                'caption.required' => 'The name of the fetured image is required',
+                'caption.required' => 'The caption of the fetured image is required',
                 'keywords.required' => 'The keywords for the article are required',
                 'image.required' => 'The fetured image for the article is required',
                 'category.required'   => 'The category the article belongs to is required',
+                'admin.required'   => 'The name of the author is required',
                 'tags.required'   => 'The tags for this article are required',
             ];
         }
@@ -73,10 +76,11 @@ class PostFormRequest extends FormRequest
                 'title.required' => 'The title of the article is required',
                 'description.required' => 'The description of the article is required',
                 'content.required' => 'The content of the article is required',
-                'caption.required' => 'The name of the fetured image is required',
+                'caption.required' => 'The caption of the fetured image is required',
                 'keywords.required' => 'The keywords for the article are required',
                 'image.required' => 'The fetured image for the article is required',
                 'category.required'   => 'The category the article belongs to is required',
+                'admin.required'   => 'The name of the author is required',
                 'tags.required'   => 'The tags for this article are required',
             ];
         }

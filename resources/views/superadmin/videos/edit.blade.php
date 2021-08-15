@@ -5,7 +5,6 @@
 <main role="main" class="container" id="main">
 <div class="row" id="lightblue">
     <div class="col-lg-12">
-        @include('partials.errors')
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="titles"> EDIT A VIDEO</h3>
@@ -17,7 +16,7 @@
                     @include('ext._method_put')
                     @include('ext._videoedit_authordiv')
                     @include('ext._videoedit_titlediv')
-                    @include('ext._videoedit_videodiv')
+                    @include('ext._create_videodiv')
                     @include('ext._videoeditdiv')
                 </form>
             </div>

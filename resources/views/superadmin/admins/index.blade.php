@@ -22,21 +22,18 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <table class="table table-striped task-table">
                     <!-- Table Headings -->
-                    @include('partials.tbhead')
+                    @include('partials.admintbhead')
                     <!-- Table Body -->
                     <tbody>
                     @forelse($admins as $admin)
                         <tr>
                             <td class="table-text">
-                                <div>{{$admin->name}}</div>
+                                <div>{{$admin->title}} {{$admin->name}}</div>
                             </td>
                             <td class="table-text">
                                 <div>
                                     <img style="width: 25%" src="{!! $admin->imageUrl() !!}" alt="{!! $admin->name !!}">
                                 </div>
-                            </td>
-                            <td class="table-text">
-                                <div>{{$admin->title}}</div>
                             </td>
                             <td class="table-text">
                                 <div>{{$admin->email}}</div>
@@ -48,10 +45,22 @@
                                 <div>{{$admin->area}}</div>
                             </td>
                             <td class="table-text">
-                                <div>{{$admin->keywords}}</div>
+                                <div>
+                                    @if($admin->isBanned())
+                                        <label class="label label-danger">Yes</label>
+                                    @else
+                                        <label class="label label-success">No</label>
+                                    @endif
+                                </div>
                             </td>
                             <td class="table-text">
-                                <div>{{$admin->created_at}}</div>
+                                <div>
+                                    @if($admin->isBanned())
+                                        <a href="{{route('superadmin.admin.revoke',[$admin->id])}}" class="label label-success">Revoke</a>
+                                    @else
+                                        <a href="{{route('superadmin.admin.bann',$admin->id)}}" class="label label-danger">Bann</a>
+                                    @endif
+                                </div>
                             </td>
                             <td>
                                 <form action="{!! route('superadmin.admins.destroy',$admin->id) !!}" method="POST">

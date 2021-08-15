@@ -120,9 +120,10 @@ class TagController extends Controller
         if(!$tag->posts->isEmpty()){
             return redirect()->route('superadmin.tags.index')->withErrors(__('This Tag has articles attached and can\'t be deleted.'));
         }
+        $tag->posts()->detach();
         $this->tagService->delete($id);
         Toastr::success('The tag deleted successfully :)','Success');
 
-        return redirect()->route('superadmin.tags.index')->withSuccess($tag->name." ".'Tag deleted successfully');
+        return redirect()->route('superadmin.tags.index')->withSuccess(ucwords($tag->name." ".'Tag deleted successfully'));
     }
 }

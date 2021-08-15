@@ -20,8 +20,8 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="card-body">
+            <div class="table-responsive">
                 <table class="table table-bordered mt-5">
                     <!-- Table Headings -->
                     @include('partials.super_n_admin_tbhead')
