@@ -19,6 +19,7 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     
     <!-- Bootstrap CSS -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{!! asset('main/css/main.css') !!}" type="text/css">
     <link rel="stylesheet" type="text/css" href="{!! asset('main/css/bootstrap.min.css') !!}">

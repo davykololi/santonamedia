@@ -3,8 +3,8 @@
           <div class="single_sidebar">
             <h2><span>Popular Posts</span></h2>
             <ul class="spost_nav">
-              @if(!empty($trendings))
-              @foreach($trendings as $pop)
+              @if(!empty($popular))
+              @foreach($popular as $pop)
               <li>
                 <div class="media wow fadeInDown"> 
                   <a href="{!! $pop->path() !!}" class="media-left"> 

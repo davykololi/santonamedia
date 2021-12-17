@@ -11,7 +11,7 @@
               <li><a href="{!! url('/') !!}">Home</a></li>
               <li><a href="{!! $category->path() !!}">{{$category->name}}</a></li>
             </ol>
-            <h1><a href="{!! $post->path() !!}">{!! $post->title !!}</a></h1>
+            <h1>{!! $post->title !!}</h1>
             <div class="post_commentbox"> 
               <a href="{!! $post->path() !!}">
                 <i class="fa fa-user"></i>Wpfreeware
@@ -28,9 +28,9 @@
                 </span>
               </a> 
             </div>
-            <div class="single_page_content"> 
+            <div class="single_page_content" style="float: left;margin: 2px"> 
                 <img class="img-center" src="{!! $post->imageUrl() !!}" alt="{!! $post->title !!}">
-                <span class="post-caption">
+                <span class="post-caption" style="text-align: center;">
                   {!! $post->caption !!}
                 </span>
               <p class="summary">

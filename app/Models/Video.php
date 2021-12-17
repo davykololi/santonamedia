@@ -24,7 +24,7 @@ class Video extends Model implements Feedable,Searchable
     protected $table = 'videos';
     protected $primaryKey = 'id';
     protected $fillable = ['title','video','caption','content','description','keywords','is_published','admin_id','category_id'];
-    protected $appends = ['createdDate'];
+    protected $appends = ['created_date'];
 
     public function sluggable()
     {
@@ -88,7 +88,7 @@ class Video extends Model implements Feedable,Searchable
     public function toFeedItem():FeedItem
     {
         return FeedItem::create([
-                'id'=>env('APP_URL').'/videos/'.$this->slug,
+                'id'=>env('APP_URL').'/video/'.$this->slug,
                 'title'=>$this->title,
                 'summary'=>$this->description,
                 'updated'=>$this->updated_at,

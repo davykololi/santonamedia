@@ -1,8 +1,8 @@
 <!--admin navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="{{ url('newsstadia.com') }}">
+        <a class="navbar-brand" href="{{ url('/') }}">
             <span style="font-family: FELIX TITLING;font-size: 30px;" class="white">
-                NEWSSTADIA<img width ="30px" height="30px" src= "{{asset('static/globe.png')}}" alt="" loading="auto">
+                NEWSSTADIA<img width ="30px" height="30px" src= "{{asset('static/logo.png')}}" alt="News Stadia Logo" loading="auto">
             </span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

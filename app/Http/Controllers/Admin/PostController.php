@@ -13,7 +13,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\DB;
-use App\Http\Requests\PostFormRequest as AdminRequest;
+use App\Http\Requests\PostFormRequest as StoreRequest;
+use App\Http\Requests\PostFormRequest as UpdateRequest;
 
 class PostController extends Controller
 {
@@ -66,7 +67,7 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(AdminRequest $request)
+    public function store(StoreRequest $request)
     { 
         try{
             DB::beginTransaction();
@@ -134,7 +135,7 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(AdminRequest $request,$id)
+    public function update(UpdateRequest $request,$id)
     {
         try{
             DB::beginTransaction();

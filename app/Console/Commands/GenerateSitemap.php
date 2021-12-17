@@ -45,6 +45,7 @@ class GenerateSitemap extends Command
     public function handle()
     {
         $sitemap = Sitemap::create()
+                ->add(Url::create('/'))
         		->add(Url::create('/newsletter'))
         		->add(Url::create('/contact-us'))
         		->add(Url::create('/about-us'))
@@ -62,7 +63,7 @@ class GenerateSitemap extends Command
 
         $posts = Post::published()->get();
         foreach($posts as $post){
-        	$sitemap->add(Url::create('/'.$post->slug));
+        	$sitemap->add(Url::create('/article/'.$post->slug));
         }
 
         $videos = Video::published()->get();
@@ -72,11 +73,11 @@ class GenerateSitemap extends Command
 
         $tags = Tag::get();
         foreach($tags as $tag){
-        	$sitemap->add(Url::create('/tag-video/'.$tag->slug));
+        	$sitemap->add(Url::create('/video-tag/'.$tag->slug));
         }
 
         foreach($tags as $tag){
-        	$sitemap->add(Url::create('/tag-article/'.$tag->slug));
+        	$sitemap->add(Url::create('/article-tag/'.$tag->slug));
         }
 
         $admins = Admin::get();

@@ -5,7 +5,7 @@
                                 <div>{!! $post->title !!}</div>
                             </td>
                             <td class="table-text">
-                                <img style = "width:15%" src="/storage/public/storage/{!! $post->image !!}" alt="{!! $post->title !!}"/>
+                                <img style = "width:40%" src="/storage/public/storage/{!! $post->image !!}" alt="{!! $post->title !!}"/>
                             </td>
                             <td class="table-text">
                                 <div>{!! $post->caption !!}</div>

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\User;
 
 use Str;
+use SEOMeta;
+use OpenGraph;
+use Twitter;
+use JsonLd;
 use App\Interfaces\PostInterface as PostInt;
 use App\Interfaces\VideoInterface as VideoInt;
 use App\Interfaces\CategoryInterface as CatInt;
@@ -12,10 +16,6 @@ use Spatie\SchemaOrg\Schema;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Artesaos\SEOTools\Facades\SEOMeta;
-use Artesaos\SEOTools\Facades\OpenGraph;
-use Artesaos\SEOTools\Facades\TwitterCard;
-use Artesaos\SEOTools\Facades\JsonLd;
 use Illuminate\Support\Facades\URL;
 
 class PostController extends Controller
@@ -89,23 +89,23 @@ class PostController extends Controller
         OpenGraph::setUrl($url);
         OpenGraph::addProperty('type','Articles');
 
-        TwitterCard::setTitle($title);
-        TwitterCard::setSite('@newsstadia');
-        TwitterCard::setDescription($desc);
-        TwitterCard::setUrl($url);
-        TwitterCard::setType('summary_large_image');
+        Twitter::setTitle($title);
+        Twitter::setSite('@newstadia');
+        Twitter::setDescription($desc);
+        Twitter::setUrl($url);
+        Twitter::setType('summary_large_image');
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
         JsonLd::setType('Articles');
         
         foreach($categoryPosts as $post){
-        OpenGraph::addImage('https://newsstadia.com/storage/public/storage/'.$post->image,
-            ['secure_url' => 'https://newsstadia.com/storage/public/storage/'.$post->image,
+        OpenGraph::addImage('https://newstadia.com/storage/public/storage/'.$post->image,
+            ['secure_url' => 'https://newstadia.com/storage/public/storage/'.$post->image,
             'height'=>'628','width' =>'1200'
         ]);
-        JsonLd::addImage('https://newsstadia.com/storage/public/storage/'.$post->image);
-        TwitterCard::setImage('https://newsstadia.com/storage/public/storage/'.$post->image);
+        JsonLd::addImage('https://newstadia.com/storage/public/storage/'.$post->image);
+        Twitter::setImage('https://newstadia.com/storage/public/storage/'.$post->image);
         }
 
         $newsArticles = Schema::NewsArticle()
@@ -113,10 +113,10 @@ class PostController extends Controller
                 ->description($desc)
                 ->datePublished($published)
                 ->dateModified($modified)
-                ->email('newsstadia@gmail.com')
+                ->email('newstadia@gmail.com')
                 ->url($url)
-                ->sameAS("http://www.newsstadia.com")
-                ->logo("https://newsstadia.com/static/logo.jpg");
+                ->sameAS("http://www.newstadia.com")
+                ->logo("https://newstadia.com/static/logo.png");
         echo $newsArticles->toScript();
         
         $data = array(
@@ -175,34 +175,34 @@ class PostController extends Controller
         OpenGraph::setDescription($desc);
         OpenGraph::setUrl($url);
         OpenGraph::addProperty('type','Article');
-        OpenGraph::addProperty('locale','en-us');
-        OpenGraph::addImage('https://newsstadia.com/storage/public/storage/'.$post->image,
-            ['secure_url' => 'https://newsstadia.com/storage/public/storage/'.$post->image,
+        OpenGraph::addProperty('locale','en-US');
+        OpenGraph::addImage('https://newstadia.com/storage/public/storage/'.$post->image,
+            ['secure_url' => 'https://newstadia.com/storage/public/storage/'.$post->image,
             'height'=>'628','width' =>'1200'
         ]);
 
-        TwitterCard::setTitle($title);
-        TwitterCard::setSite('@newsstadia');
-        TwitterCard::setDescription($desc);
-        TwitterCard::setUrl($url);
-        TwitterCard::setImage('https://newsstadia.com/storage/public/storage/'.$post->image);
-        TwitterCard::setType('summary_large_image');
+        Twitter::setTitle($title);
+        Twitter::setSite('@newstadia');
+        Twitter::setDescription($desc);
+        Twitter::setUrl($url);
+        Twitter::setImage('https://newstadia.com/storage/public/storage/'.$post->image);
+        Twitter::setType('summary_large_image');
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
         JsonLd::setType('Article');
-        JsonLd::addImage('https://newsstadia.com/storage/public/storage/'.$post->image);
+        JsonLd::addImage('https://newstadia.com/storage/public/storage/'.$post->image);
 
         $newsArticle = Schema::NewsArticle()
                 ->headline($title)
                 ->description($desc)
-                ->image('https://newsstadia.com/storage/public/storage/'.$post->image)
+                ->image('https://newstadia.com/storage/public/storage/'.$post->image)
                 ->datePublished($published)
                 ->dateModified($modified)
-                ->email('newsstadia@gmail.com')
+                ->email('newstadia@gmail.com')
                 ->url($url)
-                ->sameAS("http://www.newsstadia.com")
-                ->logo("https://newsstadia.com/static/logo.jpg");
+                ->sameAS("http://www.newstadia.com")
+                ->logo("https://newstadia.com/static/logo.png");
         echo $newsArticle->toScript();
 
         $data = array(
@@ -269,23 +269,23 @@ class PostController extends Controller
         OpenGraph::setUrl($url);
         OpenGraph::addProperty('type','Place');
 
-        TwitterCard::setTitle($title);
-        TwitterCard::setSite('@newsstadia');
-        TwitterCard::setDescription($desc);
-        TwitterCard::setUrl($url);
-        TwitterCard::setType('summary_large_image');
+        Twitter::setTitle($title);
+        Twitter::setSite('@newstadia');
+        Twitter::setDescription($desc);
+        Twitter::setUrl($url);
+        Twitter::setType('summary_large_image');
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
         JsonLd::setType('Place');
 
         foreach($tag->posts as $post){
-        OpenGraph::addImage('https://newsstadia.com/storage/public/storage/'.$post->image,
-            ['secure_url' => 'https://newsstadia.com/storage/public/videos/'.$post->image,
+        OpenGraph::addImage('https://newstadia.com/storage/public/storage/'.$post->image,
+            ['secure_url' => 'https://newstadia.com/storage/public/videos/'.$post->image,
             'height'=>'628','width' =>'1200'
         ]);
-        JsonLd::addImage('https://newsstadia.com/storage/public/storage/'.$post->image);
-        TwitterCard::setImage('https://newsstadia.com/storage/public/storage/'.$post->image);
+        JsonLd::addImage('https://newstadia.com/storage/public/storage/'.$post->image);
+        Twitter::setImage('https://newstadia.com/storage/public/storage/'.$post->image);
         }
 
         $tagArticles = Schema::NewsArticle()
@@ -293,10 +293,10 @@ class PostController extends Controller
                 ->description($desc)
                 ->datePublished($published)
                 ->dateModified($modified)
-                ->email('newsstadia@gmail.com')
+                ->email('newstadia@gmail.com')
                 ->url($url)
-                ->sameAS("http://www.newsstadia.com")
-                ->logo("https://newsstadia.com/static/logo.jpg");
+                ->sameAS("http://www.newstadia.com")
+                ->logo("https://newstadia.com/static/logo.png");
 
         echo $tagArticles->toScript();
 
@@ -366,7 +366,7 @@ class PostController extends Controller
         $name = $admin->name;
         $title = $admin->title." ".$admin->name;
         $email = $admin->email;
-        $image = 'https://newsstadia.com/storage/public/storage/'.$admin->image;
+        $image = 'https://newstadia.com/storage/public/storage/'.$admin->image;
         $created = $admin->created_at;
         $modified = $admin->updated_at;
         $phone = $admin->phone_no;
@@ -383,28 +383,28 @@ class PostController extends Controller
         OpenGraph::setUrl($url);
         OpenGraph::addProperty('type','Place');
 
-        TwitterCard::setTitle($name);
-        TwitterCard::setSite('@newsstadia');
-        TwitterCard::setDescription($title);
-        TwitterCard::setUrl($url);
-        TwitterCard::setType('summary_large_image');
+        Twitter::setTitle($name);
+        Twitter::setSite('@newstadia');
+        Twitter::setDescription($title);
+        Twitter::setUrl($url);
+        Twitter::setType('summary_large_image');
 
         JsonLd::setTitle($name);
         JsonLd::setDescription($title);
         JsonLd::setType('Place');
 
         foreach($adminPosts as $post){
-        OpenGraph::addImage('https://newsstadia.com/storage/public/storage/'.$post->image,['height'=>'628','width' =>'1200']);
-        JsonLd::addImage('https://newsstadia.com/storage/public/storage/'.$post->image);
-        TwitterCard::setImage('https://newsstadia.com/storage/public/storage/'.$post->image);
+        OpenGraph::addImage('https://newstadia.com/storage/public/storage/'.$post->image,['height'=>'628','width' =>'1200']);
+        JsonLd::addImage('https://newstadia.com/storage/public/storage/'.$post->image);
+        Twitter::setImage('https://newstadia.com/storage/public/storage/'.$post->image);
         }
 
         $adminArticles = Schema::Person()
                 ->name($name)
                 ->image($image)
-                ->logo("https://newsstadia.com/static/logo.jpg")
+                ->logo("https://newstadia.com/static/logo.png")
                 ->url($url)
-                ->sameAS("http://www.newsstadia.com")
+                ->sameAS("http://www.newstadia.com")
                 ->datePublished($created)
                 ->dateModified($modified)
                 ->contactPoint([Schema::ContactPoint()

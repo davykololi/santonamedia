@@ -70,9 +70,11 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'prevent-back-history' => \App\Http\Middleware\PreventBackHistory::class,
         'HtmlMinifier' => \App\Http\Middleware\HtmlMinifier::class,
-        'doNotCacheResponse' => \Spatie\ResponseCache\Middlewares\doNotCacheResponse::class,
+        'doNotCacheResponse' => \Spatie\ResponseCache\Middlewares\DoNotCacheResponse::class,
+        'cacheResponse' => \Spatie\ResponseCache\Middlewares\CacheResponse::class,
         'optimizeImages' => \Spatie\LaravelImageOptimizer\Middlewares\OptimizeImages::class,
         'admin_ban' => \App\Http\Middleware\ForbidBannedAdminCustom::class,
+        'XSS' => \App\Http\Middleware\XSS::class,
     ];
 
     /**

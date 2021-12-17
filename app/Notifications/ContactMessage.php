@@ -44,10 +44,10 @@ class ContactMessage extends Notification
     public function toNexmo($notifiable)
     {
         return (new NexmoMessage)
-                    ->line('The News Stadia client has contacted you.')
+                    ->line('The Contact Message From Newstadia Reader.')
                     ->content($this->contact->name)
                     ->action('Read More', url('/'))
-                    ->line('newsstadia.com is the place to be!');
+                    ->line('For the latest exciting and captivating news, newstadia.com is the place to be!');
     }
 
     /**

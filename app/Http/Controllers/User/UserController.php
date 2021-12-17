@@ -35,8 +35,8 @@ class UserController extends Controller
                 ->name($user_name)
                 ->email($user_email)
                 ->url($url)
-                ->sameAS("http://www.newskibao.com")
-                ->logo("https://newskibao.com/static/logo.jpg");
+                ->sameAS("http://www.newstadia.com")
+                ->logo("https://newstadia.com/static/logo.jpg");
         echo $profile->toScript();
 
     	return view('user.profile.profile',compact('user','comments_count'));

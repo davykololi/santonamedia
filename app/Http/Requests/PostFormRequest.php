@@ -61,7 +61,7 @@ class PostFormRequest extends FormRequest
                 'content.required' => 'The content of the article is required',
                 'caption.required' => 'The name of the fetured image is required',
                 'keywords.required' => 'The keywords for the article are required',
-                'image.required' => 'The fetured image for the article is required',
+                'image.required' => 'The featured image for the article is required',
                 'category.required'   => 'The category the article belongs to is required',
                 'tags.required'   => 'The tags for this article are required',
             ];
@@ -75,7 +75,7 @@ class PostFormRequest extends FormRequest
                 'content.required' => 'The content of the article is required',
                 'caption.required' => 'The name of the fetured image is required',
                 'keywords.required' => 'The keywords for the article are required',
-                'image.required' => 'The fetured image for the article is required',
+                'image.required' => 'The featured image for the article is required',
                 'category.required'   => 'The category the article belongs to is required',
                 'tags.required'   => 'The tags for this article are required',
             ];

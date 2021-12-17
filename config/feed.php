@@ -2,7 +2,7 @@
 
 return [
     'feeds' => [
-        'news' => [
+        'post' => [
             /*
              * Here you can specify which class and method will return
              * the items that should appear in the feed. For example:
@@ -16,7 +16,7 @@ return [
             /*
              * The feed will be available on this url.
              */
-            'url' => '/news-feed',
+            'url' => 'news-feed',
 
             'title' => 'The Latest News At News Stadia',
             'description' => 'The Media House That Brings You The Latest News In Sports, Entertainment, Politics, Technology, Lifestyle, Health and Business.',
@@ -33,7 +33,7 @@ return [
             'type' => 'application/atom+xml',
         ],
 
-        'videos' => [
+        'video' => [
             /*
              * Here you can specify which class and method will return
              * the items that should appear in the feed. For example:
@@ -47,7 +47,7 @@ return [
             /*
              * The feed will be available on this url.
              */
-            'url' => '/videos-feed',
+            'url' => 'videos-feed',
 
             'title' => 'The Latest Videos At News Stadia',
             'description' => 'The Media House That brings You The Latest Outstanding Video Clips About The News In Kenya And Around The  World',

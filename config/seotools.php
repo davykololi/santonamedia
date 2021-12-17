@@ -9,7 +9,7 @@ return [
          * The default configurations to be used by the meta generator.
          */
         'defaults'       => [
-            'title'        => 'News Stadia', // set false to total remove
+            'title'        => 'Newstadia', // set false to total remove
             'titleBefore'  => true, // Put defaults.title before page title, like 'It's Over 9000! - Dashboard'
             'description'  => false, // set false to total remove
             'separator'    => ' - ',
@@ -36,7 +36,7 @@ return [
          * The default configurations to be used by the opengraph generator.
          */
         'defaults' => [
-            'title'       => 'News Stadia', // set false to total remove
+            'title'       => 'Newstadia', // set false to total remove
             'description' => false, // set false to total remove
             'url'         => null, // Set null for using Url::current(), set false to total remove
             'type'        => false,
@@ -50,7 +50,8 @@ return [
          */
         'defaults' => [
             //'card'        => 'summary',
-            'site'        => '@newsstadia',
+            'site'        => '@newstadia',
+            'creator' => '@newstadia',
         ],
     ],
     'json-ld' => [

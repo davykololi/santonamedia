@@ -8,12 +8,6 @@
 		<input type="hidden" name="commentable_type" value="App\Models\Post">
 	</div>
 	<div class="form-group">
-		<input type="text" name="name" id="name" class="form-control" placeholder="*Your Name">
-	</div>
-	<div class="form-group">
-		<input type="email" name="email" id="email" class="form-control" placeholder="*Email Adress">
-	</div>
-	<div class="form-group">
 		<button type="submit" class="btn btn-theme">Submit</button>
 	</div>
 </form>

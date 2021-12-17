@@ -2,7 +2,6 @@
 
 namespace App\Events;
 
-use App\Models\Post;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -21,10 +20,10 @@ class PostCreated
      *
      * @return void
      */
-    public function __construct(Post $post)
+    public function __construct($post)
     {
         //
-        $this->post = $post
+        $this->post = $post;
     }
 
     /**

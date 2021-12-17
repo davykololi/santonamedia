@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\User;
 
 use Str;
+use SEOMeta;
+use OpenGraph;
+use Twitter;
+use JsonLd;
 use App\Interfaces\VideoInterface;
 use App\Interfaces\CategoryInterface;
 use App\Interfaces\TagInterface;
@@ -11,10 +15,6 @@ use Spatie\SchemaOrg\Schema;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Artesaos\SEOTools\Facades\SEOMeta;
-use Artesaos\SEOTools\Facades\OpenGraph;
-use Artesaos\SEOTools\Facades\TwitterCard;
-use Artesaos\SEOTools\Facades\JsonLd;
 use Illuminate\Support\Facades\URL;
 
 class VideoController extends Controller
@@ -84,22 +84,22 @@ class VideoController extends Controller
         OpenGraph::setUrl($url);
         OpenGraph::addProperty('type','Articles');
 
-        TwitterCard::setTitle($title);
-        TwitterCard::setSite('@newsstadia');
-        TwitterCard::setDescription($desc);
-        TwitterCard::setUrl($url);
+        Twitter::setTitle($title);
+        Twitter::setSite('@newstadia');
+        Twitter::setDescription($desc);
+        Twitter::setUrl($url);
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
         JsonLd::setType('Articles');
 
         foreach($category->videos as $video){
-        OpenGraph::addVideo('https://newsstadia.com/storage/public/videos/'.$video->video,
-            ['secure_url' => 'https://newsstadia.com/storage/public/videos/'.$video->video,
+        OpenGraph::addVideo('https://newstadia.com/storage/public/videos/'.$video->video,
+            ['secure_url' => 'https://newstadia.com/storage/public/videos/'.$video->video,
             'type' => 'application/x-shockwave-flash','width' => 400,'height' => 300
             ]);
-        OpenGraph::addImage('https://newsstadia.com/storage/public/videos/'.$video->video,
-            ['secure_url' => 'https://newsstadia.com/storage/public/videos/'.$video->video,
+        OpenGraph::addImage('https://newstadia.com/storage/public/videos/'.$video->video,
+            ['secure_url' => 'https://newstadia.com/storage/public/videos/'.$video->video,
             'height'=>'628','width' =>'1200'
         ]);
         }
@@ -109,10 +109,10 @@ class VideoController extends Controller
                 ->description($desc)
                 ->datePublished($published)
                 ->dateModified($modified)
-                ->email('newsstadia@gmail.com')
+                ->email('newstadia@gmail.com')
                 ->url($url)
-                ->sameAS("http://www.newsstadia.com")
-                ->logo("https://newsstadia.com/static/logo.jpg");
+                ->sameAS("https://www.newstadia.com")
+                ->logo("https://newstadia.com/static/logo.png");
         echo $videoArticles->toScript();
         
         $data = array(
@@ -169,19 +169,19 @@ class VideoController extends Controller
         OpenGraph::setUrl($url);
         OpenGraph::addProperty('type','Article');
         OpenGraph::addProperty('locale','en-us');
-        OpenGraph::addVideo('https://newsstadia.com/storage/public/videos/'.$video->video,
-                            ['secure_url' => 'https://newsstadia.com/storage/public/videos/'.$video->video,
+        OpenGraph::addVideo('https://newstadia.com/storage/public/videos/'.$video->video,
+                            ['secure_url' => 'https://newstadia.com/storage/public/videos/'.$video->video,
                             'type' => 'application/x-shockwave-flash','width' => 400,'height' => 300
                             ]);
-        OpenGraph::addImage('https://newsstadia.com/storage/public/videos/'.$video->video,
-            ['secure_url' => 'https://newsstadia.com/storage/public/videos/'.$video->video,
+        OpenGraph::addImage('https://newstadia.com/storage/public/videos/'.$video->video,
+            ['secure_url' => 'https://newstadia.com/storage/public/videos/'.$video->video,
             'height'=>'628','width' =>'1200'
         ]);
 
-        TwitterCard::setTitle($title);
-        TwitterCard::setSite('@newsstadia');
-        TwitterCard::setDescription($desc);
-        TwitterCard::setUrl($url);
+        Twitter::setTitle($title);
+        Twitter::setSite('@newstadia');
+        Twitter::setDescription($desc);
+        Twitter::setUrl($url);
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
@@ -192,10 +192,10 @@ class VideoController extends Controller
                 ->description($desc)
                 ->datePublished($published)
                 ->dateModified($modified)
-                ->email('newsstadia@gmail.com')
+                ->email('newstadia@gmail.com')
                 ->url($url)
-                ->sameAS("http://www.newsstadia.com")
-                ->logo("https://newsstadia.com/static/logo.jpg");
+                ->sameAS("https://www.newstadia.com")
+                ->logo("https://newstadia.com/static/logo.png");
         echo $videoArticle->toScript();
 
         $data = array(
@@ -254,22 +254,22 @@ class VideoController extends Controller
         OpenGraph::setUrl($url);
         OpenGraph::addProperty('type','Place');
 
-        TwitterCard::setTitle($title);
-        TwitterCard::setSite('@newsstadia');
-        TwitterCard::setDescription($desc);
-        TwitterCard::setUrl($url);
+        Twitter::setTitle($title);
+        Twitter::setSite('@newstadia');
+        Twitter::setDescription($desc);
+        Twitter::setUrl($url);
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
         JsonLd::setType('Place');
 
         foreach($tagVideos as $video){
-        OpenGraph::addVideo('https://newsstadia.com/storage/public/videos/'.$video->video,
-            ['secure_url' => 'https://newsstadia.com/storage/public/videos/'.$video->video,
+        OpenGraph::addVideo('https://newstadia.com/storage/public/videos/'.$video->video,
+            ['secure_url' => 'https://newstadia.com/storage/public/videos/'.$video->video,
             'type' => 'application/x-shockwave-flash','width' => 400,'height' => 300
             ]);
-        OpenGraph::addImage('https://newsstadia.com/storage/public/videos/'.$video->video,
-            ['secure_url' => 'https://newsstadia.com/storage/public/videos/'.$video->video,
+        OpenGraph::addImage('https://newstadia.com/storage/public/videos/'.$video->video,
+            ['secure_url' => 'https://newstadia.com/storage/public/videos/'.$video->video,
             'height'=>'628','width' =>'1200'
         ]);
         }
@@ -279,10 +279,10 @@ class VideoController extends Controller
                 ->description($desc)
                 ->datePublished($published)
                 ->dateModified($modified)
-                ->email('newsstadia@gmail.com')
+                ->email('newstadia@gmail.com')
                 ->url($url)
-                ->sameAS("http://www.newsstadia.com")
-                ->logo("https://newsstadia.com/static/logo.jpg");
+                ->sameAS("https://www.newstadia.com")
+                ->logo("https://newstadia.com/static/logo.png");
         echo $tagVids->toScript();
         
         $data = array(
@@ -343,7 +343,7 @@ class VideoController extends Controller
         $name = $admin->name;
         $title = $admin->title;
         $email = $admin->email;
-        $image = 'https://newsstadia.com/storage/public/storage/'.$admin->image;
+        $image = 'https://newstadia.com/storage/public/storage/'.$admin->image;
         $created = $admin->created_at;
         $modified = $admin->updated_at;
         $phone = $admin->phone_no;
@@ -361,22 +361,22 @@ class VideoController extends Controller
         OpenGraph::setUrl($url);
         OpenGraph::addProperty('type','Person');
 
-        TwitterCard::setTitle($name);
-        TwitterCard::setSite('@newsstadia');
-        TwitterCard::setDescription($title);
-        TwitterCard::setUrl($url);
+        Twitter::setTitle($name);
+        Twitter::setSite('@newstadia');
+        Twitter::setDescription($title);
+        Twitter::setUrl($url);
 
         JsonLd::setTitle($name);
         JsonLd::setDescription($title);
         JsonLd::setType('Person');
 
         foreach($adminVideos as $video){
-        OpenGraph::addVideo('https://newsstadia.com/storage/public/videos/'.$video->video,
-            ['secure_url' => 'https://newsstadia.com/storage/public/videos/'.$video->video,
+        OpenGraph::addVideo('https://newstadia.com/storage/public/videos/'.$video->video,
+            ['secure_url' => 'https://newstadia.com/storage/public/videos/'.$video->video,
             'type' => 'application/x-shockwave-flash','width' => 400,'height' => 300
             ]);
-        OpenGraph::addImage('https://newsstadia.com/storage/public/videos/'.$video->video,
-            ['secure_url' => 'https://newsstadia.com/storage/public/videos/'.$video->video,
+        OpenGraph::addImage('https://newstadia.com/storage/public/videos/'.$video->video,
+            ['secure_url' => 'https://newstadia.com/storage/public/videos/'.$video->video,
             'height'=>'628','width' =>'1200'
         ]);
         }
@@ -384,9 +384,9 @@ class VideoController extends Controller
         $adminVids = Schema::Person()
                 ->name($name)
                 ->image($image)
-                ->logo("https://newsstadia.com/static/logo.jpg")
+                ->logo("https://newstadia.com/static/logo.png")
                 ->url($url)
-                ->sameAS("http://www.newsstadia.com")
+                ->sameAS("https://www.newstadia.com")
                 ->datePublished($created)
                 ->dateModified($modified)
                 ->contactPoint([Schema::ContactPoint()

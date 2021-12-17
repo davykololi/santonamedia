@@ -13,7 +13,6 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta property="fb:app_id" content="{{ config('services.facebook.client_id') }}">
-    <meta name="twitter:creator" content="@newsstadia">
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <!-- Meta Tags -->
@@ -23,7 +22,10 @@
     {!! JsonLd::generate() !!}
     <!-- rss feed -->
     @include('feed::links')
+    <!-- ========== Favicon Icon ========== -->
+    <link rel="shortcut icon" href="{{ asset('static/logo.png') }}" type="image/x-icon">
     <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">

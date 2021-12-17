@@ -17,6 +17,7 @@ use App\Models\Admin;
 use App\Models\Tag;
 use App\Models\Category;
 use App\Models\Comment;
+use Illuminate\Http\Request;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -35,9 +36,13 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(Request $request)
     {
-        //
+        //Ngrok code
+        if(!empty(env('NGROK_URL')) && $request->server->has('HTTP_X_ORIGINAL_HOST')){
+            $this->app['url']->forceRootUrl(env('NGROK_URL'));
+        }
+        //Other codes
         Schema::defaultStringLength(191);
         Paginator::useBootstrap();
         Post::observe(PostObserver::class);

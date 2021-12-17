@@ -4,6 +4,10 @@ namespace App\Http\Controllers\User;
 
 use Carbon\Carbon;
 use Notification;
+use SEOMeta;
+use OpenGraph;
+use Twitter;
+use JsonLd;
 use App\Models\Contact;
 use App\Interfaces\PostInterface;
 use App\Interfaces\CategoryInterface;
@@ -14,10 +18,6 @@ use Illuminate\Http\Request;
 use App\Jobs\SendContactJob;
 use App\Notifications\ContactMessage;
 use App\Http\Requests\ContactFormRequest;
-use Artesaos\SEOTools\Facades\SEOMeta;
-use Artesaos\SEOTools\Facades\OpenGraph;
-use Artesaos\SEOTools\Facades\TwitterCard;
-use Artesaos\SEOTools\Facades\JsonLd;
 use Illuminate\Support\Facades\URL;
 
 class PageController extends Controller
@@ -54,7 +54,7 @@ class PageController extends Controller
         $tags = $this->tagRepository->tagWithPosts();
 
         $title = 'Contact Us';
-        $desc = 'News Stadia Contact Page';
+        $desc = 'Newstadia Contact Page';
         $url = URL::current();
 
         SEOMeta::setTitle($title);
@@ -67,10 +67,10 @@ class PageController extends Controller
         OpenGraph::setUrl($url);
         OpenGraph::addProperty('type','ContactPage');
 
-        TwitterCard::setTitle($title);
-        TwitterCard::setSite('@newsstadia');
-        TwitterCard::setDescription($desc);
-        TwitterCard::setUrl($url);
+        Twitter::setTitle($title);
+        Twitter::setSite('@newstadia');
+        Twitter::setDescription($desc);
+        Twitter::setUrl($url);
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
@@ -80,11 +80,11 @@ class PageController extends Controller
                 ->name($title)
                 ->description($desc)
                 ->url($url)
-                ->logo("https://newsstadia.com/static/logo.jpg")
-                ->sameAS("http://www.newsstadia.com")
+                ->logo("https://newstadia.com/static/logo.png")
+                ->sameAS("https://www.newstadia.com")
                 ->contactPoint([Schema::ContactPoint()
                 ->telephone('254 0724351952')
-                ->email('newsstadia@gmail.com')]);
+                ->email('newstadia@gmail.com')]);
         echo $contact->toScript();
 
         $data = array(
@@ -129,8 +129,8 @@ class PageController extends Controller
         $tags = $this->tagRepository->tagWithPosts();
 
         $title = 'About Us';
-        $desc = 'News Stadia About Us Page';
-        $image = 'https://newsstadia.com/static/david.jpg';
+        $desc = 'Newstadia About Us Page';
+        $image = 'https://newstadia.com/static/logo.png';
         $url = URL::current();
 
         SEOMeta::setTitle($title);
@@ -143,10 +143,10 @@ class PageController extends Controller
         OpenGraph::setUrl($url);
         OpenGraph::addProperty('type','Organization');
 
-        TwitterCard::setTitle($title);
-        TwitterCard::setSite('@newsstadia');
-        TwitterCard::setDescription($desc);
-        TwitterCard::setUrl($url);
+        Twitter::setTitle($title);
+        Twitter::setSite('@newstadia');
+        Twitter::setDescription($desc);
+        Twitter::setUrl($url);
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
@@ -156,10 +156,10 @@ class PageController extends Controller
         $aboutUs = Schema::Organization()
                 ->name($title)
                 ->description($desc)
-                ->email('newsstadia@gmail.com')
+                ->email('newstadia@gmail.com')
                 ->url($url)
-                ->sameAS("http://www.newsstadia.com")
-                ->logo("https://newsstadia.com/static/logo.jpg");
+                ->sameAS("http://www.newstadia.com")
+                ->logo("https://newstadia.com/static/logo.png");
         echo $aboutUs->toScript();
 
         $data = array(
@@ -185,7 +185,7 @@ class PageController extends Controller
         $tags = $this->tagRepository->tagWithPosts();
 
         $title = 'Private Policy';
-        $desc = 'News Stadia Private Policy Statement';
+        $desc = 'Newstadia Private Policy Statement';
         $url = URL::current();
 
         SEOMeta::setTitle($title);
@@ -198,10 +198,10 @@ class PageController extends Controller
         OpenGraph::setUrl($url);
         OpenGraph::addProperty('type','PrivatePolicy');
 
-        TwitterCard::setTitle($title);
-        TwitterCard::setSite('@newsstadia');
-        TwitterCard::setDescription($desc);
-        TwitterCard::setUrl($url);
+        Twitter::setTitle($title);
+        Twitter::setSite('@newstadia');
+        Twitter::setDescription($desc);
+        Twitter::setUrl($url);
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
@@ -210,10 +210,10 @@ class PageController extends Controller
         $privatePolicy = Schema::WebPage()
                 ->name($title)
                 ->description($desc)
-                ->email('newsstadia@gmail.com')
+                ->email('newstadia@gmail.com')
                 ->url($url)
-                ->sameAS("http://www.newsstadia.com")
-                ->logo("https://newsstadia.com/static/logo.jpg");
+                ->sameAS("http://www.newstadia.com")
+                ->logo("https://newstadia.com/static/logo.png");
         echo $privatePolicy->toScript();
 
         $data = array(
@@ -239,12 +239,12 @@ class PageController extends Controller
         $tags = $this->tagRepository->tagWithPosts();
 
         $title = 'Portfolio';
-        $desc = 'News Stadia Portfolio Page';
+        $desc = 'Newstadia Portfolio Page';
         $url = URL::current();
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($desc);
-        SEOMeta::setKeywords('news stadia portfolio page');
+        SEOMeta::setKeywords('newstadia portfolio page');
         SEOMeta::setCanonical($url);
 
         OpenGraph::setTitle($title);
@@ -252,10 +252,10 @@ class PageController extends Controller
         OpenGraph::setUrl($url);
         OpenGraph::addProperty('type','Portfolio');
 
-        TwitterCard::setTitle($title);
-        TwitterCard::setSite('@newsstadia');
-        TwitterCard::setDescription($desc);
-        TwitterCard::setUrl($url);
+        Twitter::setTitle($title);
+        Twitter::setSite('@newstadia');
+        Twitter::setDescription($desc);
+        Twitter::setUrl($url);
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($desc);
@@ -264,10 +264,10 @@ class PageController extends Controller
         $portfolio = Schema::WebPage()
                 ->name($title)
                 ->description($desc)
-                ->email('newsstadia@gmail.com')
+                ->email('newstadia@gmail.com')
                 ->url($url)
-                ->sameAS("http://www.newsstadia.com")
-                ->logo("https://newsstadia.com/static/logo.jpg");
+                ->sameAS("http://www.newstadia.com")
+                ->logo("https://newstadia.com/static/logo.png");
         echo $portfolio->toScript();
 
         $data = array(
@@ -289,11 +289,11 @@ class PageController extends Controller
             $client = new \Nexmo\Client($basic);
 
             $receiverNumber = "254724351952";
-            $message = "The client has send you a mail from 'https://newsstadia.com'";
+            $message = "The client has send you a mail from 'https://newstadia.com'";
 
             $message = $client->message()->send([
                         'to' => $receiverNumber,
-                        'from' =>"https://newsstadia.com" ,
+                        'from' =>"https://newstadia.com",
                         'text' => $message,
                     ]);
         } catch(Exception $e){

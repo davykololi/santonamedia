@@ -10,9 +10,11 @@
           <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">News</a>
             <ul class="dropdown-menu" role="menu">
               @if(!empty($navs))
-                @foreach($navs as $category)
-              <li><a href="{!! $category->path() !!}">{{ $category->name }}</a></li>
-                @endforeach
+              @foreach($navs as $category)
+              <li class="{{request()->is('/'.$category->slug.'/articles') ? 'active':''}}">
+                <a href="{!! $category->path() !!}">{{ $category->name }}</a>
+              </li>
+              @endforeach
               @endif
             </ul>
           </li>
@@ -20,9 +22,9 @@
           <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Videos</a>
             <ul class="dropdown-menu" role="menu">
               @if(!empty($navs))
-                @foreach($navs as $category)
+              @foreach($navs as $category)
               <li><a href="{!! $category->videoPath() !!}">{{ $category->name }}</a></li>
-                @endforeach
+              @endforeach
               @endif
             </ul>
           </li>
@@ -30,9 +32,9 @@
           <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">News Tags</a>
             <ul class="dropdown-menu" role="menu">
               @if(!empty($tags))
-                @foreach($tags as $tag)
+              @foreach($tags as $tag)
               <li><a href="{!! $tag->path() !!}">{{ $tag->name }}</a></li>
-                @endforeach
+              @endforeach
               @endif
             </ul>
           </li>
@@ -40,9 +42,9 @@
           <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Video Tags</a>
             <ul class="dropdown-menu" role="menu">
               @if(!empty($tags))
-                @foreach($tags as $tag)
+              @foreach($tags as $tag)
               <li><a href="{!! $tag->videoPath() !!}">{{ $tag->name }}</a></li>
-                @endforeach
+              @endforeach
               @endif
             </ul>
           </li>

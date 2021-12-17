@@ -3,7 +3,7 @@
     <div class="container">
         <a class="navbar-brand" href="{{ url('newsstadia.com') }}">
             <span style="font-family: FELIX TITLING;font-size: 30px;" class="white">
-                NEWSTADIA<img width ="30px" height="30px" src= "{{asset('static/globe.png')}}" alt="" loading="auto">
+                NEWSTADIA<img width ="30px" height="30px" src= "{{asset('static/logo.png')}}" alt="News Stadia Logo" loading="auto">
             </span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
